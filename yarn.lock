@@ -158,6 +158,14 @@
   dependencies:
     tslib "^1.7.1"
 
+"@fortawesome/fontawesome-free-solid@^5.0.2":
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free-solid/-/fontawesome-free-solid-5.0.2.tgz#090ce2c59dd5ec76983f3da8a43e1ab0321b42d5"
+
+"@fortawesome/fontawesome@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome/-/fontawesome-1.0.1.tgz#8ac60e1e7b437889baf9c9d6e3a61ef3b637170d"
+
 "@ngtools/json-schema@1.1.0", "@ngtools/json-schema@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@ngtools/json-schema/-/json-schema-1.1.0.tgz#c3a0c544d62392acc2813a42c8a0dc6f58f86922"
