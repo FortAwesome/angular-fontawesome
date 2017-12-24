@@ -12,4 +12,8 @@ Run `ng serve` or `yarn start` for a dev server. Navigate to `http://localhost:4
 
 ## Running unit tests
 
-Run `ng test` or `yarn test` to execute the unit tests via [Karma](https://karma-runner.github.io). 
+Run `ng test` or `yarn test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+# Credits
+
+This library uses the layout and build configuration from [Angular QuickStart Lib](https://github.com/filipesilva/angular-quickstart-lib), licensed under MIT. 

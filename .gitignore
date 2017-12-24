@@ -4,6 +4,8 @@
 /dist
 /tmp
 /out-tsc
+src/**/*.js
+*.js.map
 
 # dependencies
 /node_modules
@@ -32,6 +34,11 @@
 npm-debug.log
 testem.log
 /typings
+debug.log
+coverage
+!src/demo/systemjs.config.js
+!src/demo/systemjs.config.lib.js
+!**/*systemjs-angular-loader.js
 
 # e2e
 /e2e/*.js
