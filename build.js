@@ -23,19 +23,6 @@ const es5OutputFolder = path.join(compilationFolder, 'lib-es5');
 const es2015OutputFolder = path.join(compilationFolder, 'lib-es2015');
 
 return Promise.resolve()
-  // Link type definition files for external packages
-  .then(() => {
-    const filesToLink = ['fortawesome__fontawesome.d.ts', 'fortawesome__fontawesome-free-solid.d.ts'];
-    const typesDir = path.join(
-      rootFolder,
-      'node_modules',
-      '@types');
-
-    filesToLink.forEach((file) => {
-      const symlinkPath = path.join(typesDir, file);
-      if (!fs.existsSync(symlinkPath)){ fs.symlinkSync(path.join(srcFolder, file), symlinkPath);}
-    });
-  })
   // Copy library to temporary folder and inline html/css.
   .then(() => _relativeCopy(`**/*`, srcFolder, tempLibFolder)
     .then(() => inlineResources(tempLibFolder))
