@@ -1,18 +1,27 @@
 import {Component, Input, SimpleChanges, OnChanges} from '@angular/core';
 import { HostBinding } from '@angular/core';
-import { LibService } from '../service/lib.service';
-import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
+import { FontawesomeService } from '../service/fontawesome.service';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import {
+  FlipProp,
+  SizeProp,
+  IconProp,
+  PullProp,
+  RotateProp,
+  Transform,
+  IconLookup,
+  FaSymbol } from '@fortawesome/fontawesome';
 
-export interface IconArgs {
-  prefix: string;
-  iconName: string;
+function isIconLookup(i: IconProp): i is IconLookup {
+  return (<IconLookup>i).prefix !== undefined && (<IconLookup>i).iconName !== undefined;
 }
-function normalizeIconArgs (icon: string | IconArgs): IconArgs {
-  if (icon === null) {
+
+function normalizeIconArgs (icon: IconProp): IconLookup {
+  if (typeof icon === 'undefined' || icon === null) {
     return null;
   }
 
-  if (typeof icon === 'object' && icon.prefix && icon.iconName) {
+  if (isIconLookup(icon)) {
     return icon;
   }
 
@@ -29,34 +38,26 @@ function objectWithKey (key: string, value: any) {
   return ((Array.isArray(value) && value.length > 0) || (!Array.isArray(value) && value)) ? {[key]: value} : {};
 }
 
-export type FaFlip = 'horizontal' | 'vertical' | 'both';
-export type FaPull = 'left' | 'right';
-export type FaSize = 'xs' | 'lg' | 'sm' | '1x' | '2x' | '3x' | '4x' | '5x' | '6x' | '7x' | '8x' | '9x' | '10x';
-export type FaRotation = 90 | 180 | 270;
-export type FaTransform = string | any;
-export type FaClassName = string;
-export type FaStyle = any;
-export type FaSymbol = boolean | string;
-export type FaMask = string | IconArgs;
-
-export interface FaProps {
-  icon?: string | IconArgs;
+export interface Props {
+  icon: IconProp;
+  mask?: IconProp;
+  className?: string;
   spin?: boolean;
   pulse?: boolean;
-  fixedWidth?: boolean;
   border?: boolean;
+  fixedWidth?: boolean;
   listItem?: boolean;
-  flip?: FaFlip ;
-  pull?: FaPull;
-  size?: FaSize;
-  rotation?: FaRotation;
-  className?: FaClassName;
-  transform?: FaTransform;
-  style?: FaStyle;
+  flip?: FlipProp;
+  size?: SizeProp;
+  pull?: PullProp;
+  rotate?: RotateProp;
+  transform?: string | Transform;
   symbol?: FaSymbol;
+  // @TODO: what should this be?
+  style?: any;
 }
 
-function classList (props: FaProps): string[] {
+function classList (props: Props): string[] {
   const classes = {
     'fa-spin': props.spin,
     'fa-pulse': props.pulse,
@@ -66,7 +67,7 @@ function classList (props: FaProps): string[] {
     'fa-flip-horizontal': props.flip === 'horizontal' || props.flip === 'both',
     'fa-flip-vertical': props.flip === 'vertical' || props.flip === 'both',
     [`fa-${props.size}`]: props.size !== null,
-    [`fa-rotate-${props.rotation}`]: props.rotation !== null,
+    [`fa-rotate-${props.rotate}`]: props.rotate !== null,
     [`fa-pull-${props.pull}`]: props.pull !== null
   };
 
@@ -80,28 +81,28 @@ function classList (props: FaProps): string[] {
   template: ``
 })
 export class FaIconComponent implements OnChanges {
-  @Input() icon: string | IconArgs;
-  @Input() mask ?: string | IconArgs;
+  @Input() icon: IconProp;
+  @Input() mask ?: IconProp;
   @Input() symbol ?: FaSymbol;
-  @Input() className ?: FaClassName;
+  @Input() className ?: string;
   @Input() fixedWidth ?: boolean;
   @Input() spin ?: boolean;
   @Input() pulse ?: boolean;
   @Input() border ?: boolean;
   @Input() listItem ?: boolean;
-  @Input() flip ?: FaFlip;
-  @Input() size ?: FaSize;
-  @Input() rotation ?: FaRotation;
-  @Input() pull ?: FaPull;
-  @Input() transform ?: FaTransform;
+  @Input() flip ?: FlipProp;
+  @Input() size ?: SizeProp;
+  @Input() rotate ?: RotateProp;
+  @Input() pull ?: PullProp;
+  @Input() transform ?: Transform;
 
   @HostBinding('innerHTML') renderedIconHTML: SafeHtml;
-  constructor(private sanitizer: DomSanitizer, private libService: LibService) {}
+  constructor(private sanitizer: DomSanitizer, private fontawesome: FontawesomeService) {}
 
   ngOnChanges(changes: SimpleChanges) {
     const icon = normalizeIconArgs(this.icon);
-    const fontawesome = this.libService.fontawesome;
-    const classOpts: FaProps = {
+    const classOpts: Props = {
+      icon: null,
       spin: typeof this.spin !== 'undefined',
       pulse: typeof this.pulse !== 'undefined',
       fixedWidth: typeof this.fixedWidth !== 'undefined',
@@ -109,15 +110,15 @@ export class FaIconComponent implements OnChanges {
       listItem: typeof this.listItem !== 'undefined',
       flip: this.flip,
       size: this.size || null,
-      rotation: this.rotation || null,
+      rotate: this.rotate || null,
       pull: this.pull || null
     };
     const classes = objectWithKey('classes', [...classList(classOpts), ...(this.className || '').split(' ')]);
     const transform = objectWithKey('transform', (typeof this.transform === 'string') ?
-      fontawesome.parse.transform(this.transform) : this.transform);
+      this.fontawesome.parse.transform(this.transform) : this.transform);
     const mask = objectWithKey('mask', normalizeIconArgs(this.mask));
 
-    const renderedIcon = fontawesome.icon(icon, {
+    const renderedIcon = this.fontawesome.icon(icon, {
       ...classes,
       ...transform,
       ...mask,

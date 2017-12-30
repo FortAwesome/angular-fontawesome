@@ -1,3 +1,3 @@
 export { FaIconComponent } from './src/component/fa-icon.component';
-export { LibService } from './src/service/lib.service';
+export { FontawesomeService } from './src/service/fontawesome.service';
 export { LibModule } from './src/module';

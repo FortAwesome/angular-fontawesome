@@ -6,12 +6,17 @@
   System.config({
     paths: {
       // paths serve as alias
-      'npm:': 'node_modules/',
-      '@fortawesome/fontawesome': './node_modules/@fortawesome/fontawesome/index.js',
-      '@fortawesome/fontawesome-free-solid': './node_modules/@fortawesome/fontawesome-free-solid/index.js'
+      'npm:': 'node_modules/'
     },
     // map tells the System loader where to look for things
     map: {
+      // We need the systemjs-babel plugin and transpiler in order to load ES6 modules,
+      // such as @fortawesome/fontawesome/index.es.js.
+      // Normally we load like this: "import fontawesome from '@fortawesome/fontawesome'" which
+      // imports the default export, rather than a named export. That default export will be set correctly
+      // with a ES6 module.
+      'plugin-babel': 'npm:systemjs-plugin-babel/plugin-babel.js',
+      'systemjs-babel-build': 'npm:systemjs-plugin-babel/systemjs-babel-browser.js',
       // our app is within the app folder
       app: 'app',
 
@@ -27,9 +32,10 @@
 
       // other libraries
       'rxjs': 'npm:rxjs',
-      // '@fortawesome/fontawesome': 'npm:@fortawesome/fontawesome/index.js',
-      // '@fortawesome/fontawesome-free-solid': 'npm:@fortawesome/fontawesome-free-solid/index.js'
+      '@fortawesome/fontawesome': 'npm:@fortawesome/fontawesome/index.es.js',
+      '@fortawesome/fontawesome-free-solid': 'npm:@fortawesome/fontawesome-free-solid/index.es.js'
     },
+    transpiler: 'plugin-babel',
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
       app: {
