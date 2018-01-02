@@ -35,12 +35,14 @@
     "core-js": "^2.4.1",
     "rxjs": "^5.5.2",
     "systemjs": "^0.19.40",
-    "zone.js": "^0.8.14"
+    "zone.js": "^0.8.14",
+    "@fortawesome/fontawesome": "^1.1.0",
+    "@fortawesome/fontawesome-free-solid": "^5.0.2"
   },
   "devDependencies": {
     "@types/jasmine": "2.5.36",
     "concurrently": "^3.4.0",
-    "jasmine-core": "~2.4.1",
+    "jasmine-core": "~2.6.2",
     "glob": "^7.1.1",
     "lite-server": "^2.2.2",
     "protractor": "~5.1.0",
@@ -49,7 +51,7 @@
     "rollup-plugin-commonjs": "^8.0.2",
     "rollup-plugin-node-resolve": "3.0.0",
     "rollup-plugin-uglify": "^2.0.1",
-    "typescript": "~2.3.0"
+    "typescript": "~2.4.2"
   },
   "repository": {}
 }
