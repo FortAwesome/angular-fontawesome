@@ -4,7 +4,6 @@ const fs = require('fs');
 const path = require('path');
 const glob = require('glob');
 
-
 /**
  * Simple Promiseify function that takes a Node API and return a version that supports promises.
  * We use promises instead of synchronized functions to make the process less I/O bound and
@@ -111,9 +110,3 @@ function inlineStyle(content, urlResolver) {
 
 module.exports = inlineResources;
 module.exports.inlineResourcesFromString = inlineResourcesFromString;
-
-// Run inlineResources if module is being called directly from the CLI with arguments.
-if (require.main === module && process.argv.length > 2) {
-  console.log('Inlining resources from project:', process.argv[2]);
-  return inlineResources(process.argv[2]);
-}
