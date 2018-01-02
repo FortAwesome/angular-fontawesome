@@ -1,5 +1,17 @@
 import { Injectable } from '@angular/core';
-import api, {API} from '@fortawesome/fontawesome';
+import api, {
+  API,
+  DOM,
+  Library,
+  Transform,
+  Params,
+  IconDefinition,
+  IconLookup,
+  Text,
+  Layer,
+  Config,
+  Icon,
+  IconParams} from '@fortawesome/fontawesome';
 
 @Injectable()
 export class FontawesomeService implements API {
