@@ -1,26 +1,23 @@
 import { Injectable } from '@angular/core';
-import api, {
-  API,
-  DOM,
-  Library,
-  Transform,
-  Params,
-  IconDefinition,
-  IconLookup,
-  Text,
-  Layer,
-  Config,
-  Icon,
-  IconParams} from '@fortawesome/fontawesome';
+import { layer,
+  noAuto,
+  icon,
+  config,
+  library,
+  parse,
+  dom,
+  text,
+  findIconDefinition } from '@fortawesome/fontawesome';
 
 @Injectable()
-export class FontawesomeService implements API {
-  dom = api.dom;
-  library = api.library;
-  parse = api.parse;
-  findIconDefinition = api.findIconDefinition;
-  text = api.text;
-  layer = api.layer;
-  config = api.config;
-  icon = api.icon;
+export class FontawesomeService {
+  noAuto = noAuto;
+  dom = dom;
+  library = library;
+  parse = parse;
+  findIconDefinition = findIconDefinition;
+  text = text;
+  layer = layer;
+  config = config;
+  icon = icon;
 }

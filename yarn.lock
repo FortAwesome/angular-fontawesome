@@ -41,9 +41,15 @@
   dependencies:
     tslib "^1.7.1"
 
-"@fortawesome/fontawesome-free-solid@^5.0.2":
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free-solid/-/fontawesome-free-solid-5.0.2.tgz#090ce2c59dd5ec76983f3da8a43e1ab0321b42d5"
+"@fortawesome/fontawesome-common-types@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.1.1.tgz#28c78607ffd2d246abfcc09bacd28490952280af"
+
+"@fortawesome/fontawesome-free-solid@^5.0.5-1":
+  version "5.0.5-1"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free-solid/-/fontawesome-free-solid-5.0.5-1.tgz#17fc08efc902ac7814b932cf0d1cbac5dac3e51a"
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.1.1"
 
 "@types/jasmine@2.5.53":
   version "2.5.53"

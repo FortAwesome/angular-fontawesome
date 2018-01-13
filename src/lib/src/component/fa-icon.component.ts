@@ -25,7 +25,7 @@ function normalizeIconArgs (icon: IconProp): IconLookup {
     return icon;
   }
 
-  if (Array.isArray(icon) && icon.length === 2) {
+  if (Array.isArray(icon) && (<Array<string>>icon).length === 2) {
     return { prefix: icon[0], iconName: icon[1] };
   }
 
@@ -125,6 +125,7 @@ export class FaIconComponent implements OnChanges {
       symbol: this.symbol
     });
 
-    this.renderedIconHTML = this.sanitizer.bypassSecurityTrustHtml(renderedIcon.html);
+    // @TODO: make sure that it doesn't break things to do html[0] here.
+    this.renderedIconHTML = this.sanitizer.bypassSecurityTrustHtml(renderedIcon.html[0]);
   }
 }
