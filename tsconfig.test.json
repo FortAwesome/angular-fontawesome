@@ -1,0 +1,20 @@
+{
+    "buildOnSave": false,
+    "compilerOptions": {
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "lib": ["es2015", "dom"],
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "removeComments": false,
+        "sourceMap": true,
+        "target": "es5",
+        "typeRoots": [
+            "./node_modules/@types"
+        ]
+    },
+    "compileOnSave": false,
+    "files": [
+        "./src/angular-fontawesome.module.ts"
+    ]
+}
