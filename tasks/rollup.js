@@ -21,7 +21,7 @@ const doRollup = (libName, dirs) => {
         input: es5Entry,
         external: Object.keys(rollupGlobals),
         globals: rollupGlobals,
-        name: librarianUtils.caseConvert.dashToCamel(nameParts.package),
+        name: 'angularFontAwesome', // Hardcoded value since UMD name does not match name from package.json
         onwarn: function rollupOnWarn(warning) {
             // keeps TypeScript this errors down
             if (warning.code !== 'THIS_IS_UNDEFINED') {

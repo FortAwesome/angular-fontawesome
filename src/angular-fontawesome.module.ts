@@ -1,22 +1,13 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FaIconComponent } from './icon.component';
 
 @NgModule({
-    declarations: [
-
-    ],
-    exports: [
-
-    ],
-    imports: [
-        CommonModule
-    ]
+  declarations: [
+    FaIconComponent,
+  ],
+  exports: [
+    FaIconComponent,
+  ],
 })
-export class AngularFontawesomeModule {
-    static forRoot() {
-        return {
-            ngModule: AngularFontawesomeModule,
-            providers: []
-        };
-    }
+export class FontAwesomeModule {
 }

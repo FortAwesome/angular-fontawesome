@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { ExampleComponent } from './example.component';
-import { AngularFontawesomeModule } from '../index';
+import { FontAwesomeModule } from '../index';
 
 @NgModule({
     declarations: [
@@ -10,7 +10,7 @@ import { AngularFontawesomeModule } from '../index';
     ],
     imports: [
         BrowserModule,
-        AngularFontawesomeModule
+        FontAwesomeModule
     ],
     providers: [],
     bootstrap: [ExampleComponent]

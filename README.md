@@ -1,3 +1,3 @@
-# Angular Fontawesome
+# angular-fontawesome
 
-## Usage
+Font Awesome 5 component for Angular.

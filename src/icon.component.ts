@@ -1,36 +1,37 @@
-import {Component, Input, SimpleChanges, OnChanges} from '@angular/core';
-import { HostBinding } from '@angular/core';
-import { FontawesomeService } from './fontawesome.service';
+import { Component, HostBinding, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import {
+  FaSymbol,
   FlipProp,
-  SizeProp,
+  icon,
+  IconLookup,
   IconProp,
+  parse,
   PullProp,
   RotateProp,
+  SizeProp,
   Transform,
-  IconLookup,
-  FaSymbol } from '@fortawesome/fontawesome';
+} from '@fortawesome/fontawesome';
 
 function isIconLookup(i: IconProp): i is IconLookup {
   return (<IconLookup>i).prefix !== undefined && (<IconLookup>i).iconName !== undefined;
 }
 
-function normalizeIconArgs (icon: IconProp): IconLookup {
-  if (typeof icon === 'undefined' || icon === null) {
+function normalizeIconArgs (iconSpec: IconProp): IconLookup {
+  if (typeof iconSpec === 'undefined' || iconSpec === null) {
     return null;
   }
 
-  if (isIconLookup(icon)) {
-    return icon;
+  if (isIconLookup(iconSpec)) {
+    return iconSpec;
   }
 
-  if (Array.isArray(icon) && (<Array<string>>icon).length === 2) {
-    return { prefix: icon[0], iconName: icon[1] };
+  if (Array.isArray(iconSpec) && (<Array<string>>iconSpec).length === 2) {
+    return { prefix: iconSpec[0], iconName: iconSpec[1] };
   }
 
-  if (typeof icon === 'string') {
-    return { prefix: 'fas', iconName: icon };
+  if (typeof iconSpec === 'string') {
+    return { prefix: 'fas', iconName: iconSpec };
   }
 }
 
@@ -97,10 +98,10 @@ export class FaIconComponent implements OnChanges {
   @Input() transform ?: Transform;
 
   @HostBinding('innerHTML') renderedIconHTML: SafeHtml;
-  constructor(private sanitizer: DomSanitizer, private fontawesome: FontawesomeService) {}
+  constructor(private sanitizer: DomSanitizer) {}
 
   ngOnChanges(changes: SimpleChanges) {
-    const icon = normalizeIconArgs(this.icon);
+    const iconSpec = normalizeIconArgs(this.icon);
     const classOpts: Props = {
       icon: null,
       spin: typeof this.spin !== 'undefined',
@@ -115,10 +116,10 @@ export class FaIconComponent implements OnChanges {
     };
     const classes = objectWithKey('classes', [...classList(classOpts), ...(this.className || '').split(' ')]);
     const transform = objectWithKey('transform', (typeof this.transform === 'string') ?
-      this.fontawesome.parse.transform(this.transform) : this.transform);
+      parse.transform(this.transform) : this.transform);
     const mask = objectWithKey('mask', normalizeIconArgs(this.mask));
 
-    const renderedIcon = this.fontawesome.icon(icon, {
+    const renderedIcon = icon(iconSpec, {
       ...classes,
       ...transform,
       ...mask,
