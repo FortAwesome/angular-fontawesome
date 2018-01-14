@@ -1,89 +1,113 @@
+'use strict';
+
+const erectorUtils = require('erector-set/src/utils');
+const fs = require('fs');
+const path = require('path');
+
 module.exports = function (config) {
+    const base = {
+        basePath: '',
+        frameworks: ['jasmine'],
+        files: [
+            { pattern: './src/test.js', watched: false }
+        ],
+        mime: {
+            'text/x-typescript': ['ts','tsx']
+        },
+        plugins: [
+            'karma-chrome-launcher',
+            'karma-jasmine',
+            'karma-phantomjs-launcher',
+            'karma-coverage-istanbul-reporter',
+            'karma-sourcemap-loader',
+            'karma-webpack'
+        ],
+        preprocessors: {
+            './src/test.js': ['webpack', 'sourcemap']
+        },
+        coverageIstanbulReporter: {
+            dir: './coverage',
+            fixWebpackSourcePaths: true,
+            reports: ['html', 'lcovonly']
+        },
+        reporters: ['progress', 'coverage-istanbul'],
+        port: 9876,
+        colors: true,
+        logLevel: config.LOG_INFO,
+        autoWatch: true,
+        browsers: ['Chrome', 'PhantomJS'],
+        singleRun: false,
+        webpackServer: { noInfo: true }
+    };
+    const fullConfig = mergeCustomConfig(base, config);
 
-  var libBase = 'src/lib/';       // transpiled app JS and map files
+    config.set(fullConfig);
+};
 
-  config.set({
-    basePath: '',
-    frameworks: ['jasmine'],
+const mergeCustomConfig = (base, karmaConfig) => {
+    const customConfigPath = path.resolve(
+        __dirname,
+        'configs',
+        'karma.conf.js'
+    );
+    let fullConfig = base;
 
-    plugins: [
-      require('karma-jasmine'),
-      require('karma-chrome-launcher'),
-      require('karma-jasmine-html-reporter')
-    ],
+    if (fs.existsSync(customConfigPath)) {
+        fullConfig = mergeConfigs(base, require(customConfigPath), karmaConfig);
+    }
 
-    client: {
-      builtPaths: [libBase], // add more spec base paths as needed
-      clearContext: false // leave Jasmine Spec Runner output visible in browser
-    },
+    return fullConfig;
+};
 
-    customLaunchers: {
-      // From the CLI. Not used here but interesting
-      // chrome setup for travis CI using chromium
-      Chrome_travis_ci: {
-        base: 'Chrome',
-        flags: ['--no-sandbox']
-      }
-    },
+const mergeConfigs = (base, custom, karmaConfig) => {
+    let mergedConfig = base;
 
-    files: [
-      // System.js for module loading
-      'node_modules/systemjs/dist/system.src.js',
+    if (erectorUtils.checkIsType(custom, 'function')) {
+        custom = custom(karmaConfig);
+    }
 
-      // Polyfills
-      'node_modules/core-js/client/shim.js',
+    if (custom) {
+        const arrays = mergeConfigArrays(base, custom);
+        const objects = mergeConfigObjects(base, custom);
+        const primitives = mergeConfigPrimitives(base, custom);
+        const customAttributes = Object.assign({}, arrays, objects, primitives);
 
-      // zone.js
-      'node_modules/zone.js/dist/zone.js',
-      'node_modules/zone.js/dist/long-stack-trace-zone.js',
-      'node_modules/zone.js/dist/proxy.js',
-      'node_modules/zone.js/dist/sync-test.js',
-      'node_modules/zone.js/dist/jasmine-patch.js',
-      'node_modules/zone.js/dist/async-test.js',
-      'node_modules/zone.js/dist/fake-async-test.js',
+        mergedConfig = Object.assign(
+            {}, base, customAttributes
+        );
+    }
 
-      // RxJs
-      { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },
-      { pattern: 'node_modules/rxjs/**/*.js.map', included: false, watched: false },
+    return mergedConfig;
+};
 
-      // Paths loaded via module imports:
-      // Angular itself
-      { pattern: 'node_modules/@angular/**/*.js', included: false, watched: false },
-      { pattern: 'node_modules/@angular/**/*.js.map', included: false, watched: false },
+const mergeConfigArrays = (base, custom) => {
+    const attributes = ['browsers', 'files', 'plugins', 'reporters'];
+    return mergeConfigAttributes(base, custom, attributes, (baseAttribute, customAttribute) =>
+        erectorUtils.mergeDeep(baseAttribute, customAttribute)
+    );
+};
 
-      { pattern: 'src/demo/systemjs-angular-loader.js', included: false, watched: false },
+const mergeConfigObjects = (base, custom) => {
+    const attributes = ['preprocessors'];
+    return mergeConfigAttributes(base, custom, attributes, (baseAttribute, customAttribute) =>
+        Object.assign(customAttribute, baseAttribute)
+    );
+};
 
-      'karma-test-shim.js', // optionally extend SystemJS mapping e.g., with barrels
+const mergeConfigPrimitives = (base, custom) => {
+    const attributes = ['color', 'logLevel', 'port'];
 
-      // transpiled application & spec code paths loaded via module imports
-      { pattern: libBase + '**/*.js', included: false, watched: true },
+    return mergeConfigAttributes(base, custom, attributes, (baseAttribute, customAttribute) =>
+        customAttribute
+    );
+};
 
-      // Asset (HTML & CSS) paths loaded via Angular's component compiler
-      // (these paths need to be rewritten, see proxies section)
-      { pattern: libBase + '**/*.html', included: false, watched: true },
-      { pattern: libBase + '**/*.css', included: false, watched: true },
+const mergeConfigAttributes = (base, custom, attributes, callback) => {
+    return attributes.reduce((config, attribute) => {
+        if (attribute in custom) {
+            config[attribute] = callback(base[attribute], custom[attribute]);
+        }
 
-      // Paths for debugging with source maps in dev tools
-      { pattern: libBase + '**/*.ts', included: false, watched: false },
-      { pattern: libBase + '**/*.js.map', included: false, watched: false }
-    ],
-
-    // Proxied base paths for loading assets
-    proxies: {
-      // required for modules fetched by SystemJS
-      '/base/src/lib/node_modules/': '/base/node_modules/',
-      '/base/src/lib/demo/': '/base/src/demo/'
-    },
-
-    exclude: [],
-    preprocessors: {},
-    reporters: ['progress', 'kjhtml'],
-
-    port: 9876,
-    colors: true,
-    logLevel: config.LOG_INFO,
-    autoWatch: true,
-    browsers: ['Chrome'],
-    singleRun: false
-  })
-}
+        return config;
+    }, {});
+};

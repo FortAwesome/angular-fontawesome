@@ -1,9 +1,0 @@
-{
-  "server": {
-    "baseDir": "src/demo",
-    "routes": {
-      "/node_modules": "node_modules",
-      "/quickstart-lib": "src/lib"
-    }
-  }
-}
