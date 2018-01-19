@@ -1,6 +1,6 @@
 {
   "name": "@fortawesome/angular-fontawesome",
-  "version": "0.0.1",
+  "version": "0.1.0-1",
   "description": "Angular Fontawesome, an Angular library",
   "main": "./bundles/angular-fontawesome.umd.js",
   "scripts": {
@@ -18,15 +18,19 @@
     "type": "git",
     "url": "https://github.com/FortAwesome/angular-fontawesome"
   },
-  "author": "",
-  "license": "ISC",
+  "contributors": [
+    "Mike Wilkerson <mwilkerson@gmail.com>",
+    "Yaroslav Admin <devoto13@gmail.com>",
+    "Travis Chase <travis@fontawesome.com>",
+    "Rob Madole <rob@fontawesome.com>"
+  ],
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/FortAwesome/angular-fontawesome/issues"
   },
   "homepage": "https://github.com/FortAwesome/angular-fontawesome",
   "devDependencies": {
     "@angular/compiler-cli": "^5.0.0",
-    "@fortawesome/fontawesome": "^1.2.0-1",
     "@fortawesome/fontawesome-free-solid": "^5.1.0-1",
     "@types/jasmine": "^2.0.0",
     "@types/node": "^8.0.0",
@@ -76,7 +80,14 @@
   "module": "./@fortawesome/angular-fontawesome.es5.js",
   "es2015": "./@fortawesome/angular-fontawesome.js",
   "typings": "./angular-fontawesome.d.ts",
-  "keywords": [],
+  "keywords": [
+    "angular",
+    "font",
+    "awesome",
+    "fontawesome",
+    "icon",
+    "svg"
+  ],
   "dependencies": {
     "@angular/common": "^5.0.0",
     "@angular/compiler": "^5.0.0",
