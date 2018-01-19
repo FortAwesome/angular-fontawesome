@@ -1,16 +1,11 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    {{ title }}
-  </h1>
-</div>
-
+<h1>Font Awesome examples</h1>
 <h3>Icon as Object</h3>
-<div><fa-icon [icon]=faCoffee></fa-icon></div>
+<div><fa-icon [icon]=faUser></fa-icon></div>
 <h3>Icon as Name by String</h3>
 <div><fa-icon icon='coffee'></fa-icon></div>
 <h3>With Mask and Transform</h3>
 <div><fa-icon [icon]=faCircle transform="shrink-9 right-4" [mask]=faSquare></fa-icon></div>
-
+<h3>With Size</h3>
+<div><fa-icon [icon]="faAdjust" size="2x"></fa-icon></div>
 <h3>Animation (Spin)</h3>
 <div><fa-icon [icon]=faSync spin></fa-icon></div>

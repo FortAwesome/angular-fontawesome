@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FaIconComponent } from './fa-icon.component';
+import { FaIconComponent } from './icon.component';
 
 describe('FaIconComponent', () => {
   let component: FaIconComponent;

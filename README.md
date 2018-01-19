@@ -1,15 +1,13 @@
 # angular-fontawesome
 
-This project is not yet production-ready. 
-It's basically an elaborate "hello world" of FA5 icons, presented with an Angular component, using the
-Font Awesome 5 API.
+Angular component for Font Awesome 5.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.1.
+This project is a work in progress, not yet production ready. 
 
-## Development server
+## Usage
 
-Run `ng serve` or `yarn start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Add an icon to an Angular template:
 
-## Running unit tests
-
-Run `ng test` or `yarn test` to execute the unit tests via [Karma](https://karma-runner.github.io). 
+```
+<fa-icon [icon]=faUser></fa-icon>
+```

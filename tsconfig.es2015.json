@@ -1,5 +1,9 @@
 {
     "angularCompilerOptions": {
+        "annotateForClosureCompiler": true,
+        "flatModuleId": "@fortawesome/angular-fontawesome",
+        "flatModuleOutFile": "angular-fontawesome.js",
+        "genDir": "../out-tsc/lib-gen-dir/",
         "strictMetadataEmit": true,
         "skipTemplateCodegen": true
     },
@@ -9,18 +13,20 @@
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "lib": ["es2015", "dom"],
-        "mapRoot": "./",
         "module": "es2015",
         "moduleResolution": "node",
-        "outDir": "./dist",
+        "outDir": "./out-tsc/lib-es2015/",
+        "skipLibCheck": true,
         "sourceMap": true,
-        "target": "es5",
+        "stripInternal": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "target": "es2015",
         "typeRoots": [
             "./node_modules/@types"
         ]
     },
     "files": [
-        "./src/index.ts"
+        "./build/index.ts"
     ],
     "awesomeTypescriptLoaderOptions": {
         "forkChecker": true
