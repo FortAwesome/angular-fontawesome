@@ -104,11 +104,11 @@ export class FaIconComponent implements OnChanges {
     const iconSpec = normalizeIconArgs(this.icon);
     const classOpts: Props = {
       icon: null,
-      spin: typeof this.spin !== 'undefined',
-      pulse: typeof this.pulse !== 'undefined',
-      fixedWidth: typeof this.fixedWidth !== 'undefined',
-      border: typeof this.border !== 'undefined',
-      listItem: typeof this.listItem !== 'undefined',
+      spin: this.spin,
+      pulse: this.pulse,
+      fixedWidth: this.fixedWidth,
+      border: this.border,
+      listItem: this.listItem,
       flip: this.flip,
       size: this.size || null,
       rotate: this.rotate || null,
