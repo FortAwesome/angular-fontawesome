@@ -1,11 +1,16 @@
 <h1>Font Awesome examples</h1>
 <h3>Icon as Object</h3>
-<div><fa-icon [icon]=faUser></fa-icon></div>
-<h3>Icon as Name by String</h3>
-<div><fa-icon icon='coffee'></fa-icon></div>
+<fa-icon [icon]="faUser"></fa-icon>
+<h3>Icon looked up in library by name</h3>
+<p>Possible after adding the <code>faCoffee</code> icon to the library.</p>
+<fa-icon icon='coffee'></fa-icon>
 <h3>With Mask and Transform</h3>
-<div><fa-icon [icon]=faCircle transform="shrink-9 right-4" [mask]=faSquare></fa-icon></div>
-<h3>With Size</h3>
-<div><fa-icon [icon]="faAdjust" size="2x"></fa-icon></div>
-<h3>Animation (Spin)</h3>
-<div><fa-icon [icon]=faSync spin></fa-icon></div>
+<fa-icon [icon]="faCircle" transform="shrink-9 right-4" [mask]="faSquare"></fa-icon>
+<h3>Change Size</h3>
+<fa-icon [icon]="faAdjust" size="2x"></fa-icon>
+<h3>Animation</h3>
+<p>Click to toggle animation.</p>
+<fa-icon [icon]="faSync" [spin]="isSyncAnimated" (click)="isSyncAnimated=!isSyncAnimated"></fa-icon>
+<p>Slide to turn up the magic.</p>
+<fa-icon [icon]="faMagic" transform="rotate-{{magicLevel}}"></fa-icon>
+<input type='range' [value]="magicLevel" (input)="magicLevel=$event.target.value"/>

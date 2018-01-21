@@ -53,7 +53,7 @@
 
 "@fortawesome/fontawesome@^1.2.0":
   version "1.2.0-2"
-  resolved "https://npm.fontawesome.com/B616908A-1CC1-4122-9462-642C7634BA4C/@fortawesome/fontawesome/-/fontawesome-1.2.0-2.tgz#1bd2436c2cfe5e9048279caf6c9be5a1bcbb1192"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome/-/fontawesome-1.2.0-2.tgz#1bd2436c2cfe5e9048279caf6c9be5a1bcbb1192"
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.1.2-1"
 
