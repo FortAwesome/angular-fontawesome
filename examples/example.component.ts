@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { faUser,
-  faAddressBook,
+  faMagic,
   faAdjust,
   faCoffee,
   faCircle,
@@ -15,11 +15,13 @@ import { library } from '@fortawesome/fontawesome';
 })
 export class ExampleComponent {
   faUser = faUser;
-  faAddressBook = faAddressBook;
+  faMagic = faMagic;
   faAdjust = faAdjust;
   faCircle = faCircle;
   faSquare = faSquare;
   faSync = faSync;
+  isSyncAnimated = true;
+  magicLevel = 0;
 
   constructor() {
     library.add(faCoffee);
