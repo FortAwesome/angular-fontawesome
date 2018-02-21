@@ -41,21 +41,31 @@
   dependencies:
     tslib "^1.7.1"
 
+"@fortawesome/fontawesome-common-types@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.1.2.tgz#d6aa075058f0c984d6e2ebcbc0052c1f7f9bea72"
+
 "@fortawesome/fontawesome-common-types@^0.1.2-1":
   version "0.1.2-1"
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.1.2-1.tgz#9d0f82ed9d97ed847d78274a19a2ab79c55cda47"
 
-"@fortawesome/fontawesome-free-solid@^5.1.0-2":
-  version "5.1.0-2"
-  resolved "https://npm.fontawesome.com/B616908A-1CC1-4122-9462-642C7634BA4C/@fortawesome/fontawesome-free-solid/-/fontawesome-free-solid-5.1.0-2.tgz#1c1a3aeefaaa733cbcadf997ea7bbbb945799aa3"
+"@fortawesome/fontawesome-free-regular@^5.1.0":
+  version "5.1.0-3"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free-regular/-/fontawesome-free-regular-5.1.0-3.tgz#a208b5ab976b0edb01727dc2082958e8b4385313"
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.1.2-1"
+
+"@fortawesome/fontawesome-free-solid@^5.1.0":
+  version "5.1.0-3"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free-solid/-/fontawesome-free-solid-5.1.0-3.tgz#60e6e1cc7588b933a570bcfc9eb78b9cadda451a"
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.1.2-1"
 
 "@fortawesome/fontawesome@^1.2.0":
-  version "1.2.0-2"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome/-/fontawesome-1.2.0-2.tgz#1bd2436c2cfe5e9048279caf6c9be5a1bcbb1192"
+  version "1.2.0-5"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome/-/fontawesome-1.2.0-5.tgz#1e3fcffb80eab9e49f83268dc11289f97bf3fdff"
   dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.1.2-1"
+    "@fortawesome/fontawesome-common-types" "^0.1.2"
 
 "@types/jasmine@^2.0.0":
   version "2.8.4"

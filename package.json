@@ -31,7 +31,8 @@
   "homepage": "https://github.com/FortAwesome/angular-fontawesome",
   "devDependencies": {
     "@angular/compiler-cli": "^5.0.0",
-    "@fortawesome/fontawesome-free-solid": "^5.1.0-2",
+    "@fortawesome/fontawesome-free-regular": "^5.1.0",
+    "@fortawesome/fontawesome-free-solid": "^5.1.0",
     "@types/jasmine": "^2.0.0",
     "@types/node": "^8.0.0",
     "angular-librarian": "1.0.0",
