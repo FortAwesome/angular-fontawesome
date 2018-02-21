@@ -1,9 +1,17 @@
 <h1>Font Awesome examples</h1>
 <h3>Icon as Object</h3>
-<fa-icon [icon]="faUser"></fa-icon>
+<fa-icon [icon]="faCoffee"></fa-icon>
 <h3>Icon looked up in library by name</h3>
-<p>Possible after adding the <code>faCoffee</code> icon to the library.</p>
-<fa-icon icon='coffee'></fa-icon>
+<p>Possible after adding the <code>faUser</code> icon from the <code>fontawesome-free-solid</code> package to the library.</p>
+<p>The default prefix of <code>fas</code> is assumed.</p>
+<fa-icon icon='user'></fa-icon>
+<h3>Icon with Non-default Style Prefix Using [prefix, iconName]</h3>
+<p><code>icon</code> should be set equal to an array object with two string elements: the prefix and the icon name.</p>
+<p>Using a string for an icon name also requires that this icon has been added to the library with <code>library.add()</code></p>
+<fa-icon [icon]="['far','user']"></fa-icon>
+<h3>Icon as Object with non-Default Prefix</h3>
+<p>The icon object knows its own prefix, so the prefix is not specified in this case.</p>
+<fa-icon [icon]="regularUser"></fa-icon>
 <h3>With Mask and Transform</h3>
 <fa-icon [icon]="faCircle" transform="shrink-9 right-4" [mask]="faSquare"></fa-icon>
 <h3>Change Size</h3>
