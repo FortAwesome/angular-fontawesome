@@ -11,6 +11,7 @@ import {
   RotateProp,
   SizeProp,
   Transform,
+  config
 } from '@fortawesome/fontawesome';
 
 function isIconLookup(i: IconProp): i is IconLookup {
@@ -126,7 +127,19 @@ export class FaIconComponent implements OnChanges {
       symbol: this.symbol
     });
 
-    // @TODO: make sure that it doesn't break things to do html[0] here.
-    this.renderedIconHTML = this.sanitizer.bypassSecurityTrustHtml(renderedIcon.html[0]);
+    let html;
+    if(renderedIcon){
+      html = renderedIcon.html[0]; 
+    } else {
+      html = `<svg class="${config.replacementClass}" viewBox="0 0 448 512"></svg><!--icon not found-->`;
+      if(iconSpec == null) {
+        console.error('Could not find icon. ' +
+          `It looks like you've provided a null or undefined icon object to this component.`);
+      } else {
+        console.error(`Could not find icon: iconName=${iconSpec.iconName}, prefix=${iconSpec.prefix}`);
+      }
+    }
+
+    this.renderedIconHTML = this.sanitizer.bypassSecurityTrustHtml(html);
   }
 }

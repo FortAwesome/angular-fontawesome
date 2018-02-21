@@ -22,3 +22,6 @@
 <p>Slide to turn up the magic.</p>
 <fa-icon [icon]="faMagic" transform="rotate-{{magicLevel}}"></fa-icon>
 <input type='range' [value]="magicLevel" (input)="magicLevel=$event.target.value"/>
+<h3>Intentionally Missing Icon</h3>
+<p>Expect to see an error on the JavaScript console, and nothing shown between these bars: |<fa-icon [icon]="faFluzzle"></fa-icon>|</p>
+
