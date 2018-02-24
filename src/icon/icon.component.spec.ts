@@ -1,7 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { faUser } from '@fortawesome/fontawesome-free-solid/faUser';
-import { FaIconComponent } from './icon.component';
 import { Component, Type } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { faUser } from '@fortawesome/fontawesome-free-solid';
+
+import { FaIconComponent } from './icon.component';
 
 function initTest<T>(component: Type<T>): ComponentFixture<T> {
   TestBed.configureTestingModule({
