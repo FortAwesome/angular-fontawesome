@@ -74,7 +74,7 @@ export class FaLayersComponent implements AfterContentChecked {
        * Push method can take only IconLookup for now.
        * Follow this issue: https://github.com/FortAwesome/Font-Awesome-Pro/pull/985
        */
-      texts.map(text => push(text));
+      // texts.map(text => push(text));
     });
   }
 
