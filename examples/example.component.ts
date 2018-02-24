@@ -5,7 +5,13 @@ import { faUser,
   faCoffee,
   faCircle,
   faSquare,
-  faSync } from '@fortawesome/fontawesome-free-solid';
+  faTimes,
+  faSync,
+  faMobile,
+  faFighterJet,
+  faEllipsisH,
+  faBatteryQuarter
+} from '@fortawesome/fontawesome-free-solid';
 import { faUser as regularUser } from '@fortawesome/fontawesome-free-regular';
 import { library } from '@fortawesome/fontawesome';
 
@@ -21,6 +27,11 @@ export class ExampleComponent {
   faCircle = faCircle;
   faSquare = faSquare;
   faSync = faSync;
+  faTimes = faTimes;
+  faMobile = faMobile;
+  faBatteryQuarter = faBatteryQuarter;
+  faFighterJet = faFighterJet;
+  faEllipsisH = faEllipsisH;
   regularUser = regularUser;
   isSyncAnimated = true;
   magicLevel = 0;
@@ -28,19 +39,19 @@ export class ExampleComponent {
   constructor() {
     // Notice that we're adding two different icon objects to the library.
     // Each of them within their respective icon npm packages are exported as faUser,
-    // but we've renamed the second one in order to disambiguate the two objects within 
-    // this JavaScript module. Internally, these objects are different, even though they have the same iconName. 
+    // but we've renamed the second one in order to disambiguate the two objects within
+    // this JavaScript module. Internally, these objects are different, even though they have the same iconName.
     // They have different prefixes: faUser has a prefix of fas, since it came from fontawesome-free-solid;
     // regularUser has a prefix of far, since it came from fontawesome-free-regular.
     // And of course, they also have different SVG content, resulting in different appearances.
     // So they really are totally different icons. However, they share the same iconName: user.
     // So in the template, the only way to reference the non-default (fas) icon is to either
     // use the array syntax that specifies [prefix, iconName], like this:
-    // 
+    //
     // <fa-icon [icon]="['far','user']"></fa-icon>
     //
     // Or we could make the regularUser object available to the template and simply
-    // reference it as an object, like this: 
+    // reference it as an object, like this:
     //
     // <fa-icon [icon]="regularUser"></fa-icon>
     //

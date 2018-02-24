@@ -22,6 +22,24 @@
 <p>Slide to turn up the magic.</p>
 <fa-icon [icon]="faMagic" transform="rotate-{{magicLevel}}"></fa-icon>
 <input type='range' [value]="magicLevel" (input)="magicLevel=$event.target.value"/>
+
+<h3>Layers</h3>
+<p>Custom icons created with multiple layers</p>
+<div [style.font-size.em]="5">
+  <fa-layers [classes]="['fa-fw']">
+    <fa-icon [icon]="faCircle" [styles]="{color: 'Tomato'}"></fa-icon>
+    <fa-icon [icon]="faTimes" [inverse]="true" transform="shrink-6"></fa-icon>
+  </fa-layers>
+  <fa-layers [classes]="['fa-fw']">
+    <fa-icon [icon]="faMobile"></fa-icon>
+    <fa-icon [icon]="faBatteryQuarter" transform="shrink-11 up-1.5" [styles]="{color: 'Tomato'}"></fa-icon>
+  </fa-layers>
+  <fa-layers [classes]="['fa-fw']">
+    <fa-icon [icon]="faFighterJet"></fa-icon>
+    <fa-icon [icon]="faCircle" [inverse]="true" transform="shrink-13.8 right-1.8"></fa-icon>
+    <fa-icon [icon]="faEllipsisH" transform="shrink-13 up-6.8 right-2"></fa-icon>
+    <fa-icon [icon]="faEllipsisH" transform="shrink-13 down-6.8 right-2"></fa-icon>
+  </fa-layers>
+</div>
 <h3>Intentionally Missing Icon</h3>
 <p>Expect to see an error on the JavaScript console, and nothing shown between these bars: |<fa-icon [icon]="faFluzzle"></fa-icon>|</p>
-
