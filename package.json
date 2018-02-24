@@ -1,6 +1,6 @@
 {
   "name": "@fortawesome/angular-fontawesome",
-  "version": "0.1.0-4",
+  "version": "0.1.0-3",
   "description": "Angular Fontawesome, an Angular library",
   "main": "./bundles/angular-fontawesome.umd.js",
   "scripts": {
@@ -34,6 +34,7 @@
     "@fortawesome/fontawesome-free-regular": "^5.1.0",
     "@fortawesome/fontawesome-free-solid": "^5.1.0",
     "@types/jasmine": "^2.0.0",
+    "@types/lodash": "^4.14.103",
     "@types/node": "^8.0.0",
     "angular-librarian": "1.0.0",
     "angular2-template-loader": "0.6.0",
@@ -97,6 +98,7 @@
     "@angular/platform-browser-dynamic": "^5.0.0",
     "@fortawesome/fontawesome": "^1.2.0",
     "core-js": "^2.4.1",
+    "lodash": "^4.17.5",
     "rxjs": "^5.5.2",
     "zone.js": "^0.8.14"
   }
