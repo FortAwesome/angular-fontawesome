@@ -8,7 +8,6 @@ import {
 } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { layer, Layer, Text, Icon } from '@fortawesome/fontawesome';
-import { compact } from 'lodash';
 
 import { faNotFoundIconHtml } from '../shared/errors';
 import { FaIconComponent } from '../icon';
@@ -55,8 +54,8 @@ export class FaLayersComponent implements AfterContentChecked {
   }
 
   private updateLayers() {
-    const icons = compact(this.icons.toArray().map(component => component.icon));
-    const texts = compact(this.texts.toArray().map(component => component.text));
+    const icons = this.icons.toArray().map(component => component.icon).filter(icon => icon);
+    const texts = this.texts.toArray().map(component => component.text).filter(text => text);
     this.layers = this.createLayers(icons, texts);
   }
 
