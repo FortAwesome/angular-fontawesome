@@ -1,38 +1,44 @@
 import { Component } from '@angular/core';
-import { faUser,
+import {
+  faUser,
+  faSync,
+  faBell,
+  faTimes,
   faMagic,
   faAdjust,
   faCoffee,
   faCircle,
   faSquare,
-  faTimes,
-  faSync,
   faMobile,
-  faFighterJet,
   faEllipsisH,
+  faFighterJet,
   faBatteryQuarter
 } from '@fortawesome/fontawesome-free-solid';
-import { faUser as regularUser } from '@fortawesome/fontawesome-free-regular';
+import { faUser as regularUser, faFlag } from '@fortawesome/fontawesome-free-regular';
 import { library } from '@fortawesome/fontawesome';
 
 @Component({
   selector: 'example-root',
   templateUrl: './example.component.html',
-  styleUrls: []
+  styleUrls: ['./example.component.scss']
 })
 export class ExampleComponent {
-  faCoffee = faCoffee;
+  faBell = faBell;
+  faSync = faSync;
+  faFlag = faFlag;
+  faTimes = faTimes;
   faMagic = faMagic;
   faAdjust = faAdjust;
   faCircle = faCircle;
+  faCoffee = faCoffee;
   faSquare = faSquare;
-  faSync = faSync;
-  faTimes = faTimes;
   faMobile = faMobile;
-  faBatteryQuarter = faBatteryQuarter;
-  faFighterJet = faFighterJet;
-  faEllipsisH = faEllipsisH;
   regularUser = regularUser;
+  faEllipsisH = faEllipsisH;
+  faFighterJet = faFighterJet;
+  faBatteryQuarter = faBatteryQuarter;
+
+  notificationsCounter = 1000;
   isSyncAnimated = true;
   magicLevel = 0;
 
