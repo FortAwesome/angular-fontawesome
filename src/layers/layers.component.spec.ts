@@ -4,10 +4,11 @@ import { faUser, faMobile } from '@fortawesome/fontawesome-free-solid';
 
 import { FaIconComponent } from '../icon';
 import { FaLayersComponent } from './layers.component';
+import { FaLayersTextComponent } from './layers-text.component';
 
 function initTest<T>(component: Type<T>): ComponentFixture<T> {
   TestBed.configureTestingModule({
-    declarations: [ FaLayersComponent, FaIconComponent, component ],
+    declarations: [ FaLayersComponent, FaIconComponent, FaLayersTextComponent, component ],
   });
   return TestBed.createComponent(component);
 }
@@ -24,6 +25,7 @@ describe('FaLayersCompoennt', () => {
         <fa-layers>
           <fa-icon [icon]="faUser"></fa-icon>
           <fa-icon [icon]="faMobile"></fa-icon>
+          <fa-layers-text [content]="'User with mobile'" [styles]="{ color: 'Tomato' }"></fa-layers-text>
         </fa-layers>`
     })
     class HostComponent {
