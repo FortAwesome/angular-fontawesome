@@ -22,9 +22,10 @@ import {
   RotateProp
 } from '@fortawesome/fontawesome';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
+import { faNotFoundIconHtml, faWarnIfIconHtmlMissing, faWarnIfIconSpecMissing} from '../shared/errors';
 import { objectWithKey, faClassList, faNormalizeIconSpec } from '../shared/utils';
-import { faNotFoundIconHtml, faThrowIfIconHtmlMissing, faThrowIfIconSpecMissing} from '../shared/errors';
 import { FaProps } from '../shared/models';
 
 /**
@@ -37,6 +38,7 @@ import { FaProps } from '../shared/models';
 })
 export class FaIconComponent implements OnChanges {
   public icon: Icon;
+  public changed = new BehaviorSubject<Icon>(null);
 
   constructor(private sanitizer: DomSanitizer) {}
 
@@ -51,51 +53,54 @@ export class FaIconComponent implements OnChanges {
 
   @Input('icon') private iconProp: IconProp;
   @Input() private title: string;
-  @Input() private mask?: IconProp;
-  @Input() private symbol?: FaSymbol;
-  @Input() private classes?: string[] = [];
-  @Input() private styles?: Styles;
-  @Input() private fixedWidth?: boolean;
   @Input() private spin?: boolean;
   @Input() private pulse?: boolean;
-  @Input() private border?: boolean;
-  @Input() private listItem?: boolean;
-  @Input() private inverse?: boolean;
+  @Input() private mask?: IconProp;
+  @Input() private styles?: Styles;
   @Input() private flip?: FlipProp;
   @Input() private size?: SizeProp;
-  @Input() private rotate?: RotateProp;
   @Input() private pull?: PullProp;
+  @Input() private border?: boolean;
+  @Input() private inverse?: boolean;
+  @Input() private symbol?: FaSymbol;
+  @Input() private listItem?: boolean;
+  @Input() private rotate?: RotateProp;
+  @Input() private fixedWidth?: boolean;
+  @Input() private classes?: string[] = [];
   @Input() private transform?: string | Transform;
 
   ngOnChanges(changes: SimpleChanges) {
-    this.updateIconSpec();
-    this.updateParams();
-    this.updateIcon();
-    this.renderIcon();
+    if (changes) {
+      this.updateIconSpec();
+      this.updateParams();
+      this.updateIcon();
+      this.renderIcon();
+      this.changed.next(this.icon);
+    }
   }
 
   /**
-   * Updates icon spec.
+   * Updating icon spec.
    */
   private updateIconSpec() {
     this.iconSpec = faNormalizeIconSpec(this.iconProp);
   }
 
   /**
-   * Updates params by component props.
+   * Updating params by component props.
    */
   private updateParams() {
     const classOpts: FaProps = {
+      flip: this.flip,
       spin: this.spin,
       pulse: this.pulse,
-      fixedWidth: this.fixedWidth,
       border: this.border,
-      listItem: this.listItem,
-      flip: this.flip,
       inverse: this.inverse,
+      listItem: this.listItem,
       size: this.size || null,
+      pull: this.pull || null,
       rotate: this.rotate || null,
-      pull: this.pull || null
+      fixedWidth: this.fixedWidth
     };
 
     const classes = objectWithKey('classes', [...faClassList(classOpts), ...this.classes]);
@@ -114,16 +119,22 @@ export class FaIconComponent implements OnChanges {
   }
 
   /**
-   * Updates icon by params and icon spec.
+   * Updating icon by params and icon spec.
    */
   private updateIcon() {
     this.icon = icon(this.iconSpec, this.params);
   }
 
+  /**
+   * Rendering icon.
+   */
   private renderIcon() {
-    faThrowIfIconSpecMissing(this.iconSpec);
-    faThrowIfIconHtmlMissing(this.icon, this.iconSpec);
-    this.renderedIconHTML = this.sanitizer.bypassSecurityTrustHtml(this.icon ? this.icon.html[0] : faNotFoundIconHtml);
+    faWarnIfIconSpecMissing(this.iconSpec);
+    faWarnIfIconHtmlMissing(this.icon, this.iconSpec);
+
+    this.renderedIconHTML = this.sanitizer.bypassSecurityTrustHtml(
+      this.icon ? this.icon.html[0] : faNotFoundIconHtml
+    );
   }
 }
 
