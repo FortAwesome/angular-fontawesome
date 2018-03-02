@@ -1,11 +1,12 @@
 import {
   Input,
+  Inject,
+  Optional,
   OnChanges,
   Component,
-  ElementRef,
+  forwardRef,
   HostBinding,
   SimpleChanges,
-  AfterContentInit,
   ChangeDetectionStrategy
 } from '@angular/core';
 import {
@@ -20,84 +21,75 @@ import {
   Transform,
   RotateProp
 } from '@fortawesome/fontawesome';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 import { objectWithKey, faClassList } from '../shared/utils';
+import { faWarnIfParentNotExist } from '../shared/errors';
 import { FaProps } from '../shared/models';
 
+import { FaLayersComponent } from './layers.component';
+
 /**
- * Fontawesome text.
+ * Fontawesome layers text.
  */
 @Component({
-  selector: 'fa-text',
-  template: '<ng-content></ng-content>',
+  selector: 'fa-layers-text',
+  template: '',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FaTextComponent implements AfterContentInit, OnChanges {
+export class FaLayersTextComponent implements OnChanges {
   public text: Text;
+  public changed = new BehaviorSubject<Text>(null);
 
-  constructor(private elementRef: ElementRef, private sanitizer: DomSanitizer) {}
+  constructor(@Inject(forwardRef(() => FaLayersComponent)) @Optional() private parent: FaLayersComponent) {
+    faWarnIfParentNotExist(this.parent, 'FaLayersComponent', 'FaLayersTextComponent');
+  }
 
-  @HostBinding('class.ng-fa-text')
+  @HostBinding('class.ng-fa-layers-text')
   private cssClass = true;
 
-  @HostBinding('innerHTML')
-  private renderedTextHTML: SafeHtml;
-
   private params: Params;
-  private content: string;
 
-  @Input() private classes?: string[] = [];
+  @Input() private content: string;
   @Input() private styles?: Styles;
-  @Input() private fixedWidth?: boolean;
-  @Input() private counter?: boolean;
   @Input() private spin?: boolean;
   @Input() private pulse?: boolean;
-  @Input() private border?: boolean;
-  @Input() private listItem?: boolean;
-  @Input() private inverse?: boolean;
   @Input() private flip?: FlipProp;
   @Input() private size?: SizeProp;
-  @Input() private rotate?: RotateProp;
   @Input() private pull?: PullProp;
+  @Input() private border?: boolean;
+  @Input() private counter?: boolean;
+  @Input() private inverse?: boolean;
+  @Input() private listItem?: boolean;
+  @Input() private rotate?: RotateProp;
+  @Input() private fixedWidth?: boolean;
+  @Input() private classes?: string[] = [];
   @Input() private transform?: string | Transform;
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes) {
       this.updateParams();
       this.updateText();
-      this.renterText();
+      this.changed.next(this.text);
     }
   }
 
-  ngAfterContentInit() {
-    this.updateContent();
-    this.updateText();
-    this.renterText();
-  }
-
   /**
-   * Updates content.
-   */
-  private updateContent() {
-    this.content = this.elementRef.nativeElement.innerText.trim();
-  }
-
-  /**
-   * Updates params by component props.
+   * Updating params by component props.
    */
   private updateParams() {
     const classOpts: FaProps = {
+      flip: this.flip,
       spin: this.spin,
       pulse: this.pulse,
-      fixedWidth: this.fixedWidth,
       border: this.border,
-      listItem: this.listItem,
       inverse: this.inverse,
-      flip: this.flip,
+      counter: this.counter,
+      listItem: this.listItem,
       size: this.size || null,
+      pull: this.pull || null,
       rotate: this.rotate || null,
-      pull: this.pull || null
+      fixedWidth: this.fixedWidth
     };
 
     const classes = objectWithKey('classes', [...faClassList(classOpts), ...this.classes]);
@@ -112,15 +104,9 @@ export class FaTextComponent implements AfterContentInit, OnChanges {
   }
 
   /**
-   * Updates text by params and content.
+   * Updating text by params and content.
    */
   private updateText() {
-    this.text = text(this.content, this.params);
-  }
-
-  private renterText() {
-    if (this.content) {
-      this.renderedTextHTML = this.sanitizer.bypassSecurityTrustHtml(this.text && this.text.html[0]);
-    }
+    this.text = text(this.content || '', this.params);
   }
 }

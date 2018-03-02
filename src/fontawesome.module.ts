@@ -2,20 +2,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { FaIconComponent } from './icon';
-import { FaTextComponent } from './text';
-import { FaLayersComponent } from './layers';
+import { FaLayersComponent, FaLayersTextComponent } from './layers';
 
 @NgModule({
   imports: [CommonModule],
   declarations: [
     FaIconComponent,
-    FaTextComponent,
-    FaLayersComponent
+    FaLayersComponent,
+    FaLayersTextComponent
   ],
   exports: [
     FaIconComponent,
-    FaTextComponent,
-    FaLayersComponent
+    FaLayersComponent,
+    FaLayersTextComponent
   ],
 })
 export class FontAwesomeModule {
