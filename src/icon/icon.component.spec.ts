@@ -17,7 +17,10 @@ function svgIcon(fixture: ComponentFixture<any>): SVGElement {
 
 describe('FaIconComponent', () => {
   it('should render SVG icon', () => {
-    @Component({ selector: 'fa-host', template: '<fa-icon [icon]="faUser"></fa-icon>' })
+    @Component({
+      selector: 'fa-host',
+      template: '<fa-icon [icon]="faUser"></fa-icon>'
+    })
     class HostComponent {
       faUser = faUser;
     }
@@ -28,7 +31,10 @@ describe('FaIconComponent', () => {
   });
 
   it('should support binding to boolean inputs', () => {
-    @Component({ selector: 'fa-host', template: '<fa-icon [icon]="faUser" [spin]="isAnimated"></fa-icon>' })
+    @Component({
+      selector: 'fa-host',
+      template: '<fa-icon [icon]="faUser" [spin]="isAnimated"></fa-icon>'
+    })
     class HostComponent {
       faUser = faUser;
       isAnimated = false;
