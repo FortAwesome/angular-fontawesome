@@ -6,8 +6,7 @@ import {
   Component,
   forwardRef,
   HostBinding,
-  SimpleChanges,
-  ChangeDetectionStrategy
+  SimpleChanges
 } from '@angular/core';
 import {
   text,
@@ -21,7 +20,7 @@ import {
   Transform,
   RotateProp
 } from '@fortawesome/fontawesome';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 import { objectWithKey, faClassList } from '../shared/utils';
 import { faWarnIfParentNotExist } from '../shared/errors';
@@ -34,19 +33,21 @@ import { FaLayersComponent } from './layers.component';
  */
 @Component({
   selector: 'fa-layers-text',
-  template: '',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  template: ''
 })
 export class FaLayersTextComponent implements OnChanges {
-  public text: Text;
-  public changed = new BehaviorSubject<Text>(null);
 
-  constructor(@Inject(forwardRef(() => FaLayersComponent)) @Optional() private parent: FaLayersComponent) {
+  constructor(@Inject(forwardRef(() => FaLayersComponent)) @Optional() private parent: FaLayersComponent,
+    private sanitizer: DomSanitizer) {
+
     faWarnIfParentNotExist(this.parent, 'FaLayersComponent', 'FaLayersTextComponent');
   }
 
   @HostBinding('class.ng-fa-layers-text')
   private cssClass = true;
+
+  @HostBinding('innerHTML')
+  private renderedTextHTML: SafeHtml;
 
   private params: Params;
 
@@ -70,7 +71,6 @@ export class FaLayersTextComponent implements OnChanges {
     if (changes) {
       this.updateParams();
       this.updateText();
-      this.changed.next(this.text);
     }
   }
 
@@ -107,6 +107,9 @@ export class FaLayersTextComponent implements OnChanges {
    * Updating text by params and content.
    */
   private updateText() {
-    this.text = text(this.content || '', this.params);
+    this.renderedTextHTML = this.sanitizer.bypassSecurityTrustHtml(
+      text(this.content || '', this.params).html[0]
+    );
   }
 }
+

@@ -3,8 +3,7 @@ import {
   OnChanges,
   Component,
   HostBinding,
-  SimpleChanges,
-  ChangeDetectionStrategy
+  SimpleChanges
 } from '@angular/core';
 import {
   icon,
@@ -22,7 +21,6 @@ import {
   RotateProp
 } from '@fortawesome/fontawesome';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { faNotFoundIconHtml, faWarnIfIconHtmlMissing, faWarnIfIconSpecMissing} from '../shared/errors';
 import { objectWithKey, faClassList, faNormalizeIconSpec } from '../shared/utils';
@@ -33,12 +31,10 @@ import { FaProps } from '../shared/models';
  */
 @Component({
   selector: 'fa-icon',
-  template: ``,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  template: ``
 })
 export class FaIconComponent implements OnChanges {
   public icon: Icon;
-  public changed = new BehaviorSubject<Icon>(null);
 
   constructor(private sanitizer: DomSanitizer) {}
 
@@ -75,7 +71,6 @@ export class FaIconComponent implements OnChanges {
       this.updateParams();
       this.updateIcon();
       this.renderIcon();
-      this.changed.next(this.icon);
     }
   }
 
@@ -137,9 +132,4 @@ export class FaIconComponent implements OnChanges {
     );
   }
 }
-
-
-
-
-
 
