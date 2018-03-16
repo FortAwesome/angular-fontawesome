@@ -10,7 +10,6 @@ import {
 } from '@angular/core';
 import {
   text,
-  Text,
   parse,
   Params,
   Styles,
