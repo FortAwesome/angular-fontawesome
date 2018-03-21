@@ -18,10 +18,55 @@
 <fa-icon [icon]="faAdjust" size="2x"></fa-icon>
 <h3>Animation</h3>
 <p>Click to toggle animation.</p>
-<fa-icon [icon]="faSync" [spin]="isSyncAnimated" (click)="isSyncAnimated=!isSyncAnimated"></fa-icon>
+<fa-icon [icon]="faSync" [spin]="isSyncAnimated" (click)="isSyncAnimated =! isSyncAnimated"></fa-icon>
 <p>Slide to turn up the magic.</p>
 <fa-icon [icon]="faMagic" transform="rotate-{{magicLevel}}"></fa-icon>
-<input type='range' [value]="magicLevel" (input)="magicLevel=$event.target.value"/>
+<input type='range' [value]="magicLevel" (input)="magicLevel = $event.target.value"/>
+
+<h3>Layers</h3>
+<p>Custom icons created with multiple layers.</p>
+<div [style.font-size.em]="5">
+  <fa-layers [ngClass]="['fa-fw']">
+    <fa-icon [icon]="faCircle" [styles]="{color: 'Tomato'}"></fa-icon>
+    <fa-icon [icon]="faTimes" [inverse]="true" transform="shrink-6"></fa-icon>
+  </fa-layers>
+  <fa-layers [ngClass]="['fa-fw']">
+    <fa-icon [icon]="faMobile"></fa-icon>
+    <fa-icon [icon]="faBatteryQuarter" transform="shrink-11 up-1.5" [styles]="{color: 'Tomato'}"></fa-icon>
+  </fa-layers>
+  <fa-layers [ngClass]="['fa-fw']">
+    <fa-icon [icon]="faFighterJet"></fa-icon>
+    <fa-icon [icon]="faCircle" [inverse]="true" transform="shrink-13.8 right-1.8"></fa-icon>
+    <fa-icon [icon]="faEllipsisH" transform="shrink-13 up-6.8 right-2"></fa-icon>
+    <fa-icon [icon]="faEllipsisH" transform="shrink-13 down-6.8 right-2"></fa-icon>
+  </fa-layers>
+</div>
+<p>Using text as one of the layers.</p>
+<div [style.font-size.em]="4">
+  <fa-layers [ngClass]="['fa-fw']">
+    <fa-icon [icon]="faFlag"></fa-icon>
+    <fa-layers-text [content]="'Fa'" transform="up-4" [styles]="{'font-size': '0.3em'}"></fa-layers-text>
+  </fa-layers>
+</div>
+<p>Slide and increase the number.</p>
+<input type='range'
+       [min]="1000"
+       [max]="2000"
+       [value]="notificationsCounter"
+       (input)="notificationsCounter = $event.target.value"/>
+<div [style.font-size.em]="3">
+  <fa-layers [ngClass]="['fa-fw']">
+    <fa-icon [icon]="faBell"></fa-icon>
+    <fa-layers-text [content]="notificationsCounter | number" [counter]="true"></fa-layers-text>
+  </fa-layers>
+</div>
+
+<h3>When using text layer outside layers component</h3>
+<p>Expect to see an error on the JavaScript console, and nothing shown between these bars:
+  |<fa-layers-text [content]="notificationsCounter | number" [counter]="true"></fa-layers-text>|
+</p>
+
 <h3>Intentionally Missing Icon</h3>
 <p>Expect to see an error on the JavaScript console, and nothing shown between these bars: |<fa-icon [icon]="faFluzzle"></fa-icon>|</p>
+
 
