@@ -48,7 +48,7 @@ export class FaIconComponent implements OnChanges {
   private iconSpec: IconLookup;
 
   @Input('icon') private iconProp: IconProp;
-  @Input() private title: string;
+  @Input() private title?: string;
   @Input() private spin?: boolean;
   @Input() private pulse?: boolean;
   @Input() private mask?: IconProp;
