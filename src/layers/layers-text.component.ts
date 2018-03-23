@@ -18,7 +18,7 @@ import {
   PullProp,
   Transform,
   RotateProp
-} from '@fortawesome/fontawesome';
+} from '@fortawesome/fontawesome-svg-core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 import { objectWithKey, faClassList } from '../shared/utils';
@@ -107,7 +107,7 @@ export class FaLayersTextComponent implements OnChanges {
    */
   private updateText() {
     this.renderedTextHTML = this.sanitizer.bypassSecurityTrustHtml(
-      text(this.content || '', this.params).html[0]
+      text(this.content || '', this.params).html.join('\n')
     );
   }
 }

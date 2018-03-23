@@ -19,7 +19,7 @@ import {
   IconParams,
   IconLookup,
   RotateProp
-} from '@fortawesome/fontawesome';
+} from '@fortawesome/fontawesome-svg-core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 import { faNotFoundIconHtml, faWarnIfIconHtmlMissing, faWarnIfIconSpecMissing} from '../shared/errors';
@@ -128,7 +128,7 @@ export class FaIconComponent implements OnChanges {
     faWarnIfIconHtmlMissing(this.icon, this.iconSpec);
 
     this.renderedIconHTML = this.sanitizer.bypassSecurityTrustHtml(
-      this.icon ? this.icon.html[0] : faNotFoundIconHtml
+      this.icon ? this.icon.html.join('\n') : faNotFoundIconHtml
     );
   }
 }

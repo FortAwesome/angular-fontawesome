@@ -13,9 +13,9 @@ import {
   faEllipsisH,
   faFighterJet,
   faBatteryQuarter
-} from '@fortawesome/fontawesome-free-solid';
-import { faUser as regularUser, faFlag } from '@fortawesome/fontawesome-free-regular';
-import { library } from '@fortawesome/fontawesome';
+} from '@fortawesome/free-solid-svg-icons';
+import { faUser as regularUser, faFlag } from '@fortawesome/free-regular-svg-icons';
+import { library } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
   selector: 'example-root',

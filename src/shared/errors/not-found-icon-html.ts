@@ -1,4 +1,4 @@
-import { config } from '@fortawesome/fontawesome';
+import { config } from '@fortawesome/fontawesome-svg-core';
 
 /**
  * Fontawesome not found icon html string.
