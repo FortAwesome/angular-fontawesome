@@ -11,7 +11,7 @@ import {
 import {
   text,
   parse,
-  Params,
+  TextParams,
   Styles,
   SizeProp,
   FlipProp,
@@ -48,7 +48,7 @@ export class FaLayersTextComponent implements OnChanges {
   @HostBinding('innerHTML')
   private renderedTextHTML: SafeHtml;
 
-  private params: Params;
+  private params: TextParams;
 
   @Input() private content: string;
   @Input() private styles?: Styles;
@@ -58,7 +58,6 @@ export class FaLayersTextComponent implements OnChanges {
   @Input() private size?: SizeProp;
   @Input() private pull?: PullProp;
   @Input() private border?: boolean;
-  @Input() private counter?: boolean;
   @Input() private inverse?: boolean;
   @Input() private listItem?: boolean;
   @Input() private rotate?: RotateProp;
@@ -83,7 +82,6 @@ export class FaLayersTextComponent implements OnChanges {
       pulse: this.pulse,
       border: this.border,
       inverse: this.inverse,
-      counter: this.counter,
       listItem: this.listItem,
       size: this.size || null,
       pull: this.pull || null,

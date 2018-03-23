@@ -57,13 +57,13 @@
 <div [style.font-size.em]="3">
   <fa-layers [ngClass]="['fa-fw']">
     <fa-icon [icon]="faBell"></fa-icon>
-    <fa-layers-text [content]="notificationsCounter | number" [counter]="true"></fa-layers-text>
+    <fa-layers-counter [content]="notificationsCounter | number" title="Unread Messages"></fa-layers-counter>
   </fa-layers>
 </div>
 
 <h3>When using text layer outside layers component</h3>
 <p>Expect to see an error on the JavaScript console, and nothing shown between these bars:
-  |<fa-layers-text [content]="notificationsCounter | number" [counter]="true"></fa-layers-text>|
+  |<fa-layers-counter [content]="notificationsCounter | number"></fa-layers-counter>|
 </p>
 
 <h3>Intentionally Missing Icon</h3>
