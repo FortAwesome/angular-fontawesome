@@ -50,6 +50,7 @@ export class FaLayersTextComponent implements OnChanges {
 
   private params: TextParams;
 
+  @Input() private title?: string;
   @Input() private content: string;
   @Input() private styles?: Styles;
   @Input() private spin?: boolean;
@@ -96,6 +97,7 @@ export class FaLayersTextComponent implements OnChanges {
     this.params = {
       ...transform,
       ...classes,
+      title: this.title,
       styles: this.styles
     };
   }
