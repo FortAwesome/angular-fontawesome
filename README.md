@@ -1,5 +1,7 @@
 # angular-fontawesome
 
+[![Build Status](https://travis-ci.org/devoto13/angular-fontawesome.svg?branch=master)](https://travis-ci.org/devoto13/angular-fontawesome)
+
 Angular component for Font Awesome 5, built with 
 [Angular Librarian](https://github.com/gonzofish/angular-librarian) and 
 conforming to the 
