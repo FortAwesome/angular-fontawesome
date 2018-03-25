@@ -1,0 +1,15 @@
+language: node_js
+
+node_js:
+  - "8"
+
+addons:
+  chrome: stable
+
+install:
+  - yarn
+
+script:
+  - yarn lint
+  - yarn build
+  - yarn test
