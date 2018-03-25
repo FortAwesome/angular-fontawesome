@@ -11,14 +11,14 @@ import {
 import {
   text,
   parse,
-  Params,
+  TextParams,
   Styles,
   SizeProp,
   FlipProp,
   PullProp,
   Transform,
   RotateProp
-} from '@fortawesome/fontawesome';
+} from '@fortawesome/fontawesome-svg-core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 import { objectWithKey, faClassList } from '../shared/utils';
@@ -48,8 +48,9 @@ export class FaLayersTextComponent implements OnChanges {
   @HostBinding('innerHTML')
   private renderedTextHTML: SafeHtml;
 
-  private params: Params;
+  private params: TextParams;
 
+  @Input() private title?: string;
   @Input() private content: string;
   @Input() private styles?: Styles;
   @Input() private spin?: boolean;
@@ -58,7 +59,6 @@ export class FaLayersTextComponent implements OnChanges {
   @Input() private size?: SizeProp;
   @Input() private pull?: PullProp;
   @Input() private border?: boolean;
-  @Input() private counter?: boolean;
   @Input() private inverse?: boolean;
   @Input() private listItem?: boolean;
   @Input() private rotate?: RotateProp;
@@ -83,7 +83,6 @@ export class FaLayersTextComponent implements OnChanges {
       pulse: this.pulse,
       border: this.border,
       inverse: this.inverse,
-      counter: this.counter,
       listItem: this.listItem,
       size: this.size || null,
       pull: this.pull || null,
@@ -98,6 +97,7 @@ export class FaLayersTextComponent implements OnChanges {
     this.params = {
       ...transform,
       ...classes,
+      title: this.title,
       styles: this.styles
     };
   }
@@ -107,7 +107,7 @@ export class FaLayersTextComponent implements OnChanges {
    */
   private updateText() {
     this.renderedTextHTML = this.sanitizer.bypassSecurityTrustHtml(
-      text(this.content || '', this.params).html[0]
+      text(this.content || '', this.params).html.join('\n')
     );
   }
 }

@@ -7,7 +7,7 @@ import {
   SizeProp,
   Transform,
   Styles
-} from '@fortawesome/fontawesome';
+} from '@fortawesome/fontawesome-svg-core';
 
 /**
  * Fontawesome props.

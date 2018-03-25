@@ -41,31 +41,27 @@
   dependencies:
     tslib "^1.7.1"
 
-"@fortawesome/fontawesome-common-types@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.1.2.tgz#d6aa075058f0c984d6e2ebcbc0052c1f7f9bea72"
+"@fortawesome/fontawesome-common-types@^0.2.0-4":
+  version "0.2.0-4"
+  resolved "https://npm.fontawesome.com/B616908A-1CC1-4122-9462-642C7634BA4C/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.0-4.tgz#6f0bdcab7b4f77e7e539f539a8c727bf800a995a"
 
-"@fortawesome/fontawesome-common-types@^0.1.2-1":
-  version "0.1.2-1"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.1.2-1.tgz#9d0f82ed9d97ed847d78274a19a2ab79c55cda47"
-
-"@fortawesome/fontawesome-free-regular@^5.1.0":
-  version "5.1.0-3"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free-regular/-/fontawesome-free-regular-5.1.0-3.tgz#a208b5ab976b0edb01727dc2082958e8b4385313"
+"@fortawesome/fontawesome-svg-core@^1.2.0-9":
+  version "1.2.0-9"
+  resolved "https://npm.fontawesome.com/B616908A-1CC1-4122-9462-642C7634BA4C/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.0-9.tgz#080f52eaf3e2123522aeda1253f447d376574878"
   dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.1.2-1"
+    "@fortawesome/fontawesome-common-types" "^0.2.0-4"
 
-"@fortawesome/fontawesome-free-solid@^5.1.0":
-  version "5.1.0-3"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free-solid/-/fontawesome-free-solid-5.1.0-3.tgz#60e6e1cc7588b933a570bcfc9eb78b9cadda451a"
+"@fortawesome/free-regular-svg-icons@^5.1.0-6":
+  version "5.1.0-6"
+  resolved "https://npm.fontawesome.com/B616908A-1CC1-4122-9462-642C7634BA4C/@fortawesome/free-regular-svg-icons/-/free-regular-svg-icons-5.1.0-6.tgz#fa34b07337ccad31444274d9287620ae0cdb8afe"
   dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.1.2-1"
+    "@fortawesome/fontawesome-common-types" "^0.2.0-4"
 
-"@fortawesome/fontawesome@^1.2.0":
-  version "1.2.0-5"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome/-/fontawesome-1.2.0-5.tgz#1e3fcffb80eab9e49f83268dc11289f97bf3fdff"
+"@fortawesome/free-solid-svg-icons@^5.1.0-6":
+  version "5.1.0-6"
+  resolved "https://npm.fontawesome.com/B616908A-1CC1-4122-9462-642C7634BA4C/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.1.0-6.tgz#01856deb45e2774c4df7ab426328b2b94f1ad9b3"
   dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.1.2"
+    "@fortawesome/fontawesome-common-types" "^0.2.0-4"
 
 "@types/jasmine@^2.0.0":
   version "2.8.4"

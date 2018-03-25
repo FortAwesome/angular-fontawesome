@@ -1,4 +1,4 @@
-import { IconLookup } from '@fortawesome/fontawesome';
+import { IconLookup } from '@fortawesome/fontawesome-svg-core';
 
 /**
  * Warns if icon spec missing.

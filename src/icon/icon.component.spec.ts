@@ -1,6 +1,6 @@
 import { Component, Type } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { faUser } from '@fortawesome/fontawesome-free-solid';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 import { FaIconComponent } from './icon.component';
 
