@@ -28,16 +28,7 @@ _All packages are in the [@fortawesome NPM scope](https://www.npmjs.com/search?q
 
 **You'll need to update your package.json file with the renamed packages and new versions.**
 
-### No more default imports
-
-Recently we spent a good deal of time supporting TypeScript to enable us to
-create the Angular Font Awesome component. During that adventure we
-[were](https://basarat.gitbooks.io/typescript/docs/tips/defaultIsBad.html)
-[convinced](https://blog.neufund.org/why-we-have-banned-default-exports-and-you-should-do-the-same-d51fdc2cf2ad)
-that we were going to remove default exports from all of our components,
-libraries, and packages. This is complete with the umbrella release of `5.1.0` of Font Awesome.
-
-What does that mean?
+How does your Angular usage change?
 
 ~~Old way:~~
 
@@ -83,9 +74,7 @@ Tree shaking is now functional by default and no additional configuration is req
 
 The `shakable.es.js` module has been removed and is no longer needed.
 
-If you've previously configured tree shaking by modifying your `tsconfig.json` you can safely remove these.
-
-**We recommend that you check your bundle size after upgrading an ensure that file sizes are as you would expect.**
+If you've previously configured tree shaking by modifying your `tsconfig.json` you can safely remove this.
 
 ```javascript
 {
@@ -97,6 +86,8 @@ If you've previously configured tree shaking by modifying your `tsconfig.json` y
   }
 }
 ```
+
+**We recommend that you check your bundle size after upgrading an ensure that file sizes are as you would expect.**
 
 ### Mixed modes with automatic replacement of `<i>` tags to `<svg>`
 

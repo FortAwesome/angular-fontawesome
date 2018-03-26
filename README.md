@@ -142,7 +142,7 @@ accidentally removes the icon your component needs your component could break.
 <div style="text-align:center">
   <!-- simple name only that assumes the 'fas' prefix -->
   <fa-icon icon="coffee"></fa-icon>
-  <!-- ['fas', 'coffee'] is an array that indicates the [prefix, iconName]
+  <!-- ['fas', 'coffee'] is an array that indicates the [prefix, iconName] -->
   <fa-icon [icon]="['fas', 'coffee']"></fa-icon>
 </div>
 ```
