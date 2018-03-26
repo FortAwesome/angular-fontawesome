@@ -1,8 +1,5 @@
 /**
  * Warns if parent component not existing.
- * @param {any} parent
- * @param {string} parentName
- * @param {string} childName
  */
 export const faWarnIfParentNotExist = (parent: any, parentName: string, childName: string) => {
   if (!parent) {

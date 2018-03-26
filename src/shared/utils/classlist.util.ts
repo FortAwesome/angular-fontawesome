@@ -3,8 +3,7 @@ import { FaProps } from '../models';
 /**
  * Fontawesome class list.
  * Returns classes array by props.
- * @param {FaProps} props
- * @returns {string[]}
+ * @returns string[]
  */
 export const faClassList = (props: FaProps): string[] => {
   const classes = {
