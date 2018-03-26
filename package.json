@@ -33,6 +33,7 @@
     "@angular/compiler-cli": "^5.0.0",
     "@fortawesome/free-regular-svg-icons": "^5.1.0-6",
     "@fortawesome/free-solid-svg-icons": "^5.1.0-6",
+    "@fortawesome/fontawesome-svg-core": "^1.2.0-9",
     "@types/jasmine": "^2.0.0",
     "@types/node": "^8.0.0",
     "angular-librarian": "1.0.0",
