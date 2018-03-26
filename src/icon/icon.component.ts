@@ -47,6 +47,7 @@ export class FaIconComponent implements OnChanges {
   private params: IconParams;
   private iconSpec: IconLookup;
 
+  // tslint:disable-next-line:no-input-rename
   @Input('icon') private iconProp: IconProp;
   @Input() private title?: string;
   @Input() private spin?: boolean;
