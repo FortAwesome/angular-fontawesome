@@ -20,15 +20,18 @@ things that you should learn before you dive in.
 
 #### Get started
 
-This package is for integrating with Angular (not AngularJS). If you aren't using Angular then it's
-not going to help you. Head over to our "Get Started" page for some guidance.
+This package is for integrating with Angular (not AngularJS). If you aren't
+using Angular then it's not going to help you. Head over to our "Get Started"
+page for some guidance.
 
 > https://fontawesome.com/get-started
 
 #### Learn about our new SVG implementation
 
-This package, under the hood, uses SVG with JS and the `@fortawesome/fontawesome-svg-core` library. This implementation differs drastically from
-the web fonts implementation that was used in version 4 and older of Font Awesome. You might head over there to learn about how it works.
+This package, under the hood, uses SVG with JS and the
+`@fortawesome/fontawesome-svg-core` library. This implementation differs
+drastically from the web fonts implementation that was used in version 4 and
+older of Font Awesome. You might head over there to learn about how it works.
 
 > https://fontawesome.com/how-to-use/svg-with-js
 
@@ -134,7 +137,7 @@ export class AppModule { }
 
 The library provides convenient usage in your templates but you have to manage
 the icons separate from your components. This means that if someone
-accidentally removes the icon your component needs your component could break.
+accidentally removes the icon your component which uses it could break.
 
 `src/app/app.component.html`
 
@@ -354,10 +357,10 @@ Tree shaking—automatically eliminating unused icons from the final bundle—Ju
 
 ## How to Help
 
-1. Write more tests like those in `icon.component.spec.ts` to increase our
-test coverage and submit pull requests.
+1. Write more tests like those in `icon.component.spec.ts` to increase our test
+   coverage and submit pull requests.
 
-2. If you are an experienced Angular developer, after experimenting with
-this component, provide feedback about what refinements might help it
-feel more like an "Angular" way of doing things. Open a new issue with
-each distinct recommendation, or submit a pull request with your suggested revisions.
+2. If you are an experienced Angular developer, after experimenting with this
+   component, provide feedback about what refinements might help it feel more
+   like an "Angular" way of doing things. Open a new issue with each distinct
+   recommendation, or submit a pull request with your suggested revisions.
