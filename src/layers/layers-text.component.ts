@@ -1,16 +1,12 @@
 import {
   Input,
-  Inject,
-  Optional,
-  OnChanges,
   Component,
-  forwardRef,
-  HostBinding,
-  SimpleChanges
+  HostBinding
 } from '@angular/core';
 import {
   text,
   parse,
+  Text,
   TextParams,
   Styles,
   SizeProp,
@@ -19,13 +15,10 @@ import {
   Transform,
   RotateProp
 } from '@fortawesome/fontawesome-svg-core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { FaLayersTextBaseComponent } from './layers-text-base.component';
 
 import { objectWithKey, faClassList } from '../shared/utils';
-import { faWarnIfParentNotExist } from '../shared/errors';
 import { FaProps } from '../shared/models';
-
-import { FaLayersComponent } from './layers.component';
 
 /**
  * Fontawesome layers text.
@@ -34,25 +27,11 @@ import { FaLayersComponent } from './layers.component';
   selector: 'fa-layers-text',
   template: ''
 })
-export class FaLayersTextComponent implements OnChanges {
-
-  constructor(@Inject(forwardRef(() => FaLayersComponent)) @Optional() private parent: FaLayersComponent,
-    private sanitizer: DomSanitizer) {
-
-    faWarnIfParentNotExist(this.parent, 'FaLayersComponent', 'FaLayersTextComponent');
-  }
+export class FaLayersTextComponent extends FaLayersTextBaseComponent {
 
   @HostBinding('class.ng-fa-layers-text')
   private cssClass = true;
 
-  @HostBinding('innerHTML')
-  private renderedTextHTML: SafeHtml;
-
-  private params: TextParams;
-
-  @Input() private title?: string;
-  @Input() private content: string;
-  @Input() private styles?: Styles;
   @Input() private spin?: boolean;
   @Input() private pulse?: boolean;
   @Input() private flip?: FlipProp;
@@ -63,20 +42,12 @@ export class FaLayersTextComponent implements OnChanges {
   @Input() private listItem?: boolean;
   @Input() private rotate?: RotateProp;
   @Input() private fixedWidth?: boolean;
-  @Input() private classes?: string[] = [];
   @Input() private transform?: string | Transform;
-
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes) {
-      this.updateParams();
-      this.updateText();
-    }
-  }
 
   /**
    * Updating params by component props.
    */
-  private updateParams() {
+  protected updateParams() {
     const classOpts: FaProps = {
       flip: this.flip,
       spin: this.spin,
@@ -102,13 +73,8 @@ export class FaLayersTextComponent implements OnChanges {
     };
   }
 
-  /**
-   * Updating text by params and content.
-   */
-  private updateText() {
-    this.renderedTextHTML = this.sanitizer.bypassSecurityTrustHtml(
-      text(this.content || '', this.params).html.join('\n')
-    );
+  protected renderFontawesomeObject(content: string, params?: TextParams) {
+    return text(content, params);
   }
 }
 
