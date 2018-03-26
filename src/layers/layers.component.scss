@@ -1,12 +1,5 @@
-// Counter layer and text layer positioning issue
-// (see: https://github.com/FortAwesome/Font-Awesome-Pro/issues/986)
-
+// @TODO: figure out why counter heights don't format properly with the default Font Awesome framework CSS,
+// which sets this height to 1.5em.
 /deep/ .fa-layers-counter {
   height: 1em;
-  max-width: 4.25em;
-  white-space: nowrap;
-
-  &.fa-layers-text {
-    left: auto;
-  }
 }
