@@ -80,7 +80,7 @@ These examples are based on a freshly created project with [Angular CLI].
 ### Explicit reference
 
 Not as convenient as using the library but if you believe "explicit is better than
-implicit" then this method if for you.
+implicit" then this method is for you.
 
 `src/app/app.component.html`
 
@@ -133,11 +133,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 export class AppModule { }
 ```
 
-### Using the Font Awesome Library
+### Using the Icon Library
 
-The library provides convenient usage in your templates but you have to manage
+The icon library provides convenient usage in your templates but you have to manage
 the icons separate from your components. This means that if someone
-accidentally removes the icon your component which uses it could break.
+accidentally removes the icon from the icon library your component which uses it could break.
 
 `src/app/app.component.html`
 
@@ -184,7 +184,8 @@ library.add(faCoffee);
 export class AppModule { }
 ```
 
-You can also import entire styles (but be careful!).
+You can also import entire icon styles. But be careful! Whatever you import
+ may end up bloating your final bundle with icons you're not using.
 
 ```javascript
 import { library } from '@fortawesome/fontawesome-svg-core';
