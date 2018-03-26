@@ -8,7 +8,6 @@ import {
   parse,
   Text,
   TextParams,
-  Styles,
   SizeProp,
   FlipProp,
   PullProp,

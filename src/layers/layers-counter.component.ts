@@ -1,5 +1,4 @@
 import {
-  Input,
   Component,
   HostBinding
 } from '@angular/core';
@@ -7,7 +6,6 @@ import {
   counter,
   Counter,
   CounterParams,
-  Styles
 } from '@fortawesome/fontawesome-svg-core';
 import { FaLayersTextBaseComponent } from './layers-text-base.component';
 
