@@ -41,27 +41,27 @@
   dependencies:
     tslib "^1.7.1"
 
-"@fortawesome/fontawesome-common-types@^0.2.0-4":
-  version "0.2.0-4"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.0-4.tgz#6f0bdcab7b4f77e7e539f539a8c727bf800a995a"
+"@fortawesome/fontawesome-common-types@^0.2.0-5":
+  version "0.2.0-5"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.0-5.tgz#95a4ad12c0d85c6e50334d9dc0301d71fbd466e3"
 
-"@fortawesome/fontawesome-svg-core@^1.2.0-9":
-  version "1.2.0-9"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.0-9.tgz#080f52eaf3e2123522aeda1253f447d376574878"
+"@fortawesome/fontawesome-svg-core@^1.2.0-10":
+  version "1.2.0-10"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.0-10.tgz#f5f4f8cc0d7e2db7cafbe45db3605c5bb3a58c24"
   dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.0-4"
+    "@fortawesome/fontawesome-common-types" "^0.2.0-5"
 
-"@fortawesome/free-regular-svg-icons@^5.1.0-6":
-  version "5.1.0-6"
-  resolved "https://registry.yarnpkg.com/@fortawesome/free-regular-svg-icons/-/free-regular-svg-icons-5.1.0-6.tgz#fa34b07337ccad31444274d9287620ae0cdb8afe"
+"@fortawesome/free-regular-svg-icons@^5.1.0-7":
+  version "5.1.0-7"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-regular-svg-icons/-/free-regular-svg-icons-5.1.0-7.tgz#e3c77be3d6220883e3086a684e08a560fa6fb6c4"
   dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.0-4"
+    "@fortawesome/fontawesome-common-types" "^0.2.0-5"
 
-"@fortawesome/free-solid-svg-icons@^5.1.0-6":
-  version "5.1.0-6"
-  resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.1.0-6.tgz#01856deb45e2774c4df7ab426328b2b94f1ad9b3"
+"@fortawesome/free-solid-svg-icons@^5.1.0-7":
+  version "5.1.0-7"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.1.0-7.tgz#e0de30acf387a971dfca00201348a7b95c4f2aa8"
   dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.0-4"
+    "@fortawesome/fontawesome-common-types" "^0.2.0-5"
 
 "@types/jasmine@^2.0.0":
   version "2.8.6"
