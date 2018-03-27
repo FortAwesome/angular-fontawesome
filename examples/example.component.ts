@@ -13,9 +13,9 @@ import {
   faEllipsisH,
   faFighterJet,
   faBatteryQuarter
-} from '@fortawesome/fontawesome-free-solid';
-import { faUser as regularUser, faFlag } from '@fortawesome/fontawesome-free-regular';
-import { library } from '@fortawesome/fontawesome';
+} from '@fortawesome/free-solid-svg-icons';
+import { faUser as regularUser, faFlag } from '@fortawesome/free-regular-svg-icons';
+import { library } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
   selector: 'example-root',
@@ -47,8 +47,8 @@ export class ExampleComponent {
     // Each of them within their respective icon npm packages are exported as faUser,
     // but we've renamed the second one in order to disambiguate the two objects within
     // this JavaScript module. Internally, these objects are different, even though they have the same iconName.
-    // They have different prefixes: faUser has a prefix of fas, since it came from fontawesome-free-solid;
-    // regularUser has a prefix of far, since it came from fontawesome-free-regular.
+    // They have different prefixes: faUser has a prefix of fas, since it came from free-solid-svg-icons;
+    // regularUser has a prefix of far, since it came from free-regular-svg-icons.
     // And of course, they also have different SVG content, resulting in different appearances.
     // So they really are totally different icons. However, they share the same iconName: user.
     // So in the template, the only way to reference the non-default (fas) icon is to either

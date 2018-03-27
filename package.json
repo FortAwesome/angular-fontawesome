@@ -22,7 +22,8 @@
     "Mike Wilkerson <mwilkerson@gmail.com>",
     "Yaroslav Admin <devoto13@gmail.com>",
     "Travis Chase <travis@fontawesome.com>",
-    "Rob Madole <rob@fontawesome.com>"
+    "Rob Madole <rob@fontawesome.com>",
+    "Zeev Katz <zeevk6@gmail.com>"
   ],
   "license": "MIT",
   "bugs": {
@@ -31,8 +32,9 @@
   "homepage": "https://github.com/FortAwesome/angular-fontawesome",
   "devDependencies": {
     "@angular/compiler-cli": "^5.0.0",
-    "@fortawesome/fontawesome-free-regular": "^5.1.0",
-    "@fortawesome/fontawesome-free-solid": "^5.1.0",
+    "@fortawesome/free-regular-svg-icons": "^5.1.0-7",
+    "@fortawesome/free-solid-svg-icons": "^5.1.0-7",
+    "@fortawesome/fontawesome-svg-core": "^1.2.0-10",
     "@types/jasmine": "^2.0.0",
     "@types/node": "^8.0.0",
     "angular-librarian": "1.0.0",
@@ -89,13 +91,15 @@
     "icon",
     "svg"
   ],
+  "peerDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.0-9"
+  },
   "dependencies": {
     "@angular/common": "^5.0.0",
     "@angular/compiler": "^5.0.0",
     "@angular/core": "^5.0.0",
     "@angular/platform-browser": "^5.0.0",
     "@angular/platform-browser-dynamic": "^5.0.0",
-    "@fortawesome/fontawesome": "^1.1.4",
     "core-js": "^2.4.1",
     "rxjs": "^5.5.2",
     "zone.js": "^0.8.14"

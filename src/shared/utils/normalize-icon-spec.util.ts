@@ -1,11 +1,10 @@
-import { IconLookup, IconProp } from '@fortawesome/fontawesome';
+import { IconLookup, IconProp } from '@fortawesome/fontawesome-svg-core';
 
 import { isIconLookup } from './is-icon-lookup.util';
 
 /**
  * Normalizing icon spec.
- * @param {IconProp} iconSpec
- * @returns {IconLookup}
+ * @returns IconLookup
  */
 export const faNormalizeIconSpec = (iconSpec: IconProp): IconLookup => {
   const defaultPrefix = 'fas';

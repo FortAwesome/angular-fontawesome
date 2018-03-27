@@ -5,8 +5,7 @@ import { Component, HostBinding } from '@angular/core';
  */
 @Component({
   selector: 'fa-layers',
-  template: `<ng-content select="fa-icon, fa-layers-text"></ng-content>`,
-    styleUrls: ['layers.component.scss'],
+  template: `<ng-content select="fa-icon, fa-layers-text, fa-layers-counter"></ng-content>`
 })
 export class FaLayersComponent {
   @HostBinding('class.fa-layers')

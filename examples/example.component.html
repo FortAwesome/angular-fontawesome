@@ -1,10 +1,10 @@
 <h1>Font Awesome examples</h1>
-<h3>Icon as Object</h3>
-<fa-icon [icon]="faCoffee"></fa-icon>
+<h3>Icon as Object (with title attribute—inspect the DOM to see it)</h3>
+<fa-icon [icon]="faCoffee" title="Coffee: Best Drink Ever"></fa-icon>
 <h3>Icon looked up in library by name</h3>
-<p>Possible after adding the <code>faUser</code> icon from the <code>fontawesome-free-solid</code> package to the library.</p>
-<p>The default prefix of <code>fas</code> is assumed.</p>
-<fa-icon icon='user'></fa-icon>
+<p>Possible after adding the <code>faUser</code> icon from the <code>free-solid-svg-icons</code> package to the library.</p>
+<p>The default prefix of <code>fas</code> is assumed. Also, add a border.</p>
+<fa-icon icon='user' [border]="true"></fa-icon>
 <h3>Icon with Non-default Style Prefix Using [prefix, iconName]</h3>
 <p><code>icon</code> should be set equal to an array object with two string elements: the prefix and the icon name.</p>
 <p>Using a string for an icon name also requires that this icon has been added to the library with <code>library.add()</code></p>
@@ -25,7 +25,7 @@
 
 <h3>Layers</h3>
 <p>Custom icons created with multiple layers.</p>
-<div [style.font-size.em]="5">
+<div class="fa-4x">
   <fa-layers [ngClass]="['fa-fw']">
     <fa-icon [icon]="faCircle" [styles]="{color: 'Tomato'}"></fa-icon>
     <fa-icon [icon]="faTimes" [inverse]="true" transform="shrink-6"></fa-icon>
@@ -42,10 +42,10 @@
   </fa-layers>
 </div>
 <p>Using text as one of the layers.</p>
-<div [style.font-size.em]="4">
+<div class="fa-4x">
   <fa-layers [ngClass]="['fa-fw']">
     <fa-icon [icon]="faFlag"></fa-icon>
-    <fa-layers-text [content]="'Fa'" transform="up-4" [styles]="{'font-size': '0.3em'}"></fa-layers-text>
+    <fa-layers-text title="Fort Awesome" [content]="'Fa'" transform="up-4" [styles]="{'font-size': '0.3em'}"></fa-layers-text>
   </fa-layers>
 </div>
 <p>Slide and increase the number.</p>
@@ -54,16 +54,16 @@
        [max]="2000"
        [value]="notificationsCounter"
        (input)="notificationsCounter = $event.target.value"/>
-<div [style.font-size.em]="3">
+<div class="fa-3x">
   <fa-layers [ngClass]="['fa-fw']">
     <fa-icon [icon]="faBell"></fa-icon>
-    <fa-layers-text [content]="notificationsCounter | number" [counter]="true"></fa-layers-text>
+    <fa-layers-counter [content]="notificationsCounter | number" title="Unread Messages"></fa-layers-counter>
   </fa-layers>
 </div>
 
 <h3>When using text layer outside layers component</h3>
 <p>Expect to see an error on the JavaScript console, and nothing shown between these bars:
-  |<fa-layers-text [content]="notificationsCounter | number" [counter]="true"></fa-layers-text>|
+  |<fa-layers-counter [content]="notificationsCounter | number"></fa-layers-counter>|
 </p>
 
 <h3>Intentionally Missing Icon</h3>

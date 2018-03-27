@@ -1,9 +1,5 @@
-import { IconLookup } from '@fortawesome/fontawesome';
+import { IconLookup } from '@fortawesome/fontawesome-svg-core';
 
-/**
- * Warns if icon spec missing.
- * @param {IconLookup} iconSpec
- */
 export const faWarnIfIconSpecMissing = (iconSpec: IconLookup) => {
   if (!iconSpec) {
     console.error('FontAwesome: Could not find icon. ' +
