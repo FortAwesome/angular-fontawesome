@@ -1,4 +1,4 @@
-import { FaProps } from '../models';
+import { FaProps } from '../models/props.model';
 
 /**
  * Fontawesome class list.
