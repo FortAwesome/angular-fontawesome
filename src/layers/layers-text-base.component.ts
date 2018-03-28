@@ -1,9 +1,9 @@
 import {
   Input,
   Inject,
+  Injectable,
   Optional,
   OnChanges,
-  Component,
   forwardRef,
   HostBinding,
   SimpleChanges
@@ -18,10 +18,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { FaLayersComponent } from './layers.component';
 import { faWarnIfParentNotExist } from '../shared/errors/warn-if-parent-not-exist';
 
-@Component({
-    selector: 'fa-layers-text-base',
-    template: ''
-})
+@Injectable()
 export abstract class FaLayersTextBaseComponent implements OnChanges {
 
   constructor(@Inject(forwardRef(() => FaLayersComponent)) @Optional() private parent: FaLayersComponent,
