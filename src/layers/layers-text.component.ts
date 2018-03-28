@@ -16,8 +16,9 @@ import {
 } from '@fortawesome/fontawesome-svg-core';
 import { FaLayersTextBaseComponent } from './layers-text-base.component';
 
-import { objectWithKey, faClassList } from '../shared/utils';
-import { FaProps } from '../shared/models';
+import { FaProps } from '../shared/models/props.model';
+import { objectWithKey } from '../shared/utils/object-with-keys.util';
+import { faClassList } from '../shared/utils/classlist.util';
 
 /**
  * Fontawesome layers text.

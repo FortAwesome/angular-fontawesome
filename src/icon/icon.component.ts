@@ -22,9 +22,13 @@ import {
 } from '@fortawesome/fontawesome-svg-core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
-import { faNotFoundIconHtml, faWarnIfIconHtmlMissing, faWarnIfIconSpecMissing} from '../shared/errors';
-import { objectWithKey, faClassList, faNormalizeIconSpec } from '../shared/utils';
-import { FaProps } from '../shared/models';
+import { faNormalizeIconSpec } from '../shared/utils/normalize-icon-spec.util';
+import { FaProps } from '../shared/models/props.model';
+import { objectWithKey } from '../shared/utils/object-with-keys.util';
+import { faClassList } from '../shared/utils/classlist.util';
+import { faWarnIfIconHtmlMissing } from '../shared/errors/warn-if-icon-html-missing';
+import { faWarnIfIconSpecMissing } from '../shared/errors/warn-if-icon-spec-missing';
+import { faNotFoundIconHtml } from '../shared/errors/not-found-icon-html';
 
 /**
  * Fontawesome icon.

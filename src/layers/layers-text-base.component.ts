@@ -14,8 +14,9 @@ import {
   TextParams
 } from '@fortawesome/fontawesome-svg-core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { faWarnIfParentNotExist } from '../shared/errors';
+
 import { FaLayersComponent } from './layers.component';
+import { faWarnIfParentNotExist } from '../shared/errors/warn-if-parent-not-exist';
 
 @Component({
     selector: 'fa-layers-text-base',
