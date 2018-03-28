@@ -278,4 +278,6 @@ module.exports = {
     'rxjs/symbol/iterator':     'Rx.Symbol',
     'rxjs/symbol/observable':   'Rx.Symbol',
     'rxjs/symbol/rxSubscriber': 'Rx.Symbol',
+
+    '@fortawesome/fontawesome-svg-core': 'fontawesome-svg-core'
   };
