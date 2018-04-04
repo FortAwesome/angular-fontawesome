@@ -43,10 +43,10 @@ import { faNotFoundIconHtml } from '../shared/errors/not-found-icon-html';
 export class FaIconComponent implements OnChanges {
   public icon: Icon;
 
-  constructor(private sanitizer: DomSanitizer) {}
-
   @HostBinding('innerHTML')
-  private renderedIconHTML: SafeHtml;
+  public renderedIconHTML: SafeHtml;
+
+  constructor(private sanitizer: DomSanitizer) {}
 
   private params: IconParams;
   private iconSpec: IconLookup;

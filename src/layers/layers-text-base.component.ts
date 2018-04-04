@@ -21,14 +21,14 @@ import { faWarnIfParentNotExist } from '../shared/errors/warn-if-parent-not-exis
 @Injectable()
 export abstract class FaLayersTextBaseComponent implements OnChanges {
 
+  @HostBinding('innerHTML')
+  public renderedHTML: SafeHtml;
+
   constructor(@Inject(forwardRef(() => FaLayersComponent)) @Optional() private parent: FaLayersComponent,
     private sanitizer: DomSanitizer) {
 
     faWarnIfParentNotExist(this.parent, 'FaLayersComponent', this.constructor.name);
   }
-
-  @HostBinding('innerHTML')
-  private renderedHTML: SafeHtml;
 
   protected params: TextParams;
 

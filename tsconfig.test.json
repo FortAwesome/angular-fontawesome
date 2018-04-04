@@ -1,5 +1,8 @@
 {
     "buildOnSave": false,
+    "angularCompilerOptions": {
+        "fullTemplateTypeCheck": true
+    },
     "compilerOptions": {
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
