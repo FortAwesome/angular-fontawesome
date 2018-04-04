@@ -25,12 +25,12 @@ import { faClassList } from '../shared/utils/classlist.util';
  */
 @Component({
   selector: 'fa-layers-text',
-  template: ''
+  template: '',
+  host: {
+    class: 'ng-fa-layers-text'
+  }
 })
 export class FaLayersTextComponent extends FaLayersTextBaseComponent {
-
-  @HostBinding('class.ng-fa-layers-text')
-  private cssClass = true;
 
   @Input() private spin?: boolean;
   @Input() private pulse?: boolean;

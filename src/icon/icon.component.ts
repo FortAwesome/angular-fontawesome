@@ -35,15 +35,15 @@ import { faNotFoundIconHtml } from '../shared/errors/not-found-icon-html';
  */
 @Component({
   selector: 'fa-icon',
-  template: ``
+  template: ``,
+  host: {
+    class: 'ng-fa-icon',
+  }
 })
 export class FaIconComponent implements OnChanges {
   public icon: Icon;
 
   constructor(private sanitizer: DomSanitizer) {}
-
-  @HostBinding('class.ng-fa-icon')
-  private cssClass = true;
 
   @HostBinding('innerHTML')
   private renderedIconHTML: SafeHtml;
