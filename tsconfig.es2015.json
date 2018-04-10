@@ -5,9 +5,11 @@
         "flatModuleOutFile": "angular-fontawesome.js",
         "genDir": "../out-tsc/lib-gen-dir/",
         "strictMetadataEmit": true,
-        "skipTemplateCodegen": true
+        "skipTemplateCodegen": true,
+        "fullTemplateTypeCheck": true
     },
     "compilerOptions": {
+        "rootDir": "build",
         "baseUrl": "",
         "declaration": true,
         "emitDecoratorMetadata": true,

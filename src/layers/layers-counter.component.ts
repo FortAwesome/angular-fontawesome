@@ -14,12 +14,12 @@ import { FaLayersTextBaseComponent } from './layers-text-base.component';
  */
 @Component({
   selector: 'fa-layers-counter',
-  template: ''
+  template: '',
+  host: {
+    class: 'ng-fa-layers-counter'
+  }
 })
 export class FaLayersCounterComponent extends FaLayersTextBaseComponent {
-
-  @HostBinding('class.ng-fa-layers-counter')
-  private cssClass = true;
 
   /**
    * Updating params by component props.
