@@ -32,9 +32,9 @@
   "homepage": "https://github.com/FortAwesome/angular-fontawesome",
   "devDependencies": {
     "@angular/compiler-cli": "^5.0.0",
-    "@fortawesome/fontawesome-svg-core": "^1.2.0-10",
     "@fortawesome/free-regular-svg-icons": "^5.1.0-7",
     "@fortawesome/free-solid-svg-icons": "^5.1.0-7",
+    "@fortawesome/fontawesome-svg-core": "^1.2.0-10",
     "@types/jasmine": "^2.0.0",
     "@types/node": "^8.0.0",
     "angular-librarian": "1.0.0",
@@ -58,7 +58,6 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.0",
     "node-sass": "^4.0.0",
-    "np": "^2.20.1",
     "phantomjs-prebuilt": "^2.1.7",
     "raw-loader": "^0.5.1",
     "rimraf": "^2.5.3",
