@@ -102,6 +102,6 @@
     "@angular/platform-browser-dynamic": "^6.0.0",
     "core-js": "^2.4.1",
     "rxjs": "^6.1.0",
-    "zone.js": "^0.8.14"
+    "zone.js": "^0.8.26"
   }
 }
