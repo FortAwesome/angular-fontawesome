@@ -57,7 +57,7 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.0",
     "node-sass": "^4.0.0",
-    "ng-packagr": "^3.0.0-rc.3",
+    "ng-packagr": "^3.0.0-rc.4",
     "phantomjs-prebuilt": "^2.1.7",
     "raw-loader": "^0.5.1",
     "rimraf": "^2.5.3",
