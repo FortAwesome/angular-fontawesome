@@ -1,0 +1,43 @@
+{
+  "$schema": "../node_modules/ng-packagr/package.schema.json",
+  "name": "@fortawesome/angular-fontawesome",
+  "version": "0.1.0-8",
+  "description": "Angular Fontawesome, an Angular library",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FortAwesome/angular-fontawesome"
+  },
+  "contributors": [
+    "Mike Wilkerson <mwilkerson@gmail.com>",
+    "Yaroslav Admin <devoto13@gmail.com>",
+    "Travis Chase <travis@fontawesome.com>",
+    "Rob Madole <rob@fontawesome.com>",
+    "Zeev Katz <zeevk6@gmail.com>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FortAwesome/angular-fontawesome/issues"
+  },
+  "homepage": "https://github.com/FortAwesome/angular-fontawesome",
+  "keywords": [
+    "angular",
+    "font",
+    "awesome",
+    "fontawesome",
+    "icon",
+    "svg"
+  ],
+  "peerDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.0-9",
+    "@angular/common": "^5.0.0 || ^6.0.0",
+    "@angular/core": "^5.0.0 || ^6.0.0"
+  },
+  "ngPackage": {
+    "lib": {
+      "entryFile": "index.ts",
+      "flatModuleFile": "angular-fontawesome"
+    },
+    "dest": "../dist"
+  }
+}
