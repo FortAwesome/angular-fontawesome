@@ -12,13 +12,18 @@ Trying to figure out how to make it work? Or how to use it in your scenario?
 the framework upon which this component is built. Sometimes the answers you need may be there.
 1. Post any remaining questions on [StackOverflow](https://stackoverflow.com/questions/tagged/angular-fontawesome) with the tag `angular-fontawesome`.
 
+## Report a Bug
+
+1. Create a test case that reproduces the unexpected behavior using [this StackBlitz template](https://stackblitz.com/edit/angular-z8v4ux)
+1. [Open a new issue with this template](https://github.com/FortAwesome/angular-fontawesome/issues/new?template=bug-report.md),
+and be sure to include a link to the reproduction you made with StackBlitz.
+
 ## Submit a Pull Request
 
 Add tests if you add code.
 
 ## Everything Else
 
-* [Report a bug](https://github.com/FortAwesome/angular-fontawesome/issues/new?template=bug-report.md)
 * [Request a feature](https://github.com/FortAwesome/angular-fontawesome/issues/new??title=Feature%20request:feature-name&template=feature-request.md)
 * [Request a new icon](https://github.com/FortAwesome/Font-Awesome/issues/new?title=Icon%20request:%20icon-name&template=icon-request.md)
 

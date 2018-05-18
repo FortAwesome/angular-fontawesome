@@ -8,7 +8,7 @@
 
 ### Reproducible test case
 
-<!--- Insert a URL to your test case - use codepen.io, jsfiddle.net, jsbin.com, codesandbox.io, or whatever -->
+<!--- Insert a URL to your test case on StackBlitz.com  -->
 
 <!--- Describe any details about the test case that we need to know like "whatever you do, don't click the red button" -->
 
