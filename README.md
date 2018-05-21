@@ -365,3 +365,15 @@ Tree shaking—automatically eliminating unused icons from the final bundle—Ju
    component, provide feedback about what refinements might help it feel more
    like an "Angular" way of doing things. Open a new issue with each distinct
    recommendation, or submit a pull request with your suggested revisions.
+
+## Releasing this project
+
+General steps:
+
+1. Update `package.json` and `src/package.json` and change `version` and add any contributors
+1. `npm run build`
+1. `cd dist`
+1. `npm publish`
+1. `npm dist-tags add @fortawesome/angular-fontawesome@VERSION prerelease`
+1. `git add . && git commit -m 'Release VERSION'
+1. `git push`
