@@ -375,5 +375,5 @@ General steps:
 1. `cd dist`
 1. `npm publish`
 1. `npm dist-tags add @fortawesome/angular-fontawesome@VERSION prerelease`
-1. `git add . && git commit -m 'Release VERSION'
+1. `git add . && git commit -m 'Release VERSION`
 1. `git push`
