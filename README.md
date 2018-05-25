@@ -371,9 +371,11 @@ Tree shaking—automatically eliminating unused icons from the final bundle—Ju
 General steps:
 
 1. Update `package.json` and `src/package.json` and change `version` and add any contributors
+1. Update the `CHANGELOG.md`
 1. `npm run build`
 1. `cd dist`
 1. `npm publish`
 1. `npm dist-tags add @fortawesome/angular-fontawesome@VERSION prerelease`
-1. `git add . && git commit -m 'Release VERSION`
+1. `git add . && git commit -m 'Release VERSION'`
 1. `git push`
+1. Create a [new release](https://github.com/FortAwesome/angular-fontawesome/releases/new) with CHANGELOG details
