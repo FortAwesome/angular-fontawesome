@@ -41,6 +41,25 @@ import { faNotFoundIconHtml } from '../shared/errors/not-found-icon-html';
   }
 })
 export class FaIconComponent implements OnChanges {
+  // tslint:disable-next-line:no-input-rename
+  @Input('icon') iconProp: IconProp;
+  @Input() title?: string;
+  @Input() spin?: boolean;
+  @Input() pulse?: boolean;
+  @Input() mask?: IconProp;
+  @Input() styles?: Styles;
+  @Input() flip?: FlipProp;
+  @Input() size?: SizeProp;
+  @Input() pull?: PullProp;
+  @Input() border?: boolean;
+  @Input() inverse?: boolean;
+  @Input() symbol?: FaSymbol;
+  @Input() listItem?: boolean;
+  @Input() rotate?: RotateProp;
+  @Input() fixedWidth?: boolean;
+  @Input() classes?: string[] = [];
+  @Input() transform?: string | Transform;
+
   public icon: Icon;
 
   @HostBinding('innerHTML')
@@ -50,25 +69,6 @@ export class FaIconComponent implements OnChanges {
 
   private params: IconParams;
   private iconSpec: IconLookup;
-
-  // tslint:disable-next-line:no-input-rename
-  @Input('icon') private iconProp: IconProp;
-  @Input() private title?: string;
-  @Input() private spin?: boolean;
-  @Input() private pulse?: boolean;
-  @Input() private mask?: IconProp;
-  @Input() private styles?: Styles;
-  @Input() private flip?: FlipProp;
-  @Input() private size?: SizeProp;
-  @Input() private pull?: PullProp;
-  @Input() private border?: boolean;
-  @Input() private inverse?: boolean;
-  @Input() private symbol?: FaSymbol;
-  @Input() private listItem?: boolean;
-  @Input() private rotate?: RotateProp;
-  @Input() private fixedWidth?: boolean;
-  @Input() private classes?: string[] = [];
-  @Input() private transform?: string | Transform;
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes) {
