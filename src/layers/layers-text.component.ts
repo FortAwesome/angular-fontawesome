@@ -32,17 +32,17 @@ import { faClassList } from '../shared/utils/classlist.util';
 })
 export class FaLayersTextComponent extends FaLayersTextBaseComponent {
 
-  @Input() private spin?: boolean;
-  @Input() private pulse?: boolean;
-  @Input() private flip?: FlipProp;
-  @Input() private size?: SizeProp;
-  @Input() private pull?: PullProp;
-  @Input() private border?: boolean;
-  @Input() private inverse?: boolean;
-  @Input() private listItem?: boolean;
-  @Input() private rotate?: RotateProp;
-  @Input() private fixedWidth?: boolean;
-  @Input() private transform?: string | Transform;
+  @Input() spin?: boolean;
+  @Input() pulse?: boolean;
+  @Input() flip?: FlipProp;
+  @Input() size?: SizeProp;
+  @Input() pull?: PullProp;
+  @Input() border?: boolean;
+  @Input() inverse?: boolean;
+  @Input() listItem?: boolean;
+  @Input() rotate?: RotateProp;
+  @Input() fixedWidth?: boolean;
+  @Input() transform?: string | Transform;
 
   /**
    * Updating params by component props.
