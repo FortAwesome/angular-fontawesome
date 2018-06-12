@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/FortAwesome/angular-fontawesome",
   "devDependencies": {
-    "@angular/compiler-cli": "^5.0.0",
+    "@angular/compiler-cli": "^6.0.0",
     "@fortawesome/free-regular-svg-icons": "^5.1.0-7",
     "@fortawesome/free-solid-svg-icons": "^5.1.0-7",
     "@fortawesome/fontawesome-svg-core": "^1.2.0-10",
@@ -69,7 +69,7 @@
     "style-loader": "^0.19.0",
     "tslint": "^5.0.0",
     "tslint-loader": "^3.0.0",
-    "typescript": "~2.4.2",
+    "typescript": "~2.7.2",
     "url-loader": "^0.6.2",
     "webpack": "^3.0.0",
     "webpack-dev-server": "^2.0.0",
@@ -88,13 +88,13 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.0-9"
   },
   "dependencies": {
-    "@angular/common": "^5.0.0",
-    "@angular/compiler": "^5.0.0",
-    "@angular/core": "^5.0.0",
-    "@angular/platform-browser": "^5.0.0",
-    "@angular/platform-browser-dynamic": "^5.0.0",
+    "@angular/common": "^6.0.0",
+    "@angular/compiler": "^6.0.0",
+    "@angular/core": "^6.0.0",
+    "@angular/platform-browser": "^6.0.0",
+    "@angular/platform-browser-dynamic": "^6.0.0",
     "core-js": "^2.4.1",
-    "rxjs": "^5.5.2",
-    "zone.js": "^0.8.14"
+    "rxjs": "^6.1.0",
+    "zone.js": "^0.8.26"
   }
 }
