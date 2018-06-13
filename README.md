@@ -8,21 +8,47 @@
 
 > Font Awesome 5 Angular component using SVG with JS
 
-Built with [Angular Librarian] and conforming to the [Angular Package Format].
+<!-- toc -->
 
-[Angular Librarian]: https://github.com/gonzofish/angular-librarian
+- [Get started](#get-started)
+  * [Upgrading Font Awesome?](#upgrading-font-awesome)
+  * [Is this the package for you?](#is-this-the-package-for-you)
+  * [Learn about our new SVG implementation](#learn-about-our-new-svg-implementation)
+  * [Going from an older pre-release version?](#going-from-an-older-pre-release-version)
+- [Installation](#installation)
+- [Add more styles or Pro icons](#add-more-styles-or-pro-icons)
+- [Usage](#usage)
+  * [Explicit reference](#explicit-reference)
+  * [Using the Icon Library](#using-the-icon-library)
+  * [Using other styles](#using-other-styles)
+- [Features](#features)
+  * [Basic](#basic)
+  * [Advanced Usage](#advanced-usage)
+- [Examples](#examples)
+- [Tree Shaking](#tree-shaking)
+- [How to Help](#how-to-help)
+- [Contributors](#contributors)
+- [Releasing this project](#releasing-this-project)
+
+<!-- tocstop -->
+
+## Get started
+
+Built with [ng-packagr] and conforming to the [Angular Package Format].
+
+[ng-packagr]: https://github.com/dherges/ng-packagr
 [Angular Package Format]: https://docs.google.com/document/d/1CZC2rcpxffTDfRDs6p1cfbmKNLA6x5O-NtkJglDaBVs/edit?usp=sharing
 
 Hey there! We're glad you're here...
 
-#### Upgrading Font Awesome?
+### Upgrading Font Awesome?
 
 If you've used Font Awesome in the past (version 4 or older) there are some
 things that you should learn before you dive in.
 
 > https://fontawesome.com/how-to-use/upgrading-from-4
 
-#### Get started
+### Is this the package for you?
 
 This package is for integrating with Angular (not AngularJS). If you aren't
 using Angular then it's not going to help you. Head over to our "Get Started"
@@ -30,7 +56,7 @@ page for some guidance.
 
 > https://fontawesome.com/get-started
 
-#### Learn about our new SVG implementation
+### Learn about our new SVG implementation
 
 This package, under the hood, uses SVG with JS and the
 `@fortawesome/fontawesome-svg-core` library. This implementation differs
@@ -39,7 +65,7 @@ older of Font Awesome. You might head over there to learn about how it works.
 
 > https://fontawesome.com/how-to-use/svg-with-js
 
-#### Going from an older pre-release version?
+### Going from an older pre-release version?
 
 See [UPGRADING.md](./UPGRADING.md).
 
@@ -362,6 +388,13 @@ Tree shaking—automatically eliminating unused icons from the final bundle—Ju
 
 ## How to Help
 
+Review the following docs before diving in:
+
+* [CONTRIBUTING.md](CONTRIBUTING.md)
+* [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+
+And then:
+
 1. Write more tests like those in `icon.component.spec.ts` to increase our test
    coverage and submit pull requests.
 
@@ -369,6 +402,28 @@ Tree shaking—automatically eliminating unused icons from the final bundle—Ju
    component, provide feedback about what refinements might help it feel more
    like an "Angular" way of doing things. Open a new issue with each distinct
    recommendation, or submit a pull request with your suggested revisions.
+
+## Contributors
+
+The following contributors have either hepled to start this project, have contributed
+code, are actively maintaining it (including documentation), or in other ways
+being awesome contributors to this project. **We'd like to take a moment to recognize them.**
+
+|                                                            | Name           | GitHub                                             |
+| :--------------------------------------------------------: | -------------- | -------------------------------------------------- |
+| <img src="https://github.com/devoto13.png?size=72" />      | Yaroslav Admin | [@devoto13](https://github.com/devoto13)           |
+| <img src="https://github.com/zeevkatz.png?size=72" />      | Zeev Katz      | [@zeevkatz](https://github.com/zeevkatz)           |
+| <img src="https://github.com/scttcper.png?size=72" />      | Scott Cooper   | [@scttcper](https://github.com/scttcper)           |
+
+If we've missed someone (which is quite likely) submit a Pull Request to us and we'll get it resolved.
+
+The Font Awesome team:
+
+|                                                            | Name           | GitHub                                             |
+| :--------------------------------------------------------: | -------------- | -------------------------------------------------- |
+| <img src="https://github.com/mlwilkerson.png?size=72" />   | Mike Wilkerson | [@mlwilkerson](https://github.com/mlwilkerson)     |
+| <img src="https://github.com/supercodepoet.png?size=72" /> | Travis Chase   | [@supercodepoet](https://github.com/supercodepoet) |
+| <img src="https://github.com/robmadole.png?size=72" />     | Rob Madole     | [@robmadole](https://github.com/robmadole)         |
 
 ## Releasing this project
 
