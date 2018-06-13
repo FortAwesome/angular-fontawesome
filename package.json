@@ -49,6 +49,7 @@
     "codelyzer": "^4.0.0",
     "css-loader": "^0.28.0",
     "css-to-string-loader": "^0.1.0",
+    "erector-set": "^1.0.0-beta.3",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^1.0.0",
     "fs-extra": "^2.1.2",
