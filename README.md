@@ -275,8 +275,8 @@ The following features are available as [part of Font Awesome](https://fontaweso
 Spin and pulse animation:
 
 ```html
-<fa-icon [icon]="['fas', 'spinner']" [spin]="true"></fa-icon>
-<fa-icon [icon]="['fas', 'spinner']" [pulse]="true"></fa-icon>
+<fa-icon [icon]="['far', 'spinner']" [spin]="true"></fa-icon>
+<fa-icon [icon]="['far', 'spinner']" [pulse]="true"></fa-icon>
 ```
 
 Fixed width:
