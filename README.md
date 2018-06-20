@@ -434,7 +434,6 @@ General steps:
 1. `npm run build`
 1. `cd dist`
 1. `npm publish`
-1. `npm dist-tags add @fortawesome/angular-fontawesome@VERSION prerelease`
 1. `git add . && git commit -m 'Release VERSION'`
 1. `git push`
 1. Create a [new release](https://github.com/FortAwesome/angular-fontawesome/releases/new) with CHANGELOG details

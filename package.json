@@ -1,6 +1,6 @@
 {
   "name": "@fortawesome/angular-fontawesome",
-  "version": "0.1.0-10",
+  "version": "0.1.0",
   "description": "Angular Fontawesome, an Angular library",
   "private": true,
   "scripts": {
@@ -96,7 +96,7 @@
     "svg"
   ],
   "peerDependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.0-9"
+    "@fortawesome/fontawesome-svg-core": "^1.2.0"
   },
   "dependencies": {
     "@angular/common": "^5.0.0",
