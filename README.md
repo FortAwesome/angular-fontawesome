@@ -8,6 +8,10 @@
 
 > Font Awesome 5 Angular component using SVG with JS
 
+**ALERT:** The `0.1.0` release has a [build error](https://github.com/FortAwesome/angular-fontawesome/issues/57). We're fixing it.
+
+In the meantime, it's best to install the pre-release `0.1.0-10`.
+
 <!-- toc -->
 
 - [Get started](#get-started)
