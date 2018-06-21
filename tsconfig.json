@@ -5,20 +5,15 @@
         "fullTemplateTypeCheck": true
     },
     "compilerOptions": {
-        "baseUrl": "",
+        "baseUrl": "src",
         "declaration": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "lib": ["es2015", "dom"],
-        "mapRoot": "./",
         "module": "es2015",
         "moduleResolution": "node",
         "outDir": "./dist",
-        "sourceMap": true,
-        "target": "es5",
-        "typeRoots": [
-            "./node_modules/@types"
-        ]
+        "target": "es5"
     },
     "files": [
         "./src/index.ts"

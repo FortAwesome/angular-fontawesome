@@ -8,6 +8,7 @@ return Promise.resolve()
   .then(() =>
     ngPackagr()
       .forProject(join(process.cwd(), 'src/package.json'))
+      .withTsConfig(join(process.cwd(), 'tsconfig.json'))
       .build(),
   )
   .then(() => {
