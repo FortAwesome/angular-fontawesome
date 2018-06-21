@@ -4,7 +4,7 @@
   "description": "Angular Fontawesome, an Angular library",
   "private": true,
   "scripts": {
-    "test": "ng test --watch=false",
+    "test": "ng test --watch=false --browsers=ChromeCI",
     "lint": "ng lint angular-fontawesome --type-check --format stylish",
     "precommit": "npm run lint && lint-staged",
     "start": "ng serve",
