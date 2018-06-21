@@ -1,4 +1,4 @@
-export * from './fontawesome.module';
+export { FontAwesomeModule } from './fontawesome.module';
 export { FaProps } from './shared/models/props.model';
 export { FaIconComponent } from './icon/icon.component';
 export { FaLayersComponent } from './layers/layers.component';
