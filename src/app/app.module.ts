@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { ExampleComponent } from './example.component';
-import { FontAwesomeModule } from '../index';
+import { FontAwesomeModule } from '../lib/public_api';
 
 @NgModule({
     declarations: [
@@ -15,4 +15,4 @@ import { FontAwesomeModule } from '../index';
     providers: [],
     bootstrap: [ExampleComponent]
 })
-export class ExampleModule { }
+export class AppModule { }

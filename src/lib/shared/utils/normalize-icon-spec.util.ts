@@ -4,7 +4,6 @@ import { isIconLookup } from './is-icon-lookup.util';
 
 /**
  * Normalizing icon spec.
- * @returns IconLookup
  */
 export const faNormalizeIconSpec = (iconSpec: IconProp): IconLookup => {
   const defaultPrefix = 'fas';
