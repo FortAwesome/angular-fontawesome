@@ -23,7 +23,7 @@ export interface FaProps {
   counter?: boolean;
   inverse?: boolean;
   flip?: FlipProp;
-  size: SizeProp | null;
+  size?: SizeProp | null;
   pull?: PullProp | null;
   rotate?: RotateProp | null;
   transform?: string | Transform;
