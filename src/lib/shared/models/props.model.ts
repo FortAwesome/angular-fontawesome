@@ -23,9 +23,9 @@ export interface FaProps {
   counter?: boolean;
   inverse?: boolean;
   flip?: FlipProp;
-  size?: SizeProp | null;
-  pull?: PullProp | null;
-  rotate?: RotateProp | null;
+  size?: SizeProp;
+  pull?: PullProp;
+  rotate?: RotateProp;
   transform?: string | Transform;
   symbol?: FaSymbol;
   style?: Styles;
