@@ -8,7 +8,6 @@ The following commands are available through `npm run` (or, if configured
 Command     | Purpose
 ---         | ---
 build       | Runs code through build process via Angular compiler (ngc)
-g           | Generate code files (see above)
 lint        | Verify code matches linting rules
 start       | Run Webpack's dev-server on project (can be run as `npm start`)
 [test](#unit)        | Execute unit tests (can be run as `npm test <type>`)
