@@ -91,12 +91,6 @@
     "@angular-devkit/core" "0.6.8"
     rxjs "^6.0.0"
 
-"@angular/animations@^6.0.6":
-  version "6.0.6"
-  resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-6.0.6.tgz#90a6e5acd693d2860017cdf83ec7fcd5daa74717"
-  dependencies:
-    tslib "^1.9.0"
-
 "@angular/cli@~6.0.8":
   version "6.0.8"
   resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-6.0.8.tgz#65070958b944be30053232c51f8449b7ddd4d92a"
@@ -141,18 +135,6 @@
   dependencies:
     tslib "^1.9.0"
 
-"@angular/forms@^6.0.6":
-  version "6.0.6"
-  resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-6.0.6.tgz#da187c024db7c86acd30ae48a155fd866fad7601"
-  dependencies:
-    tslib "^1.9.0"
-
-"@angular/http@^6.0.6":
-  version "6.0.6"
-  resolved "https://registry.yarnpkg.com/@angular/http/-/http-6.0.6.tgz#bfb3ef8177c424c2a7b9af2bcfd9f3503913cbf1"
-  dependencies:
-    tslib "^1.9.0"
-
 "@angular/language-service@^6.0.6":
   version "6.0.6"
   resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-6.0.6.tgz#270db3e6ff3eda2c1e828af7ea2fe2e16a8e17cb"
@@ -166,12 +148,6 @@
 "@angular/platform-browser@^6.0.6":
   version "6.0.6"
   resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-6.0.6.tgz#004ebc0265c7b472be6868bbd177c85bcf310f97"
-  dependencies:
-    tslib "^1.9.0"
-
-"@angular/router@^6.0.6":
-  version "6.0.6"
-  resolved "https://registry.yarnpkg.com/@angular/router/-/router-6.0.6.tgz#30a2281e88fbdb5b530fe4cd14bb5b18bae96c52"
   dependencies:
     tslib "^1.9.0"
 
