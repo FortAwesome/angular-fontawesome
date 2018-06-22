@@ -35,9 +35,9 @@
   },
   "ngPackage": {
     "lib": {
-      "entryFile": "index.ts",
+      "entryFile": "public_api.ts",
       "flatModuleFile": "angular-fontawesome"
     },
-    "dest": "../dist"
+    "dest": "../../dist"
   }
 }

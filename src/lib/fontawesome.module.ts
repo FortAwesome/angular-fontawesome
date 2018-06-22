@@ -12,13 +12,13 @@ import { FaLayersCounterComponent } from './layers/layers-counter.component';
     FaIconComponent,
     FaLayersComponent,
     FaLayersTextComponent,
-    FaLayersCounterComponent
+    FaLayersCounterComponent,
   ],
   exports: [
     FaIconComponent,
     FaLayersComponent,
     FaLayersTextComponent,
-    FaLayersCounterComponent
+    FaLayersCounterComponent,
   ],
 })
 export class FontAwesomeModule {

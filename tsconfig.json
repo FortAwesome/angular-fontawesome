@@ -1,29 +1,23 @@
 {
-    "angularCompilerOptions": {
-        "strictMetadataEmit": true,
-        "skipTemplateCodegen": true,
-        "fullTemplateTypeCheck": true
-    },
-    "compilerOptions": {
-        "baseUrl": "",
-        "declaration": true,
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "lib": ["es2015", "dom"],
-        "mapRoot": "./",
-        "module": "es2015",
-        "moduleResolution": "node",
-        "outDir": "./dist",
-        "sourceMap": true,
-        "target": "es5",
-        "typeRoots": [
-            "./node_modules/@types"
-        ]
-    },
-    "files": [
-        "./src/index.ts"
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "strictNullChecks": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
     ],
-    "awesomeTypescriptLoaderOptions": {
-        "forkChecker": true
-    }
+    "lib": [
+      "es2017",
+      "dom"
+    ]
+  }
 }

@@ -18,7 +18,7 @@ import { faUser as regularUser, faFlag } from '@fortawesome/free-regular-svg-ico
 import { library } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
-  selector: 'example-root',
+  selector: 'app-root',
   templateUrl: './example.component.html',
   styleUrls: ['./example.component.scss']
 })
