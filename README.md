@@ -8,10 +8,6 @@
 
 > Font Awesome 5 Angular component using SVG with JS
 
-**ALERT:** The `0.1.0` release has a [build error](https://github.com/FortAwesome/angular-fontawesome/issues/57). We're fixing it.
-
-In the meantime, it's best to install the pre-release `0.1.0-10`.
-
 <!-- toc -->
 
 - [Get started](#get-started)
@@ -412,11 +408,12 @@ The following contributors have either hepled to start this project, have contri
 code, are actively maintaining it (including documentation), or in other ways
 being awesome contributors to this project. **We'd like to take a moment to recognize them.**
 
-|                                                       | Name           | GitHub                                   |
-|:-----------------------------------------------------:|:---------------|:-----------------------------------------|
-| <img src="https://github.com/devoto13.png?size=72" /> | Yaroslav Admin | [@devoto13](https://github.com/devoto13) |
-| <img src="https://github.com/zeevkatz.png?size=72" /> | Zeev Katz      | [@zeevkatz](https://github.com/zeevkatz) |
-| <img src="https://github.com/scttcper.png?size=72" /> | Scott Cooper   | [@scttcper](https://github.com/scttcper) |
+|                                                            | Name           | GitHub                                             |
+|:----------------------------------------------------------:|:---------------|:---------------------------------------------------|
+| <img src="https://github.com/devoto13.png?size=72" />      | Yaroslav Admin | [@devoto13](https://github.com/devoto13)           |
+| <img src="https://github.com/zeevkatz.png?size=72" />      | Zeev Katz      | [@zeevkatz](https://github.com/zeevkatz)           |
+| <img src="https://github.com/scttcper.png?size=72" />      | Scott Cooper   | [@scttcper](https://github.com/scttcper)           |
+| <img src="https://github.com/DavidePastore.png?size=72" /> | Davide Pastore | [@DavidePastore](https://github.com/DavidePastore) |
 
 If we've missed someone (which is quite likely) submit a Pull Request to us and we'll get it resolved.
 
@@ -424,19 +421,11 @@ The Font Awesome team:
 
 |                                                            | Name           | GitHub                                             |
 |:----------------------------------------------------------:|:---------------|:---------------------------------------------------|
-|  <img src="https://github.com/mlwilkerson.png?size=72" />  | Mike Wilkerson | [@mlwilkerson](https://github.com/mlwilkerson)     |
+| <img src="https://github.com/mlwilkerson.png?size=72" />   | Mike Wilkerson | [@mlwilkerson](https://github.com/mlwilkerson)     |
 | <img src="https://github.com/supercodepoet.png?size=72" /> | Travis Chase   | [@supercodepoet](https://github.com/supercodepoet) |
-|   <img src="https://github.com/robmadole.png?size=72" />   | Rob Madole     | [@robmadole](https://github.com/robmadole)         |
+| <img src="https://github.com/robmadole.png?size=72" />     | Rob Madole     | [@robmadole](https://github.com/robmadole)         |
+| <img src="https://github.com/talbs.png?size=72" />         | Brian Talbot   | [@talbs](https://github.com/talbs)                 |
 
 ## Releasing this project
 
-General steps:
-
-1. Update `package.json` and `src/package.json` and change `version` and add any contributors
-1. Update the `CHANGELOG.md`
-1. `npm run build`
-1. `cd dist`
-1. `npm publish`
-1. `git add . && git commit -m 'Release VERSION'`
-1. `git push`
-1. Create a [new release](https://github.com/FortAwesome/angular-fontawesome/releases/new) with CHANGELOG details
+See [DEVELOPMENT.md](DEVELOPMENT.md#release)

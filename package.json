@@ -10,9 +10,7 @@
     "start": "ng serve",
     "build:demo": "ng build --prod",
     "prebuild": "rimraf dist",
-    "build": "ts-node ./tasks/build.ts",
-    "tagVersion": "node ./tasks/tag-version",
-    "posttagVersion": "npm run build && npm publish dist"
+    "build": "ts-node ./tasks/build.ts"
   },
   "lint-staged": {
     "README.md": [
@@ -30,7 +28,9 @@
     "Travis Chase <travis@fontawesome.com>",
     "Rob Madole <rob@fontawesome.com>",
     "Zeev Katz <zeevk6@gmail.com>",
-    "Scott Cooper <scttcper@gmail.com>"
+    "Scott Cooper <scttcper@gmail.com>",
+    "Brian Talbot <hi.talbs@gmail.com>",
+    "Davide Pastore <pasdavide@gmail.com>"
   ],
   "license": "MIT",
   "bugs": {
