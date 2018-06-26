@@ -38,9 +38,9 @@ In the meantime, it's best to install the pre-release `0.1.0-10`.
 
 ## Get started
 
-Built with [angular-cli] and conforming to the [Angular Package Format].
+Built with [ng-packagr] and conforming to the [Angular Package Format].
 
-[angular-cli]: https://github.com/angular/angular-cli
+[ng-packagr]: https://github.com/dherges/ng-packagr
 [Angular Package Format]: https://docs.google.com/document/d/1CZC2rcpxffTDfRDs6p1cfbmKNLA6x5O-NtkJglDaBVs/edit?usp=sharing
 
 Hey there! We're glad you're here...
