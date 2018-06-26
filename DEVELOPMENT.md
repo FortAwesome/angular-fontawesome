@@ -2,11 +2,11 @@
 
 ## Tasks
 
-The following commands are available through `yarn run`:
+The following commands are available through `npm run` or `yarn`:
 
 Command     | Purpose
 ---         | ---
-build       | Build library using ng-pakagr
+build       | Build library using ng-packagr
 lint        | Verify code matches linting rules
 start       | Run development server for demo application (uses Angular CLI)
 test        | Execute unit tests
