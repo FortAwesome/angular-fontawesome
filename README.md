@@ -424,19 +424,11 @@ The Font Awesome team:
 
 |                                                            | Name           | GitHub                                             |
 |:----------------------------------------------------------:|:---------------|:---------------------------------------------------|
-|  <img src="https://github.com/mlwilkerson.png?size=72" />  | Mike Wilkerson | [@mlwilkerson](https://github.com/mlwilkerson)     |
+| <img src="https://github.com/mlwilkerson.png?size=72" />   | Mike Wilkerson | [@mlwilkerson](https://github.com/mlwilkerson)     |
 | <img src="https://github.com/supercodepoet.png?size=72" /> | Travis Chase   | [@supercodepoet](https://github.com/supercodepoet) |
-|   <img src="https://github.com/robmadole.png?size=72" />   | Rob Madole     | [@robmadole](https://github.com/robmadole)         |
+| <img src="https://github.com/robmadole.png?size=72" />     | Rob Madole     | [@robmadole](https://github.com/robmadole)         |
+| <img src="https://github.com/talbs.png?size=72" />         | Brian Talbot   | [@talbs](https://github.com/talbs)                 |
 
 ## Releasing this project
 
-General steps:
-
-1. Update `package.json` and `src/package.json` and change `version` and add any contributors
-1. Update the `CHANGELOG.md`
-1. `npm run build`
-1. `cd dist`
-1. `npm publish`
-1. `git add . && git commit -m 'Release VERSION'`
-1. `git push`
-1. Create a [new release](https://github.com/FortAwesome/angular-fontawesome/releases/new) with CHANGELOG details
+See [DEVELOPMENT.md](DEVELOPMENT.md#release)

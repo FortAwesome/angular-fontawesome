@@ -11,11 +11,14 @@ lint        | Verify code matches linting rules
 start       | Run development server for demo application (uses Angular CLI)
 test        | Execute unit tests
 
-## Publishing
+## Release this project
+<a name="release"></a>
 
-1. Set desired version in `package.json` and `src/lib/package.json`
-1. `yarn build` - build project
-1. Update CHANGELOG.md file
-1. `git commit -a -m "Bump version"` - commit version bump and changelog
-1. `cd dist && yarn publish` - publish to NPM
+1. Update `package.json` and `src/lib/package.json` and change `version` and add any contributors
+1. Update the `CHANGELOG.md`
+1. `npm run build`
+1. `cd dist`
+1. `npm publish`
+1. `git commit -a -m 'Release VERSION'`
 1. `git tag <version> && git push && git push --tags` - create a tag and push all changes to GitHub
+1. Create a [new release](https://github.com/FortAwesome/angular-fontawesome/releases/new) with CHANGELOG details
