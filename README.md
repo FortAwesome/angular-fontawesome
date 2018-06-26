@@ -50,7 +50,7 @@ Hey there! We're glad you're here...
 If you've used Font Awesome in the past (version 4 or older) there are some
 things that you should learn before you dive in.
 
-> https://fontawesome.com/how-to-use/upgrading-from-4
+> https://fontawesome.com/how-to-use/on-the-web/setup/upgrading-from-version-4
 
 ### Is this the package for you?
 
@@ -58,7 +58,7 @@ This package is for integrating with Angular (not AngularJS). If you aren't
 using Angular then it's not going to help you. Head over to our "Get Started"
 page for some guidance.
 
-> https://fontawesome.com/get-started
+> https://fontawesome.com/how-to-use/on-the-web/setup/getting-started
 
 ### Learn about our new SVG implementation
 
@@ -67,7 +67,7 @@ This package, under the hood, uses SVG with JS and the
 drastically from the web fonts implementation that was used in version 4 and
 older of Font Awesome. You might head over there to learn about how it works.
 
-> https://fontawesome.com/how-to-use/svg-with-js
+> https://fontawesome.com/how-to-use/on-the-web/advanced/svg-javascript-core
 
 ### Going from an older pre-release version?
 
@@ -103,7 +103,7 @@ $ yarn add @fortawesome/pro-regular-svg-icons
 $ yarn add @fortawesome/pro-light-svg-icons
 ```
 
-Using the Pro packages requires [additional configuration](https://fontawesome.com/how-to-use/js-component-packages).
+Using the Pro packages requires [additional configuration](https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers).
 
 ## Usage
 
@@ -272,27 +272,30 @@ library.add(faArrowAltRight);
 
 ## Features
 
-The following features are available as [part of Font Awesome](https://fontawesome.com/how-to-use/svg-with-js).
+The following features are available as part of Font Awesome. Note that the syntax is different from our general web-use documentation.
 
 ### Basic
 
-Spin and pulse animation:
+[Size](https://fontawesome.com/how-to-use/on-the-web/styling/sizing-icons):
 
 ```html
-<fa-icon [icon]="['fas', 'spinner']" [spin]="true"></fa-icon>
-<fa-icon [icon]="['fas', 'spinner']" [pulse]="true"></fa-icon>
+<fa-icon [icon]="['fas', 'coffee']" size="xs"></fa-icon>
+<fa-icon [icon]="['fas', 'coffee']" size="lg"></fa-icon>
+<fa-icon [icon]="['fas', 'coffee']" size="6x"></fa-icon>
 ```
 
-Fixed width:
+[Fixed width](https://fontawesome.com/how-to-use/on-the-web/styling/fixed-width-icons):
 
 ```html
 <fa-icon [icon]="['fas', 'coffee']" [fixedWidth]="true"></fa-icon>
 ```
 
-Border:
+[Rotate](https://fontawesome.com/how-to-use/on-the-web/styling/rotating-icons):
 
 ```html
-<fa-icon [icon]="['fas', 'coffee']" [border]="true"></fa-icon>
+<fa-icon [icon]="['fas', 'coffee']" rotate="90"></fa-icon>
+<fa-icon [icon]="['fas', 'coffee']" rotate="180"></fa-icon>
+<fa-icon [icon]="['fas', 'coffee']" rotate="270"></fa-icon>
 ```
 
 Flip horizontally, vertically, or both:
@@ -303,23 +306,20 @@ Flip horizontally, vertically, or both:
 <fa-icon [icon]="['fas', 'coffee']" flip="both"></fa-icon>
 ```
 
-Size:
+Spin and pulse [animation](https://fontawesome.com/how-to-use/on-the-web/styling/animating-icons):
 
 ```html
-<fa-icon [icon]="['fas', 'coffee']" size="xs"></fa-icon>
-<fa-icon [icon]="['fas', 'coffee']" size="lg"></fa-icon>
-<fa-icon [icon]="['fas', 'coffee']" size="6x"></fa-icon>
+<fa-icon [icon]="['fas', 'spinner']" [spin]="true"></fa-icon>
+<fa-icon [icon]="['fas', 'spinner']" [pulse]="true"></fa-icon>
 ```
 
-Rotate:
+[Border](https://fontawesome.com/how-to-use/on-the-web/styling/bordered-pulled-icons):
 
 ```html
-<fa-icon [icon]="['fas', 'coffee']" rotate="90"></fa-icon>
-<fa-icon [icon]="['fas', 'coffee']" rotate="180"></fa-icon>
-<fa-icon [icon]="['fas', 'coffee']" rotate="270"></fa-icon>
+<fa-icon [icon]="['fas', 'coffee']" [border]="true"></fa-icon>
 ```
 
-Pull left or right:
+[Pull left or right](https://fontawesome.com/how-to-use/on-the-web/styling/bordered-pulled-icons):
 
 ```html
 <fa-icon [icon]="['fas', 'coffee']" pull="left"></fa-icon>
@@ -328,8 +328,7 @@ Pull left or right:
 
 ### Advanced Usage
 
-With Mask and Transform:
-
+With [Mask](https://fontawesome.com/how-to-use/on-the-web/styling/masking) and [Transform](https://fontawesome.com/how-to-use/on-the-web/styling/power-transforms):
 
 ```html
 <fa-icon [icon]="['fas', 'coffee']" transform="shrink-9 right-4" [mask]="['fas', 'square']"></fa-icon>
@@ -349,7 +348,7 @@ Transform within binding:
 ```
 (Slide input range to "turn up the magic")
 
-Layers:
+[Layers](https://fontawesome.com/how-to-use/on-the-web/styling/layering):
 
 ```html
 <fa-layers class="fa-fw">
@@ -358,7 +357,7 @@ Layers:
 </fa-layers>
 ```
 
-Layers text:
+[Layers text](https://fontawesome.com/how-to-use/on-the-web/styling/layering):
 
 ```html
 <fa-layers class="fa-fw">
@@ -367,7 +366,7 @@ Layers text:
 </fa-layers>
 ```
 
-Layers counters:
+[Layers counters](https://fontawesome.com/how-to-use/on-the-web/styling/layering):
 
 ```html
 <fa-layers class="fa-fw">
@@ -413,21 +412,21 @@ The following contributors have either hepled to start this project, have contri
 code, are actively maintaining it (including documentation), or in other ways
 being awesome contributors to this project. **We'd like to take a moment to recognize them.**
 
-|                                                            | Name           | GitHub                                             |
-| :--------------------------------------------------------: | -------------- | -------------------------------------------------- |
-| <img src="https://github.com/devoto13.png?size=72" />      | Yaroslav Admin | [@devoto13](https://github.com/devoto13)           |
-| <img src="https://github.com/zeevkatz.png?size=72" />      | Zeev Katz      | [@zeevkatz](https://github.com/zeevkatz)           |
-| <img src="https://github.com/scttcper.png?size=72" />      | Scott Cooper   | [@scttcper](https://github.com/scttcper)           |
+|                                                       | Name           | GitHub                                   |
+|:-----------------------------------------------------:|:---------------|:-----------------------------------------|
+| <img src="https://github.com/devoto13.png?size=72" /> | Yaroslav Admin | [@devoto13](https://github.com/devoto13) |
+| <img src="https://github.com/zeevkatz.png?size=72" /> | Zeev Katz      | [@zeevkatz](https://github.com/zeevkatz) |
+| <img src="https://github.com/scttcper.png?size=72" /> | Scott Cooper   | [@scttcper](https://github.com/scttcper) |
 
 If we've missed someone (which is quite likely) submit a Pull Request to us and we'll get it resolved.
 
 The Font Awesome team:
 
 |                                                            | Name           | GitHub                                             |
-| :--------------------------------------------------------: | -------------- | -------------------------------------------------- |
-| <img src="https://github.com/mlwilkerson.png?size=72" />   | Mike Wilkerson | [@mlwilkerson](https://github.com/mlwilkerson)     |
+|:----------------------------------------------------------:|:---------------|:---------------------------------------------------|
+|  <img src="https://github.com/mlwilkerson.png?size=72" />  | Mike Wilkerson | [@mlwilkerson](https://github.com/mlwilkerson)     |
 | <img src="https://github.com/supercodepoet.png?size=72" /> | Travis Chase   | [@supercodepoet](https://github.com/supercodepoet) |
-| <img src="https://github.com/robmadole.png?size=72" />     | Rob Madole     | [@robmadole](https://github.com/robmadole)         |
+|   <img src="https://github.com/robmadole.png?size=72" />   | Rob Madole     | [@robmadole](https://github.com/robmadole)         |
 
 ## Releasing this project
 
