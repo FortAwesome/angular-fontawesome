@@ -408,11 +408,12 @@ The following contributors have either hepled to start this project, have contri
 code, are actively maintaining it (including documentation), or in other ways
 being awesome contributors to this project. **We'd like to take a moment to recognize them.**
 
-|                                                       | Name           | GitHub                                   |
-|:-----------------------------------------------------:|:---------------|:-----------------------------------------|
-| <img src="https://github.com/devoto13.png?size=72" /> | Yaroslav Admin | [@devoto13](https://github.com/devoto13) |
-| <img src="https://github.com/zeevkatz.png?size=72" /> | Zeev Katz      | [@zeevkatz](https://github.com/zeevkatz) |
-| <img src="https://github.com/scttcper.png?size=72" /> | Scott Cooper   | [@scttcper](https://github.com/scttcper) |
+|                                                            | Name           | GitHub                                             |
+|:----------------------------------------------------------:|:---------------|:---------------------------------------------------|
+| <img src="https://github.com/devoto13.png?size=72" />      | Yaroslav Admin | [@devoto13](https://github.com/devoto13)           |
+| <img src="https://github.com/zeevkatz.png?size=72" />      | Zeev Katz      | [@zeevkatz](https://github.com/zeevkatz)           |
+| <img src="https://github.com/scttcper.png?size=72" />      | Scott Cooper   | [@scttcper](https://github.com/scttcper)           |
+| <img src="https://github.com/DavidePastore.png?size=72" /> | Davide Pastore | [@DavidePastore](https://github.com/DavidePastore) |
 
 If we've missed someone (which is quite likely) submit a Pull Request to us and we'll get it resolved.
 
