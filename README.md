@@ -169,6 +169,8 @@ The icon library provides convenient usage in your templates but you have to man
 the icons separate from your components. This means that if someone
 accidentally removes the icon from the icon library your component which uses it could break.
 
+Icons can be defined once in `app.module` with `library.add()`. Icons defined here will be available to any other component who's parent module also imports `FontAwesomeModule`. This eliminates the need to redefine or explicitly import icons into individual components across multiple modules, lazy-loaded or not.
+
 `src/app/app.component.html`
 
 ```html
