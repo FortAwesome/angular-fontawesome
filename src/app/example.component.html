@@ -48,6 +48,17 @@
     <fa-layers-text title="Fort Awesome" [content]="'Fa'" transform="up-4" [styles]="{'font-size': '0.3em'}"></fa-layers-text>
   </fa-layers>
 </div>
+<p>Increase the size of the layers container.</p>
+<div class="fa-4x">
+  <fa-layers [ngClass]="['fa-fw']" size="2x">
+    <fa-icon [icon]="faCircle" [styles]="{color: 'Tomato'}"></fa-icon>
+    <fa-icon [icon]="faTimes" [inverse]="true" transform="shrink-6"></fa-icon>
+  </fa-layers>
+  <fa-layers [ngClass]="['fa-fw']" size="4x" [fixedWidth]="true">
+    <fa-icon [icon]="faCircle" [styles]="{color: 'Tomato'}"></fa-icon>
+    <fa-icon [icon]="faTimes" [inverse]="true" transform="shrink-6"></fa-icon>
+  </fa-layers>
+</div>
 <p>Slide and increase the number.</p>
 <input type='range'
        [min]="1000"
