@@ -1,7 +1,7 @@
 import { Component, Input, SimpleChanges, OnChanges, OnInit, HostBinding } from '@angular/core';
 import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 import { faLayerClassList } from '../shared/utils/classlist.util';
-import { FaProps } from '../public_api';
+import { FaProps } from '../shared/models/props.model';
 
 /**
  * Fontawesome layers.
