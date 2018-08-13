@@ -26,15 +26,15 @@
 <h3>Layers</h3>
 <p>Custom icons created with multiple layers.</p>
 <div class="fa-4x">
-  <fa-layers [ngClass]="['fa-fw']">
+  <fa-layers [fixedWidth]="true">
     <fa-icon [icon]="faCircle" [styles]="{color: 'Tomato'}"></fa-icon>
     <fa-icon [icon]="faTimes" [inverse]="true" transform="shrink-6"></fa-icon>
   </fa-layers>
-  <fa-layers [ngClass]="['fa-fw']">
+  <fa-layers [fixedWidth]="true">
     <fa-icon [icon]="faMobile"></fa-icon>
     <fa-icon [icon]="faBatteryQuarter" transform="shrink-11 up-1.5" [styles]="{color: 'Tomato'}"></fa-icon>
   </fa-layers>
-  <fa-layers [ngClass]="['fa-fw']">
+  <fa-layers [fixedWidth]="true">
     <fa-icon [icon]="faFighterJet"></fa-icon>
     <fa-icon [icon]="faCircle" [inverse]="true" transform="shrink-13.8 right-1.8"></fa-icon>
     <fa-icon [icon]="faEllipsisH" transform="shrink-13 up-6.8 right-2"></fa-icon>
@@ -43,18 +43,18 @@
 </div>
 <p>Using text as one of the layers.</p>
 <div class="fa-4x">
-  <fa-layers [ngClass]="['fa-fw']">
+  <fa-layers [fixedWidth]="true">
     <fa-icon [icon]="faFlag"></fa-icon>
     <fa-layers-text title="Fort Awesome" [content]="'Fa'" transform="up-4" [styles]="{'font-size': '0.3em'}"></fa-layers-text>
   </fa-layers>
 </div>
 <p>Increase the size of the layers container.</p>
 <div class="fa-4x">
-  <fa-layers [ngClass]="['fa-fw']" size="2x">
+  <fa-layers [fixedWidth]="true" size="2x">
     <fa-icon [icon]="faCircle" [styles]="{color: 'Tomato'}"></fa-icon>
     <fa-icon [icon]="faTimes" [inverse]="true" transform="shrink-6"></fa-icon>
   </fa-layers>
-  <fa-layers [ngClass]="['fa-fw']" size="4x" [fixedWidth]="true">
+  <fa-layers [fixedWidth]="true" size="4x">
     <fa-icon [icon]="faCircle" [styles]="{color: 'Tomato'}"></fa-icon>
     <fa-icon [icon]="faTimes" [inverse]="true" transform="shrink-6"></fa-icon>
   </fa-layers>
@@ -66,7 +66,7 @@
        [value]="notificationsCounter"
        (input)="notificationsCounter = $event.target.value"/>
 <div class="fa-3x">
-  <fa-layers [ngClass]="['fa-fw']">
+  <fa-layers [fixedWidth]="true">
     <fa-icon [icon]="faBell"></fa-icon>
     <fa-layers-counter [content]="notificationsCounter | number" title="Unread Messages"></fa-layers-counter>
   </fa-layers>
