@@ -54,8 +54,8 @@
        [max]="2000"
        [value]="notificationsCounter"
        (input)="notificationsCounter = $event.target.value"/>
-<div class="fa-3x">
-  <fa-layers [fixedWidth]="true">
+<div>
+  <fa-layers [fixedWidth]="true" size="3x">
     <fa-icon [icon]="faBell"></fa-icon>
     <fa-layers-counter [content]="notificationsCounter | number" title="Unread Messages"></fa-layers-counter>
   </fa-layers>
