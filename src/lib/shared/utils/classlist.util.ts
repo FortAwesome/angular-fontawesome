@@ -24,3 +24,14 @@ export const faClassList = (props: FaProps): string[] => {
     .map(key => (classes[key] ? key : null))
     .filter(key => key);
 };
+
+export const faLayerClassList = (props: FaProps): string[] => {
+  const classes = {
+    'fa-fw': props.fixedWidth,
+    [`fa-${props.size}`]: props.size !== null,
+  };
+
+  return Object.keys(classes)
+    .map(key => (classes[key] ? key : null))
+    .filter(key => key);
+};
