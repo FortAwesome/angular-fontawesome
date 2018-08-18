@@ -21,9 +21,10 @@
   * [Explicit reference](#explicit-reference)
   * [Using the Icon Library](#using-the-icon-library)
   * [Using other styles](#using-other-styles)
+  * [Changing the default prefix](#Changing-the-Default-Prefix)
 - [Features](#features)
   * [Basic](#basic)
-  * [Advanced Usage](#advanced-usage)
+  * [Advanced usage](#advanced-usage)
 - [Examples](#examples)
 - [Tree Shaking](#tree-shaking)
 - [How to Help](#how-to-help)
@@ -320,6 +321,22 @@ Spin and pulse [animation](https://fontawesome.com/how-to-use/on-the-web/styling
 ```html
 <fa-icon [icon]="['fas', 'coffee']" pull="left"></fa-icon>
 <fa-icon [icon]="['fas', 'coffee']" pull="right"></fa-icon>
+```
+
+### Changing the default prefix
+
+The default prefix, `fas`, can be adjusted by injecting the `FaIconService` and modifying the `defaultPrefix` property.
+
+```typescript
+import { FaIconService } from '../lib/public_api';
+
+export class AppComponent {
+
+  constructor(private faIconService: FaIconService) {
+      this.faIconService.defaultPrefix = 'far';
+  }
+
+}
 ```
 
 ### Advanced Usage

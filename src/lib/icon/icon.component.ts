@@ -29,6 +29,7 @@ import { faClassList } from '../shared/utils/classlist.util';
 import { faWarnIfIconHtmlMissing } from '../shared/errors/warn-if-icon-html-missing';
 import { faWarnIfIconSpecMissing } from '../shared/errors/warn-if-icon-spec-missing';
 import { faNotFoundIconHtml } from '../shared/errors/not-found-icon-html';
+import { FaIconService } from './icon.service';
 
 /**
  * Fontawesome icon.
@@ -65,7 +66,7 @@ export class FaIconComponent implements OnChanges {
   @HostBinding('innerHTML')
   public renderedIconHTML: SafeHtml;
 
-  constructor(private sanitizer: DomSanitizer) {}
+  constructor(private sanitizer: DomSanitizer, private iconService: FaIconService) {}
 
   private params: IconParams;
   private iconSpec: IconLookup;
@@ -83,7 +84,7 @@ export class FaIconComponent implements OnChanges {
    * Updating icon spec.
    */
   private updateIconSpec() {
-    this.iconSpec = faNormalizeIconSpec(this.iconProp);
+    this.iconSpec = faNormalizeIconSpec(this.iconProp, this.iconService.defaultPrefix);
   }
 
   /**
@@ -104,7 +105,7 @@ export class FaIconComponent implements OnChanges {
     };
 
     const classes = objectWithKey('classes', [...faClassList(classOpts), ...this.classes]);
-    const mask = objectWithKey('mask', faNormalizeIconSpec(this.mask));
+    const mask = objectWithKey('mask', faNormalizeIconSpec(this.mask, this.iconService.defaultPrefix));
     const parsedTransform = typeof this.transform === 'string' ? parse.transform(this.transform) : this.transform;
     const transform = objectWithKey('transform', parsedTransform);
 
