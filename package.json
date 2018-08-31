@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "test": "ng test --watch=false --browsers=ChromeCI",
-    "lint": "ng lint angular-fontawesome --type-check --format stylish",
+    "lint": "ng lint",
     "precommit": "npm run lint && lint-staged",
     "start": "ng serve",
     "build:demo": "ng build --prod",
