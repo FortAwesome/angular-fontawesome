@@ -32,8 +32,8 @@
   ],
   "peerDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.0",
-    "@angular/common": "^5.0.0 || ^6.0.0",
-    "@angular/core": "^5.0.0 || ^6.0.0"
+    "@angular/common": "^6.0.0",
+    "@angular/core": "^6.0.0"
   },
   "ngPackage": {
     "lib": {
