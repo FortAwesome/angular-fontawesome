@@ -328,7 +328,7 @@ Spin and pulse [animation](https://fontawesome.com/how-to-use/on-the-web/styling
 The default prefix, `fas`, can be adjusted by injecting the `FaIconService` and modifying the `defaultPrefix` property.
 
 ```typescript
-import { FaIconService } from '../lib/public_api';
+import { FaIconService } from '@fortawesome/angular-fontawesome';
 
 export class AppComponent {
 
