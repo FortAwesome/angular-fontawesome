@@ -366,7 +366,7 @@ Transform within binding:
 [Layers](https://fontawesome.com/how-to-use/on-the-web/styling/layering):
 
 ```html
-<fa-layers class="fa-fw">
+<fa-layers [fixedWidth]="true">
   <fa-icon [icon]="['fas', 'square']"></fa-icon>
   <fa-icon [inverse]="true" [icon]="['fas', 'spinner']" transform="shrink-6"></fa-icon>
 </fa-layers>
@@ -375,7 +375,7 @@ Transform within binding:
 [Layers text](https://fontawesome.com/how-to-use/on-the-web/styling/layering):
 
 ```html
-<fa-layers class="fa-fw">
+<fa-layers [fixedWidth]="true">
   <fa-icon [icon]="['fas', 'square']"></fa-icon>
   <fa-layers-text content="Yo" style="color: white;" transform="shrink-4"></fa-layers-text>
 </fa-layers>
@@ -384,7 +384,7 @@ Transform within binding:
 [Layers counters](https://fontawesome.com/how-to-use/on-the-web/styling/layering):
 
 ```html
-<fa-layers class="fa-fw">
+<fa-layers [fixedWidth]="true">
   <fa-icon [icon]="['fas', 'envelope']"></fa-icon>
   <fa-layers-counter content="99+"></fa-layers-counter>
 </fa-layers>
