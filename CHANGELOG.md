@@ -5,6 +5,31 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.2.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.2.0) - 2018-09-07
+
+### Added
+
+* Added `size` and `fixedWidth` properties for `fa-layers` component. These can be used instead of setting `fa-fw` and `fa-4x` classes manually.
+
+    Before:
+    
+      <span class="fa-fw fa-4x"><fa-layers>...</fa-layers></span>
+    
+    After:
+    
+      <fa-layers [fixedWidth]="true" size="4x">...</fa-layers>
+        
+* Added possibility to customize [default icon prefix](https://github.com/FortAwesome/angular-fontawesome#changing-the-default-prefix).
+
+### Removed
+
+* Support for Angular 5 was removed. Now `angular-fontawesome` requires Angular 6+.
+
+### Fixed
+
+* Added missing peer dependencies for `tsickle` and `tslib` packages.
+
+
 ## [0.1.1](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.1.1) - 2018-06-26
 
 ### Changed
