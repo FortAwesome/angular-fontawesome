@@ -21,7 +21,7 @@
   * [Explicit reference](#explicit-reference)
   * [Using the Icon Library](#using-the-icon-library)
   * [Using other styles](#using-other-styles)
-  * [Changing the default prefix](#Changing-the-Default-Prefix)
+  * [Changing the default prefix](#changing-the-default-prefix)
 - [Features](#features)
   * [Basic](#basic)
   * [Advanced usage](#advanced-usage)
