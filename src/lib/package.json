@@ -1,7 +1,7 @@
 {
   "$schema": "../node_modules/ng-packagr/package.schema.json",
   "name": "@fortawesome/angular-fontawesome",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Angular Fontawesome, an Angular library",
   "repository": {
     "type": "git",
@@ -15,7 +15,9 @@
     "Zeev Katz <zeevk6@gmail.com>",
     "Scott Cooper <scttcper@gmail.com>",
     "Brian Talbot <hi.talbs@gmail.com>",
-    "Davide Pastore <pasdavide@gmail.com>"
+    "Davide Pastore <pasdavide@gmail.com>",
+    "donmckenna <don@mothhead.com>",
+    "Austin Turner <paustint@gmail.com>"
   ],
   "license": "MIT",
   "bugs": {
