@@ -82,7 +82,6 @@ describe('FaLayersCompoennt', () => {
     expect(queryByCss(fixture, '.fa-fw')).toBeTruthy();
   });
 
-
   it('should not include fixed width', () => {
     @Component({
       selector: 'fa-host',
@@ -100,6 +99,35 @@ describe('FaLayersCompoennt', () => {
     const fixture = initTest(HostComponent);
     fixture.detectChanges();
     expect(queryByCss(fixture, '.fa-fw')).toBeFalsy();
+  });
+
+  it('should allow setting custom class on the host element', () => {
+    @Component({
+      selector: 'fa-host',
+      template: `
+        <fa-layers class="custom-class" [fixedWidth]="fixedWidth" [size]="size"></fa-layers>
+        <fa-layers [class.custom-class]="true" [fixedWidth]="fixedWidth" [size]="size"></fa-layers>
+        <fa-layers [ngClass]="{'custom-class': true}" [fixedWidth]="fixedWidth" [size]="size"></fa-layers>
+        <fa-layers [fixedWidth]="fixedWidth" [size]="size" class="custom-class"></fa-layers>
+        <fa-layers [fixedWidth]="fixedWidth" [size]="size" [class.custom-class]="true"></fa-layers>
+        <fa-layers [fixedWidth]="fixedWidth" [size]="size" [ngClass]="{'custom-class': true}"></fa-layers>
+      `
+    })
+    class HostComponent {
+      fixedWidth = true;
+      size = '4x';
+    }
+
+    const fixture = initTest(HostComponent);
+
+    fixture.detectChanges();
+    const elements = fixture.debugElement.queryAll(By.css('fa-layers'));
+    for (const element of elements) {
+      expect(element.nativeElement.className).toContain('custom-class');
+      expect(element.nativeElement.className).toContain('fa-layers');
+      expect(element.nativeElement.className).toContain('fa-fw');
+      expect(element.nativeElement.className).toContain('fa-4x');
+    }
   });
 });
 
