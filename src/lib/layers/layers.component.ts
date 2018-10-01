@@ -1,7 +1,5 @@
-import { Component, Input, SimpleChanges, OnChanges, OnInit, HostBinding } from '@angular/core';
+import { Component, ElementRef, HostBinding, Input, OnChanges, OnInit, Renderer2, SimpleChanges } from '@angular/core';
 import { SizeProp } from '@fortawesome/fontawesome-svg-core';
-import { faLayerClassList } from '../shared/utils/classlist.util';
-import { FaProps } from '../shared/models/props.model';
 
 /**
  * Fontawesome layers.
@@ -12,27 +10,29 @@ import { FaProps } from '../shared/models/props.model';
 })
 export class FaLayersComponent implements OnInit, OnChanges {
   @Input() size?: SizeProp;
-  @Input() fixedWidth?: boolean;
 
-  @HostBinding('class')
-  hostClass = 'fa-layers';
+  @Input()
+  @HostBinding('class.fa-fw')
+  fixedWidth?: boolean;
+
+  constructor(
+    private renderer: Renderer2,
+    private elementRef: ElementRef,
+  ) {
+  }
 
   ngOnInit() {
-    this.updateClasses();
+    this.renderer.addClass(this.elementRef.nativeElement, 'fa-layers');
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes) {
-      this.updateClasses();
+    if ('size' in changes) {
+      if (changes.size.currentValue != null) {
+        this.renderer.addClass(this.elementRef.nativeElement, `fa-${changes.size.currentValue}`);
+      }
+      if (changes.size.previousValue != null) {
+        this.renderer.removeClass(this.elementRef.nativeElement, `fa-${changes.size.previousValue}`);
+      }
     }
   }
-
-  updateClasses() {
-    const classOpts: FaProps = {
-      size: this.size || null,
-      fixedWidth: this.fixedWidth,
-    };
-    this.hostClass = `fa-layers ${faLayerClassList(classOpts).join(' ')}`;
-  }
-
 }
