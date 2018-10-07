@@ -1,6 +1,6 @@
 {
   "name": "@fortawesome/angular-fontawesome",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Angular Fontawesome, an Angular library",
   "private": true,
   "scripts": {

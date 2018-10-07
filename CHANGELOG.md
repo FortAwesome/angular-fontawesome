@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.2.1](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.2.0) - 2018-10-08
+
+### Fixed
+
+* Made it possible to set custom classes on `fa-layers` component. 
+
 ## [0.2.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.2.0) - 2018-09-07
 
 ### Added
