@@ -435,6 +435,7 @@ being awesome contributors to this project. **We'd like to take a moment to reco
 | <img src="https://github.com/DavidePastore.png?size=72" /> | Davide Pastore | [@DavidePastore](https://github.com/DavidePastore) |
 | <img src="https://github.com/donmckenna.png?size=72" /> | donmckenna | [@donmckenna](https://github.com/donmckenna) |
 | <img src="https://github.com/paustint.png?size=72" /> | Austin Turner | [@paustint](https://github.com/paustint) |
+| <img src="https://github.com/mzellho.png?size=72" /> | Maximilian Zellhofer | [@mzellho](https://github.com/mzellho) |
 
 If we've missed someone (which is quite likely) submit a Pull Request to us and we'll get it resolved.
 
