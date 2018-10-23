@@ -5,7 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
-## [0.2.1](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.2.0) - 2018-10-08
+## [0.3.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.3.0) - 2018-10-24
+
+### Added
+
+* Angular 7+ is added as a valid peer dependency.
+
+## [0.2.1](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.2.1) - 2018-10-08
 
 ### Fixed
 

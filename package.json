@@ -1,6 +1,6 @@
 {
   "name": "@fortawesome/angular-fontawesome",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Angular Fontawesome, an Angular library",
   "private": true,
   "scripts": {
@@ -32,7 +32,8 @@
     "Brian Talbot <hi.talbs@gmail.com>",
     "Davide Pastore <pasdavide@gmail.com>",
     "donmckenna <don@mothhead.com>",
-    "Austin Turner <paustint@gmail.com>"
+    "Austin Turner <paustint@gmail.com>",
+    "Maximilian Zellhofer <max.zellhofer@gmail.com>"
   ],
   "license": "MIT",
   "bugs": {
