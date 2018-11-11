@@ -1,13 +1,12 @@
-import { Injectable, Input } from '@angular/core';
+import { Input } from '@angular/core';
 import { icon, IconPrefix, IconName } from '@fortawesome/fontawesome-svg-core';
 
-import { FaIconComponent } from '../icon.component';
+import { FaIconBaseComponent } from '../icon-base.component';
 
 /**
  * Fontawesome prefix icon base.
  */
-@Injectable()
-export abstract class FaPrefixIconBaseComponent extends FaIconComponent {
+export abstract class FaPrefixIconBaseComponent extends FaIconBaseComponent {
   /**
    * Icon prefix.
    */
@@ -15,7 +14,7 @@ export abstract class FaPrefixIconBaseComponent extends FaIconComponent {
 
   /**
    * Overrides the icon input with the defined icon prefix and provided icon name.
-   * @param {IconName} iconName
+   * @param iconName
    */
   // tslint:disable-next-line:no-input-rename
   @Input('icon')

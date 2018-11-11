@@ -1,6 +1,10 @@
 export { FontAwesomeModule } from './fontawesome.module';
 export { FaProps } from './shared/models/props.model';
 export { FaIconComponent } from './icon/icon.component';
+export { FaFalIconComponent } from './icon/prefix-icon/fal-icon.component';
+export { FaFarIconComponent } from './icon/prefix-icon/far-icon.component';
+export { FaFasIconComponent } from './icon/prefix-icon/fas-icon.component';
+export { FaFabIconComponent } from './icon/prefix-icon/fab-icon.component';
 export { FaIconService } from './icon/icon.service';
 export { FaLayersComponent } from './layers/layers.component';
 export { FaLayersTextComponent } from './layers/layers-text.component';
