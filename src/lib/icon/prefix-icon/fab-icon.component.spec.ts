@@ -1,9 +1,21 @@
 import { Component, Type } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { library, IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 import { FaFabIconComponent } from './fab-icon.component';
+
+// Mock definition for fab-google icon.
+const fabMockGoogle: IconDefinition = {
+  prefix: 'fab',
+  iconName: 'google',
+  icon: [
+    640,
+    512,
+    [],
+    'f0f4',
+    'M0.5 0.5 L87.5 0.5'
+  ]
+};
 
 function initTest<T>(component: Type<T>): ComponentFixture<T> {
   TestBed.configureTestingModule({
@@ -18,7 +30,7 @@ function svgIcon(fixture: ComponentFixture<any>): SVGElement {
 
 describe('FaFabIconComponent', () => {
   beforeEach(() => {
-    library.add(faGoogle);
+    library.add(fabMockGoogle);
   });
 
   it('should render SVG icon', () => {
