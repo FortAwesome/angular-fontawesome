@@ -200,9 +200,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
-// Add an icon to the library for convenient access in other components
-library.add(faCoffee);
-
 @NgModule({
   declarations: [
     AppComponent
@@ -214,7 +211,12 @@ library.add(faCoffee);
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor() {
+    // Add an icon to the library for convenient access in other components
+    library.add(faCoffee);
+  }
+}
 ```
 
 You can also import entire icon styles. But be careful! Whatever you import
