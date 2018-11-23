@@ -42,6 +42,10 @@ Built with [ng-packagr] and conforming to the [Angular Package Format].
 
 Hey there! We're glad you're here...
 
+### StackBlitz Starter Sample 🚀
+
+Here's a [StackBlitz Starter Sample](https://stackblitz.com/edit/angular-font-awesome-starter?file=src%2Fapp%2Fapp.module.ts) on how to use Solid, Regular, and Brand Icons.
+
 ### Upgrading Font Awesome?
 
 If you've used Font Awesome in the past (version 4 or older) there are some
