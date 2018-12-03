@@ -44,7 +44,7 @@ Hey there! We're glad you're here...
 
 ### StackBlitz Starter Sample 🚀
 
-Here's a [StackBlitz Starter Sample](https://stackblitz.com/edit/angular-font-awesome-starter?file=src%2Fapp%2Fapp.module.ts) on how to use Solid, Regular, and Brand Icons.
+Here's a [StackBlitz Starter Sample](https://stackblitz.com/edit/angular-font-awesome-starter?file=src%2Fapp%2Fapp.module.ts) on how to display Solid, Regular, and Brand icons [using the Icon Library](https://github.com/FortAwesome/angular-fontawesome#using-the-icon-library).
 
 ### Upgrading Font Awesome?
 
