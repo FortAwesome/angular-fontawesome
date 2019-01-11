@@ -39,7 +39,8 @@ import { FaIconService } from './icon.service';
   template: ``,
   host: {
     class: 'ng-fa-icon',
-  }
+  },
+  encapsulation: ViewEncapsulation.None
 })
 export class FaIconComponent implements OnChanges {
   // tslint:disable-next-line:no-input-rename
