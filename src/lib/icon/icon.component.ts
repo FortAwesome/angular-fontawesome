@@ -3,7 +3,8 @@ import {
   OnChanges,
   Component,
   HostBinding,
-  SimpleChanges
+  SimpleChanges,
+  ViewEncapsulation
 } from '@angular/core';
 import {
   icon,
