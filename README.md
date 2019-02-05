@@ -10,11 +10,20 @@ Official Angular component for Font Awesome 5
 
 ## Installation
 
+<!-- TODO: uncomment for the next release and mention in Compatibility table
+Using `ng add`:
+
+```
+# See Compatibility table below to choose a correct version
+$ ng add @fortawesome/angular-fontawesome@<version>
+```
+-->
+
 Using [Yarn](https://yarnpkg.com)
 ```
 $ yarn add @fortawesome/fontawesome-svg-core
 $ yarn add @fortawesome/free-solid-svg-icons
-# See Compatibility table below to choose correct version
+# See Compatibility table below to choose a correct version
 $ yarn add @fortawesome/angular-fontawesome@<version>
 ```
 
@@ -22,7 +31,7 @@ Using [NPM](https://www.npmjs.com/)
 ```
 $ npm install @fortawesome/fontawesome-svg-core
 $ npm install @fortawesome/free-solid-svg-icons
-# See Compatibility table below to choose correct version
+# See Compatibility table below to choose a correct version
 $ npm install @fortawesome/angular-fontawesome@<version>
 ```
 
