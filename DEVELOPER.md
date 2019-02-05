@@ -29,12 +29,15 @@ Command     | Purpose
 ---         | ---
 `yarn lint`        | Verify code style
 `yarn test`        | Execute unit tests
+`yarn test:schematics`        | Execute unit tests for schematics
 `yarn start`       | Run development server for the demo application
 `yarn build`       | Build library
+`yarn build:schematics`       | Build schematics (should be run after the library build)
 
 ## Releasing
 
 1. Bump version in `package.json`
+1. Update versions in `projects/schematics/src/ng-add/versions.ts` to align with the published release.
 1. Add contributors to `package.json` and `README.md`
 1. Update Compatibility table in `README.md`
 1. Update the `CHANGELOG.md`

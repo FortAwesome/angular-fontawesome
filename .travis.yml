@@ -8,4 +8,6 @@ install:
 script:
   - yarn lint
   - yarn test
+  - yarn test:schematics
   - yarn build
+  - yarn build:schematics
