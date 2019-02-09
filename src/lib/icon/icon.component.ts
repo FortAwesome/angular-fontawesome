@@ -73,11 +73,15 @@ export class FaIconComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes) {
-      this.updateIconSpec();
-      this.updateParams();
-      this.updateIcon();
-      this.renderIcon();
+      this.applyIcon();
     }
+  }
+
+  public applyIcon() {
+    this.updateIconSpec();
+    this.updateParams();
+    this.updateIcon();
+    this.renderIcon();
   }
 
   /**
