@@ -259,7 +259,7 @@ library.add(faCalendar);
 ```
 
 ```html
-<fa-icon [icon]="['fas', 'calendar']"></fa-icon>
+<fa-icon [icon]="['far', 'calendar']"></fa-icon>
 ```
 
 Adding an icon from the Pro-only Light style:
