@@ -275,6 +275,21 @@ library.add(faArrowAltRight);
 <fa-icon [icon]="['fal', 'calendar']"></fa-icon>
 ```
 
+Adding the same icon from multiple styles:
+
+```javascript
+import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
+import { faStar as fasStar } from '@fortawesome/free-solid-svg-icons';
+
+// Add icons to the library for convenient access in other components
+library.add(fasStar, farStar);
+```
+
+```html
+<fa-icon [icon]="['fas', 'star']"></fa-icon>
+<fa-icon [icon]="['far', 'star']"></fa-icon>
+```
+
 ## Features
 
 The following features are available as part of Font Awesome. Note that the syntax is different from our general web-use documentation.
