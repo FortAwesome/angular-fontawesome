@@ -346,6 +346,20 @@ Spin and pulse [animation](https://fontawesome.com/how-to-use/on-the-web/styling
 <fa-icon [icon]="['fas', 'coffee']" pull="right"></fa-icon>
 ```
 
+Add custom classes
+
+```html
+<fa-icon [icon]="['fas', 'coffee']" [classes]="['my-icon-class']"></fa-icon>
+```
+
+
+Change the default style of the icon
+
+```html
+<fa-icon [icon]="['fas', 'coffee']" [styles]="{'stroke': 'red', 'color': 'red'}"></fa-icon>
+```
+
+
 ### Changing the default prefix
 
 The default prefix, `fas`, can be adjusted by injecting the `FaIconService` and modifying the `defaultPrefix` property.
