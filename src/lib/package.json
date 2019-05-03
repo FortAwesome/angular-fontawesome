@@ -18,7 +18,8 @@
     "Davide Pastore <pasdavide@gmail.com>",
     "donmckenna <don@mothhead.com>",
     "Austin Turner <paustint@gmail.com>",
-    "Maximilian Zellhofer <max.zellhofer@gmail.com>"
+    "Maximilian Zellhofer <max.zellhofer@gmail.com>",
+    "Damien Retzinger <damienwebdev@gmail.com>"
   ],
   "license": "MIT",
   "bugs": {
@@ -35,8 +36,8 @@
   ],
   "peerDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.0",
-    "@angular/common": "^6.0.0 || ^7.0.0",
-    "@angular/core": "^6.0.0 || ^7.0.0"
+    "@angular/common": "^6.0.0 || ^7.0.0 || ^8.0.0-rc.2",
+    "@angular/core": "^6.0.0 || ^7.0.0 || ^8.0.0-rc.2"
   },
   "ngPackage": {
     "lib": {
