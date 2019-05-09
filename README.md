@@ -18,33 +18,23 @@
 - [Installation](#installation)
 - [Add more styles or Pro icons](#add-more-styles-or-pro-icons)
 - [Usage](#usage)
-  * [Explicit reference](#explicit-reference)
-  * [Using the Icon Library](#using-the-icon-library)
-  * [Using other styles](#using-other-styles)
-  * [Changing the default prefix](#changing-the-default-prefix)
-- [Features](#features)
-  * [Basic](#basic)
-  * [Advanced usage](#advanced-usage)
+  * [Using Explicit Reference](./docs/usage/explicit-reference.md)
+  * [Using the Icon Library](./docs/usage/icon-library.md)
+  * [In Depth Usage Guide](./docs/usage.md#usage)
+- [Features](./docs/usage/features.md#features)
+  * [Using other styles](./docs/usage/using-other-styles.md)
+  * [Basic](./docs/usage/features.md#basic)
+  * [Advanced usage](./docs/usage/features.md#advanced-usage)
+  * [Changing the default prefix](#/docs/usage/features/default-prefix.md)
 - [Examples](#examples)
-- [Tree Shaking](#tree-shaking)
-- [How to Help](#how-to-help)
+- [Contributing][#contributing]
 - [Contributors](#contributors)
-- [Releasing this project](#releasing-this-project)
 
 <!-- tocstop -->
 
 ## Get started
 
-Built with [ng-packagr] and conforming to the [Angular Package Format].
-
-[ng-packagr]: https://github.com/dherges/ng-packagr
-[Angular Package Format]: https://docs.google.com/document/d/1CZC2rcpxffTDfRDs6p1cfbmKNLA6x5O-NtkJglDaBVs/edit?usp=sharing
-
 Hey there! We're glad you're here...
-
-### StackBlitz Starter Sample 🚀
-
-Here's a [StackBlitz Starter Sample](https://stackblitz.com/edit/angular-font-awesome-starter?file=src%2Fapp%2Fapp.module.ts) on how to display Solid, Regular, and Brand icons [using the Icon Library](https://github.com/FortAwesome/angular-fontawesome#using-the-icon-library).
 
 ### Upgrading Font Awesome?
 
@@ -52,6 +42,7 @@ If you've used Font Awesome in the past (version 4 or older) there are some
 things that you should learn before you dive in.
 
 > https://fontawesome.com/how-to-use/on-the-web/setup/upgrading-from-version-4
+
 
 ### Is this the package for you?
 
@@ -70,11 +61,11 @@ older of Font Awesome. You might head over there to learn about how it works.
 
 > https://fontawesome.com/how-to-use/on-the-web/advanced/svg-javascript-core
 
-### Going from an older pre-release version?
+### Going from an older pre-release version of angular-fontawesome?
 
-See [UPGRADING.md](./UPGRADING.md).
+See [the upgrade guide](./docs/upgrading.md).
 
-You might also be interested in the larger umbrella project [UPGRADING.md](https://github.com/FortAwesome/Font-Awesome/blob/master/UPGRADING.md)
+You might also be interested in the larger umbrella project [upgrade guide](https://github.com/FortAwesome/Font-Awesome/blob/master/UPGRADING.md)
 
 ## Installation
 
@@ -84,68 +75,11 @@ $ yarn add @fortawesome/free-solid-svg-icons
 $ yarn add @fortawesome/angular-fontawesome
 ```
 
-## Add more styles or Pro icons
-
-Brands are separated into their own style and for customers upgrading from
-version 4 to 5 we have a limited number of Regular icons available.
-
-**Visit [fontawesome.com/icons](https://fontawesome.com/icons) to search for free and Pro icons**
-
-```
-$ yarn add @fortawesome/free-brands-svg-icons
-$ yarn add @fortawesome/free-regular-svg-icons
-```
-
-If you are a [Font Awesome Pro](https://fontawesome.com/pro) subscriber you can install Pro packages.
-
-```
-$ yarn add @fortawesome/pro-solid-svg-icons
-$ yarn add @fortawesome/pro-regular-svg-icons
-$ yarn add @fortawesome/pro-light-svg-icons
-```
-
-Using the Pro packages requires [additional configuration](https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers).
-
 ## Usage
+To get up and running using FontAwesome with Angular, you can simply do the following:
 
-These examples are based on a freshly created project with [Angular CLI].
-
-[Angular CLI]: https://cli.angular.io
-
-### Explicit reference
-
-Not as convenient as using the library but if you believe "explicit is better than
-implicit" then this method is for you.
-
-`src/app/app.component.html`
-
-```html
-<div style="text-align:center">
-  <fa-icon [icon]="faCoffee"></fa-icon>
-</div>
-```
-
-`src/app/app.component.ts`
-
-```typescript
-import { Component } from '@angular/core';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent {
-  title = 'app';
-  faCoffee = faCoffee;
-}
-```
-
+### Import the FontAwesomeModule
 `src/app/app.module.ts`
-
-1. Import `{ FontAwesomeModule } from '@fortawesome/angular-fontawesome'`
-1. Add `FontAwesomeModule` to `imports`
 
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
@@ -168,297 +102,56 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 export class AppModule { }
 ```
 
-### Using the Icon Library
+### Tie the icon to your component
+`src/app/app.component.ts`
+```typescript
+import { Component } from '@angular/core';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
-The icon library provides convenient usage in your templates but you have to manage
-the icons separate from your components. This means that if someone
-accidentally removes the icon from the icon library your component which uses it could break.
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'app';
+  faCoffee = faCoffee;
+}
+```
 
-Icons can be registered once in `app.module` with `library.add()`. Icons added to the library will be available to any other component whose parent module also imports `FontAwesomeModule`. This eliminates the need to redefine or explicitly import icons into individual components across multiple modules, lazy-loaded or not.
-
+### Use the Icon
 `src/app/app.component.html`
 
 ```html
 <div style="text-align:center">
-  <!-- simple name only that assumes the 'fas' prefix -->
-  <fa-icon icon="coffee"></fa-icon>
-  <!-- ['fas', 'coffee'] is an array that indicates the [prefix, iconName] -->
-  <fa-icon [icon]="['fas', 'coffee']"></fa-icon>
+  <fa-icon [icon]="faCoffee"></fa-icon>
 </div>
 ```
 
-`src/app/app.module.ts`
-
-1. Import `{ FontAwesomeModule } from '@fortawesome/angular-fontawesome'`
-1. Add `FontAwesomeModule` to `imports`
-1. Import `{ library } from '@fortawesome/fontawesome-svg-core'`
-1. Import an icon like `{ faCoffee } from '@fortawesome/free-solid-svg-icons'`
-1. Add to the library with `library.add(faCoffee)`
-
-```typescript
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    FontAwesomeModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule {
-  constructor() {
-    // Add an icon to the library for convenient access in other components
-    library.add(faCoffee);
-  }
-}
-```
-
-You can also import entire icon styles. But be careful! Whatever you import
- may end up bloating your final bundle with icons you're not using.
-
-```javascript
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fas } from '@fortawesome/free-solid-svg-icons';
-import { far } from '@fortawesome/free-regular-svg-icons';
-
-library.add(fas, far);
-```
-
-### Using other styles
-
-Adding a brand icon
-
-```javascript
-import { faTwitter } from '@fortawesome/free-brands-svg-icons';
-
-// Add an icon to the library for convenient access in other components
-library.add(faTwitter);
-```
-
-```html
-<fa-icon [icon]="['fab', 'twitter']"></fa-icon>
-```
-
-Adding an icon from the Regular style:
-
-```javascript
-import { faCalendar } from '@fortawesome/free-regular-svg-icons';
-
-// Add an icon to the library for convenient access in other components
-library.add(faCalendar);
-```
-
-```html
-<fa-icon [icon]="['far', 'calendar']"></fa-icon>
-```
-
-Adding an icon from the Pro-only Light style:
-
-```javascript
-import { faArrowAltRight } from '@fortawesome/pro-light-svg-icons';
-
-// Add an icon to the library for convenient access in other components
-library.add(faArrowAltRight);
-```
-
-```html
-<fa-icon [icon]="['fal', 'calendar']"></fa-icon>
-```
-
-Adding the same icon from multiple styles:
-
-```javascript
-import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
-import { faStar as fasStar } from '@fortawesome/free-solid-svg-icons';
-
-// Add icons to the library for convenient access in other components
-library.add(fasStar, farStar);
-```
-
-```html
-<fa-icon [icon]="['fas', 'star']"></fa-icon>
-<fa-icon [icon]="['far', 'star']"></fa-icon>
-```
-
-## Features
-
-The following features are available as part of Font Awesome. Note that the syntax is different from our general web-use documentation.
-
-### Basic
-
-[Size](https://fontawesome.com/how-to-use/on-the-web/styling/sizing-icons):
-
-```html
-<fa-icon [icon]="['fas', 'coffee']" size="xs"></fa-icon>
-<fa-icon [icon]="['fas', 'coffee']" size="lg"></fa-icon>
-<fa-icon [icon]="['fas', 'coffee']" size="6x"></fa-icon>
-```
-
-[Fixed width](https://fontawesome.com/how-to-use/on-the-web/styling/fixed-width-icons):
-
-```html
-<fa-icon [icon]="['fas', 'coffee']" [fixedWidth]="true"></fa-icon>
-```
-
-[Rotate](https://fontawesome.com/how-to-use/on-the-web/styling/rotating-icons):
-
-```html
-<fa-icon [icon]="['fas', 'coffee']" rotate="90"></fa-icon>
-<fa-icon [icon]="['fas', 'coffee']" rotate="180"></fa-icon>
-<fa-icon [icon]="['fas', 'coffee']" rotate="270"></fa-icon>
-```
-
-Flip horizontally, vertically, or both:
-
-```html
-<fa-icon [icon]="['fas', 'coffee']" flip="horizontal"></fa-icon>
-<fa-icon [icon]="['fas', 'coffee']" flip="vertical"></fa-icon>
-<fa-icon [icon]="['fas', 'coffee']" flip="both"></fa-icon>
-```
-
-Spin and pulse [animation](https://fontawesome.com/how-to-use/on-the-web/styling/animating-icons):
-
-```html
-<fa-icon [icon]="['fas', 'spinner']" [spin]="true"></fa-icon>
-<fa-icon [icon]="['fas', 'spinner']" [pulse]="true"></fa-icon>
-```
-
-[Border](https://fontawesome.com/how-to-use/on-the-web/styling/bordered-pulled-icons):
-
-```html
-<fa-icon [icon]="['fas', 'coffee']" [border]="true"></fa-icon>
-```
-
-[Pull left or right](https://fontawesome.com/how-to-use/on-the-web/styling/bordered-pulled-icons):
-
-```html
-<fa-icon [icon]="['fas', 'coffee']" pull="left"></fa-icon>
-<fa-icon [icon]="['fas', 'coffee']" pull="right"></fa-icon>
-```
-
-Add custom classes
-
-```html
-<fa-icon [icon]="['fas', 'coffee']" [classes]="['my-icon-class']"></fa-icon>
-```
-
-
-Change the default style of the icon
-
-```html
-<fa-icon [icon]="['fas', 'coffee']" [styles]="{'stroke': 'red', 'color': 'red'}"></fa-icon>
-```
-
-
-### Changing the default prefix
-
-The default prefix, `fas`, can be adjusted by injecting the `FaIconService` and modifying the `defaultPrefix` property.
-
-```typescript
-import { FaIconService } from '@fortawesome/angular-fontawesome';
-
-export class AppComponent {
-
-  constructor(private faIconService: FaIconService) {
-      this.faIconService.defaultPrefix = 'far';
-  }
-
-}
-```
-
-### Advanced Usage
-
-With [Mask](https://fontawesome.com/how-to-use/on-the-web/styling/masking) and [Transform](https://fontawesome.com/how-to-use/on-the-web/styling/power-transforms):
-
-```html
-<fa-icon [icon]="['fas', 'coffee']" transform="shrink-9 right-4" [mask]="['fas', 'square']"></fa-icon>
-```
-
-Spin animation with click toggle:
-
-```html
-<fa-icon [icon]="['fas', 'sync']" [spin]="isSyncAnimated" (click)="isSyncAnimated=!isSyncAnimated"></fa-icon>
-```
-
-Transform within binding:
-
-```html
-<fa-icon [icon]="['fas', 'magic']" transform="rotate-{{magicLevel}}"></fa-icon>
-<input type='range' [value]="magicLevel" (input)="magicLevel=$event.target.value"/>
-```
-(Slide input range to "turn up the magic")
-
-[Layers](https://fontawesome.com/how-to-use/on-the-web/styling/layering):
-
-```html
-<fa-layers [fixedWidth]="true">
-  <fa-icon [icon]="['fas', 'square']"></fa-icon>
-  <fa-icon [inverse]="true" [icon]="['fas', 'spinner']" transform="shrink-6"></fa-icon>
-</fa-layers>
-```
-
-[Layers text](https://fontawesome.com/how-to-use/on-the-web/styling/layering):
-
-```html
-<fa-layers [fixedWidth]="true">
-  <fa-icon [icon]="['fas', 'square']"></fa-icon>
-  <fa-layers-text content="Yo" style="color: white;" transform="shrink-4"></fa-layers-text>
-</fa-layers>
-```
-
-[Layers counters](https://fontawesome.com/how-to-use/on-the-web/styling/layering):
-
-```html
-<fa-layers [fixedWidth]="true">
-  <fa-icon [icon]="['fas', 'envelope']"></fa-icon>
-  <fa-layers-counter content="99+"></fa-layers-counter>
-</fa-layers>
-```
+### Next Steps
+For more advanced usage:
+* [In-depth usage guide](./docs/usage.md)
+* [Using Other Styles](./docs/usage/using-other-styles.md)
+* [Full feature list](./docs/usage/features.md)
+* [Change the default prefix](./docs/usage/default-prefix.md)
 
 ## Examples
 
-Found in the `examples` directory.
+### Stackblitz
+Here's a [StackBlitz Starter Sample](https://stackblitz.com/edit/angular-font-awesome-starter?file=src%2Fapp%2Fapp.module.ts) on how to display Solid, Regular, and Brand icons [using the Icon Library](./docs/usage/icon-library.md#using-the-icon-library).
 
-Start the Webpack dev server using:
 
-```
-$ yarn start
-```
+### Example App.
+You can find examples in the `src/app` directory. You can follow [the docs to run the example app](./docs/developer/sample-app.md) on your own machine.
 
-## Tree Shaking
 
-Tree shaking—automatically eliminating unused icons from the final bundle—Just Works<sup>TM</sup>.
+## Contributing
+`angular-fontawesome` is a product of the community, you can take a look at the [developer docs](./docs/developer.md) to find about more on how to contribute back to the project.
 
-## How to Help
-
-Review the following docs before diving in:
-
-* [CONTRIBUTING.md](CONTRIBUTING.md)
-* [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
-
-And then:
-
-1. Write more tests like those in `icon.component.spec.ts` to increase our test
-   coverage and submit pull requests.
-
-2. If you are an experienced Angular developer, after experimenting with this
-   component, provide feedback about what refinements might help it feel more
-   like an "Angular" way of doing things. Open a new issue with each distinct
-   recommendation, or submit a pull request with your suggested revisions.
 
 ## Contributors
 
-The following contributors have either hepled to start this project, have contributed
+The following contributors have either helped to start this project, have contributed
 code, are actively maintaining it (including documentation), or in other ways
 being awesome contributors to this project. **We'd like to take a moment to recognize them.**
 
@@ -481,8 +174,4 @@ The Font Awesome team:
 | <img src="https://github.com/mlwilkerson.png?size=72" />   | Mike Wilkerson | [@mlwilkerson](https://github.com/mlwilkerson)     |
 | <img src="https://github.com/supercodepoet.png?size=72" /> | Travis Chase   | [@supercodepoet](https://github.com/supercodepoet) |
 | <img src="https://github.com/robmadole.png?size=72" />     | Rob Madole     | [@robmadole](https://github.com/robmadole)         |
-| <img src="https://github.com/talbs.png?size=72" />         | Brian Talbot   | [@talbs](https://github.com/talbs)                 |
-
-## Releasing this project
-
-See [DEVELOPMENT.md](DEVELOPMENT.md#release)
+| <img src="https://github.com/talbs.png?size=72" />         | Brian Talbot   | [@talbs](https://github.com/talbs)
