@@ -1,0 +1,41 @@
+# Usage
+
+## Methodologies
+There are two methodologies for using `angular-fontawesome`. Each has their own benefits and trade-offs but we leave it to you to decide how you'd like to utilize the library.
+
+* [Explicit Reference](./usage/explicit-reference.md)
+* [Icon Library](./usage/icon-library.md)
+
+## Using Additional Styles
+Take advantage of the other FontAwesome icon styles.
+
+* [Brand](./usage/using-other-styles#brand-icons)
+* [Regular](./usage/using-other-styles#regular-icons)
+* [Light (Pro Only)](./usage/using-other-styles#pro-only-light-icons)
+
+## Features
+Utilize core FontAwesome features
+
+* [Size](./usage/features.md#size)
+* [Fixed Width](./usage/features.md#fixed-width)
+* [Rotate](./usage/features.md#rotate)
+* [Flip](./usage/features.md#flip)
+* [Animations](./usage/features.md#animations)
+* [Border](./usage/features.md#border)
+* [Pull](./usage/features.md#pull)
+* [Custom Classes](./usage/features.md#custom-classes)
+* [Default Style](./usage/features.md#default-style)
+
+## Advanced Features
+Take your icons to the next level with these advanced features.
+
+* [Mask](./usage/features.md#mask)
+* [Transform](./usage/features.md#transform)
+* [Stateful Animations](./usage/features.md#stateful-animations)
+* [Transform within binding](./usage/features.md#transform-within-binding)
+* [Layers](./usage/features.md#layers)
+* [Layers with text](./usage/features.md#layers-with-text)
+* [Layers with counter](./usage/features.md#layers-with-counter)
+
+## Configurations
+* [Changing the Default Prefix](./usage/default-prefix.md)
