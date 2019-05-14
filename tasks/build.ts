@@ -5,7 +5,8 @@ import { join } from 'path';
 
 async function main() {
   await build({
-    project: join(process.cwd(), '/src/lib/package.json')
+    project: join(process.cwd(), 'src/lib/package.json'),
+    config: join(process.cwd(), 'tsconfig.lib.json')
   });
   copySync('README.md', join(process.cwd(), 'dist/README.md'));
 }
