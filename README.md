@@ -471,6 +471,12 @@ being awesome contributors to this project. **We'd like to take a moment to reco
 | <img src="https://github.com/donmckenna.png?size=72" /> | donmckenna | [@donmckenna](https://github.com/donmckenna) |
 | <img src="https://github.com/paustint.png?size=72" /> | Austin Turner | [@paustint](https://github.com/paustint) |
 | <img src="https://github.com/mzellho.png?size=72" /> | Maximilian Zellhofer | [@mzellho](https://github.com/mzellho) |
+| <img src="https://github.com/elebitzero.png?size=72" width="72" /> | elebitzero | [@elebitzero](https://github.com/elebitzero) |
+| <img src="https://github.com/mcenkar.png?size=72" width="72" /> | mcenkar | [@mcenkar](https://github.com/mcenkar) |
+| <img src="https://github.com/SiddAjmera.png?size=72" /> | Siddharth Ajmera | [@SiddAjmera](https://github.com/SiddAjmera) |
+| <img src="https://github.com/stephaniepurvis.png?size=72" /> | Stephanie Purvis | [@stephaniepurvis](https://github.com/stephaniepurvis) |
+| <img src="https://github.com/loicgasser.png?size=72" /> | Gasser Loïc | [@loicgasser](https://github.com/loicgasser) |
+| <img src="https://github.com/damienwebdev.png?size=72" /> | Damien Retzinger | [@damienwebdev](https://github.com/damienwebdev) |
 
 If we've missed someone (which is quite likely) submit a Pull Request to us and we'll get it resolved.
 

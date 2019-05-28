@@ -5,6 +5,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.4.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.4.0) - 2019-03-28
+
+### Added
+
+* Angular 8.x is added as a valid peer dependency.
+* Minor documentation updates and fixes.
+* LICENSE.md file to the repository.
+
+### Removed
+
+* Angular 6.x and Angular 7.x are no longer supported. If you are using these versions, please, stick with version 0.3.0.
+
 ## [0.3.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.3.0) - 2018-10-24
 
 ### Added

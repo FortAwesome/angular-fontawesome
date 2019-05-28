@@ -1,6 +1,6 @@
 {
   "name": "@fortawesome/angular-fontawesome",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Angular Fontawesome, an Angular library",
   "private": true,
   "scripts": {
@@ -34,6 +34,11 @@
     "donmckenna <don@mothhead.com>",
     "Austin Turner <paustint@gmail.com>",
     "Maximilian Zellhofer <max.zellhofer@gmail.com>",
+    "elebitzero <42903164+elebitzero@users.noreply.github.com>",
+    "Maciej Cenkar <maciej.cenkar@leonteq.com>",
+    "Siddharth Ajmera <5053266+SiddAjmera@users.noreply.github.com>",
+    "Stephanie Purvis <thestephaniepurvis@gmail.com>",
+    "Gasser Loïc <loicgasser4@gmail.com>",
     "Damien Retzinger <damienwebdev@gmail.com>"
   ],
   "license": "MIT",
