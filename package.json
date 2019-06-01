@@ -7,8 +7,8 @@
     "test": "ng test --watch=false --browsers=ChromeCI",
     "lint": "ng lint",
     "precommit": "npm run lint && lint-staged",
-    "start": "ng serve",
-    "build:demo": "ng build --prod",
+    "start": "ng serve demo",
+    "build:demo": "ng build demo --prod",
     "build": "ts-node ./tasks/build.ts"
   },
   "lint-staged": {
