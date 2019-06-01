@@ -2,17 +2,18 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
-    "importHelpers": true,
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
-    "strict": true,
-    "strictPropertyInitialization": false,
-    "strictNullChecks": false,
+    "module": "esnext",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "importHelpers": true,
     "target": "es2015",
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "strictNullChecks": false,
     "typeRoots": [
       "node_modules/@types"
     ],

@@ -1,4 +1,4 @@
-import { copySync } from 'fs-extra';
+import { copyFileSync } from 'fs';
 import { build } from 'ng-packagr';
 import { join } from 'path';
 
@@ -8,7 +8,7 @@ async function main() {
     project: join(process.cwd(), 'src/lib/package.json'),
     config: join(process.cwd(), 'tsconfig.lib.json')
   });
-  copySync('README.md', join(process.cwd(), 'dist/README.md'));
+  copyFileSync('README.md', join(process.cwd(), 'dist/README.md'));
 }
 
 main()
