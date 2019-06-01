@@ -1,15 +1,15 @@
 {
+  "$schema": "./node_modules/ng-packagr/package.schema.json",
   "name": "@fortawesome/angular-fontawesome",
   "version": "0.4.0",
   "description": "Angular Fontawesome, an Angular library",
-  "private": true,
   "scripts": {
-    "test": "ng test --watch=false --browsers=ChromeCI",
+    "test": "ng test angular-fontawesome --watch=false --browsers=ChromeCI",
     "lint": "ng lint",
     "precommit": "npm run lint && lint-staged",
     "start": "ng serve demo",
     "build:demo": "ng build demo --prod",
-    "build": "ts-node ./tasks/build.ts"
+    "build": "ng build angular-fontawesome"
   },
   "lint-staged": {
     "README.md": [
@@ -45,28 +45,24 @@
     "url": "https://github.com/FortAwesome/angular-fontawesome/issues"
   },
   "homepage": "https://github.com/FortAwesome/angular-fontawesome",
-  "dependencies": {
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.800.0",
+    "@angular-devkit/build-ng-packagr": "~0.800.0",
+    "@angular/cli": "~8.0.1",
     "@angular/common": "~8.0.0",
     "@angular/compiler": "~8.0.0",
+    "@angular/compiler-cli": "~8.0.0",
     "@angular/core": "~8.0.0",
+    "@angular/language-service": "~8.0.0",
     "@angular/platform-browser": "~8.0.0",
     "@angular/platform-browser-dynamic": "~8.0.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.4",
     "@fortawesome/free-regular-svg-icons": "^5.3.1",
     "@fortawesome/free-solid-svg-icons": "^5.3.1",
-    "core-js": "^3.0.1",
-    "rxjs": "^6.5.1",
-    "tslib": "^1.9.0",
-    "zone.js": "~0.9.1"
-  },
-  "devDependencies": {
-    "@angular-devkit/build-angular": "~0.800.0",
-    "@angular/cli": "~8.0.1",
-    "@angular/compiler-cli": "~8.0.0",
-    "@angular/language-service": "~8.0.0",
     "@types/jasmine": "~3.3.12",
     "@types/node": "~12.0.2",
     "codelyzer": "^5.0.1",
+    "core-js": "^3.0.1",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.1.0",
@@ -77,10 +73,13 @@
     "lint-staged": "^8.1.6",
     "ng-packagr": "5.2.0",
     "protractor": "~5.4.0",
+    "rxjs": "^6.5.1",
     "ts-node": "~8.1.0",
     "tsickle": "0.35.0",
+    "tslib": "^1.9.0",
     "tslint": "~5.16.0",
-    "typescript": "~3.4.5"
+    "typescript": "~3.4.5",
+    "zone.js": "~0.9.1"
   },
   "keywords": [
     "angular",
@@ -89,5 +88,17 @@
     "fontawesome",
     "icon",
     "svg"
-  ]
+  ],
+  "peerDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.0",
+    "@angular/common": "^8.0.0-rc.5",
+    "@angular/core": "^8.0.0-rc.5"
+  },
+  "ngPackage": {
+    "lib": {
+      "entryFile": "src/lib/public_api.ts",
+      "flatModuleFile": "angular-fontawesome"
+    },
+    "dest": "./dist/angular-fontawesome"
+  }
 }

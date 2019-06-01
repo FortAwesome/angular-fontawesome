@@ -14,10 +14,11 @@ test        | Execute unit tests
 ## Release this project
 <a name="release"></a>
 
-1. Update `package.json` and `src/lib/package.json` and change `version` and add any contributors
+1. Bump version in `package.json`
+1. Add contributors to `package.json` and `README.md`
 1. Update the `CHANGELOG.md`
 1. `npm run build`
-1. `cd dist`
+1. `cd dist/angular-fontawesome`
 1. `npm publish`
 1. `git commit -a -m 'Release VERSION'`
 1. `git tag <version> && git push && git push --tags` - create a tag and push all changes to GitHub
