@@ -20,6 +20,14 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@fortawesome/angular-fontawesome": [
+        "dist/angular-fontawesome"
+      ],
+      "@fortawesome/angular-fontawesome/*": [
+        "dist/angular-fontawesome/*"
+      ]
+    }
   }
 }

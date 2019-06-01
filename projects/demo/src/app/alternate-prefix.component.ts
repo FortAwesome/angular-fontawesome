@@ -1,5 +1,5 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
-import { FaIconService } from '../../../../src/lib/icon/icon.service';
+import { FaIconService } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUser, faHandPaper, faBellSlash } from '@fortawesome/free-regular-svg-icons';
 
