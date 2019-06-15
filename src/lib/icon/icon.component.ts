@@ -1,4 +1,4 @@
-import { Component, HostBinding, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, ElementRef, Host, HostBinding, Input, OnChanges, Optional, Renderer2, SimpleChanges } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import {
   FaSymbol,
@@ -21,8 +21,8 @@ import { FaProps } from '../shared/models/props.model';
 import { faClassList } from '../shared/utils/classlist.util';
 
 import { faNormalizeIconSpec } from '../shared/utils/normalize-icon-spec.util';
-import { FaIconService } from './icon.service';
 import { FaStackComponent } from '../stack/stack.component';
+import { FaIconService } from './icon.service';
 
 @Component({
   selector: 'fa-icon',
@@ -68,13 +68,19 @@ export class FaIconComponent implements OnChanges {
   public renderedIconHTML: SafeHtml;
 
   constructor(
-      private sanitizer: DomSanitizer,
-      private iconService: FaIconService,
-      private stackParent: FaStackComponent
-      ) {}
+    private sanitizer: DomSanitizer,
+    private iconService: FaIconService,
+    private renderer: Renderer2,
+    private elementRef: ElementRef,
+    @Host() @Optional() private stackParent: FaStackComponent
+  ) {
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes) {
+      if (this.stackParent != null && this.size != null) {
+        this.renderer.addClass(this.elementRef.nativeElement, `fa-stack-${this.size}`);
+      }
       const normalizedIcon = this.normalizeIcon();
       const params = this.buildParams();
       this.renderIcon(normalizedIcon, params);
@@ -104,7 +110,7 @@ export class FaIconComponent implements OnChanges {
     return {
       title: this.title,
       transform: parsedTransform,
-      classes: [...faClassList(classOpts, !!this.stackParent), ...this.classes],
+      classes: [...faClassList(classOpts, this.stackParent != null), ...this.classes],
       mask: faNormalizeIconSpec(this.mask, this.iconService.defaultPrefix),
       styles: this.styles,
       symbol: this.symbol

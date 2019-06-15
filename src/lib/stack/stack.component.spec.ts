@@ -3,13 +3,14 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { faUser, faMobile } from '@fortawesome/free-solid-svg-icons';
 import { By } from '@angular/platform-browser';
 import { FaIconComponent } from '../icon/icon.component';
-import { FaLayersComponent } from './layers.component';
-import { FaLayersTextComponent } from './layers-text.component';
+import { FaStackComponent } from './stack.component';
+import { library } from '@fortawesome/fontawesome-svg-core';
 
 function initTest<T>(component: Type<T>): ComponentFixture<T> {
   TestBed.configureTestingModule({
-    declarations: [ FaLayersComponent, FaIconComponent, FaLayersTextComponent, component ],
+    declarations: [ FaStackComponent, FaIconComponent, component ],
   });
+  library.add(faUser);
   return TestBed.createComponent(component);
 }
 
@@ -21,16 +22,20 @@ function queryByCss(fixture: ComponentFixture<any>, className: string): ElementR
   return fixture.debugElement.query(By.css(className));
 }
 
-describe('FaLayersCompoennt', () => {
-  it('should render layers icon', () => {
+function queryBySelector(fixture: ComponentFixture<any>, selector: string): ElementRef {
+  return fixture.debugElement.nativeElement.querySelector(selector);
+}
+
+
+describe('FaStackComponent', () => {
+  it('should render stack icon', () => {
     @Component({
       selector: 'fa-host',
       template: `
-        <fa-layers>
+        <fa-stack>
           <fa-icon [icon]="faUser"></fa-icon>
           <fa-icon [icon]="faMobile"></fa-icon>
-          <fa-layers-text [content]="'User with mobile'" [styles]="{ color: 'Tomato' }"></fa-layers-text>
-        </fa-layers>`
+        </fa-stack>`
     })
     class HostComponent {
       faUser = faUser;
@@ -46,11 +51,10 @@ describe('FaLayersCompoennt', () => {
     @Component({
       selector: 'fa-host',
       template: `
-        <fa-layers size="2x">
+        <fa-stack size="2x">
           <fa-icon [icon]="faUser"></fa-icon>
           <fa-icon [icon]="faMobile"></fa-icon>
-          <fa-layers-text [content]="'User with mobile'" [styles]="{ color: 'Tomato' }"></fa-layers-text>
-        </fa-layers>`
+        </fa-stack>`
     })
     class HostComponent {
       faUser = faUser;
@@ -65,7 +69,7 @@ describe('FaLayersCompoennt', () => {
   it('should include fixed width if no value given', () => {
     @Component({
       selector: 'fa-host',
-      template: '<fa-layers fixedWidth></fa-layers>'
+      template: '<fa-stack fixedWidth></fa-stack>'
     })
     class HostComponent {
     }
@@ -78,20 +82,7 @@ describe('FaLayersCompoennt', () => {
   it('should include fixed width if value given', () => {
     @Component({
       selector: 'fa-host',
-      template: '<fa-layers fixedWidth="fixedWidth"></fa-layers>'
-    })
-    class HostComponent {
-    }
-
-    const fixture = initTest(HostComponent);
-    fixture.detectChanges();
-    expect(queryByCss(fixture, '.fa-fw')).toBeTruthy();
-  });
-
-  it('should include fixed width if value bound', () => {
-    @Component({
-      selector: 'fa-host',
-      template: '<fa-layers [fixedWidth]="true"></fa-layers>'
+      template: '<fa-stack fixedWidth="fixedWidth"></fa-stack>'
     })
     class HostComponent {
     }
@@ -104,49 +95,43 @@ describe('FaLayersCompoennt', () => {
   it('should not include fixed width', () => {
     @Component({
       selector: 'fa-host',
-      template: `
-        <fa-layers [fixedWidth]="false">
-          <fa-icon [icon]="faUser"></fa-icon>
-          <fa-icon [icon]="faMobile"></fa-icon>
-          <fa-layers-text [content]="'User with mobile'" [styles]="{ color: 'Tomato' }"></fa-layers-text>
-        </fa-layers>`
+      template: '<fa-stack [fixedWidth]="false"></fa-stack>'
     })
     class HostComponent {
-      faUser = faUser;
-      faMobile = faMobile;
     }
     const fixture = initTest(HostComponent);
     fixture.detectChanges();
     expect(queryByCss(fixture, '.fa-fw')).toBeFalsy();
   });
 
-  it('should allow setting custom class on the host element', () => {
+  it('should add stack prefix to icon size class', () => {
     @Component({
       selector: 'fa-host',
       template: `
-        <fa-layers class="custom-class" [fixedWidth]="fixedWidth" [size]="size"></fa-layers>
-        <fa-layers [class.custom-class]="true" [fixedWidth]="fixedWidth" [size]="size"></fa-layers>
-        <fa-layers [ngClass]="{'custom-class': true}" [fixedWidth]="fixedWidth" [size]="size"></fa-layers>
-        <fa-layers [fixedWidth]="fixedWidth" [size]="size" class="custom-class"></fa-layers>
-        <fa-layers [fixedWidth]="fixedWidth" [size]="size" [class.custom-class]="true"></fa-layers>
-        <fa-layers [fixedWidth]="fixedWidth" [size]="size" [ngClass]="{'custom-class': true}"></fa-layers>
-      `
+        <fa-stack size="2x">
+          <fa-icon [icon]="faUser" size="3x"></fa-icon>
+        </fa-stack>`
     })
     class HostComponent {
-      fixedWidth = true;
-      size = '4x';
     }
-
     const fixture = initTest(HostComponent);
-
     fixture.detectChanges();
-    const elements = fixture.debugElement.queryAll(By.css('fa-layers'));
-    for (const element of elements) {
-      expect(element.nativeElement.className).toContain('custom-class');
-      expect(element.nativeElement.className).toContain('fa-layers');
-      expect(element.nativeElement.className).toContain('fa-fw');
-      expect(element.nativeElement.className).toContain('fa-4x');
+    expect(queryByCss(fixture, 'fa-icon.fa-stack-3x')).toBeTruthy();
+  });
+
+  it('should not add size to svg element', () => {
+    @Component({
+      selector: 'fa-host',
+      template: `
+        <fa-stack size="2x">
+          <fa-icon icon="user" size="3x" inverse></fa-icon>
+        </fa-stack>`
+    })
+    class HostComponent {
     }
+    const fixture = initTest(HostComponent);
+    fixture.detectChanges();
+    expect(queryBySelector(fixture, 'svg.fa-3x')).toBeFalsy();
   });
 });
 
