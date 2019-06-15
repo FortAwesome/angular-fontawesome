@@ -22,6 +22,7 @@ import { faClassList } from '../shared/utils/classlist.util';
 
 import { faNormalizeIconSpec } from '../shared/utils/normalize-icon-spec.util';
 import { FaIconService } from './icon.service';
+import { FaStackComponent } from '../stack/stack.component';
 
 @Component({
   selector: 'fa-icon',
@@ -66,7 +67,11 @@ export class FaIconComponent implements OnChanges {
   @HostBinding('innerHTML')
   public renderedIconHTML: SafeHtml;
 
-  constructor(private sanitizer: DomSanitizer, private iconService: FaIconService) {}
+  constructor(
+      private sanitizer: DomSanitizer,
+      private iconService: FaIconService,
+      private stackParent: FaStackComponent
+      ) {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes) {
@@ -91,7 +96,7 @@ export class FaIconComponent implements OnChanges {
       size: this.size || null,
       pull: this.pull || null,
       rotate: this.rotate || null,
-      fixedWidth: this.fixedWidth
+      fixedWidth: this.fixedWidth,
     };
 
     const parsedTransform = typeof this.transform === 'string' ? parse.transform(this.transform) : this.transform;
@@ -99,7 +104,7 @@ export class FaIconComponent implements OnChanges {
     return {
       title: this.title,
       transform: parsedTransform,
-      classes: [...faClassList(classOpts), ...this.classes],
+      classes: [...faClassList(classOpts, !!this.stackParent), ...this.classes],
       mask: faNormalizeIconSpec(this.mask, this.iconService.defaultPrefix),
       styles: this.styles,
       symbol: this.symbol

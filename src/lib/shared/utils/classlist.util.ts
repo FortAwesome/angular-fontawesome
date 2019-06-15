@@ -4,7 +4,7 @@ import { FaProps } from '../models/props.model';
  * Fontawesome class list.
  * Returns classes array by props.
  */
-export const faClassList = (props: FaProps): string[] => {
+export const faClassList = (props: FaProps, isChildOfStack: boolean = false): string[] => {
   const classes = {
     'fa-spin': props.spin,
     'fa-pulse': props.pulse,
@@ -15,7 +15,7 @@ export const faClassList = (props: FaProps): string[] => {
     'fa-layers-counter': props.counter,
     'fa-flip-horizontal': props.flip === 'horizontal' || props.flip === 'both',
     'fa-flip-vertical': props.flip === 'vertical' || props.flip === 'both',
-    [`fa-${props.size}`]: props.size !== null,
+    [`fa-${isChildOfStack ? 'stack-' : ''}${props.size}`]: props.size !== null,
     [`fa-rotate-${props.rotate}`]: props.rotate !== null,
     [`fa-pull-${props.pull}`]: props.pull !== null
   };
