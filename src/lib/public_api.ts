@@ -5,3 +5,4 @@ export { FaIconService } from './icon/icon.service';
 export { FaLayersComponent } from './layers/layers.component';
 export { FaLayersTextComponent } from './layers/layers-text.component';
 export { FaLayersCounterComponent } from './layers/layers-counter.component';
+export { FaStackComponent } from './stack/stack.component';

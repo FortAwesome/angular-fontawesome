@@ -5,6 +5,7 @@ import { FaIconComponent } from './icon/icon.component';
 import { FaLayersComponent } from './layers/layers.component';
 import { FaLayersTextComponent } from './layers/layers-text.component';
 import { FaLayersCounterComponent } from './layers/layers-counter.component';
+import { FaStackComponent } from './stack/stack.component';
 
 @NgModule({
   imports: [CommonModule],
@@ -13,12 +14,14 @@ import { FaLayersCounterComponent } from './layers/layers-counter.component';
     FaLayersComponent,
     FaLayersTextComponent,
     FaLayersCounterComponent,
+    FaStackComponent,
   ],
   exports: [
     FaIconComponent,
     FaLayersComponent,
     FaLayersTextComponent,
     FaLayersCounterComponent,
+    FaStackComponent,
   ],
 })
 export class FontAwesomeModule {
