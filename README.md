@@ -81,8 +81,18 @@ You might also be interested in the larger umbrella project [UPGRADING.md](https
 ```
 $ yarn add @fortawesome/fontawesome-svg-core
 $ yarn add @fortawesome/free-solid-svg-icons
-$ yarn add @fortawesome/angular-fontawesome
+# See Compatibility table below to choose correct version
+$ yarn add @fortawesome/angular-fontawesome@<version>
 ```
+
+### Compatiblity table
+
+|@fortawesome/angular-fontawesome|Angular|
+|-|-|
+|0.1.x|5.x|
+|0.2.x|6.x|
+|0.3.x|6.x && 7.x|
+|0.4.x|8.x|
 
 ## Add more styles or Pro icons
 
