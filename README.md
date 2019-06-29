@@ -78,11 +78,20 @@ You might also be interested in the larger umbrella project [UPGRADING.md](https
 
 ## Installation
 
+Using [Yarn](https://yarnpkg.com)
 ```
 $ yarn add @fortawesome/fontawesome-svg-core
 $ yarn add @fortawesome/free-solid-svg-icons
 # See Compatibility table below to choose correct version
 $ yarn add @fortawesome/angular-fontawesome@<version>
+```
+
+Using [NPM](https://www.npmjs.com/)
+```
+$ npm install @fortawesome/fontawesome-svg-core
+$ npm install @fortawesome/free-solid-svg-icons
+# See Compatibility table below to choose correct version
+$ npm install @fortawesome/angular-fontawesome@<version>
 ```
 
 ### Compatiblity table
