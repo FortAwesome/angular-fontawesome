@@ -108,29 +108,25 @@ The following contributors have either helped to start this project, have contri
 code, are actively maintaining it (including documentation), or in other ways
 being awesome contributors to this project. **We'd like to take a moment to recognize them.**
 
-|                                                            | Name           | GitHub                                             |
-|:----------------------------------------------------------:|:---------------|:---------------------------------------------------|
-| <img src="https://github.com/devoto13.png?size=72" />      | Yaroslav Admin | [@devoto13](https://github.com/devoto13)           |
-| <img src="https://github.com/zeevkatz.png?size=72" />      | Zeev Katz      | [@zeevkatz](https://github.com/zeevkatz)           |
-| <img src="https://github.com/scttcper.png?size=72" />      | Scott Cooper   | [@scttcper](https://github.com/scttcper)           |
-| <img src="https://github.com/DavidePastore.png?size=72" /> | Davide Pastore | [@DavidePastore](https://github.com/DavidePastore) |
-| <img src="https://github.com/donmckenna.png?size=72" /> | donmckenna | [@donmckenna](https://github.com/donmckenna) |
-| <img src="https://github.com/paustint.png?size=72" /> | Austin Turner | [@paustint](https://github.com/paustint) |
-| <img src="https://github.com/mzellho.png?size=72" /> | Maximilian Zellhofer | [@mzellho](https://github.com/mzellho) |
-| <img src="https://github.com/elebitzero.png?size=72" width="72" /> | elebitzero | [@elebitzero](https://github.com/elebitzero) |
-| <img src="https://github.com/mcenkar.png?size=72" width="72" /> | mcenkar | [@mcenkar](https://github.com/mcenkar) |
-| <img src="https://github.com/SiddAjmera.png?size=72" /> | Siddharth Ajmera | [@SiddAjmera](https://github.com/SiddAjmera) |
-| <img src="https://github.com/stephaniepurvis.png?size=72" /> | Stephanie Purvis | [@stephaniepurvis](https://github.com/stephaniepurvis) |
-| <img src="https://github.com/loicgasser.png?size=72" /> | Gasser Loïc | [@loicgasser](https://github.com/loicgasser) |
-| <img src="https://github.com/damienwebdev.png?size=72" /> | Damien Retzinger | [@damienwebdev](https://github.com/damienwebdev) |
+[<img src="https://github.com/devoto13.png?size=72" alt="devoto13" width="72">](https://github.com/devoto13)
+[<img src="https://github.com/zeevkatz.png?size=72" alt="zeevkatz" width="72">](https://github.com/zeevkatz)
+[<img src="https://github.com/scttcper.png?size=72" alt="scttcper" width="72">](https://github.com/scttcper)
+[<img src="https://github.com/DavidePastore.png?size=72" alt="DavidePastore" width="72">](https://github.com/DavidePastore)
+[<img src="https://github.com/donmckenna.png?size=72" alt="donmckenna" width="72">](https://github.com/donmckenna)
+[<img src="https://github.com/paustint.png?size=72" alt="paustint" width="72">](https://github.com/paustint)
+[<img src="https://github.com/mzellho.png?size=72" alt="mzellho" width="72">](https://github.com/mzellho)
+[<img src="https://github.com/elebitzero.png?size=72" alt="elebitzero" width="72">](https://github.com/elebitzero)
+[<img src="https://github.com/mcenkar.png?size=72" alt="mcenkar" width="72">](https://github.com/mcenkar)
+[<img src="https://github.com/SiddAjmera.png?size=72" alt="SiddAjmera" width="72">](https://github.com/SiddAjmera)
+[<img src="https://github.com/stephaniepurvis.png?size=72" alt="stephaniepurvis" width="72">](https://github.com/stephaniepurvis)
+[<img src="https://github.com/loicgasser.png?size=72" alt="loicgasser" width="72">](https://github.com/loicgasser)
+[<img src="https://github.com/damienwebdev.png?size=72" alt="damienwebdev" width="72">](https://github.com/damienwebdev)
 
 If we've missed someone (which is quite likely) submit a Pull Request to us and we'll get it resolved.
 
 The Font Awesome team:
 
-|                                                            | Name           | GitHub                                             |
-|:----------------------------------------------------------:|:---------------|:---------------------------------------------------|
-| <img src="https://github.com/mlwilkerson.png?size=72" />   | Mike Wilkerson | [@mlwilkerson](https://github.com/mlwilkerson)     |
-| <img src="https://github.com/supercodepoet.png?size=72" /> | Travis Chase   | [@supercodepoet](https://github.com/supercodepoet) |
-| <img src="https://github.com/robmadole.png?size=72" />     | Rob Madole     | [@robmadole](https://github.com/robmadole)         |
-| <img src="https://github.com/talbs.png?size=72" />         | Brian Talbot   | [@talbs](https://github.com/talbs) |
+[<img src="https://github.com/mlwilkerson.png?size=72" alt="mlwilkerson" width="72">](https://github.com/mlwilkerson)
+[<img src="https://github.com/supercodepoet.png?size=72" alt="supercodepoet" width="72">](https://github.com/supercodepoet)
+[<img src="https://github.com/robmadole.png?size=72" alt="robmadole" width="72">](https://github.com/robmadole)
+[<img src="https://github.com/talbs.png?size=72" alt="talbs" width="72">](https://github.com/talbs)
