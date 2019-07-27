@@ -6,12 +6,14 @@ There are two methodologies for using `angular-fontawesome`. Each has their own 
 * [Explicit Reference](./usage/explicit-reference.md)
 * [Icon Library](./usage/icon-library.md)
 
+Whichever methodology you choose only icons you imported will end up in the bundle and the remaining ones will be tree-shaken away.
+
 ## Using Additional Styles
 Take advantage of the other FontAwesome icon styles.
 
-* [Brand](./usage/using-other-styles#brand-icons)
-* [Regular](./usage/using-other-styles#regular-icons)
-* [Light (Pro Only)](./usage/using-other-styles#pro-only-light-icons)
+* [Brand](./usage/using-other-styles.md#brand-icons)
+* [Regular](./usage/using-other-styles.md#regular-icons)
+* [Light (Pro Only)](./usage/using-other-styles.md#pro-only-light-icons)
 
 ## Features
 Utilize core FontAwesome features

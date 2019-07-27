@@ -6,16 +6,9 @@
   "scripts": {
     "test": "ng test angular-fontawesome --watch=false --browsers=ChromeCI",
     "lint": "ng lint",
-    "precommit": "npm run lint && lint-staged",
     "start": "ng serve demo",
     "build:demo": "ng build demo --prod",
     "build": "ng build angular-fontawesome"
-  },
-  "lint-staged": {
-    "README.md": [
-      "markdown-toc -i",
-      "git add README.md"
-    ]
   },
   "repository": {
     "type": "git",
@@ -70,7 +63,6 @@
     "karma-coverage-istanbul-reporter": "~2.0.2",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "1.4.2",
-    "lint-staged": "^8.1.6",
     "ng-packagr": "5.2.0",
     "protractor": "~5.4.0",
     "rxjs": "^6.5.1",
@@ -90,9 +82,9 @@
     "svg"
   ],
   "peerDependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.0",
     "@angular/common": "^8.0.0-rc.5",
-    "@angular/core": "^8.0.0-rc.5"
+    "@angular/core": "^8.0.0-rc.5",
+    "@fortawesome/fontawesome-svg-core": "^1.2.0"
   },
   "ngPackage": {
     "lib": {

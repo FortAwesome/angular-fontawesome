@@ -80,7 +80,11 @@ library.add(faArrowAltRight);
 <fa-icon [icon]="['fal', 'calendar']"></fa-icon>
 ```
 
-## One Icon from Multiple Styles
+## Duotone icons
+
+Duotone icons are currently in pre-release and are coming soon to this component.
+
+## Same Icon from Multiple Styles
 
 ```javascript
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
