@@ -51,8 +51,7 @@ export class AppModule {
 }
 ```
 
-You can also import entire icon styles. But be careful! Whatever you import
- may end up bloating your final bundle with icons you're not using.
+You can also import entire icon styles. But be careful! This way of importing icons does not support tree-shaking, so all icons from the imported package will end up in your bundle.
 
 ```javascript
 import { library } from '@fortawesome/fontawesome-svg-core';
