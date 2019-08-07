@@ -1,34 +1,27 @@
+import { Component, HostBinding, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import {
-  Input,
-  OnChanges,
-  Component,
-  HostBinding,
-  SimpleChanges
-} from '@angular/core';
-import {
+  FaSymbol,
+  FlipProp,
   icon,
   Icon,
-  parse,
-  Styles,
-  PullProp,
-  IconProp,
-  SizeProp,
-  FlipProp,
-  FaSymbol,
-  Transform,
-  IconParams,
   IconLookup,
-  RotateProp
+  IconParams,
+  IconProp,
+  parse,
+  PullProp,
+  RotateProp,
+  SizeProp,
+  Styles,
+  Transform
 } from '@fortawesome/fontawesome-svg-core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-
-import { faNormalizeIconSpec } from '../shared/utils/normalize-icon-spec.util';
-import { FaProps } from '../shared/models/props.model';
-import { objectWithKey } from '../shared/utils/object-with-keys.util';
-import { faClassList } from '../shared/utils/classlist.util';
+import { faNotFoundIconHtml } from '../shared/errors/not-found-icon-html';
 import { faWarnIfIconHtmlMissing } from '../shared/errors/warn-if-icon-html-missing';
 import { faWarnIfIconSpecMissing } from '../shared/errors/warn-if-icon-spec-missing';
-import { faNotFoundIconHtml } from '../shared/errors/not-found-icon-html';
+import { FaProps } from '../shared/models/props.model';
+import { faClassList } from '../shared/utils/classlist.util';
+
+import { faNormalizeIconSpec } from '../shared/utils/normalize-icon-spec.util';
 import { FaIconService } from './icon.service';
 
 /**
@@ -104,16 +97,13 @@ export class FaIconComponent implements OnChanges {
       fixedWidth: this.fixedWidth
     };
 
-    const classes = objectWithKey('classes', [...faClassList(classOpts), ...this.classes]);
-    const mask = objectWithKey('mask', faNormalizeIconSpec(this.mask, this.iconService.defaultPrefix));
     const parsedTransform = typeof this.transform === 'string' ? parse.transform(this.transform) : this.transform;
-    const transform = objectWithKey('transform', parsedTransform);
 
     this.params = {
       title: this.title,
-      ...transform,
-      ...classes,
-      ...mask,
+      transform: parsedTransform,
+      classes: [...faClassList(classOpts), ...this.classes],
+      mask: faNormalizeIconSpec(this.mask, this.iconService.defaultPrefix),
       styles: this.styles,
       symbol: this.symbol
     };

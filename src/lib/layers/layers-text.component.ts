@@ -1,24 +1,9 @@
-import {
-  Input,
-  Component,
-  HostBinding
-} from '@angular/core';
-import {
-  text,
-  parse,
-  Text,
-  TextParams,
-  SizeProp,
-  FlipProp,
-  PullProp,
-  Transform,
-  RotateProp
-} from '@fortawesome/fontawesome-svg-core';
-import { FaLayersTextBaseComponent } from './layers-text-base.component';
+import { Component, Input } from '@angular/core';
+import { FlipProp, parse, PullProp, RotateProp, SizeProp, text, TextParams, Transform } from '@fortawesome/fontawesome-svg-core';
 
 import { FaProps } from '../shared/models/props.model';
-import { objectWithKey } from '../shared/utils/object-with-keys.util';
 import { faClassList } from '../shared/utils/classlist.util';
+import { FaLayersTextBaseComponent } from './layers-text-base.component';
 
 /**
  * Fontawesome layers text.
@@ -61,13 +46,11 @@ export class FaLayersTextComponent extends FaLayersTextBaseComponent {
       fixedWidth: this.fixedWidth
     };
 
-    const classes = objectWithKey('classes', [...faClassList(classOpts), ...this.classes]);
     const parsedTransform = typeof this.transform === 'string' ? parse.transform(this.transform) : this.transform;
-    const transform = objectWithKey('transform', parsedTransform);
 
     this.params = {
-      ...transform,
-      ...classes,
+      transform: parsedTransform,
+      classes: [...faClassList(classOpts), ...this.classes],
       title: this.title,
       styles: this.styles
     };
