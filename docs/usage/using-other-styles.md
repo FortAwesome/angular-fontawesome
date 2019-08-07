@@ -80,9 +80,22 @@ library.add(faArrowAltRight);
 <fa-icon [icon]="['fal', 'calendar']"></fa-icon>
 ```
 
-## Duotone icons
+## Pro-only Duotone Icons
 
-Duotone icons are currently in pre-release and are coming soon to this component.
+```bash
+$ yarn add @fortawesome/pro-duotone-svg-icons
+```
+
+```javascript
+import { faCamera } from '@fortawesome/pro-duotone-svg-icons';
+
+// Add an icon to the library for convenient access in other components
+library.add(faCamera);
+```
+
+```html
+<fa-duotone-icon [icon]="['fad', 'camera']"></fa-duotone-icon>
+```
 
 ## Same Icon from Multiple Styles
 

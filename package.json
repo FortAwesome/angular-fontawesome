@@ -82,9 +82,8 @@
     "svg"
   ],
   "peerDependencies": {
-    "@angular/common": "^8.0.0-rc.5",
     "@angular/core": "^8.0.0-rc.5",
-    "@fortawesome/fontawesome-svg-core": "^1.2.0"
+    "@fortawesome/fontawesome-svg-core": "^1.2.21"
   },
   "ngPackage": {
     "lib": {

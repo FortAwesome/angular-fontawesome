@@ -71,6 +71,42 @@ The following features are available as part of Font Awesome. Note that the synt
 <fa-icon [icon]="['fas', 'coffee']" [styles]="{'stroke': 'red', 'color': 'red'}"></fa-icon>
 ```
 
+## Duotone icons
+
+### Basic use
+
+[FontAwesome Spec](https://fontawesome.com/how-to-use/on-the-web/styling/duotone-icons#basic-use):
+
+```html
+<fa-duotone-icon [icon]="['fad', 'coffee']"></fa-duotone-icon>
+```
+
+### Swap layers opacity
+
+[FontAwesome Spec](https://fontawesome.com/how-to-use/on-the-web/styling/duotone-icons#swapping-layers):
+
+```html
+<fa-duotone-icon [icon]="['fad', 'coffee']" swapOpacity="true"></fa-duotone-icon>
+```
+
+### Customize layers opacity
+
+[FontAwesome Spec](https://fontawesome.com/how-to-use/on-the-web/styling/duotone-icons#changing-opacity):
+
+```html
+<fa-duotone-icon [icon]="['fad', 'coffee']" primaryOpacity="0.9"></fa-duotone-icon>
+<fa-duotone-icon [icon]="['fad', 'coffee']" secondaryOpacity="0.1"></fa-duotone-icon>
+```
+
+### Customize layers color
+
+[FontAwesome Spec](https://fontawesome.com/how-to-use/on-the-web/styling/duotone-icons#coloring):
+
+```html
+<fa-duotone-icon [icon]="['fad', 'coffee']" primaryColor="red"></fa-duotone-icon>
+<fa-duotone-icon [icon]="['fad', 'coffee']" secondaryColor="blue"></fa-duotone-icon>
+```
+
 ## Advanced Usage
 
 ### Mask

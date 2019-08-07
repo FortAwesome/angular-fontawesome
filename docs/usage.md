@@ -14,6 +14,7 @@ Take advantage of the other FontAwesome icon styles.
 * [Brand](./usage/using-other-styles.md#brand-icons)
 * [Regular](./usage/using-other-styles.md#regular-icons)
 * [Light (Pro Only)](./usage/using-other-styles.md#pro-only-light-icons)
+* [Duotone (Pro Only)](./usage/using-other-styles.md#pro-only-duotone-icons)
 
 ## Features
 Utilize core FontAwesome features
@@ -27,6 +28,14 @@ Utilize core FontAwesome features
 * [Pull](./usage/features.md#pull)
 * [Custom Classes](./usage/features.md#custom-classes)
 * [Default Style](./usage/features.md#default-style)
+
+## Features specific for Duotone icons
+Additional features available for Duotone icons
+
+* [Basic use](./usage/features.md#basic-use)
+* [Swap layers opacity](./usage/features.md#swap-layers-opacity)
+* [Customize layers opacity](./usage/features.md#customize-layers-opacity)
+* [Customize layers color](./usage/features.md#customize-layers-color)
 
 ## Advanced Features
 Take your icons to the next level with these advanced features.

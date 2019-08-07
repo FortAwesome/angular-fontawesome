@@ -1,22 +1,7 @@
-import { Component, ElementRef, Type } from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { library } from '@fortawesome/fontawesome-svg-core';
+import { Component } from '@angular/core';
 import { faCircle, faUser } from '@fortawesome/free-solid-svg-icons';
-import { FaIconComponent } from '../icon/icon.component';
-import { FaStackItemSizeDirective } from './stack-item-size.directive';
+import { faDummy, initTest, queryByCss } from '../../testing/helpers';
 import { FaStackComponent } from './stack.component';
-
-function initTest<T>(component: Type<T>): ComponentFixture<T> {
-  TestBed.configureTestingModule({
-    declarations: [FaStackComponent, FaStackItemSizeDirective, FaIconComponent, component],
-  });
-  library.add(faUser);
-  return TestBed.createComponent(component);
-}
-
-function queryByCss(fixture: ComponentFixture<any>, cssSelector: string): ElementRef {
-  return fixture.nativeElement.querySelector(cssSelector);
-}
 
 describe('FaStackComponent', () => {
   it('should render stack icon', () => {
@@ -36,6 +21,25 @@ describe('FaStackComponent', () => {
     const fixture = initTest(HostComponent);
     fixture.detectChanges();
     expect(fixture.nativeElement).toBeTruthy();
+  });
+
+  it('should work with duotone icons', () => {
+    @Component({
+      selector: 'fa-host',
+      template: `
+          <fa-stack>
+              <fa-icon [icon]="faCircle" stackItemSize="2x"></fa-icon>
+              <fa-duotone-icon [icon]="dummyDuotoneIcon" [inverse]="true" stackItemSize="1x"></fa-duotone-icon>
+          </fa-stack>`
+    })
+    class HostComponent {
+      dummyDuotoneIcon = faDummy;
+      faCircle = faCircle;
+    }
+
+    const fixture = initTest(HostComponent);
+    fixture.detectChanges();
+    expect(queryByCss(fixture, 'fa-duotone-icon')).toBeTruthy();
   });
 
   it('should include size class', () => {

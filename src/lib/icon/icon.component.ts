@@ -108,7 +108,7 @@ export class FaIconComponent implements OnChanges {
       transform: parsedTransform,
       classes: [...faClassList(classOpts), ...this.classes],
       mask: faNormalizeIconSpec(this.mask, this.iconService.defaultPrefix),
-      styles: this.styles,
+      styles: this.styles != null ? this.styles : {},
       symbol: this.symbol
     };
   }

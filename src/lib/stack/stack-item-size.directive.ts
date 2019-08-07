@@ -3,7 +3,7 @@ import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 import { FaStackComponent} from './stack.component';
 
 @Directive({
-  selector: 'fa-icon[stackItemSize]',
+  selector: 'fa-icon[stackItemSize],fa-duotone-icon[stackItemSize]',
 })
 export class FaStackItemSizeDirective implements OnChanges {
   /**
