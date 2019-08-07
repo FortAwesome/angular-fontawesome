@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { library } from '@fortawesome/fontawesome-svg-core';
+import { IconDefinition, IconName, library } from '@fortawesome/fontawesome-svg-core';
 import { faFlag, faUser as regularUser } from '@fortawesome/free-regular-svg-icons';
 import {
   faAdjust,
@@ -39,6 +39,20 @@ export class AppComponent {
   faEllipsisH = faEllipsisH;
   faFighterJet = faFighterJet;
   faBatteryQuarter = faBatteryQuarter;
+  faDummy: IconDefinition = {
+    prefix: 'fad',
+    iconName: 'dummy' as IconName,
+    icon: [
+      512,
+      512,
+      [],
+      'f030',
+      [
+        'M50 50 H412 V250 H50 Z',
+        'M50 262 H412 V462 H50 Z'
+      ]
+    ]
+  };
 
   notificationsCounter = 1000;
   isSyncAnimated = true;

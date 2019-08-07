@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
+import { FaDuotoneIconComponent } from './icon/duotone-icon.component';
 import { FaIconComponent } from './icon/icon.component';
-import { FaLayersComponent } from './layers/layers.component';
-import { FaLayersTextComponent } from './layers/layers-text.component';
 import { FaLayersCounterComponent } from './layers/layers-counter.component';
+import { FaLayersTextComponent } from './layers/layers-text.component';
+import { FaLayersComponent } from './layers/layers.component';
 import { FaStackItemSizeDirective } from './stack/stack-item-size.directive';
 import { FaStackComponent } from './stack/stack.component';
 
 @NgModule({
-  imports: [CommonModule],
   declarations: [
     FaIconComponent,
+    FaDuotoneIconComponent,
     FaLayersComponent,
     FaLayersTextComponent,
     FaLayersCounterComponent,
@@ -20,6 +19,7 @@ import { FaStackComponent } from './stack/stack.component';
   ],
   exports: [
     FaIconComponent,
+    FaDuotoneIconComponent,
     FaLayersComponent,
     FaLayersTextComponent,
     FaLayersCounterComponent,
