@@ -61,29 +61,25 @@ export class FaIconComponent implements OnChanges {
 
   constructor(private sanitizer: DomSanitizer, private iconService: FaIconService) {}
 
-  private params: IconParams;
-  private iconSpec: IconLookup;
-
   ngOnChanges(changes: SimpleChanges) {
     if (changes) {
-      this.updateIconSpec();
-      this.updateParams();
-      this.updateIcon();
-      this.renderIcon();
+      const normalizedIcon = this.normalizeIcon();
+      const params = this.buildParams();
+      this.renderIcon(normalizedIcon, params);
     }
   }
 
   /**
    * Updating icon spec.
    */
-  private updateIconSpec() {
-    this.iconSpec = faNormalizeIconSpec(this.iconProp, this.iconService.defaultPrefix);
+  private normalizeIcon() {
+    return faNormalizeIconSpec(this.iconProp, this.iconService.defaultPrefix);
   }
 
   /**
    * Updating params by component props.
    */
-  private updateParams() {
+  protected buildParams() {
     const classOpts: FaProps = {
       flip: this.flip,
       spin: this.spin,
@@ -99,7 +95,7 @@ export class FaIconComponent implements OnChanges {
 
     const parsedTransform = typeof this.transform === 'string' ? parse.transform(this.transform) : this.transform;
 
-    this.params = {
+    return {
       title: this.title,
       transform: parsedTransform,
       classes: [...faClassList(classOpts), ...this.classes],
@@ -110,21 +106,16 @@ export class FaIconComponent implements OnChanges {
   }
 
   /**
-   * Updating icon by params and icon spec.
-   */
-  private updateIcon() {
-    this.icon = icon(this.iconSpec, this.params);
-  }
-
-  /**
    * Rendering icon.
    */
-  private renderIcon() {
-    faWarnIfIconSpecMissing(this.iconSpec);
-    faWarnIfIconHtmlMissing(this.icon, this.iconSpec);
+  private renderIcon(iconLookup: IconLookup, params: IconParams) {
+    const renderedIcon = icon(iconLookup, params);
+
+    faWarnIfIconSpecMissing(iconLookup);
+    faWarnIfIconHtmlMissing(renderedIcon, iconLookup);
 
     this.renderedIconHTML = this.sanitizer.bypassSecurityTrustHtml(
-      this.icon ? this.icon.html.join('\n') : faNotFoundIconHtml
+      renderedIcon ? renderedIcon.html.join('\n') : faNotFoundIconHtml
     );
   }
 }
