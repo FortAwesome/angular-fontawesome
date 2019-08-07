@@ -4,7 +4,6 @@ import {
   FaSymbol,
   FlipProp,
   icon,
-  Icon,
   IconLookup,
   IconParams,
   IconProp,
@@ -24,9 +23,6 @@ import { faClassList } from '../shared/utils/classlist.util';
 import { faNormalizeIconSpec } from '../shared/utils/normalize-icon-spec.util';
 import { FaIconService } from './icon.service';
 
-/**
- * Fontawesome icon.
- */
 @Component({
   selector: 'fa-icon',
   template: ``,
@@ -35,8 +31,7 @@ import { FaIconService } from './icon.service';
   }
 })
 export class FaIconComponent implements OnChanges {
-  // tslint:disable-next-line:no-input-rename
-  @Input('icon') iconProp: IconProp;
+  @Input() icon: IconProp;
   @Input() title?: string;
   @Input() spin?: boolean;
   @Input() pulse?: boolean;
@@ -54,7 +49,19 @@ export class FaIconComponent implements OnChanges {
   @Input() classes?: string[] = [];
   @Input() transform?: string | Transform;
 
-  public icon: Icon;
+  /**
+   * @deprecated Since 0.5.0. Will be removed in 0.6.0. Use `icon` property directly.
+   */
+  get iconProp(): IconProp {
+    return this.icon;
+  }
+
+  /**
+   * @deprecated Since 0.5.0. Will be removed in 0.6.0. Use `icon` property directly.
+   */
+  set iconProp(value: IconProp) {
+    this.icon = value;
+  }
 
   @HostBinding('innerHTML')
   public renderedIconHTML: SafeHtml;
@@ -69,16 +76,10 @@ export class FaIconComponent implements OnChanges {
     }
   }
 
-  /**
-   * Updating icon spec.
-   */
-  private normalizeIcon() {
-    return faNormalizeIconSpec(this.iconProp, this.iconService.defaultPrefix);
+  protected normalizeIcon() {
+    return faNormalizeIconSpec(this.icon, this.iconService.defaultPrefix);
   }
 
-  /**
-   * Updating params by component props.
-   */
   protected buildParams() {
     const classOpts: FaProps = {
       flip: this.flip,
@@ -105,9 +106,6 @@ export class FaIconComponent implements OnChanges {
     };
   }
 
-  /**
-   * Rendering icon.
-   */
   private renderIcon(iconLookup: IconLookup, params: IconParams) {
     const renderedIcon = icon(iconLookup, params);
 
