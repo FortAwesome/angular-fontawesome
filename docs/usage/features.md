@@ -99,6 +99,17 @@ The following features are available as part of Font Awesome. Note that the synt
 ```
 (Slide input range to "turn up the magic")
 
+### Stacked icons
+
+[FontAwesome Spec](https://fontawesome.com/how-to-use/on-the-web/styling/stacking-icons):
+
+```html
+<fa-stack>
+  <fa-icon [icon]="faCircle" stackItemSize="2x"></fa-icon>
+  <fa-icon [icon]="solidFlag" [inverse]="true" stackItemSize="1x"></fa-icon>
+</fa-stack>
+```
+
 ### Layers
 [FontAwesome Spec](https://fontawesome.com/how-to-use/on-the-web/styling/layering):
 

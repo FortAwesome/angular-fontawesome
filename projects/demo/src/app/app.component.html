@@ -23,6 +23,13 @@
 <fa-icon [icon]="faMagic" transform="rotate-{{magicLevel}}"></fa-icon>
 <input type='range' [value]="magicLevel" (input)="magicLevel = $event.target.value"/>
 
+<h3>Stack</h3>
+<p>Stack multiple icons into one.</p>
+<fa-stack>
+  <fa-icon [icon]="faCircle" stackItemSize="2x"></fa-icon>
+  <fa-icon [icon]="solidFlag" [inverse]="true" stackItemSize="1x"></fa-icon>
+</fa-stack>
+
 <h3>Layers</h3>
 <p>Custom icons created with multiple layers.</p>
 <div>

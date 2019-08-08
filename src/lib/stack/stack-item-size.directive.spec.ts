@@ -14,12 +14,12 @@ function initTest<T>(component: Type<T>): ComponentFixture<T> {
   return TestBed.createComponent(component);
 }
 
-function queryByCss(fixture: ComponentFixture<any>, cssSelector: string): ElementRef {
-  return fixture.nativeElement.querySelector(cssSelector);
+function queryByCss(fixture: ComponentFixture<any>, cssQuery: string): ElementRef {
+  return fixture.nativeElement.querySelector(cssQuery);
 }
 
-describe('FaStackComponent', () => {
-  it('should render stack icon', () => {
+describe('FaStackItemSizeDirective', () => {
+  it('should attach fa-stack-1x or fa-stack-2x classes to icons', () => {
     @Component({
       selector: 'fa-host',
       template: `
@@ -35,16 +35,17 @@ describe('FaStackComponent', () => {
 
     const fixture = initTest(HostComponent);
     fixture.detectChanges();
-    expect(fixture.nativeElement).toBeTruthy();
+    expect(queryByCss(fixture, '.fa-stack-1x')).toBeTruthy();
+    expect(queryByCss(fixture, '.fa-stack-2x')).toBeTruthy();
   });
 
-  it('should include size class', () => {
+  it('should throw an error when setting size input together with stackItemSize', () => {
     @Component({
       selector: 'fa-host',
       template: `
-          <fa-stack size="2x">
+          <fa-stack>
               <fa-icon [icon]="faCircle" stackItemSize="2x"></fa-icon>
-              <fa-icon [icon]="faUser" [inverse]="true" stackItemSize="1x"></fa-icon>
+              <fa-icon [icon]="faUser" [inverse]="true" size="1x" stackItemSize="1x"></fa-icon>
           </fa-stack>`
     })
     class HostComponent {
@@ -53,8 +54,9 @@ describe('FaStackComponent', () => {
     }
 
     const fixture = initTest(HostComponent);
-    fixture.detectChanges();
-    expect(queryByCss(fixture, '.fa-2x')).toBeTruthy();
+    expect(() => fixture.detectChanges()).toThrow(new Error(
+      'fa-icon is not allowed to customize size when used inside fa-stack. ' +
+      'Set size on the enclosing fa-stack instead: <fa-stack size="4x">...</fa-stack>.'
+    ));
   });
 });
-

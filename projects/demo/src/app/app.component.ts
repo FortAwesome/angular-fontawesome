@@ -1,21 +1,22 @@
 import { Component } from '@angular/core';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faFlag, faUser as regularUser } from '@fortawesome/free-regular-svg-icons';
 import {
-  faUser,
-  faSync,
-  faBell,
-  faTimes,
-  faMagic,
   faAdjust,
-  faCoffee,
+  faBatteryQuarter,
+  faBell,
   faCircle,
-  faSquare,
-  faMobile,
+  faCoffee,
   faEllipsisH,
   faFighterJet,
-  faBatteryQuarter
+  faFlag as solidFlag,
+  faMagic,
+  faMobile,
+  faSquare,
+  faSync,
+  faTimes,
+  faUser
 } from '@fortawesome/free-solid-svg-icons';
-import { faUser as regularUser, faFlag } from '@fortawesome/free-regular-svg-icons';
-import { library } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
   selector: 'app-root',
@@ -26,6 +27,7 @@ export class AppComponent {
   faBell = faBell;
   faSync = faSync;
   faFlag = faFlag;
+  solidFlag = solidFlag;
   faTimes = faTimes;
   faMagic = faMagic;
   faAdjust = faAdjust;

@@ -35,6 +35,7 @@ Take your icons to the next level with these advanced features.
 * [Transform](./usage/features.md#transform)
 * [Stateful Animations](./usage/features.md#stateful-animations)
 * [Transform within binding](./usage/features.md#transform-within-binding)
+* [Stacked icons](./usage/features.md#stacked-icons)
 * [Layers](./usage/features.md#layers)
 * [Layers with text](./usage/features.md#layers-with-text)
 * [Layers with counter](./usage/features.md#layers-with-counter)

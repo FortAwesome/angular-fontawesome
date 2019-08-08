@@ -29,4 +29,5 @@ export interface FaProps {
   transform?: string | Transform;
   symbol?: FaSymbol;
   style?: Styles;
+  stackItemSize?: '1x' | '2x';
 }

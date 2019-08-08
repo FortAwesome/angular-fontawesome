@@ -21,7 +21,7 @@ function queryByCss(fixture: ComponentFixture<any>, className: string): ElementR
   return fixture.debugElement.query(By.css(className));
 }
 
-describe('FaLayersCompoennt', () => {
+describe('FaLayersComponent', () => {
   it('should render layers icon', () => {
     @Component({
       selector: 'fa-host',
@@ -62,33 +62,7 @@ describe('FaLayersCompoennt', () => {
     expect(queryByCss(fixture, '.fa-2x')).toBeTruthy();
   });
 
-  it('should include fixed width if no value given', () => {
-    @Component({
-      selector: 'fa-host',
-      template: '<fa-layers fixedWidth></fa-layers>'
-    })
-    class HostComponent {
-    }
-
-    const fixture = initTest(HostComponent);
-    fixture.detectChanges();
-    expect(queryByCss(fixture, '.fa-fw')).toBeTruthy();
-  });
-
-  it('should include fixed width if value given', () => {
-    @Component({
-      selector: 'fa-host',
-      template: '<fa-layers fixedWidth="fixedWidth"></fa-layers>'
-    })
-    class HostComponent {
-    }
-
-    const fixture = initTest(HostComponent);
-    fixture.detectChanges();
-    expect(queryByCss(fixture, '.fa-fw')).toBeTruthy();
-  });
-
-  it('should include fixed width if value bound', () => {
+  it('should include fixed width', () => {
     @Component({
       selector: 'fa-host',
       template: '<fa-layers [fixedWidth]="true"></fa-layers>'
