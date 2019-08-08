@@ -1,4 +1,4 @@
-import { Component, ElementRef, Host, HostBinding, Input, OnChanges, Optional, Renderer2, SimpleChanges } from '@angular/core';
+import { Component, HostBinding, Input, OnChanges, Optional, SimpleChanges } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import {
   FaSymbol,
@@ -21,7 +21,7 @@ import { FaProps } from '../shared/models/props.model';
 import { faClassList } from '../shared/utils/classlist.util';
 
 import { faNormalizeIconSpec } from '../shared/utils/normalize-icon-spec.util';
-import { FaStackComponent } from '../stack/stack.component';
+import { FaStackItemSizeDirective } from '../stack/stack-item-size.directive';
 import { FaIconService } from './icon.service';
 
 @Component({
@@ -70,17 +70,12 @@ export class FaIconComponent implements OnChanges {
   constructor(
     private sanitizer: DomSanitizer,
     private iconService: FaIconService,
-    private renderer: Renderer2,
-    private elementRef: ElementRef,
-    @Host() @Optional() private stackParent: FaStackComponent
+    @Optional() private stackItem: FaStackItemSizeDirective,
   ) {
   }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes) {
-      if (this.stackParent != null && this.size != null) {
-        this.renderer.addClass(this.elementRef.nativeElement, `fa-stack-${this.size}`);
-      }
       const normalizedIcon = this.normalizeIcon();
       const params = this.buildParams();
       this.renderIcon(normalizedIcon, params);
@@ -103,6 +98,7 @@ export class FaIconComponent implements OnChanges {
       pull: this.pull || null,
       rotate: this.rotate || null,
       fixedWidth: this.fixedWidth,
+      stackItemSize: this.stackItem != null ? this.stackItem.stackItemSize : null,
     };
 
     const parsedTransform = typeof this.transform === 'string' ? parse.transform(this.transform) : this.transform;
@@ -110,7 +106,7 @@ export class FaIconComponent implements OnChanges {
     return {
       title: this.title,
       transform: parsedTransform,
-      classes: [...faClassList(classOpts, this.stackParent != null), ...this.classes],
+      classes: [...faClassList(classOpts), ...this.classes],
       mask: faNormalizeIconSpec(this.mask, this.iconService.defaultPrefix),
       styles: this.styles,
       symbol: this.symbol
