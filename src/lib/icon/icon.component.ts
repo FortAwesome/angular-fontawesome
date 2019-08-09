@@ -82,6 +82,17 @@ export class FaIconComponent implements OnChanges {
     }
   }
 
+  /**
+   * Programmatically trigger rendering of the icon.
+   *
+   * This method is useful, when creating {@link FaIconComponent} dynamically or
+   * changing its inputs programmatically as in these cases icon won't be
+   * re-rendered automatically.
+   */
+  render() {
+    this.ngOnChanges({});
+  }
+
   protected normalizeIcon() {
     return faNormalizeIconSpec(this.icon, this.iconService.defaultPrefix);
   }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ComponentFactoryResolver, ViewChild, ViewContainerRef } from '@angular/core';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faDummy, initTest, queryByCss } from '../../testing/helpers';
 import { FaDuotoneIconComponent } from './duotone-icon.component';
@@ -103,5 +103,33 @@ describe('FaDuotoneIconComponent', () => {
       'Check that you specified the correct style: <fa-duotone-icon [icon]="[\'fab\', \'user\']"></fa-duotone-icon> ' +
       'or use: <fa-icon icon="user"></fa-icon> instead.'
     ));
+  });
+
+  it('should be able to create component dynamically', () => {
+    @Component({
+      selector: 'fa-host',
+      template: '<ng-container #host></ng-container>'
+    })
+    class HostComponent {
+      @ViewChild('host', {static: true, read: ViewContainerRef}) container: ViewContainerRef;
+
+      constructor(private cfr: ComponentFactoryResolver) {
+      }
+
+      createIcon() {
+        const factory = this.cfr.resolveComponentFactory(FaDuotoneIconComponent);
+        const componentRef = this.container.createComponent(factory);
+        componentRef.instance.icon = faDummy;
+        componentRef.instance.render();
+      }
+    }
+
+    const fixture = initTest(HostComponent);
+    fixture.detectChanges();
+    expect(queryByCss(fixture, 'svg')).toBeFalsy();
+
+    fixture.componentInstance.createIcon();
+    fixture.detectChanges();
+    expect(queryByCss(fixture, 'svg')).toBeTruthy();
   });
 });

@@ -1,27 +1,12 @@
-import { Component, Type } from '@angular/core';
-import { ComponentFixture, TestBed, inject } from '@angular/core/testing';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { faUser as faUserRegular } from '@fortawesome/free-regular-svg-icons';
+import { Component, ComponentFactoryResolver, ViewChild, ViewContainerRef } from '@angular/core';
+import { ComponentFixture, inject } from '@angular/core/testing';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
+import { faUser as faUserRegular } from '@fortawesome/free-regular-svg-icons';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { initTest, queryByCss } from '../../testing/helpers';
 import { FaIconComponent } from './icon.component';
 import { FaIconService } from './icon.service';
-
-const iconServiceStub: FaIconService = {
-  defaultPrefix: 'fas',
-};
-
-function initTest<T>(component: Type<T>): ComponentFixture<T> {
-  TestBed.configureTestingModule({
-    declarations: [ FaIconComponent, component ],
-    providers: [ {provide: FaIconService, useValue: iconServiceStub } ]
-  });
-  return TestBed.createComponent(component);
-}
-
-function svgIcon(fixture: ComponentFixture<any>): SVGElement {
-  return fixture.debugElement.nativeElement.querySelector('svg');
-}
 
 describe('FaIconComponent', () => {
   it('should render SVG icon', () => {
@@ -35,7 +20,7 @@ describe('FaIconComponent', () => {
 
     const fixture = initTest(HostComponent);
     fixture.detectChanges();
-    expect(svgIcon(fixture)).toBeTruthy();
+    expect(queryByCss(fixture, 'svg')).toBeTruthy();
   });
 
   it('should support binding to boolean inputs', () => {
@@ -50,11 +35,60 @@ describe('FaIconComponent', () => {
 
     const fixture = initTest(HostComponent);
     fixture.detectChanges();
-    expect(svgIcon(fixture).classList.contains('fa-spin')).toBeFalsy();
+    expect(queryByCss(fixture, 'svg').classList.contains('fa-spin')).toBeFalsy();
 
     fixture.componentInstance.isAnimated = true;
     fixture.detectChanges();
-    expect(svgIcon(fixture).classList.contains('fa-spin')).toBeTruthy();
+    expect(queryByCss(fixture, 'svg').classList.contains('fa-spin')).toBeTruthy();
+  });
+
+  it('should be able to create component dynamically', () => {
+    @Component({
+      selector: 'fa-host',
+      template: '<ng-container #host></ng-container>'
+    })
+    class HostComponent {
+      @ViewChild('host', {static: true, read: ViewContainerRef}) container: ViewContainerRef;
+
+      constructor(private cfr: ComponentFactoryResolver) {
+      }
+
+      createIcon() {
+        const factory = this.cfr.resolveComponentFactory(FaIconComponent);
+        const componentRef = this.container.createComponent(factory);
+        componentRef.instance.icon = faUser;
+        componentRef.instance.render();
+      }
+    }
+
+    const fixture = initTest(HostComponent);
+    fixture.detectChanges();
+    expect(queryByCss(fixture, 'svg')).toBeFalsy();
+
+    fixture.componentInstance.createIcon();
+    fixture.detectChanges();
+    expect(queryByCss(fixture, 'svg')).toBeTruthy();
+  });
+
+  it('should be able to update icon programmatically', () => {
+    @Component({
+      selector: 'fa-host',
+      template: '<fa-icon [icon]="faUser"></fa-icon>'
+    })
+    class HostComponent {
+      faUser = faUser;
+
+      @ViewChild(FaIconComponent, {static: true}) iconComponent: FaIconComponent;
+    }
+
+    const fixture = initTest(HostComponent);
+    fixture.detectChanges();
+    expect(queryByCss(fixture, 'svg').classList.contains('fa-spin')).toBeFalsy();
+
+    fixture.componentInstance.iconComponent.spin = true;
+    fixture.componentInstance.iconComponent.render();
+    fixture.detectChanges();
+    expect(queryByCss(fixture, 'svg').classList.contains('fa-spin')).toBeTruthy();
   });
 
   describe('custom service configuration', () => {
@@ -70,18 +104,18 @@ describe('FaIconComponent', () => {
 
     beforeEach(() => {
       library.add(faUser, faUserRegular);
-      fixture = initTest(HostComponent);
+      fixture = initTest(HostComponent, [{provide: FaIconService, useValue: {defaultPrefix: 'fas'}}]);
     });
 
     it('should use default prefix', () => {
       fixture.detectChanges();
-      expect(svgIcon(fixture).getAttribute('data-prefix')).toEqual('fas');
+      expect(queryByCss(fixture, 'svg').getAttribute('data-prefix')).toEqual('fas');
     });
 
     it('should override default prefix', inject([FaIconService], (service: FaIconService) => {
       service.defaultPrefix = 'far';
       fixture.detectChanges();
-      expect(svgIcon(fixture).getAttribute('data-prefix')).toEqual('far');
+      expect(queryByCss(fixture, 'svg').getAttribute('data-prefix')).toEqual('far');
     }));
 
   });
