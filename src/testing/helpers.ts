@@ -1,5 +1,6 @@
 import { Type } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 import { IconDefinition, IconName, library } from '@fortawesome/fontawesome-svg-core';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { FaDuotoneIconComponent } from '../lib/icon/duotone-icon.component';
@@ -10,7 +11,7 @@ import { FaLayersComponent } from '../lib/layers/layers.component';
 import { FaStackItemSizeDirective } from '../lib/stack/stack-item-size.directive';
 import { FaStackComponent } from '../lib/stack/stack.component';
 
-export function initTest<T>(component: Type<T>): ComponentFixture<T> {
+export function initTest<T>(component: Type<T>, providers?: any[]): ComponentFixture<T> {
   TestBed.configureTestingModule({
     declarations: [
       FaIconComponent,
@@ -22,6 +23,15 @@ export function initTest<T>(component: Type<T>): ComponentFixture<T> {
       FaStackItemSizeDirective,
       component,
     ],
+    providers
+  });
+  TestBed.overrideModule(BrowserDynamicTestingModule, {
+    set: {
+      entryComponents: [
+        FaIconComponent,
+        FaDuotoneIconComponent,
+      ],
+    },
   });
   library.add(faUser);
   return TestBed.createComponent(component);

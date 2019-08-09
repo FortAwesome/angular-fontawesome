@@ -175,3 +175,50 @@ The following features are available as part of Font Awesome. Note that the synt
   <fa-layers-counter content="99+"></fa-layers-counter>
 </fa-layers>
 ```
+
+### Programmatic API
+
+To create `FaIconComponent` dynamically using `ComponentFactoryResolver`:
+
+```ts
+@Component({
+  selector: 'fa-host',
+  template: '<ng-container #host></ng-container>'
+})
+class HostComponent {
+  @ViewChild('host', {static: true, read: ViewContainerRef}) container: ViewContainerRef;
+
+  constructor(private cfr: ComponentFactoryResolver) {
+  }
+
+  createIcon() {
+    const factory = this.cfr.resolveComponentFactory(FaIconComponent);
+    const componentRef = this.container.createComponent(factory);
+    componentRef.instance.icon = faUser;
+    // Note that FaIconComponent.render() should be called to update the
+    // rendered SVG after setting/updating component inputs.
+    componentRef.instance.render();
+  }
+}
+```
+
+To update `FaIconComponent` programmatically:
+
+```ts
+@Component({
+  selector: 'fa-host',
+  template: '<fa-icon [icon]="faUser" (click)="spinIcon()"></fa-icon>'
+})
+class HostComponent {
+  faUser = faUser;
+
+  @ViewChild(FaIconComponent, {static: true}) iconComponent: FaIconComponent;
+
+  spinIcon() {
+    this.iconComponent.spin = true;
+    // Note that FaIconComponent.render() should be called to update the
+    // rendered SVG after setting/updating component inputs.
+    this.iconComponent.render();
+  }
+}
+```

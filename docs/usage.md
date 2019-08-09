@@ -48,6 +48,7 @@ Take your icons to the next level with these advanced features.
 * [Layers](./usage/features.md#layers)
 * [Layers with text](./usage/features.md#layers-with-text)
 * [Layers with counter](./usage/features.md#layers-with-counter)
+* [Programmatic API](./usage/features.md#programmatic-api)
 
 ## Configurations
 * [Changing the Default Prefix](./usage/default-prefix.md)
