@@ -82,6 +82,10 @@ export class FaIconComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    if (this.icon == null) {
+      faWarnIfIconSpecMissing();
+    }
+
     if (changes) {
       const normalizedIcon = this.normalizeIcon();
       const params = this.buildParams();
@@ -137,7 +141,6 @@ export class FaIconComponent implements OnChanges {
   private renderIcon(iconLookup: IconLookup, params: IconParams) {
     const renderedIcon = icon(iconLookup, params);
 
-    faWarnIfIconSpecMissing(iconLookup);
     faWarnIfIconHtmlMissing(renderedIcon, iconLookup);
 
     this.renderedIconHTML = this.sanitizer.bypassSecurityTrustHtml(

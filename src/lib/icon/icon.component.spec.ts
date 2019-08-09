@@ -1,9 +1,10 @@
 import { Component, ComponentFactoryResolver, ViewChild, ViewContainerRef } from '@angular/core';
 import { ComponentFixture, inject } from '@angular/core/testing';
-
-import { library } from '@fortawesome/fontawesome-svg-core';
+import { IconProp, library } from '@fortawesome/fontawesome-svg-core';
 import { faUser as faUserRegular } from '@fortawesome/free-regular-svg-icons';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faCircle, faUser } from '@fortawesome/free-solid-svg-icons';
+import { Subject } from 'rxjs';
+import { startWith } from 'rxjs/operators';
 import { initTest, queryByCss } from '../../testing/helpers';
 import { FaIconComponent } from './icon.component';
 import { FaIconService } from './icon.service';
@@ -103,6 +104,48 @@ describe('FaIconComponent', () => {
     const fixture = initTest(HostComponent);
     fixture.detectChanges();
     expect(queryByCss(fixture, 'svg').getAttribute('role')).toBe('presentation');
+  });
+
+  it('should show a warning when icon attribute is missing', () => {
+    @Component({
+      selector: 'fa-host',
+      template: '<fa-icon [icon]="undefined"></fa-icon>'
+    })
+    class HostComponent {
+    }
+
+    const spy = spyOn(console, 'error');
+
+    const fixture = initTest(HostComponent);
+    fixture.detectChanges();
+    expect(queryByCss(fixture, 'svg')).toBeTruthy();
+    expect(queryByCss(fixture, 'svg > path')).toBeFalsy();
+    expect(spy).toHaveBeenCalledWith(
+      'FontAwesome: Property `icon` is required for `fa-icon`/`fa-duotone-icon` components. ' +
+      'This warning will become a hard error in 0.6.0.'
+    );
+  });
+
+  it('should work with AsyncPipe and default value', () => {
+    @Component({
+      selector: 'fa-host',
+      template: '<fa-icon [icon]="icon | async"></fa-icon>'
+    })
+    class HostComponent {
+      iconSubject = new Subject<IconProp>();
+
+      icon = this.iconSubject.pipe(startWith(faCircle));
+    }
+
+    const spy = spyOn(console, 'error');
+
+    const fixture = initTest(HostComponent);
+    fixture.detectChanges();
+    expect(queryByCss(fixture, '.fa-circle')).toBeTruthy();
+    fixture.componentInstance.iconSubject.next(faUser);
+    fixture.detectChanges();
+    expect(queryByCss(fixture, '.fa-user')).toBeTruthy();
+    expect(spy).not.toHaveBeenCalledWith();
   });
 
   describe('custom service configuration', () => {

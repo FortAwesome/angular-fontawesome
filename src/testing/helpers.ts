@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Type } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
@@ -13,6 +14,9 @@ import { FaStackComponent } from '../lib/stack/stack.component';
 
 export function initTest<T>(component: Type<T>, providers?: any[]): ComponentFixture<T> {
   TestBed.configureTestingModule({
+    imports: [
+      CommonModule,
+    ],
     declarations: [
       FaIconComponent,
       FaDuotoneIconComponent,
