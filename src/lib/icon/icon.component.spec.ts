@@ -91,6 +91,20 @@ describe('FaIconComponent', () => {
     expect(queryByCss(fixture, 'svg').classList.contains('fa-spin')).toBeTruthy();
   });
 
+  it('should be possible to customize `role` attribute of the rendered SVG icon', () => {
+    @Component({
+      selector: 'fa-host',
+      template: '<fa-icon [icon]="faUser" a11yRole="presentation"></fa-icon>'
+    })
+    class HostComponent {
+      faUser = faUser;
+    }
+
+    const fixture = initTest(HostComponent);
+    fixture.detectChanges();
+    expect(queryByCss(fixture, 'svg').getAttribute('role')).toBe('presentation');
+  });
+
   describe('custom service configuration', () => {
 
     let fixture: ComponentFixture<HostComponent>;

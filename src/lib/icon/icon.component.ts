@@ -51,6 +51,13 @@ export class FaIconComponent implements OnChanges {
   @Input() transform?: string | Transform;
 
   /**
+   * Specify the `role` attribute for the rendered <svg> element.
+   *
+   * @default 'img'
+   */
+  @Input() a11yRole: string;
+
+  /**
    * @deprecated Since 0.5.0. Will be removed in 0.6.0. Use `icon` property directly.
    */
   get iconProp(): IconProp {
@@ -120,7 +127,10 @@ export class FaIconComponent implements OnChanges {
       classes: [...faClassList(classOpts), ...this.classes],
       mask: faNormalizeIconSpec(this.mask, this.iconService.defaultPrefix),
       styles: this.styles != null ? this.styles : {},
-      symbol: this.symbol
+      symbol: this.symbol,
+      attributes: {
+        role: this.a11yRole
+      }
     };
   }
 
