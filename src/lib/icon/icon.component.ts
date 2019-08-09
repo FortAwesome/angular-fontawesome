@@ -29,10 +29,17 @@ import { FaIconService } from './icon.service';
   template: ``,
   host: {
     class: 'ng-fa-icon',
+    '[attr.title]': 'title',
   }
 })
 export class FaIconComponent implements OnChanges {
   @Input() icon: IconProp;
+
+  /**
+   * Specify a title for the icon.
+   * This text will be displayed in a tooltip on hover and presented to the
+   * screen readers.
+   */
   @Input() title?: string;
   @Input() spin?: boolean;
   @Input() pulse?: boolean;
