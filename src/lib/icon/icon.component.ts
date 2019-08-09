@@ -44,6 +44,10 @@ export class FaIconComponent implements OnChanges {
   @Input() border?: boolean;
   @Input() inverse?: boolean;
   @Input() symbol?: FaSymbol;
+
+  /**
+   * @deprecated Since 0.5.0. Will be removed in 0.6.0. Use `fixedWidth` with your custom styles instead.
+   */
   @Input() listItem?: boolean;
   @Input() rotate?: RotateProp;
   @Input() fixedWidth?: boolean;
