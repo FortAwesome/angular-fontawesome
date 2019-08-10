@@ -1,13 +1,13 @@
 import { Component, ComponentFactoryResolver, ViewChild, ViewContainerRef } from '@angular/core';
-import { ComponentFixture, inject } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { IconProp, library } from '@fortawesome/fontawesome-svg-core';
 import { faUser as faUserRegular } from '@fortawesome/free-regular-svg-icons';
 import { faCircle, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Subject } from 'rxjs';
 import { startWith } from 'rxjs/operators';
 import { initTest, queryByCss } from '../../testing/helpers';
+import { FaConfig } from '../config';
 import { FaIconComponent } from './icon.component';
-import { FaIconService } from './icon.service';
 
 describe('FaIconComponent', () => {
   it('should render SVG icon', () => {
@@ -166,7 +166,8 @@ describe('FaIconComponent', () => {
   it('should have title attribute, when title input is set using Angular binding syntax', () => {
     @Component({
       selector: 'fa-host',
-      template: `<fa-icon [icon]="faUser" [title]="'User John Smith'"></fa-icon>`
+      template: `
+          <fa-icon [icon]="faUser" [title]="'User John Smith'"></fa-icon>`
     })
     class HostComponent {
       faUser = faUser;
@@ -178,33 +179,37 @@ describe('FaIconComponent', () => {
     expect(queryByCss(fixture, 'fa-icon').getAttribute('title')).toBe('User John Smith');
   });
 
-  describe('custom service configuration', () => {
-
-    let fixture: ComponentFixture<HostComponent>;
-
+  it('should use default icon prefix', () => {
     @Component({
       selector: 'fa-host',
       template: '<fa-icon icon="user"></fa-icon>'
     })
     class HostComponent {
+      constructor() {
+        library.add(faUser, faUserRegular);
+      }
     }
 
-    beforeEach(() => {
-      library.add(faUser, faUserRegular);
-      fixture = initTest(HostComponent, [{provide: FaIconService, useValue: {defaultPrefix: 'fas'}}]);
-    });
-
-    it('should use default prefix', () => {
-      fixture.detectChanges();
-      expect(queryByCss(fixture, 'svg').getAttribute('data-prefix')).toEqual('fas');
-    });
-
-    it('should override default prefix', inject([FaIconService], (service: FaIconService) => {
-      service.defaultPrefix = 'far';
-      fixture.detectChanges();
-      expect(queryByCss(fixture, 'svg').getAttribute('data-prefix')).toEqual('far');
-    }));
-
+    const fixture = initTest(HostComponent);
+    fixture.detectChanges();
+    expect(queryByCss(fixture, 'svg').getAttribute('data-prefix')).toEqual('fas');
   });
 
+  it('should be able to override default icon prefix', () => {
+    @Component({
+      selector: 'fa-host',
+      template: '<fa-icon icon="user"></fa-icon>'
+    })
+    class HostComponent {
+      constructor() {
+        library.add(faUser, faUserRegular);
+      }
+    }
+
+    const fixture = initTest(HostComponent);
+    const config = TestBed.get(FaConfig);
+    config.defaultPrefix = 'far';
+    fixture.detectChanges();
+    expect(queryByCss(fixture, 'svg').getAttribute('data-prefix')).toEqual('far');
+  });
 });

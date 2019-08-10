@@ -1,24 +1,20 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
-import { FaIconService } from '@fortawesome/angular-fontawesome';
+import { Component } from '@angular/core';
+import { FaConfig } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faUser, faHandPaper, faBellSlash } from '@fortawesome/free-regular-svg-icons';
+import { faBellSlash, faHandPaper, faUser } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-alternate-prefix',
   templateUrl: './alternate-prefix.component.html',
-  styles: [],
   providers: [
-    FaIconService
+    FaConfig
   ]
 })
 export class AlternatePrefixComponent {
-
-  constructor(private faIconService: FaIconService, private cdRef: ChangeDetectorRef) {
+  constructor(private faConfig: FaConfig) {
     // Setting the defaultPrefix to far
-    this.faIconService.defaultPrefix = 'far';
+    this.faConfig.defaultPrefix = 'far';
     // Adding dynamic icons to library for use
     library.add(faUser, faHandPaper, faBellSlash);
-
   }
-
 }
