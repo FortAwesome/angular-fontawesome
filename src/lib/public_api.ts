@@ -3,6 +3,7 @@ export { FaProps } from './shared/models/props.model';
 export { FaIconComponent } from './icon/icon.component';
 export { FaDuotoneIconComponent } from './icon/duotone-icon.component';
 export { FaIconService } from './icon/icon.service';
+export { FaConfig } from './config';
 export { FaLayersComponent } from './layers/layers.component';
 export { FaLayersTextComponent } from './layers/layers-text.component';
 export { FaLayersCounterComponent } from './layers/layers-counter.component';

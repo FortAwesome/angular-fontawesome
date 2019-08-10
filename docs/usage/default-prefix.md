@@ -1,15 +1,13 @@
 # Changing the default prefix
 
-The default prefix, `fas`, can be adjusted by injecting the `FaIconService` and modifying the `defaultPrefix` property.
+The default prefix, `fas`, can be adjusted by injecting the `FaConfig` and modifying the `defaultPrefix` property.
 
 ```typescript
-import { FaIconService } from '@fortawesome/angular-fontawesome';
+import { FaConfig } from '@fortawesome/angular-fontawesome';
 
 export class AppComponent {
-
-  constructor(private faIconService: FaIconService) {
-      this.faIconService.defaultPrefix = 'far';
+  constructor(private faConfig: FaConfig) {
+    this.faConfig.defaultPrefix = 'far';
   }
-
 }
 ```

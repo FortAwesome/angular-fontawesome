@@ -14,15 +14,14 @@ import {
   Styles,
   Transform
 } from '@fortawesome/fontawesome-svg-core';
+import { FaConfig } from '../config';
 import { faNotFoundIconHtml } from '../shared/errors/not-found-icon-html';
 import { faWarnIfIconHtmlMissing } from '../shared/errors/warn-if-icon-html-missing';
 import { faWarnIfIconSpecMissing } from '../shared/errors/warn-if-icon-spec-missing';
 import { FaProps } from '../shared/models/props.model';
 import { faClassList } from '../shared/utils/classlist.util';
-
 import { faNormalizeIconSpec } from '../shared/utils/normalize-icon-spec.util';
 import { FaStackItemSizeDirective } from '../stack/stack-item-size.directive';
-import { FaIconService } from './icon.service';
 
 @Component({
   selector: 'fa-icon',
@@ -87,7 +86,7 @@ export class FaIconComponent implements OnChanges {
 
   constructor(
     private sanitizer: DomSanitizer,
-    private iconService: FaIconService,
+    private config: FaConfig,
     @Optional() private stackItem: FaStackItemSizeDirective,
   ) {
   }
@@ -116,7 +115,7 @@ export class FaIconComponent implements OnChanges {
   }
 
   protected normalizeIcon() {
-    return faNormalizeIconSpec(this.icon, this.iconService.defaultPrefix);
+    return faNormalizeIconSpec(this.icon, this.config.defaultPrefix);
   }
 
   protected buildParams() {
@@ -140,7 +139,7 @@ export class FaIconComponent implements OnChanges {
       title: this.title,
       transform: parsedTransform,
       classes: [...faClassList(classOpts), ...this.classes],
-      mask: faNormalizeIconSpec(this.mask, this.iconService.defaultPrefix),
+      mask: faNormalizeIconSpec(this.mask, this.config.defaultPrefix),
       styles: this.styles != null ? this.styles : {},
       symbol: this.symbol,
       attributes: {
