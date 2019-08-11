@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { FaConfig } from '@fortawesome/angular-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
+import { FaConfig, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faBellSlash, faHandPaper, faUser } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
@@ -11,10 +10,10 @@ import { faBellSlash, faHandPaper, faUser } from '@fortawesome/free-regular-svg-
   ]
 })
 export class AlternatePrefixComponent {
-  constructor(private faConfig: FaConfig) {
+  constructor(faConfig: FaConfig, library: FaIconLibrary) {
     // Setting the defaultPrefix to far
-    this.faConfig.defaultPrefix = 'far';
+    faConfig.defaultPrefix = 'far';
     // Adding dynamic icons to library for use
-    library.add(faUser, faHandPaper, faBellSlash);
+    library.addIcons(faUser, faHandPaper, faBellSlash);
   }
 }

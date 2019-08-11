@@ -2,9 +2,10 @@ import { Component, HostBinding, Input, OnChanges, Optional, SimpleChanges } fro
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import {
   FaSymbol,
+  findIconDefinition,
   FlipProp,
   icon,
-  IconLookup,
+  IconDefinition,
   IconParams,
   IconProp,
   parse,
@@ -15,8 +16,8 @@ import {
   Transform
 } from '@fortawesome/fontawesome-svg-core';
 import { FaConfig } from '../config';
-import { faNotFoundIconHtml } from '../shared/errors/not-found-icon-html';
-import { faWarnIfIconHtmlMissing } from '../shared/errors/warn-if-icon-html-missing';
+import { FaIconLibrary } from '../icon-library';
+import { faWarnIfIconDefinitionMissing } from '../shared/errors/warn-if-icon-html-missing';
 import { faWarnIfIconSpecMissing } from '../shared/errors/warn-if-icon-spec-missing';
 import { FaProps } from '../shared/models/props.model';
 import { faClassList } from '../shared/utils/classlist.util';
@@ -87,19 +88,22 @@ export class FaIconComponent implements OnChanges {
   constructor(
     private sanitizer: DomSanitizer,
     private config: FaConfig,
+    private iconLibrary: FaIconLibrary,
     @Optional() private stackItem: FaStackItemSizeDirective,
   ) {
   }
 
   ngOnChanges(changes: SimpleChanges) {
     if (this.icon == null) {
-      faWarnIfIconSpecMissing();
+      return faWarnIfIconSpecMissing();
     }
 
     if (changes) {
-      const normalizedIcon = this.normalizeIcon();
-      const params = this.buildParams();
-      this.renderIcon(normalizedIcon, params);
+      const iconDefinition = this.findIconDefinition(this.icon);
+      if (iconDefinition != null) {
+        const params = this.buildParams();
+        this.renderIcon(iconDefinition, params);
+      }
     }
   }
 
@@ -114,8 +118,33 @@ export class FaIconComponent implements OnChanges {
     this.ngOnChanges({});
   }
 
-  protected normalizeIcon() {
-    return faNormalizeIconSpec(this.icon, this.config.defaultPrefix);
+  protected findIconDefinition(i: IconProp | IconDefinition): IconDefinition | null {
+    const lookup = faNormalizeIconSpec(i, this.config.defaultPrefix);
+    if ('icon' in lookup) {
+      return lookup;
+    }
+
+    const definition = this.iconLibrary.getIconDefinition(lookup.prefix, lookup.iconName);
+    if (definition != null) {
+      return definition;
+    }
+
+    const globalDefinition = findIconDefinition(lookup);
+    if (globalDefinition != null) {
+      const message = 'Global icon library is deprecated. ' +
+        'Consult https://github.com/FortAwesome/angular-fontawesome/blob/master/UPGRADING.md ' +
+        'for the migration instructions.';
+      if (this.config.globalLibrary === 'unset') {
+        console.error('FontAwesome: ' + message);
+      } else if (!this.config.globalLibrary) {
+        throw new Error(message);
+      }
+
+      return globalDefinition;
+    }
+
+    faWarnIfIconDefinitionMissing(lookup);
+    return null;
   }
 
   protected buildParams() {
@@ -139,7 +168,7 @@ export class FaIconComponent implements OnChanges {
       title: this.title,
       transform: parsedTransform,
       classes: [...faClassList(classOpts), ...this.classes],
-      mask: faNormalizeIconSpec(this.mask, this.config.defaultPrefix),
+      mask: this.mask != null ? this.findIconDefinition(this.mask) : null,
       styles: this.styles != null ? this.styles : {},
       symbol: this.symbol,
       attributes: {
@@ -148,14 +177,9 @@ export class FaIconComponent implements OnChanges {
     };
   }
 
-  private renderIcon(iconLookup: IconLookup, params: IconParams) {
-    const renderedIcon = icon(iconLookup, params);
-
-    faWarnIfIconHtmlMissing(renderedIcon, iconLookup);
-
-    this.renderedIconHTML = this.sanitizer.bypassSecurityTrustHtml(
-      renderedIcon ? renderedIcon.html.join('\n') : faNotFoundIconHtml
-    );
+  private renderIcon(definition: IconDefinition, params: IconParams) {
+    const renderedIcon = icon(definition, params);
+    this.renderedIconHTML = this.sanitizer.bypassSecurityTrustHtml(renderedIcon.html.join('\n'));
   }
 }
 

@@ -12,3 +12,4 @@ You might also be interested in the larger umbrella project [upgrade guide](http
 ## Version Specific Guides
 * [Font Awesome 4 or older](docs/upgrading/v4.md)
 * [0.1.0 to 0.1.0-6](docs/upgrading/0.1.0-0.1.0-6.md)
+* [0.4.0 to 0.5.0](docs/upgrading/0.4.0-0.5.0.md)

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IconDefinition, IconName, library } from '@fortawesome/fontawesome-svg-core';
+import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { IconDefinition, IconName } from '@fortawesome/fontawesome-svg-core';
 import { faFlag, faUser as regularUser } from '@fortawesome/free-regular-svg-icons';
 import {
   faAdjust,
@@ -58,7 +59,7 @@ export class AppComponent {
   isSyncAnimated = true;
   magicLevel = 0;
 
-  constructor() {
+  constructor(library: FaIconLibrary) {
     // Notice that we're adding two different icon objects to the library.
     // Each of them within their respective icon npm packages are exported as faUser,
     // but we've renamed the second one in order to disambiguate the two objects within
@@ -78,6 +79,6 @@ export class AppComponent {
     // <fa-icon [icon]="regularUser"></fa-icon>
     //
     // You don't specify the prefix in that case, because the icon object knows its own prefix.
-    library.add(faUser, regularUser);
+    library.addIcons(faUser, regularUser);
   }
 }
