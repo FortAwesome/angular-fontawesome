@@ -33,7 +33,7 @@ $ npm install @fortawesome/angular-fontawesome@<version>
 |0.1.x|5.x|
 |0.2.x|6.x|
 |0.3.x|6.x && 7.x|
-|0.4.x|8.x|
+|0.4.x, 0.5.x|8.x|
 
 ## Usage
 To get up and running using Font Awesome with Angular follow below steps:
@@ -120,6 +120,8 @@ being awesome contributors to this project. **We'd like to take a moment to reco
 [<img src="https://github.com/stephaniepurvis.png?size=72" alt="stephaniepurvis" width="72">](https://github.com/stephaniepurvis)
 [<img src="https://github.com/loicgasser.png?size=72" alt="loicgasser" width="72">](https://github.com/loicgasser)
 [<img src="https://github.com/damienwebdev.png?size=72" alt="damienwebdev" width="72">](https://github.com/damienwebdev)
+[<img src="https://github.com/ronniebarker.png?size=72" alt="ronniebarker" width="72">](https://github.com/ronniebarker)
+[<img src="https://github.com/bhanuhiteshi.png?size=72" alt="bhanuhiteshi" width="72">](https://github.com/bhanuhiteshi)
 
 If we've missed someone (which is quite likely) submit a Pull Request to us and we'll get it resolved.
 

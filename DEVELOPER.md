@@ -36,7 +36,9 @@ Command     | Purpose
 
 1. Bump version in `package.json`
 1. Add contributors to `package.json` and `README.md`
+1. Update Compatibility table in `README.md`
 1. Update the `CHANGELOG.md`
+1. Update the `UPGRADING.md` if necessary
 1. `yarn build`
 1. `cd dist/angular-fontawesome`
 1. `npm publish`

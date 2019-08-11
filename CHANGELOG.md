@@ -5,6 +5,48 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.5.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.5.0) - 2019-08-12
+
+Make sure to check [upgrade instructions](https://github.com/FortAwesome/angular-fontawesome/blob/master/UPGRADING.md).
+
+### Added
+
+* Added `fa-stack` component to stack [two icons together](https://fontawesome.com/how-to-use/on-the-web/styling/stacking-icons):
+
+    ```html
+    <fa-stack>
+      <fa-icon [icon]="faCircle" stackItemSize="2x"></fa-icon>
+      <fa-icon [icon]="faFlag" [inverse]="true" stackItemSize="1x"></fa-icon>
+    </fa-stack>
+    ```
+* Added `fa-duotone-icon` component to work with [duotone icons](https://fontawesome.com/how-to-use/on-the-web/styling/duotone-icons):
+
+    ```html
+    <fa-duotone-icon [icon]="['fad', 'coffee']" primaryColor="red" secondaryColor="blue"></fa-duotone-icon>
+    ```
+* Added [an official method](https://github.com/FortAwesome/angular-fontawesome/blob/master/docs/usage/features.md#programmatic-api) to update `FaIconComponent` and `FaDuotoneIconComponent` programmatically.
+* Added `FaIconLibray` class to replace deprecated global icon library from `@fortawesome/fontawesome-svg-core` package.
+* Added `a11yRole` input for `fa-icon` and `fa-duotone-icon` components to support customizing `role` attribute of the rendered SVG icon.
+* Added `FaConfig` class to globally configure `angular-fontawesome`.
+* Added a table in README.md to document compatibility with major Angular versions.
+* Added instructions on how to install library with NPM.
+
+### Changed
+
+* Restructured documentation to make it easier to navigate and extend.
+* Changed semantics of the `FaIconComponent.icon` property. It used to have type `Icon` - rendered icon object and is now changed into component input to specify icon definition with type `IconProp`.
+
+### Deprecated
+
+* `FaIconComponent.iconProp` is deprecated. Use `FaIconComponent.icon` instead.
+* Warning when `FaIconComponent.icon` is not set or specified icon definition is missing in the icon library is deprecated. It will throw a hard error in the next version.
+* `FaIconComponent.listItem` is deprecated. Use `FaIconComponent.fixedWidth` + custom CSS to render icons as list markers.
+* `FaIconService` is deprecated in favour of `FaConfig`.
+
+### Fixed
+
+* Fixed title-tooltip not being displayed in IE 11 in some cases.
+
 ## [0.4.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.4.0) - 2019-03-28
 
 ### Added
