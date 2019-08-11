@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { IconDefinition, IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FaIconComponent } from './icon.component';
-import { IconLookup } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
   selector: 'fa-duotone-icon',
@@ -48,8 +48,8 @@ export class FaDuotoneIconComponent extends FaIconComponent {
    */
   @Input() secondaryColor?: string;
 
-  protected normalizeIcon(): IconLookup {
-    const lookup = super.normalizeIcon();
+  protected findIconDefinition(i: IconProp | IconDefinition): IconDefinition | null {
+    const lookup = super.findIconDefinition(i);
 
     if (lookup != null && lookup.prefix !== 'fad') {
       throw new Error(

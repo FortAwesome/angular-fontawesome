@@ -7,6 +7,7 @@ import { Subject } from 'rxjs';
 import { startWith } from 'rxjs/operators';
 import { initTest, queryByCss } from '../../testing/helpers';
 import { FaConfig } from '../config';
+import { FaIconLibrary } from '../icon-library';
 import { FaIconComponent } from './icon.component';
 
 describe('FaIconComponent', () => {
@@ -118,8 +119,7 @@ describe('FaIconComponent', () => {
 
     const fixture = initTest(HostComponent);
     fixture.detectChanges();
-    expect(queryByCss(fixture, 'svg')).toBeTruthy();
-    expect(queryByCss(fixture, 'svg > path')).toBeFalsy();
+    expect(queryByCss(fixture, 'svg')).toBeFalsy();
     expect(spy).toHaveBeenCalledWith(
       'FontAwesome: Property `icon` is required for `fa-icon`/`fa-duotone-icon` components. ' +
       'This warning will become a hard error in 0.6.0.'
@@ -185,8 +185,8 @@ describe('FaIconComponent', () => {
       template: '<fa-icon icon="user"></fa-icon>'
     })
     class HostComponent {
-      constructor() {
-        library.add(faUser, faUserRegular);
+      constructor(iconLibrary: FaIconLibrary) {
+        iconLibrary.addIcons(faUser, faUserRegular);
       }
     }
 
@@ -201,8 +201,8 @@ describe('FaIconComponent', () => {
       template: '<fa-icon icon="user"></fa-icon>'
     })
     class HostComponent {
-      constructor() {
-        library.add(faUser, faUserRegular);
+      constructor(iconLibrary: FaIconLibrary) {
+        iconLibrary.addIcons(faUser, faUserRegular);
       }
     }
 
@@ -211,5 +211,103 @@ describe('FaIconComponent', () => {
     config.defaultPrefix = 'far';
     fixture.detectChanges();
     expect(queryByCss(fixture, 'svg').getAttribute('data-prefix')).toEqual('far');
+  });
+
+  it('should use icon definition from the icon library', () => {
+    @Component({
+      selector: 'fa-host',
+      template: '<fa-icon icon="user"></fa-icon>'
+    })
+    class HostComponent {
+      constructor(iconLibrary: FaIconLibrary) {
+        iconLibrary.addIcons(faUser);
+      }
+    }
+
+    const fixture = initTest(HostComponent);
+    fixture.detectChanges();
+    expect(queryByCss(fixture, 'svg')).toBeTruthy();
+  });
+
+  it('should use icon definition from the global icon library and print warning with globalLibrary unset', () => {
+    @Component({
+      selector: 'fa-host',
+      template: '<fa-icon icon="user"></fa-icon>'
+    })
+    class HostComponent {
+      constructor() {
+        library.add(faUser);
+      }
+    }
+
+    const spy = spyOn(console, 'error');
+
+    const fixture = initTest(HostComponent);
+    fixture.detectChanges();
+    expect(queryByCss(fixture, 'svg')).toBeTruthy();
+    expect(spy).toHaveBeenCalledWith(
+      'FontAwesome: Global icon library is deprecated. ' +
+      'Consult https://github.com/FortAwesome/angular-fontawesome/blob/master/UPGRADING.md ' +
+      'for the migration instructions.'
+    );
+  });
+
+  it('should not use icon definition from the global icon library and throw error with globalLibrary false', () => {
+    @Component({
+      selector: 'fa-host',
+      template: '<fa-icon icon="user"></fa-icon>'
+    })
+    class HostComponent {
+      constructor(config: FaConfig) {
+        library.add(faUser);
+        config.globalLibrary = false;
+      }
+    }
+
+    const fixture = initTest(HostComponent);
+    expect(() => fixture.detectChanges()).toThrow(new Error(
+      'Global icon library is deprecated. ' +
+      'Consult https://github.com/FortAwesome/angular-fontawesome/blob/master/UPGRADING.md ' +
+      'for the migration instructions.'
+    ));
+  });
+
+  it('should use icon definition from the global icon library without warnings with globalLibrary true', () => {
+    @Component({
+      selector: 'fa-host',
+      template: '<fa-icon icon="user"></fa-icon>'
+    })
+    class HostComponent {
+      constructor(config: FaConfig) {
+        library.add(faUser);
+        config.globalLibrary = true;
+      }
+    }
+
+    const spy = spyOn(console, 'error');
+
+    const fixture = initTest(HostComponent);
+    fixture.detectChanges();
+    expect(queryByCss(fixture, 'svg')).toBeTruthy();
+    expect(spy).not.toHaveBeenCalledWith();
+  });
+
+  it('should print a warning if icon definition is found neither in icon library, nor in global icon library', () => {
+    @Component({
+      selector: 'fa-host',
+      template: '<fa-icon icon="circle"></fa-icon>'
+    })
+    class HostComponent {
+    }
+
+    const spy = spyOn(console, 'error');
+
+    const fixture = initTest(HostComponent);
+    fixture.detectChanges();
+    expect(queryByCss(fixture, 'svg')).toBeFalsy();
+    expect(spy).toHaveBeenCalledWith(
+      'FontAwesome: Could not find icon with iconName=circle and prefix=fas. ' +
+      'This warning will become a hard error in 0.6.0.'
+    );
   });
 });
