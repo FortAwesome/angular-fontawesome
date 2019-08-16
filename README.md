@@ -92,7 +92,7 @@ To get up and running using Font Awesome with Angular follow below steps:
 ## Examples
 
 ### Stackblitz
-Here's a [StackBlitz Starter Sample](https://stackblitz.com/edit/angular-font-awesome-starter?file=src%2Fapp%2Fapp.module.ts) on how to display Solid, Regular, and Brand icons [using the Icon Library](./docs/usage/icon-library.md#using-the-icon-library).
+Here's a [StackBlitz Starter Sample](https://stackblitz.com/edit/angular-fontawesome-icon-library?file=src/app/app.module.ts) on how to display Solid, Regular, and Brand icons [using the Icon Library](./docs/usage/icon-library.md#using-the-icon-library).
 
 
 ### Demo application
