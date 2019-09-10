@@ -137,6 +137,8 @@ The following features are available as part of Font Awesome. Note that the synt
 
 ### Stacked icons
 
+Each `<fa-icon>` declared inside an `<fa-stack>` element **must** include the `stackItemSize` input parameter, otherwise the icon will not render.
+
 [FontAwesome Spec](https://fontawesome.com/how-to-use/on-the-web/styling/stacking-icons):
 
 ```html
