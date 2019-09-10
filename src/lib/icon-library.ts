@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
 import { IconDefinition, IconName, IconPack, IconPrefix } from '@fortawesome/fontawesome-svg-core';
 
+export interface FaIconLibraryInterface {
+  addIcons(icons: IconDefinition[]): void;
+  addIconPacks(...packs: IconPack[]): void;
+  getIconDefinition(prefix: IconPrefix, name: IconName): IconDefinition | null;
+}
+
 @Injectable({providedIn: 'root'})
 export class FaIconLibrary {
   private definitions: { [prefix: string]: { [name: string]: IconDefinition } } = {};

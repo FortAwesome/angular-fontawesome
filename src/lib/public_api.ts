@@ -9,4 +9,4 @@ export { FaLayersTextComponent } from './layers/layers-text.component';
 export { FaLayersCounterComponent } from './layers/layers-counter.component';
 export { FaStackComponent } from './stack/stack.component';
 export { FaStackItemSizeDirective } from './stack/stack-item-size.directive';
-export { FaIconLibrary } from './icon-library';
+export { FaIconLibrary, FaIconLibraryInterface } from './icon-library';
