@@ -10,6 +10,18 @@ export class MockFaIconLibraryService implements FaIconLibraryInterface {
   public addIcons() { }
   public addIconPacks() { }
   getIconDefinition(prefix: IconPrefix, name: IconName): IconDefinition {
-    return faCoffee;
+    return {
+      prefix: 'fad',
+      iconName: 'dummy' as IconName,
+      icon: [
+        512,
+        512,
+        [],
+        'f030',
+        [
+          'M50 50 H462 V462 H50 Z'
+        ]
+      ]
+    }
   }
 }
