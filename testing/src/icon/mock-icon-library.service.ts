@@ -7,8 +7,8 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
   providedIn: 'root'
 })
 export class MockFaIconLibraryService implements FaIconLibraryInterface {
-  public addIcons() {}
-  public addIconPacks() {}  
+  public addIcons() { }
+  public addIconPacks() { }
   getIconDefinition(prefix: IconPrefix, name: IconName): IconDefinition {
     return faCoffee;
   }

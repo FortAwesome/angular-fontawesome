@@ -16,7 +16,7 @@ getTestBed().initTestEnvironment(
   platformBrowserDynamicTesting()
 );
 
-//TODO: move the package into a project and change the context
+// TODO: move the package into a project and change the context
 // Then we find all the tests.
 const context = require.context('../', true, /^\.\/(src\/|testing\/).*\.spec\.ts$/);
 // And load the modules.

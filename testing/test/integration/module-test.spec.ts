@@ -20,10 +20,10 @@ describe('Using the `FontAwesomeTestingModule', () => {
                 CommonModule,
                 FontAwesomeTestingModule
             ],
-            declarations:[
+            declarations: [
                 HostComponent
             ]
-        }).compileComponents();  
+        }).compileComponents();
     }));
 
     beforeEach(() => {
@@ -35,4 +35,4 @@ describe('Using the `FontAwesomeTestingModule', () => {
     it('should allow you to import the module without errors', () => {
         expect(component).toBeTruthy();
     });
-})
+});

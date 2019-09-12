@@ -13,6 +13,6 @@ describe('MockFaIconLibraryService', () => {
 
   it('should return a known icon when getIconDefinition is called regardless of input', () => {
     const service: MockFaIconLibraryService = TestBed.get(MockFaIconLibraryService);
-    expect(service.getIconDefinition('fas','500px')).toEqual(faCoffee);
-  })
+    expect(service.getIconDefinition('fas', '500px')).toEqual(faCoffee);
+  });
 });
