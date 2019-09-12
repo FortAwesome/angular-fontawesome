@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { FaIconLibraryInterface } from '@fortawesome/angular-fontawesome';
 import { IconPrefix, IconName, IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
-export const dummyIcon : IconDefinition =  {
+export const dummyIcon: IconDefinition = {
   prefix: 'fad',
   iconName: 'dummy' as IconName,
   icon: [
@@ -14,7 +14,7 @@ export const dummyIcon : IconDefinition =  {
       'M50 50 H462 V462 H50 Z'
     ]
   ]
-}
+};
 
 @Injectable({
   providedIn: 'root'
