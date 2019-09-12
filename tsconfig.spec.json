@@ -5,7 +5,12 @@
     "types": [
       "jasmine",
       "node"
-    ]
+    ],
+    "paths": {
+      "@fortawesome/angular-fontawesome": [
+        "src/lib/public_api.ts"
+      ]
+    }
   },
   "files": [
     "src/test.ts"
