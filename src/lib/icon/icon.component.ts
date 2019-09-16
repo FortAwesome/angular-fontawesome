@@ -135,7 +135,7 @@ export class FaIconComponent implements OnChanges {
         'Consult https://github.com/FortAwesome/angular-fontawesome/blob/master/UPGRADING.md ' +
         'for the migration instructions.';
       if (!this.config.globalLibrary || this.config.globalLibrary === 'unset') {
-        throw new Error(message);
+        throw new Error('FontAwesome: ' + message);
       }
 
       return globalDefinition;
