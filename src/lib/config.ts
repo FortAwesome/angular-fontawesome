@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IconPrefix } from '@fortawesome/fontawesome-common-types';
+import { IconPrefix, IconDefinition } from '@fortawesome/fontawesome-common-types';
 import { FaIconLibrary } from './icon-library';
 
 @Injectable({providedIn: 'root'})
@@ -10,6 +10,15 @@ export class FaConfig {
    * @default 'fas'
    */
   defaultPrefix: IconPrefix = 'fas';
+
+  /**
+   * Provides a fallback icon to use whilst main icon is being loaded asynchronously.
+   * When value is null, then fa-icon component will throw an error if icon input is missing.
+   * When value is not null, then the provided icon will be used as a fallback icon if icon input is missing.
+   *
+   * @default null
+   */
+  fallbackIcon: IconDefinition = null;
 
   /**
    * Whether components should lookup icon definitions in the global icon

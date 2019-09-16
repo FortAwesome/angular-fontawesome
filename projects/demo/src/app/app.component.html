@@ -4,9 +4,10 @@
 <fa-icon [icon]="faCoffee" title="Coffee: Best Drink Ever"></fa-icon>
 
 <h3>Icon looked up in library by name</h3>
-<p>Possible after adding the <code>faUser</code> icon from the <code>free-solid-svg-icons</code> package to the library.</p>
+<p>Possible after adding the <code>faUser</code> icon from the <code>free-solid-svg-icons</code> package to the library.
+</p>
 <p>The default prefix of <code>fas</code> is assumed. Also, add a border.</p>
-<fa-icon icon='user' [border]="true" a11yRole="presentation"></fa-icon>
+<fa-icon [border]="true" a11yRole="presentation" icon='user'></fa-icon>
 
 <h3>Duotone icons</h3>
 <fa-duotone-icon [icon]="faDummy"></fa-duotone-icon>
@@ -19,7 +20,8 @@
 
 <h3>Icon with Non-default Style Prefix Using [prefix, iconName]</h3>
 <p><code>icon</code> should be set equal to an array object with two string elements: the prefix and the icon name.</p>
-<p>Using a string for an icon name also requires that this icon has been added to the library with <code>library.add()</code></p>
+<p>Using a string for an icon name also requires that this icon has been added to the library with
+  <code>library.add()</code></p>
 <fa-icon [icon]="['far','user']"></fa-icon>
 
 <h3>Icon as Object with non-Default Prefix</h3>
@@ -27,17 +29,17 @@
 <fa-icon [icon]="regularUser"></fa-icon>
 
 <h3>With Mask and Transform</h3>
-<fa-icon [icon]="faCircle" transform="shrink-9 right-4" [mask]="faSquare"></fa-icon>
+<fa-icon [icon]="faCircle" [mask]="faSquare" transform="shrink-9 right-4"></fa-icon>
 
 <h3>Change Size</h3>
 <fa-icon [icon]="faAdjust" size="2x"></fa-icon>
 
 <h3>Animation</h3>
 <p>Click to toggle animation.</p>
-<fa-icon [icon]="faSync" [spin]="isSyncAnimated" (click)="isSyncAnimated =! isSyncAnimated"></fa-icon>
+<fa-icon (click)="isSyncAnimated =! isSyncAnimated" [icon]="faSync" [spin]="isSyncAnimated"></fa-icon>
 <p>Slide to turn up the magic.</p>
 <fa-icon [icon]="faMagic" transform="rotate-{{magicLevel}}"></fa-icon>
-<input type='range' [value]="magicLevel" (input)="magicLevel = $event.target.value"/>
+<input (input)="magicLevel = $event.target.value" [value]="magicLevel" type='range'/>
 
 <h3>Stack</h3>
 <p>Stack multiple icons into one.</p>
@@ -55,7 +57,7 @@
   </fa-layers>
   <fa-layers [fixedWidth]="true" size="4x">
     <fa-icon [icon]="faMobile"></fa-icon>
-    <fa-icon [icon]="faBatteryQuarter" transform="shrink-11 up-1.5" [styles]="{color: 'Tomato'}"></fa-icon>
+    <fa-icon [icon]="faBatteryQuarter" [styles]="{color: 'Tomato'}" transform="shrink-11 up-1.5"></fa-icon>
   </fa-layers>
   <fa-layers [fixedWidth]="true" size="4x">
     <fa-icon [icon]="faFighterJet"></fa-icon>
@@ -68,15 +70,16 @@
 <div>
   <fa-layers [fixedWidth]="true" size="4x">
     <fa-icon [icon]="faFlag"></fa-icon>
-    <fa-layers-text title="Fort Awesome" [content]="'Fa'" transform="up-4" [styles]="{'font-size': '0.3em'}"></fa-layers-text>
+    <fa-layers-text [content]="'Fa'" [styles]="{'font-size': '0.3em'}" title="Fort Awesome"
+                    transform="up-4"></fa-layers-text>
   </fa-layers>
 </div>
 <p>Slide and increase the number.</p>
-<input type='range'
-       [min]="1000"
+<input (input)="notificationsCounter = $event.target.value"
        [max]="2000"
+       [min]="1000"
        [value]="notificationsCounter"
-       (input)="notificationsCounter = $event.target.value"/>
+       type='range'/>
 <div>
   <fa-layers [fixedWidth]="true" size="3x">
     <fa-icon [icon]="faBell"></fa-icon>
@@ -89,11 +92,12 @@
 
 <h3>When using text layer outside layers component</h3>
 <p>Expect to see an error on the JavaScript console, and nothing shown between these bars:
-  |<fa-layers-counter [content]="notificationsCounter | number"></fa-layers-counter>|
+  |
+  <fa-layers-counter [content]="notificationsCounter | number"></fa-layers-counter>
+  |
 </p>
 
-
-<h3>Intentionally Missing Icon</h3>
-<p>Expect to see an error on the JavaScript console, and nothing shown between these bars: |<fa-icon [icon]="undefined"></fa-icon>|</p>
-
-
+<h3>Fallback icon</h3>
+<p>Icon uses a fallback icon when the main icon parameter is not specified. Useful for when the icon is loaded
+  asynchronously. If no fallback icon is specified, the icon will not appear. (Not shown in this example.)</p>
+<fa-icon [icon]="undefined"></fa-icon>
