@@ -121,8 +121,7 @@ describe('FaIconComponent', () => {
     fixture.detectChanges();
     expect(queryByCss(fixture, 'svg')).toBeFalsy();
     expect(spy).toHaveBeenCalledWith(
-      'FontAwesome: Property `icon` is required for `fa-icon`/`fa-duotone-icon` components. ' +
-      'This warning will become a hard error in 0.6.0.'
+      'FontAwesome: Property `icon` is required for `fa-icon`/`fa-duotone-icon` components.'
     );
   });
 
@@ -306,8 +305,7 @@ describe('FaIconComponent', () => {
     fixture.detectChanges();
     expect(queryByCss(fixture, 'svg')).toBeFalsy();
     expect(spy).toHaveBeenCalledWith(
-      'FontAwesome: Could not find icon with iconName=circle and prefix=fas. ' +
-      'This warning will become a hard error in 0.6.0.'
+      'FontAwesome: Could not find icon with iconName=circle and prefix=fas.'
     );
   });
 });
