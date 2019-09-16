@@ -94,12 +94,19 @@ export class FaIconComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (this.icon == null) {
+    if (this.icon == null && this.config.fallbackIcon == null) {
       return faWarnIfIconSpecMissing();
     }
 
+    let iconToBeRendered: IconProp = null;
+    if (this.icon == null) {
+      iconToBeRendered = this.config.fallbackIcon;
+    } else {
+      iconToBeRendered = this.icon;
+    }
+
     if (changes) {
-      const iconDefinition = this.findIconDefinition(this.icon);
+      const iconDefinition = this.findIconDefinition(iconToBeRendered);
       if (iconDefinition != null) {
         const params = this.buildParams();
         this.renderIcon(iconDefinition, params);

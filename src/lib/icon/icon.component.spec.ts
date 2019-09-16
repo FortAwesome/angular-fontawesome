@@ -310,4 +310,43 @@ describe('FaIconComponent', () => {
       'This warning will become a hard error in 0.6.0.'
     );
   });
+
+  it('should display a fallback icon when specified in the config, and icon attribute is missing', () => {
+    @Component({
+      selector: 'fa-host',
+      template: '<fa-icon [icon]="undefined"></fa-icon>'
+    })
+    class HostComponent {
+      constructor(config: FaConfig) {
+        config.fallbackIcon = faCircle;
+      }
+    }
+
+    const spy = spyOn(console, 'error');
+    const fixture = initTest(HostComponent);
+    fixture.detectChanges();
+    expect(queryByCss(fixture, '.fa-circle')).toBeTruthy();
+    expect(spy).not.toHaveBeenCalledWith();
+  });
+
+  it('should display the icon specified in the icon attribute when both it and the fallback icon config are present', () => {
+    @Component({
+      selector: 'fa-host',
+      template: '<fa-icon icon="user"></fa-icon>'
+    })
+    class HostComponent {
+      constructor(config: FaConfig) {
+        config.fallbackIcon = faCircle;
+      }
+    }
+
+    const spy = spyOn(console, 'error');
+    const fixture = initTest(HostComponent);
+    fixture.detectChanges();
+    expect(queryByCss(fixture, '.fa-user')).toBeTruthy();
+    expect(queryByCss(fixture, '.fa-circle')).toBeFalsy();
+    expect(spy).not.toHaveBeenCalledWith();
+
+  });
+
 });
