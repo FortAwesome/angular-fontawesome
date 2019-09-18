@@ -36,5 +36,5 @@ export class FaConfig {
    *
    * @default 'unset'
    */
-  globalLibrary: boolean | 'unset' = 'unset';
+  globalLibrary: boolean | 'unset' = false;
 }

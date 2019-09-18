@@ -134,7 +134,9 @@ export class FaIconComponent implements OnChanges {
       const message = 'Global icon library is deprecated. ' +
         'Consult https://github.com/FortAwesome/angular-fontawesome/blob/master/UPGRADING.md ' +
         'for the migration instructions.';
-      if (!this.config.globalLibrary || this.config.globalLibrary === 'unset') {
+      if (this.config.globalLibrary === 'unset') {
+        console.error('FontAwesome: ' + message);
+      } else if (!this.config.globalLibrary) {
         throw new Error(message);
       }
 

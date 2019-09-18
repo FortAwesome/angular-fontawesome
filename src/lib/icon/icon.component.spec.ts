@@ -1,14 +1,14 @@
-import {Component, ComponentFactoryResolver, ViewChild, ViewContainerRef} from '@angular/core';
-import {TestBed} from '@angular/core/testing';
-import {IconProp, library} from '@fortawesome/fontawesome-svg-core';
-import {faUser as faUserRegular} from '@fortawesome/free-regular-svg-icons';
-import {faCircle, faUser} from '@fortawesome/free-solid-svg-icons';
-import {Subject} from 'rxjs';
-import {startWith} from 'rxjs/operators';
-import {initTest, queryByCss} from '../../testing/helpers';
-import {FaConfig} from '../config';
-import {FaIconLibrary} from '../icon-library';
-import {FaIconComponent} from './icon.component';
+import { Component, ComponentFactoryResolver, ViewChild, ViewContainerRef } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
+import { IconProp, library } from '@fortawesome/fontawesome-svg-core';
+import { faUser as faUserRegular } from '@fortawesome/free-regular-svg-icons';
+import { faCircle, faUser } from '@fortawesome/free-solid-svg-icons';
+import { Subject } from 'rxjs';
+import { startWith } from 'rxjs/operators';
+import { initTest, queryByCss } from '../../testing/helpers';
+import { FaConfig } from '../config';
+import { FaIconLibrary } from '../icon-library';
+import { FaIconComponent } from './icon.component';
 
 describe('FaIconComponent', () => {
   it('should render SVG icon', () => {
