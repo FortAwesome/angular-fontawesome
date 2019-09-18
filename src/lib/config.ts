@@ -34,7 +34,7 @@ export class FaConfig {
    * be changed to false. In 0.7.0 the option will be removed together with the
    * support for the global icon library.
    *
-   * @default 'unset'
+   * @default false
    */
   globalLibrary: boolean | 'unset' = false;
 }
