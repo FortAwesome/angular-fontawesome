@@ -107,7 +107,7 @@ describe('FaIconComponent', () => {
     expect(queryByCss(fixture, 'svg').getAttribute('role')).toBe('presentation');
   });
 
-  it('should show a warning when icon attribute is missing', () => {
+  it('should throw an error when icon attribute is missing', () => {
     @Component({
       selector: 'fa-host',
       template: '<fa-icon [icon]="undefined"></fa-icon>'
@@ -115,15 +115,10 @@ describe('FaIconComponent', () => {
     class HostComponent {
     }
 
-    const spy = spyOn(console, 'error');
-
     const fixture = initTest(HostComponent);
-    fixture.detectChanges();
-    expect(queryByCss(fixture, 'svg')).toBeFalsy();
-    expect(spy).toHaveBeenCalledWith(
-      'FontAwesome: Property `icon` is required for `fa-icon`/`fa-duotone-icon` components. ' +
-      'This warning will become a hard error in 0.6.0.'
-    );
+    expect(() => fixture.detectChanges()).toThrow(new Error(
+      'FontAwesome: Property `icon` is required for `fa-icon`/`fa-duotone-icon` components.'
+    ));
   });
 
   it('should work with AsyncPipe and default value', () => {
@@ -229,7 +224,7 @@ describe('FaIconComponent', () => {
     expect(queryByCss(fixture, 'svg')).toBeTruthy();
   });
 
-  it('should use icon definition from the global icon library and print warning with globalLibrary unset', () => {
+  it('should use icon definition from the global icon library and throw error with globalLibrary unset', () => {
     @Component({
       selector: 'fa-host',
       template: '<fa-icon icon="user"></fa-icon>'
@@ -240,16 +235,12 @@ describe('FaIconComponent', () => {
       }
     }
 
-    const spy = spyOn(console, 'error');
-
     const fixture = initTest(HostComponent);
-    fixture.detectChanges();
-    expect(queryByCss(fixture, 'svg')).toBeTruthy();
-    expect(spy).toHaveBeenCalledWith(
-      'FontAwesome: Global icon library is deprecated. ' +
+    expect(() => fixture.detectChanges()).toThrow(new Error(
+      'Global icon library is deprecated. ' +
       'Consult https://github.com/FortAwesome/angular-fontawesome/blob/master/UPGRADING.md ' +
       'for the migration instructions.'
-    );
+    ));
   });
 
   it('should not use icon definition from the global icon library and throw error with globalLibrary false', () => {
@@ -292,7 +283,7 @@ describe('FaIconComponent', () => {
     expect(spy).not.toHaveBeenCalledWith();
   });
 
-  it('should print a warning if icon definition is found neither in icon library, nor in global icon library', () => {
+  it('should throw an error if icon definition is found neither in icon library, nor in global icon library', () => {
     @Component({
       selector: 'fa-host',
       template: '<fa-icon icon="circle"></fa-icon>'
@@ -300,14 +291,9 @@ describe('FaIconComponent', () => {
     class HostComponent {
     }
 
-    const spy = spyOn(console, 'error');
-
     const fixture = initTest(HostComponent);
-    fixture.detectChanges();
-    expect(queryByCss(fixture, 'svg')).toBeFalsy();
-    expect(spy).toHaveBeenCalledWith(
-      'FontAwesome: Could not find icon with iconName=circle and prefix=fas. ' +
-      'This warning will become a hard error in 0.6.0.'
-    );
+    expect(() => fixture.detectChanges()).toThrow(new Error(
+      'FontAwesome: Could not find icon with iconName=circle and prefix=fas.'
+    ));
   });
 });
