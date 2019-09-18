@@ -1,5 +1,5 @@
-import {Component, HostBinding, Input, OnChanges, Optional, SimpleChanges} from '@angular/core';
-import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
+import { Component, HostBinding, Input, OnChanges, Optional, SimpleChanges } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import {
   FaSymbol,
   findIconDefinition,
@@ -15,14 +15,14 @@ import {
   Styles,
   Transform
 } from '@fortawesome/fontawesome-svg-core';
-import {FaConfig} from '../config';
-import {FaIconLibrary} from '../icon-library';
-import {faWarnIfIconDefinitionMissing} from '../shared/errors/warn-if-icon-html-missing';
-import {faWarnIfIconSpecMissing} from '../shared/errors/warn-if-icon-spec-missing';
-import {FaProps} from '../shared/models/props.model';
-import {faClassList} from '../shared/utils/classlist.util';
-import {faNormalizeIconSpec} from '../shared/utils/normalize-icon-spec.util';
-import {FaStackItemSizeDirective} from '../stack/stack-item-size.directive';
+import { FaConfig } from '../config';
+import { FaIconLibrary } from '../icon-library';
+import { faWarnIfIconDefinitionMissing } from '../shared/errors/warn-if-icon-html-missing';
+import { faWarnIfIconSpecMissing } from '../shared/errors/warn-if-icon-spec-missing';
+import { FaProps } from '../shared/models/props.model';
+import { faClassList } from '../shared/utils/classlist.util';
+import { faNormalizeIconSpec } from '../shared/utils/normalize-icon-spec.util';
+import { FaStackItemSizeDirective } from '../stack/stack-item-size.directive';
 
 @Component({
   selector: 'fa-icon',
@@ -68,17 +68,6 @@ export class FaIconComponent implements OnChanges {
    */
   @Input() a11yRole: string;
 
-  @HostBinding('innerHTML')
-  public renderedIconHTML: SafeHtml;
-
-  constructor(
-    private sanitizer: DomSanitizer,
-    private config: FaConfig,
-    private iconLibrary: FaIconLibrary,
-    @Optional() private stackItem: FaStackItemSizeDirective,
-  ) {
-  }
-
   /**
    * @deprecated Since 0.5.0. Will be removed in 0.6.0. Use `icon` property directly.
    */
@@ -93,8 +82,19 @@ export class FaIconComponent implements OnChanges {
     this.icon = value;
   }
 
+  @HostBinding('innerHTML')
+  public renderedIconHTML: SafeHtml;
+
+  constructor(
+    private sanitizer: DomSanitizer,
+    private config: FaConfig,
+    private iconLibrary: FaIconLibrary,
+    @Optional() private stackItem: FaStackItemSizeDirective,
+  ) {
+  }
+
   ngOnChanges(changes: SimpleChanges) {
-    if ((this.icon == null && this.config.fallbackIcon == null)) {
+    if (this.icon == null && this.config.fallbackIcon == null) {
       return faWarnIfIconSpecMissing();
     }
 
