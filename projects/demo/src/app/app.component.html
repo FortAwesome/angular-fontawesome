@@ -92,8 +92,7 @@
   |<fa-layers-counter [content]="notificationsCounter | number"></fa-layers-counter>|
 </p>
 
-
-<h3>Intentionally Missing Icon</h3>
-<p>Expect to see an error on the JavaScript console, and nothing shown between these bars: |<fa-icon [icon]="undefined"></fa-icon>|</p>
-
-
+<h3>Fallback icon</h3>
+<p>Icon uses a fallback icon when the main icon parameter is not specified. Useful for when the icon is loaded
+  asynchronously. If no fallback icon is specified, the icon will not appear. (Not shown in this example.)</p>
+<fa-icon [icon]="undefined"></fa-icon>
