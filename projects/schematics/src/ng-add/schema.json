@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "angular-fontawesome-ng-add",
+  "title": "Font Awesome ng-add schematic",
+  "type": "object",
+  "properties": {
+    "project": {
+      "type": "string",
+      "description": "The name of the project.",
+      "$default": {
+        "$source": "projectName"
+      }
+    },
+    "iconPackages": {
+      "description": "The icon packages to install.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "free-solid",
+          "free-regular",
+          "free-brands",
+          "pro-solid",
+          "pro-regular",
+          "pro-light",
+          "pro-duotone"
+        ]
+      },
+      "default": [
+        "free-solid"
+      ],
+      "x-prompt": {
+        "message": "Choose Font Awesome icon packages you would like to use:",
+        "type": "list",
+        "multiselect": true,
+        "items": [
+          {
+            "value": "free-solid",
+            "label": "Free Solid Icons"
+          },
+          {
+            "value": "free-regular",
+            "label": "Free Regular Icons"
+          },
+          {
+            "value": "free-brands",
+            "label": "Free Brands Icons"
+          },
+          {
+            "value": "pro-solid",
+            "label": "Pro Solid Icons    [ Requires: https://fontawesome.com/pro ]"
+          },
+          {
+            "value": "pro-regular",
+            "label": "Pro Regular Icons  [ Requires: https://fontawesome.com/pro ]"
+          },
+          {
+            "value": "pro-light",
+            "label": "Pro Light Icons    [ Requires: https://fontawesome.com/pro ]"
+          },
+          {
+            "value": "pro-duotone",
+            "label": "Pro Duotone Icons  [ Requires: https://fontawesome.com/pro ]"
+          }
+        ]
+      }
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}
