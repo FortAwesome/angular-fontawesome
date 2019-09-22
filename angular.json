@@ -14,6 +14,11 @@
           "options": {
             "tsConfig": "tsconfig.lib.json",
             "project": "package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "tsconfig.lib.prod.json"
+            }
           }
         },
         "test": {
@@ -53,6 +58,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/demo",
             "index": "projects/demo/src/index.html",
             "main": "projects/demo/src/main.ts",
@@ -80,7 +86,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -89,6 +94,10 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             }
@@ -156,5 +165,8 @@
       }
     }
   },
-  "defaultProject": "angular-fontawesome"
+  "defaultProject": "angular-fontawesome",
+  "cli": {
+    "analytics": false
+  }
 }
