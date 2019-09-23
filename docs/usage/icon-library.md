@@ -36,7 +36,7 @@ import { AppComponent } from './app.component';
 export class AppModule {
   constructor(library: FaIconLibrary) {
     // Add an icon to the library for convenient access in other components
-    library.addIcons(faCoffee);
+    library.add(faCoffee);
   }
 }
 ```
