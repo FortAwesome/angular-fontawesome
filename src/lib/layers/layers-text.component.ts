@@ -1,13 +1,11 @@
-import { Component, Input } from '@angular/core';
-import { FlipProp, parse, PullProp, RotateProp, SizeProp, text, TextParams, Transform } from '@fortawesome/fontawesome-svg-core';
-
+import { Component, HostBinding, Input, OnChanges, Optional, SimpleChanges } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { FlipProp, parse, PullProp, RotateProp, SizeProp, Styles, text, TextParams, Transform } from '@fortawesome/fontawesome-svg-core';
+import { faWarnIfParentNotExist } from '../shared/errors/warn-if-parent-not-exist';
 import { FaProps } from '../shared/models/props.model';
 import { faClassList } from '../shared/utils/classlist.util';
-import { FaLayersTextBaseComponent } from './layers-text-base.component';
+import { FaLayersComponent } from './layers.component';
 
-/**
- * Fontawesome layers text.
- */
 @Component({
   selector: 'fa-layers-text',
   template: '',
@@ -15,8 +13,11 @@ import { FaLayersTextBaseComponent } from './layers-text-base.component';
     class: 'ng-fa-layers-text'
   }
 })
-export class FaLayersTextComponent extends FaLayersTextBaseComponent {
-
+export class FaLayersTextComponent implements OnChanges {
+  @Input() content: string;
+  @Input() title?: string;
+  @Input() styles?: Styles;
+  @Input() classes?: string[] = [];
   @Input() spin?: boolean;
   @Input() pulse?: boolean;
   @Input() flip?: FlipProp;
@@ -29,10 +30,24 @@ export class FaLayersTextComponent extends FaLayersTextBaseComponent {
   @Input() fixedWidth?: boolean;
   @Input() transform?: string | Transform;
 
+  @HostBinding('innerHTML')
+  public renderedHTML: SafeHtml;
+
+  constructor(@Optional() private parent: FaLayersComponent, private sanitizer: DomSanitizer) {
+    faWarnIfParentNotExist(this.parent, 'FaLayersComponent', this.constructor.name);
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes) {
+      const params = this.buildParams();
+      this.updateContent(params);
+    }
+  }
+
   /**
    * Updating params by component props.
    */
-  protected updateParams() {
+  protected buildParams(): TextParams {
     const classOpts: FaProps = {
       flip: this.flip,
       spin: this.spin,
@@ -48,7 +63,7 @@ export class FaLayersTextComponent extends FaLayersTextBaseComponent {
 
     const parsedTransform = typeof this.transform === 'string' ? parse.transform(this.transform) : this.transform;
 
-    this.params = {
+    return {
       transform: parsedTransform,
       classes: [...faClassList(classOpts), ...this.classes],
       title: this.title,
@@ -56,8 +71,10 @@ export class FaLayersTextComponent extends FaLayersTextBaseComponent {
     };
   }
 
-  protected renderFontawesomeObject(content: string, params?: TextParams) {
-    return text(content, params);
+  private updateContent(params: TextParams) {
+    this.renderedHTML = this.sanitizer.bypassSecurityTrustHtml(
+      text(this.content || '', params).html.join('\n')
+    );
   }
 }
 
