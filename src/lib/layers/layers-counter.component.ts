@@ -1,17 +1,9 @@
-import {
-  Component,
-  HostBinding
-} from '@angular/core';
-import {
-  counter,
-  Counter,
-  CounterParams,
-} from '@fortawesome/fontawesome-svg-core';
-import { FaLayersTextBaseComponent } from './layers-text-base.component';
+import { Component, HostBinding, Input, OnChanges, Optional, SimpleChanges } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { counter, CounterParams, Styles } from '@fortawesome/fontawesome-svg-core';
+import { faWarnIfParentNotExist } from '../shared/errors/warn-if-parent-not-exist';
+import { FaLayersComponent } from './layers.component';
 
-/**
- * Fontawesome layers counter.
- */
 @Component({
   selector: 'fa-layers-counter',
   template: '',
@@ -19,21 +11,38 @@ import { FaLayersTextBaseComponent } from './layers-text-base.component';
     class: 'ng-fa-layers-counter'
   }
 })
-export class FaLayersCounterComponent extends FaLayersTextBaseComponent {
+export class FaLayersCounterComponent implements OnChanges {
+  @Input() content: string;
+  @Input() title?: string;
+  @Input() styles?: Styles;
+  @Input() classes?: string[] = [];
 
-  /**
-   * Updating params by component props.
-   */
-  protected updateParams() {
-    this.params = {
+  @HostBinding('innerHTML')
+  public renderedHTML: SafeHtml;
+
+  constructor(@Optional() private parent: FaLayersComponent, private sanitizer: DomSanitizer) {
+    faWarnIfParentNotExist(this.parent, 'FaLayersComponent', this.constructor.name);
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes) {
+      const params = this.buildParams();
+      this.updateContent(params);
+    }
+  }
+
+  protected buildParams(): CounterParams {
+    return {
       title: this.title,
       classes: this.classes,
       styles: this.styles,
     };
   }
 
-  protected renderFontawesomeObject(content: string | number, params?: CounterParams) {
-    return counter(content, params);
+  private updateContent(params: CounterParams) {
+    this.renderedHTML = this.sanitizer.bypassSecurityTrustHtml(
+      counter(this.content || '', params).html.join('')
+    );
   }
 }
 
