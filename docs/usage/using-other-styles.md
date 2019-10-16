@@ -31,7 +31,6 @@ library.add(faClock);
 
 ```
 $ yarn add @fortawesome/free-brands-svg-icons
-$ yarn add @fortawesome/pro-brands-svg-icons
 ```
 
 ```javascript
