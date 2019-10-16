@@ -7,9 +7,9 @@ The following features are available as part of Font Awesome. Note that the synt
 ### Size
 [FontAwesome Spec](https://fontawesome.com/how-to-use/on-the-web/styling/sizing-icons)
 ```html
-<fa-icon [icon]="['fas', 'coffee']" size="xs"></fa-icon>
-<fa-icon [icon]="['fas', 'coffee']" size="lg"></fa-icon>
-<fa-icon [icon]="['fas', 'coffee']" size="6x"></fa-icon>
+<fa-icon [icon]="['fas', 'coffee']" size="'xs'"></fa-icon>
+<fa-icon [icon]="['fas', 'coffee']" size="'lg'"></fa-icon>
+<fa-icon [icon]="['fas', 'coffee']" size="'6x'"></fa-icon>
 ```
 
 ### Fixed Width
@@ -32,9 +32,9 @@ The following features are available as part of Font Awesome. Note that the synt
 * horizontally, vertically, or both
 
 ```html
-<fa-icon [icon]="['fas', 'coffee']" flip="horizontal"></fa-icon>
-<fa-icon [icon]="['fas', 'coffee']" flip="vertical"></fa-icon>
-<fa-icon [icon]="['fas', 'coffee']" flip="both"></fa-icon>
+<fa-icon [icon]="['fas', 'coffee']" flip="'horizontal'"></fa-icon>
+<fa-icon [icon]="['fas', 'coffee']" flip="'vertical'"></fa-icon>
+<fa-icon [icon]="['fas', 'coffee']" flip="'both'"></fa-icon>
 ```
 
 ### Animations
@@ -119,7 +119,7 @@ The following features are available as part of Font Awesome. Note that the synt
 [FontAwesome Spec](https://fontawesome.com/how-to-use/on-the-web/styling/power-transforms)
 
 ```html
-<fa-icon [icon]="['fas', 'coffee']" transform="shrink-9 right-4"></fa-icon>
+<fa-icon [icon]="['fas', 'coffee']" transform="'shrink-9 right-4'"></fa-icon>
 ```
 
 ### Stateful Animations
@@ -143,8 +143,8 @@ Each `<fa-icon>` declared inside an `<fa-stack>` element **must** include the `s
 
 ```html
 <fa-stack>
-  <fa-icon [icon]="faCircle" stackItemSize="2x"></fa-icon>
-  <fa-icon [icon]="solidFlag" [inverse]="true" stackItemSize="1x"></fa-icon>
+  <fa-icon [icon]="faCircle" stackItemSize="'2x'"></fa-icon>
+  <fa-icon [icon]="solidFlag" [inverse]="true" stackItemSize="'1x'"></fa-icon>
 </fa-stack>
 ```
 
@@ -154,7 +154,7 @@ Each `<fa-icon>` declared inside an `<fa-stack>` element **must** include the `s
 ```html
 <fa-layers [fixedWidth]="true">
   <fa-icon [icon]="['fas', 'square']"></fa-icon>
-  <fa-icon [inverse]="true" [icon]="['fas', 'spinner']" transform="shrink-6"></fa-icon>
+  <fa-icon [inverse]="true" [icon]="['fas', 'spinner']" transform="'shrink-6'"></fa-icon>
 </fa-layers>
 ```
 
@@ -164,7 +164,7 @@ Each `<fa-icon>` declared inside an `<fa-stack>` element **must** include the `s
 ```html
 <fa-layers [fixedWidth]="true">
   <fa-icon [icon]="['fas', 'square']"></fa-icon>
-  <fa-layers-text content="Yo" style="color: white;" transform="shrink-4"></fa-layers-text>
+  <fa-layers-text content="Yo" style="color: white;" transform="'shrink-4'"></fa-layers-text>
 </fa-layers>
 ```
 
