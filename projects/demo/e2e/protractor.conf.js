@@ -13,10 +13,14 @@ exports.config = {
     './src/**/*.e2e-spec.ts'
   ],
   capabilities: {
-    'browserName': 'chrome'
+    'browserName': 'chrome',
+    'goog:chromeOptions': {
+      args: [ '--headless' ]
+    },
   },
   directConnect: true,
   baseUrl: 'http://localhost:4200/',
+  SELENIUM_PROMISE_MANAGER: false,
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,
