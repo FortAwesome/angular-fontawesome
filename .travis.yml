@@ -11,3 +11,4 @@ script:
   - yarn test:schematics
   - yarn build
   - yarn build:schematics
+  - yarn test:integration
