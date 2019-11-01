@@ -10,9 +10,7 @@ export const dummyIcon: IconDefinition = {
     512,
     [],
     'f030',
-    [
-      'M50 50 H462 V462 H50 Z'
-    ]
+    'M50 50 H462 V462 H50 Z'
   ]
 };
 
