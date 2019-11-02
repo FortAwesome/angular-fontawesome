@@ -19,7 +19,6 @@ export interface FaProps {
   pulse?: boolean;
   border?: boolean;
   fixedWidth?: boolean;
-  listItem?: boolean;
   counter?: boolean;
   inverse?: boolean;
   flip?: FlipProp;
