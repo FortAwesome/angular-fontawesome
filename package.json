@@ -11,7 +11,9 @@
     "start": "ng serve demo",
     "build": "ng build angular-fontawesome --prod",
     "build:demo": "ng build demo --prod",
-    "build:schematics": "tsc -p projects/schematics/tsconfig.json && ts-node -O '{\"module\":\"commonjs\"}' tasks/build-schematics.ts"
+    "build:schematics": "tsc -p projects/schematics/tsconfig.json && ts-node -O '{\"module\":\"commonjs\"}' tasks/build-schematics.ts",
+    "format": "prettier --write --ignore-path .gitignore '**/*.{js,ts,json,html}'",
+    "format:enforce": "prettier --check --ignore-path .gitignore '**/*.{js,ts,json,html}'"
   },
   "repository": {
     "type": "git",
@@ -72,6 +74,7 @@
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "1.4.2",
     "ng-packagr": "^9.0.0-rc.1",
+    "prettier": "1.18.2",
     "protractor": "~5.4.0",
     "rxjs": "^6.5.3",
     "ts-node": "~8.4.1",

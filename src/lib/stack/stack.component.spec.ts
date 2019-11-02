@@ -8,10 +8,11 @@ describe('FaStackComponent', () => {
     @Component({
       selector: 'fa-host',
       template: `
-          <fa-stack>
-              <fa-icon [icon]="faCircle" stackItemSize="2x"></fa-icon>
-              <fa-icon [icon]="faUser" [inverse]="true" stackItemSize="1x"></fa-icon>
-          </fa-stack>`
+        <fa-stack>
+          <fa-icon [icon]="faCircle" stackItemSize="2x"></fa-icon>
+          <fa-icon [icon]="faUser" [inverse]="true" stackItemSize="1x"></fa-icon>
+        </fa-stack>
+      `,
     })
     class HostComponent {
       faUser = faUser;
@@ -27,10 +28,11 @@ describe('FaStackComponent', () => {
     @Component({
       selector: 'fa-host',
       template: `
-          <fa-stack>
-              <fa-icon [icon]="faCircle" stackItemSize="2x"></fa-icon>
-              <fa-duotone-icon [icon]="dummyDuotoneIcon" [inverse]="true" stackItemSize="1x"></fa-duotone-icon>
-          </fa-stack>`
+        <fa-stack>
+          <fa-icon [icon]="faCircle" stackItemSize="2x"></fa-icon>
+          <fa-duotone-icon [icon]="dummyDuotoneIcon" [inverse]="true" stackItemSize="1x"></fa-duotone-icon>
+        </fa-stack>
+      `,
     })
     class HostComponent {
       dummyDuotoneIcon = faDummy;
@@ -46,10 +48,11 @@ describe('FaStackComponent', () => {
     @Component({
       selector: 'fa-host',
       template: `
-          <fa-stack size="2x">
-              <fa-icon [icon]="faCircle" stackItemSize="2x"></fa-icon>
-              <fa-icon [icon]="faUser" [inverse]="true" stackItemSize="1x"></fa-icon>
-          </fa-stack>`
+        <fa-stack size="2x">
+          <fa-icon [icon]="faCircle" stackItemSize="2x"></fa-icon>
+          <fa-icon [icon]="faUser" [inverse]="true" stackItemSize="1x"></fa-icon>
+        </fa-stack>
+      `,
     })
     class HostComponent {
       faUser = faUser;
@@ -61,4 +64,3 @@ describe('FaStackComponent', () => {
     expect(queryByCss(fixture, '.fa-2x')).toBeTruthy();
   });
 });
-

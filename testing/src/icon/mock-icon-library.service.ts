@@ -5,13 +5,7 @@ import { IconDefinition, IconName, IconPrefix } from '@fortawesome/fontawesome-s
 export const dummyIcon: IconDefinition = {
   prefix: 'fad',
   iconName: 'dummy' as IconName,
-  icon: [
-    512,
-    512,
-    [],
-    'f030',
-    'M50 50 H462 V462 H50 Z',
-  ],
+  icon: [512, 512, [], 'f030', 'M50 50 H462 V462 H50 Z'],
 };
 
 @Injectable({

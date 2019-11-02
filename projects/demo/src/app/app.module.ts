@@ -5,16 +5,9 @@ import { AlternatePrefixComponent } from './alternate-prefix.component';
 import { AppComponent } from './app.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AlternatePrefixComponent
-  ],
-  imports: [
-    BrowserModule,
-    FontAwesomeModule
-  ],
+  declarations: [AppComponent, AlternatePrefixComponent],
+  imports: [BrowserModule, FontAwesomeModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}

@@ -6,6 +6,7 @@ addons:
 install:
   - yarn
 script:
+  - yarn format:enforce
   - yarn lint
   - yarn test
   - yarn test:schematics

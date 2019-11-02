@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { IconDefinition, IconPrefix } from '@fortawesome/fontawesome-common-types';
 import { FaIconLibrary } from './icon-library';
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class FaConfig {
   /**
    * Default prefix to use, when one is not provided with the icon name.

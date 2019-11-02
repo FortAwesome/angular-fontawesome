@@ -6,12 +6,12 @@ describe('FaLayersTextComponent', () => {
     @Component({
       selector: 'fa-host',
       template: `
-          <fa-layers>
-              <fa-layers-text [content]="'Test'" [styles]="{ color: 'Tomato' }"></fa-layers-text>
-          </fa-layers>`
+        <fa-layers>
+          <fa-layers-text [content]="'Test'" [styles]="{ color: 'Tomato' }"></fa-layers-text>
+        </fa-layers>
+      `,
     })
-    class HostComponent {
-    }
+    class HostComponent {}
 
     const fixture = initTest(HostComponent);
     fixture.detectChanges();
@@ -21,13 +21,14 @@ describe('FaLayersTextComponent', () => {
   it('should throw an error if text layer is used outside of fa-layers', () => {
     @Component({
       selector: 'fa-host',
-      template: `<fa-layers-text content="Test"></fa-layers-text>`
+      template: `
+        <fa-layers-text content="Test"></fa-layers-text>
+      `,
     })
-    class HostComponent {
-    }
+    class HostComponent {}
 
     expect(() => initTest(HostComponent)).toThrow(
-      new Error('FaLayersTextComponent should be used as child of FaLayersComponent only.')
+      new Error('FaLayersTextComponent should be used as child of FaLayersComponent only.'),
     );
   });
 });

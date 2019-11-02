@@ -14,7 +14,7 @@ describe('FaIconComponent', () => {
   it('should render SVG icon', () => {
     @Component({
       selector: 'fa-host',
-      template: '<fa-icon [icon]="faUser"></fa-icon>'
+      template: '<fa-icon [icon]="faUser"></fa-icon>',
     })
     class HostComponent {
       faUser = faUser;
@@ -28,7 +28,7 @@ describe('FaIconComponent', () => {
   it('should support binding to boolean inputs', () => {
     @Component({
       selector: 'fa-host',
-      template: '<fa-icon [icon]="faUser" [spin]="isAnimated"></fa-icon>'
+      template: '<fa-icon [icon]="faUser" [spin]="isAnimated"></fa-icon>',
     })
     class HostComponent {
       faUser = faUser;
@@ -47,13 +47,12 @@ describe('FaIconComponent', () => {
   it('should be able to create component dynamically', () => {
     @Component({
       selector: 'fa-host',
-      template: '<ng-container #host></ng-container>'
+      template: '<ng-container #host></ng-container>',
     })
     class HostComponent {
-      @ViewChild('host', {static: true, read: ViewContainerRef}) container: ViewContainerRef;
+      @ViewChild('host', { static: true, read: ViewContainerRef }) container: ViewContainerRef;
 
-      constructor(private cfr: ComponentFactoryResolver) {
-      }
+      constructor(private cfr: ComponentFactoryResolver) {}
 
       createIcon() {
         const factory = this.cfr.resolveComponentFactory(FaIconComponent);
@@ -75,12 +74,12 @@ describe('FaIconComponent', () => {
   it('should be able to update icon programmatically', () => {
     @Component({
       selector: 'fa-host',
-      template: '<fa-icon [icon]="faUser"></fa-icon>'
+      template: '<fa-icon [icon]="faUser"></fa-icon>',
     })
     class HostComponent {
       faUser = faUser;
 
-      @ViewChild(FaIconComponent, {static: true}) iconComponent: FaIconComponent;
+      @ViewChild(FaIconComponent, { static: true }) iconComponent: FaIconComponent;
     }
 
     const fixture = initTest(HostComponent);
@@ -96,7 +95,7 @@ describe('FaIconComponent', () => {
   it('should be possible to customize `role` attribute of the rendered SVG icon', () => {
     @Component({
       selector: 'fa-host',
-      template: '<fa-icon [icon]="faUser" a11yRole="presentation"></fa-icon>'
+      template: '<fa-icon [icon]="faUser" a11yRole="presentation"></fa-icon>',
     })
     class HostComponent {
       faUser = faUser;
@@ -110,21 +109,20 @@ describe('FaIconComponent', () => {
   it('should throw an error when icon attribute is missing', () => {
     @Component({
       selector: 'fa-host',
-      template: '<fa-icon [icon]="undefined"></fa-icon>'
+      template: '<fa-icon [icon]="undefined"></fa-icon>',
     })
-    class HostComponent {
-    }
+    class HostComponent {}
 
     const fixture = initTest(HostComponent);
-    expect(() => fixture.detectChanges()).toThrow(new Error(
-      'FontAwesome: Property `icon` is required for `fa-icon`/`fa-duotone-icon` components.'
-    ));
+    expect(() => fixture.detectChanges()).toThrow(
+      new Error('FontAwesome: Property `icon` is required for `fa-icon`/`fa-duotone-icon` components.'),
+    );
   });
 
   it('should work with AsyncPipe and default value', () => {
     @Component({
       selector: 'fa-host',
-      template: '<fa-icon [icon]="icon | async"></fa-icon>'
+      template: '<fa-icon [icon]="icon | async"></fa-icon>',
     })
     class HostComponent {
       iconSubject = new Subject<IconProp>();
@@ -146,7 +144,7 @@ describe('FaIconComponent', () => {
   it('should render a <title> element', () => {
     @Component({
       selector: 'fa-host',
-      template: '<fa-icon [icon]="faUser" title="User John Smith"></fa-icon>'
+      template: '<fa-icon [icon]="faUser" title="User John Smith"></fa-icon>',
     })
     class HostComponent {
       faUser = faUser;
@@ -162,7 +160,8 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       template: `
-          <fa-icon [icon]="faUser" [title]="'User John Smith'"></fa-icon>`
+        <fa-icon [icon]="faUser" [title]="'User John Smith'"></fa-icon>
+      `,
     })
     class HostComponent {
       faUser = faUser;
@@ -177,7 +176,7 @@ describe('FaIconComponent', () => {
   it('should use default icon prefix', () => {
     @Component({
       selector: 'fa-host',
-      template: '<fa-icon icon="user"></fa-icon>'
+      template: '<fa-icon icon="user"></fa-icon>',
     })
     class HostComponent {
       constructor(iconLibrary: FaIconLibrary) {
@@ -193,7 +192,7 @@ describe('FaIconComponent', () => {
   it('should be able to override default icon prefix', () => {
     @Component({
       selector: 'fa-host',
-      template: '<fa-icon icon="user"></fa-icon>'
+      template: '<fa-icon icon="user"></fa-icon>',
     })
     class HostComponent {
       constructor(iconLibrary: FaIconLibrary) {
@@ -211,7 +210,7 @@ describe('FaIconComponent', () => {
   it('should use icon definition from the icon library', () => {
     @Component({
       selector: 'fa-host',
-      template: '<fa-icon icon="user"></fa-icon>'
+      template: '<fa-icon icon="user"></fa-icon>',
     })
     class HostComponent {
       constructor(iconLibrary: FaIconLibrary) {
@@ -227,7 +226,7 @@ describe('FaIconComponent', () => {
   it('should use icon definition from the global icon library and throw error with globalLibrary unset', () => {
     @Component({
       selector: 'fa-host',
-      template: '<fa-icon icon="user"></fa-icon>'
+      template: '<fa-icon icon="user"></fa-icon>',
     })
     class HostComponent {
       constructor() {
@@ -236,17 +235,19 @@ describe('FaIconComponent', () => {
     }
 
     const fixture = initTest(HostComponent);
-    expect(() => fixture.detectChanges()).toThrow(new Error(
-      'Global icon library is deprecated. ' +
-      'Consult https://github.com/FortAwesome/angular-fontawesome/blob/master/UPGRADING.md ' +
-      'for the migration instructions.'
-    ));
+    expect(() => fixture.detectChanges()).toThrow(
+      new Error(
+        'Global icon library is deprecated. ' +
+          'Consult https://github.com/FortAwesome/angular-fontawesome/blob/master/UPGRADING.md ' +
+          'for the migration instructions.',
+      ),
+    );
   });
 
   it('should not use icon definition from the global icon library and throw error with globalLibrary false', () => {
     @Component({
       selector: 'fa-host',
-      template: '<fa-icon icon="user"></fa-icon>'
+      template: '<fa-icon icon="user"></fa-icon>',
     })
     class HostComponent {
       constructor(config: FaConfig) {
@@ -256,17 +257,19 @@ describe('FaIconComponent', () => {
     }
 
     const fixture = initTest(HostComponent);
-    expect(() => fixture.detectChanges()).toThrow(new Error(
-      'Global icon library is deprecated. ' +
-      'Consult https://github.com/FortAwesome/angular-fontawesome/blob/master/UPGRADING.md ' +
-      'for the migration instructions.'
-    ));
+    expect(() => fixture.detectChanges()).toThrow(
+      new Error(
+        'Global icon library is deprecated. ' +
+          'Consult https://github.com/FortAwesome/angular-fontawesome/blob/master/UPGRADING.md ' +
+          'for the migration instructions.',
+      ),
+    );
   });
 
   it('should use icon definition from the global icon library without warnings with globalLibrary true', () => {
     @Component({
       selector: 'fa-host',
-      template: '<fa-icon icon="user"></fa-icon>'
+      template: '<fa-icon icon="user"></fa-icon>',
     })
     class HostComponent {
       constructor(config: FaConfig) {
@@ -286,21 +289,20 @@ describe('FaIconComponent', () => {
   it('should throw an error if icon definition is found neither in icon library, nor in global icon library', () => {
     @Component({
       selector: 'fa-host',
-      template: '<fa-icon icon="circle"></fa-icon>'
+      template: '<fa-icon icon="circle"></fa-icon>',
     })
-    class HostComponent {
-    }
+    class HostComponent {}
 
     const fixture = initTest(HostComponent);
-    expect(() => fixture.detectChanges()).toThrow(new Error(
-      'FontAwesome: Could not find icon with iconName=circle and prefix=fas.'
-    ));
+    expect(() => fixture.detectChanges()).toThrow(
+      new Error('FontAwesome: Could not find icon with iconName=circle and prefix=fas.'),
+    );
   });
 
   it('should display a fallback icon when specified in the config, and icon attribute is missing', () => {
     @Component({
       selector: 'fa-host',
-      template: '<fa-icon [icon]="undefined"></fa-icon>'
+      template: '<fa-icon [icon]="undefined"></fa-icon>',
     })
     class HostComponent {
       constructor(config: FaConfig) {
@@ -318,7 +320,7 @@ describe('FaIconComponent', () => {
   it('should display the icon specified in the icon attribute when both it and the fallback icon config are present', () => {
     @Component({
       selector: 'fa-host',
-      template: '<fa-icon [icon]="faUser"></fa-icon>'
+      template: '<fa-icon [icon]="faUser"></fa-icon>',
     })
     class HostComponent {
       faUser = faUser;
@@ -333,7 +335,5 @@ describe('FaIconComponent', () => {
     expect(queryByCss(fixture, '.fa-user')).toBeTruthy();
     expect(queryByCss(fixture, '.fa-circle')).toBeFalsy();
     expect(spy).not.toHaveBeenCalledWith();
-
   });
-
 });

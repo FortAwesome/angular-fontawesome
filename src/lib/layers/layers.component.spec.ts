@@ -10,11 +10,12 @@ describe('FaLayersComponent', () => {
     @Component({
       selector: 'fa-host',
       template: `
-          <fa-layers>
-              <fa-icon [icon]="faUser"></fa-icon>
-              <fa-icon [icon]="faMobile"></fa-icon>
-              <fa-layers-text [content]="'User with mobile'" [styles]="{ color: 'Tomato' }"></fa-layers-text>
-          </fa-layers>`
+        <fa-layers>
+          <fa-icon [icon]="faUser"></fa-icon>
+          <fa-icon [icon]="faMobile"></fa-icon>
+          <fa-layers-text [content]="'User with mobile'" [styles]="{ color: 'Tomato' }"></fa-layers-text>
+        </fa-layers>
+      `,
     })
     class HostComponent {
       faUser = faUser;
@@ -30,11 +31,12 @@ describe('FaLayersComponent', () => {
     @Component({
       selector: 'fa-host',
       template: `
-          <fa-layers size="2x">
-              <fa-icon [icon]="faUser"></fa-icon>
-              <fa-icon [icon]="faMobile"></fa-icon>
-              <fa-layers-text [content]="'User with mobile'" [styles]="{ color: 'Tomato' }"></fa-layers-text>
-          </fa-layers>`
+        <fa-layers size="2x">
+          <fa-icon [icon]="faUser"></fa-icon>
+          <fa-icon [icon]="faMobile"></fa-icon>
+          <fa-layers-text [content]="'User with mobile'" [styles]="{ color: 'Tomato' }"></fa-layers-text>
+        </fa-layers>
+      `,
     })
     class HostComponent {
       faUser = faUser;
@@ -49,10 +51,9 @@ describe('FaLayersComponent', () => {
   it('should include fixed width', () => {
     @Component({
       selector: 'fa-host',
-      template: '<fa-layers [fixedWidth]="true"></fa-layers>'
+      template: '<fa-layers [fixedWidth]="true"></fa-layers>',
     })
-    class HostComponent {
-    }
+    class HostComponent {}
 
     const fixture = initTest(HostComponent);
     fixture.detectChanges();
@@ -63,11 +64,12 @@ describe('FaLayersComponent', () => {
     @Component({
       selector: 'fa-host',
       template: `
-          <fa-layers [fixedWidth]="false">
-              <fa-icon [icon]="faUser"></fa-icon>
-              <fa-icon [icon]="faMobile"></fa-icon>
-              <fa-layers-text [content]="'User with mobile'" [styles]="{ color: 'Tomato' }"></fa-layers-text>
-          </fa-layers>`
+        <fa-layers [fixedWidth]="false">
+          <fa-icon [icon]="faUser"></fa-icon>
+          <fa-icon [icon]="faMobile"></fa-icon>
+          <fa-layers-text [content]="'User with mobile'" [styles]="{ color: 'Tomato' }"></fa-layers-text>
+        </fa-layers>
+      `,
     })
     class HostComponent {
       faUser = faUser;
@@ -83,13 +85,13 @@ describe('FaLayersComponent', () => {
     @Component({
       selector: 'fa-host',
       template: `
-          <fa-layers class="custom-class" [fixedWidth]="fixedWidth" [size]="size"></fa-layers>
-          <fa-layers [class.custom-class]="true" [fixedWidth]="fixedWidth" [size]="size"></fa-layers>
-          <fa-layers [ngClass]="{'custom-class': true}" [fixedWidth]="fixedWidth" [size]="size"></fa-layers>
-          <fa-layers [fixedWidth]="fixedWidth" [size]="size" class="custom-class"></fa-layers>
-          <fa-layers [fixedWidth]="fixedWidth" [size]="size" [class.custom-class]="true"></fa-layers>
-          <fa-layers [fixedWidth]="fixedWidth" [size]="size" [ngClass]="{'custom-class': true}"></fa-layers>
-      `
+        <fa-layers class="custom-class" [fixedWidth]="fixedWidth" [size]="size"></fa-layers>
+        <fa-layers [class.custom-class]="true" [fixedWidth]="fixedWidth" [size]="size"></fa-layers>
+        <fa-layers [ngClass]="{ 'custom-class': true }" [fixedWidth]="fixedWidth" [size]="size"></fa-layers>
+        <fa-layers [fixedWidth]="fixedWidth" [size]="size" class="custom-class"></fa-layers>
+        <fa-layers [fixedWidth]="fixedWidth" [size]="size" [class.custom-class]="true"></fa-layers>
+        <fa-layers [fixedWidth]="fixedWidth" [size]="size" [ngClass]="{ 'custom-class': true }"></fa-layers>
+      `,
     })
     class HostComponent {
       fixedWidth = true;
@@ -112,10 +114,11 @@ describe('FaLayersComponent', () => {
     @Component({
       selector: 'fa-host',
       template: `
-          <fa-layers>
-              <fa-duotone-icon [icon]="faDummy"></fa-duotone-icon>
-              <fa-layers-text [content]="'Dummy'" [styles]="{ color: 'Tomato' }"></fa-layers-text>
-          </fa-layers>`
+        <fa-layers>
+          <fa-duotone-icon [icon]="faDummy"></fa-duotone-icon>
+          <fa-layers-text [content]="'Dummy'" [styles]="{ color: 'Tomato' }"></fa-layers-text>
+        </fa-layers>
+      `,
     })
     class HostComponent {
       faDummy = faDummy;
@@ -126,4 +129,3 @@ describe('FaLayersComponent', () => {
     expect(queryByCss(fixture, 'fa-duotone-icon')).toBeTruthy();
   });
 });
-

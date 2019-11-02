@@ -2,10 +2,7 @@
   "compilerOptions": {
     "outDir": "../../dist/angular-fontawesome/schematics",
     "baseUrl": ".",
-    "lib": [
-      "es2018",
-      "dom"
-    ],
+    "lib": ["es2018", "dom"],
     "declaration": true,
     "module": "commonjs",
     "moduleResolution": "node",
@@ -21,16 +18,8 @@
     "sourceMap": true,
     "strict": true,
     "target": "es6",
-    "types": [
-      "jasmine",
-      "node"
-    ]
+    "types": ["jasmine", "node"]
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "src/*/files/**/*",
-    "src/**/*.spec.ts"
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["src/*/files/**/*", "src/**/*.spec.ts"]
 }

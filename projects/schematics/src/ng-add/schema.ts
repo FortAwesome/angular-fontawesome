@@ -3,5 +3,7 @@ export interface Schema {
   project?: string;
 
   /** The icon packages to install */
-  iconPackages?: Array<'free-solid' | 'free-regular' | 'free-brands' | 'pro-solid' | 'pro-regular' | 'pro-light' | 'pro-duotone'>;
+  iconPackages?: Array<
+    'free-solid' | 'free-regular' | 'free-brands' | 'pro-solid' | 'pro-regular' | 'pro-light' | 'pro-duotone'
+  >;
 }

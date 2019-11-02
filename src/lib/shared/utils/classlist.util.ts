@@ -21,6 +21,6 @@ export const faClassList = (props: FaProps): string[] => {
   };
 
   return Object.keys(classes)
-    .map(key => (classes[key] ? key : null))
-    .filter(key => key);
+    .map((key) => (classes[key] ? key : null))
+    .filter((key) => key);
 };

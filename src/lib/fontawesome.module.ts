@@ -26,10 +26,6 @@ import { FaStackComponent } from './stack/stack.component';
     FaStackComponent,
     FaStackItemSizeDirective,
   ],
-  entryComponents: [
-    FaIconComponent,
-    FaDuotoneIconComponent,
-  ]
+  entryComponents: [FaIconComponent, FaDuotoneIconComponent],
 })
-export class FontAwesomeModule {
-}
+export class FontAwesomeModule {}

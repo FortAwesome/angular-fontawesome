@@ -4,7 +4,9 @@ import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 @Component({
   selector: 'fa-stack',
   // TODO: See if it is better to select fa-icon and throw if it does not have stackItemSize directive
-  template: `<ng-content select="fa-icon[stackItemSize],fa-duotone-icon[stackItemSize]"></ng-content>`,
+  template: `
+    <ng-content select="fa-icon[stackItemSize],fa-duotone-icon[stackItemSize]"></ng-content>
+  `,
 })
 export class FaStackComponent implements OnInit, OnChanges {
   /**
@@ -15,11 +17,7 @@ export class FaStackComponent implements OnInit, OnChanges {
    */
   @Input() size?: SizeProp;
 
-  constructor(
-    private renderer: Renderer2,
-    private elementRef: ElementRef,
-  ) {
-  }
+  constructor(private renderer: Renderer2, private elementRef: ElementRef) {}
 
   ngOnInit() {
     this.renderer.addClass(this.elementRef.nativeElement, 'fa-stack');

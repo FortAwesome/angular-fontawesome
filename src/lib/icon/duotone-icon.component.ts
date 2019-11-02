@@ -4,7 +4,7 @@ import { FaIconComponent } from './icon.component';
 
 @Component({
   selector: 'fa-duotone-icon',
-  template: ``
+  template: ``,
 })
 export class FaDuotoneIconComponent extends FaIconComponent {
   /**
@@ -54,9 +54,9 @@ export class FaDuotoneIconComponent extends FaIconComponent {
     if (lookup != null && lookup.prefix !== 'fad') {
       throw new Error(
         'The specified icon does not appear to be a Duotone icon. ' +
-        'Check that you specified the correct style: ' +
-        `<fa-duotone-icon [icon]="['fab', '${lookup.iconName}']"></fa-duotone-icon> ` +
-        `or use: <fa-icon icon="${lookup.iconName}"></fa-icon> instead.`
+          'Check that you specified the correct style: ' +
+          `<fa-duotone-icon [icon]="['fab', '${lookup.iconName}']"></fa-duotone-icon> ` +
+          `or use: <fa-icon icon="${lookup.iconName}"></fa-icon> instead.`,
       );
     }
 
@@ -85,4 +85,3 @@ export class FaDuotoneIconComponent extends FaIconComponent {
     return params;
   }
 }
-

@@ -27,6 +27,7 @@ Development tasks are managed as `scripts` inside of `package.json`. Below are t
 
 Command     | Purpose
 ---         | ---
+`yarn format`        | Format codebase using Prettier
 `yarn lint`        | Verify code style
 `yarn test`        | Execute unit tests
 `yarn test:schematics`        | Execute unit tests for schematics
