@@ -321,10 +321,10 @@ describe('FaIconComponent', () => {
       template: '<fa-icon [icon]="faUser"></fa-icon>'
     })
     class HostComponent {
+      faUser = faUser;
       constructor(config: FaConfig) {
         config.fallbackIcon = faCircle;
       }
-      faUser = faUser;
     }
 
     const spy = spyOn(console, 'error');

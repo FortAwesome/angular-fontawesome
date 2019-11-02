@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MockFaIconLibraryService } from './icon/mock-icon-library.service';
 
 @NgModule({

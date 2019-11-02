@@ -11,9 +11,7 @@ import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 export class FaLayersComponent implements OnInit, OnChanges {
   @Input() size?: SizeProp;
 
-  @Input()
-  @HostBinding('class.fa-fw')
-  fixedWidth?: boolean;
+  @Input() @HostBinding('class.fa-fw') fixedWidth?: boolean;
 
   constructor(
     private renderer: Renderer2,

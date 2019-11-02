@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IconPrefix, IconDefinition } from '@fortawesome/fontawesome-common-types';
+import { IconDefinition, IconPrefix } from '@fortawesome/fontawesome-common-types';
 import { FaIconLibrary } from './icon-library';
 
 @Injectable({providedIn: 'root'})

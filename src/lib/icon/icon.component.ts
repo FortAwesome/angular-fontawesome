@@ -63,8 +63,7 @@ export class FaIconComponent implements OnChanges {
    */
   @Input() a11yRole: string;
 
-  @HostBinding('innerHTML')
-  public renderedIconHTML: SafeHtml;
+  @HostBinding('innerHTML') renderedIconHTML: SafeHtml;
 
   constructor(
     private sanitizer: DomSanitizer,
