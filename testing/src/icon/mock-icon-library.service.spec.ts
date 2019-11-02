@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { MockFaIconLibraryService, dummyIcon } from './mock-icon-library.service';
+import { dummyIcon, MockFaIconLibraryService } from './mock-icon-library.service';
 
 describe('MockFaIconLibraryService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

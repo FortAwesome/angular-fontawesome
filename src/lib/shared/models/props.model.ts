@@ -5,8 +5,8 @@ import {
   PullProp,
   RotateProp,
   SizeProp,
-  Transform,
-  Styles
+  Styles,
+  Transform
 } from '@fortawesome/fontawesome-svg-core';
 
 /**

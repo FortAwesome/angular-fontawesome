@@ -12,8 +12,7 @@ export class FaIconLibrary implements FaIconLibraryInterface {
   private definitions: { [prefix: string]: { [name: string]: IconDefinition } } = {};
 
   addIcons(...icons: IconDefinition[]) {
-    for (let i = 0; i < icons.length; i++) {
-      const icon = icons[i];
+    for (const icon of icons) {
       if (!(icon.prefix in this.definitions)) {
         this.definitions[icon.prefix] = {};
       }
@@ -22,8 +21,7 @@ export class FaIconLibrary implements FaIconLibraryInterface {
   }
 
   addIconPacks(...packs: IconPack[]) {
-    for (let i = 0; i < packs.length; i++) {
-      const pack = packs[i];
+    for (const pack of packs) {
       const icons = Object.keys(pack).map((key) => pack[key]);
       this.addIcons(...icons);
     }

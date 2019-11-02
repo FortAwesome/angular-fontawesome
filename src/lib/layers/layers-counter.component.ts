@@ -17,8 +17,7 @@ export class FaLayersCounterComponent implements OnChanges {
   @Input() styles?: Styles;
   @Input() classes?: string[] = [];
 
-  @HostBinding('innerHTML')
-  public renderedHTML: SafeHtml;
+  @HostBinding('innerHTML') renderedHTML: SafeHtml;
 
   constructor(@Optional() private parent: FaLayersComponent, private sanitizer: DomSanitizer) {
     faWarnIfParentNotExist(this.parent, 'FaLayersComponent', this.constructor.name);

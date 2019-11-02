@@ -29,8 +29,7 @@ export class FaLayersTextComponent implements OnChanges {
   @Input() fixedWidth?: boolean;
   @Input() transform?: string | Transform;
 
-  @HostBinding('innerHTML')
-  public renderedHTML: SafeHtml;
+  @HostBinding('innerHTML') renderedHTML: SafeHtml;
 
   constructor(@Optional() private parent: FaLayersComponent, private sanitizer: DomSanitizer) {
     faWarnIfParentNotExist(this.parent, 'FaLayersComponent', this.constructor.name);

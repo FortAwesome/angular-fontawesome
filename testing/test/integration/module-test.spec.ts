@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FontAwesomeTestingModule } from 'testing/src/public_api';
 
 @Component({

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FaIconLibraryInterface } from '@fortawesome/angular-fontawesome';
-import { IconPrefix, IconName, IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { IconDefinition, IconName, IconPrefix } from '@fortawesome/fontawesome-svg-core';
 
 export const dummyIcon: IconDefinition = {
   prefix: 'fad',
@@ -10,16 +10,22 @@ export const dummyIcon: IconDefinition = {
     512,
     [],
     'f030',
-    'M50 50 H462 V462 H50 Z'
-  ]
+    'M50 50 H462 V462 H50 Z',
+  ],
 };
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MockFaIconLibraryService implements FaIconLibraryInterface {
-  public addIcons() { }
-  public addIconPacks() { }
+  addIcons() {
+    // do nothing
+  }
+
+  addIconPacks() {
+    // do nothing
+  }
+
   getIconDefinition(prefix: IconPrefix, name: IconName): IconDefinition {
     return dummyIcon;
   }
