@@ -14,20 +14,11 @@
     "strictPropertyInitialization": false,
     "strictNullChecks": false,
     "stripInternal": true,
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2017",
-      "dom"
-    ],
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
     "paths": {
-      "@fortawesome/angular-fontawesome": [
-        "dist/angular-fontawesome"
-      ],
-      "@fortawesome/angular-fontawesome/*": [
-        "dist/angular-fontawesome/*"
-      ]
+      "@fortawesome/angular-fontawesome": ["dist/angular-fontawesome"],
+      "@fortawesome/angular-fontawesome/*": ["dist/angular-fontawesome/*"]
     }
   }
 }

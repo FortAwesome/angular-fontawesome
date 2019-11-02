@@ -16,19 +16,9 @@
       "type": "array",
       "items": {
         "type": "string",
-        "enum": [
-          "free-solid",
-          "free-regular",
-          "free-brands",
-          "pro-solid",
-          "pro-regular",
-          "pro-light",
-          "pro-duotone"
-        ]
+        "enum": ["free-solid", "free-regular", "free-brands", "pro-solid", "pro-regular", "pro-light", "pro-duotone"]
       },
-      "default": [
-        "free-solid"
-      ],
+      "default": ["free-solid"],
       "x-prompt": {
         "message": "Choose Font Awesome icon packages you would like to use:",
         "type": "list",

@@ -7,7 +7,7 @@ const collectionPath = path.join(__dirname, '../collection.json');
 
 describe('ng-add', () => {
   it('adds dependencies to package.json', async () => {
-    const {runner, appTree} = await setup();
+    const { runner, appTree } = await setup();
 
     const tree = await runner.runSchematicAsync<Schema>('ng-add', {}, appTree).toPromise();
 
@@ -21,7 +21,7 @@ describe('ng-add', () => {
   });
 
   it('adds FontAwesomeModule import to the AppModule', async () => {
-    const {runner, appTree} = await setup();
+    const { runner, appTree } = await setup();
 
     const tree = await runner.runSchematicAsync<Schema>('ng-add', {}, appTree).toPromise();
 
@@ -31,7 +31,7 @@ describe('ng-add', () => {
   });
 
   it('installs @fortawesome/free-solid-svg-icons package by default', async () => {
-    const {runner, appTree} = await setup();
+    const { runner, appTree } = await setup();
 
     const tree = await runner.runSchematicAsync<Schema>('ng-add', {}, appTree).toPromise();
 
@@ -43,12 +43,18 @@ describe('ng-add', () => {
   });
 
   it('allows to install several @fortawesome/*-svg-icons packages', async () => {
-    const {runner, appTree} = await setup();
+    const { runner, appTree } = await setup();
 
-    const tree = await runner.runSchematicAsync<Schema>('ng-add', {
-      project: 'test-app',
-      iconPackages: ['free-solid', 'free-brands', 'free-regular']
-    }, appTree).toPromise();
+    const tree = await runner
+      .runSchematicAsync<Schema>(
+        'ng-add',
+        {
+          project: 'test-app',
+          iconPackages: ['free-solid', 'free-brands', 'free-regular'],
+        },
+        appTree,
+      )
+      .toPromise();
 
     const packageJson = JSON.parse(tree.readContent('package.json'));
     expect(packageJson.dependencies).toBeDefined();
@@ -60,12 +66,18 @@ describe('ng-add', () => {
   });
 
   it('allows to install no icon packages', async () => {
-    const {runner, appTree} = await setup();
+    const { runner, appTree } = await setup();
 
-    const tree = await runner.runSchematicAsync<Schema>('ng-add', {
-      project: 'test-app',
-      iconPackages: []
-    }, appTree).toPromise();
+    const tree = await runner
+      .runSchematicAsync<Schema>(
+        'ng-add',
+        {
+          project: 'test-app',
+          iconPackages: [],
+        },
+        appTree,
+      )
+      .toPromise();
 
     const packageJson = JSON.parse(tree.readContent('package.json'));
     expect(packageJson.dependencies).toBeDefined();
@@ -78,11 +90,18 @@ describe('ng-add', () => {
 const setup = async () => {
   const runner = new SchematicTestRunner('schematics', collectionPath);
 
-  const appTree = await runner.runExternalSchematicAsync('@schematics/angular', 'ng-new', {
-    name: 'test-app',
-    version: '8.3.0',
-    directory: '.'
-  }, Tree.empty()).toPromise();
+  const appTree = await runner
+    .runExternalSchematicAsync(
+      '@schematics/angular',
+      'ng-new',
+      {
+        name: 'test-app',
+        version: '8.3.0',
+        directory: '.',
+      },
+      Tree.empty(),
+    )
+    .toPromise();
 
-  return {runner, appTree};
+  return { runner, appTree };
 };

@@ -16,13 +16,13 @@ import {
   faSquare,
   faSync,
   faTimes,
-  faUser
+  faUser,
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   faBell = faBell;
@@ -43,16 +43,7 @@ export class AppComponent {
   faDummy: IconDefinition = {
     prefix: 'fad',
     iconName: 'dummy' as IconName,
-    icon: [
-      512,
-      512,
-      [],
-      'f030',
-      [
-        'M50 50 H412 V250 H50 Z',
-        'M50 262 H412 V462 H50 Z'
-      ]
-    ]
+    icon: [512, 512, [], 'f030', ['M50 50 H412 V250 H50 Z', 'M50 262 H412 V462 H50 Z']],
   };
 
   notificationsCounter = 1000;

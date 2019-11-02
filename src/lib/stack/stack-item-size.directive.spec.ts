@@ -23,10 +23,11 @@ describe('FaStackItemSizeDirective', () => {
     @Component({
       selector: 'fa-host',
       template: `
-          <fa-stack>
-              <fa-icon [icon]="faCircle" stackItemSize="2x"></fa-icon>
-              <fa-icon [icon]="faUser" [inverse]="true" stackItemSize="1x"></fa-icon>
-          </fa-stack>`
+        <fa-stack>
+          <fa-icon [icon]="faCircle" stackItemSize="2x"></fa-icon>
+          <fa-icon [icon]="faUser" [inverse]="true" stackItemSize="1x"></fa-icon>
+        </fa-stack>
+      `,
     })
     class HostComponent {
       faUser = faUser;
@@ -43,10 +44,11 @@ describe('FaStackItemSizeDirective', () => {
     @Component({
       selector: 'fa-host',
       template: `
-          <fa-stack>
-              <fa-icon [icon]="faCircle" stackItemSize="2x"></fa-icon>
-              <fa-icon [icon]="faUser" [inverse]="true" size="1x" stackItemSize="1x"></fa-icon>
-          </fa-stack>`
+        <fa-stack>
+          <fa-icon [icon]="faCircle" stackItemSize="2x"></fa-icon>
+          <fa-icon [icon]="faUser" [inverse]="true" size="1x" stackItemSize="1x"></fa-icon>
+        </fa-stack>
+      `,
     })
     class HostComponent {
       faUser = faUser;
@@ -54,9 +56,11 @@ describe('FaStackItemSizeDirective', () => {
     }
 
     const fixture = initTest(HostComponent);
-    expect(() => fixture.detectChanges()).toThrow(new Error(
-      'fa-icon is not allowed to customize size when used inside fa-stack. ' +
-      'Set size on the enclosing fa-stack instead: <fa-stack size="4x">...</fa-stack>.'
-    ));
+    expect(() => fixture.detectChanges()).toThrow(
+      new Error(
+        'fa-icon is not allowed to customize size when used inside fa-stack. ' +
+          'Set size on the enclosing fa-stack instead: <fa-stack size="4x">...</fa-stack>.',
+      ),
+    );
   });
 });

@@ -6,18 +6,16 @@ import { SizeProp } from '@fortawesome/fontawesome-svg-core';
  */
 @Component({
   selector: 'fa-layers',
-  template: `<ng-content select="fa-icon, fa-duotone-icon, fa-layers-text, fa-layers-counter"></ng-content>`,
+  template: `
+    <ng-content select="fa-icon, fa-duotone-icon, fa-layers-text, fa-layers-counter"></ng-content>
+  `,
 })
 export class FaLayersComponent implements OnInit, OnChanges {
   @Input() size?: SizeProp;
 
   @Input() @HostBinding('class.fa-fw') fixedWidth?: boolean;
 
-  constructor(
-    private renderer: Renderer2,
-    private elementRef: ElementRef,
-  ) {
-  }
+  constructor(private renderer: Renderer2, private elementRef: ElementRef) {}
 
   ngOnInit() {
     this.renderer.addClass(this.elementRef.nativeElement, 'fa-layers');

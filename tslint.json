@@ -1,11 +1,6 @@
 {
-  "extends": [
-    "tslint:recommended",
-    "tslint-config-prettier"
-  ],
-  "rulesDirectory": [
-    "node_modules/codelyzer"
-  ],
+  "extends": ["tslint:recommended", "tslint-config-prettier"],
+  "rulesDirectory": ["node_modules/codelyzer"],
   "rules": {
     "member-access": [true, "no-public"],
     "object-literal-sort-keys": false,

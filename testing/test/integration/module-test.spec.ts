@@ -4,35 +4,29 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FontAwesomeTestingModule } from 'testing/src/public_api';
 
 @Component({
-    selector: 'fa-host',
-    template: '<fa-icon icon="someicon"></fa-icon>'
+  selector: 'fa-host',
+  template: '<fa-icon icon="someicon"></fa-icon>',
 })
-class HostComponent {
-}
+class HostComponent {}
 
 describe('Using the `FontAwesomeTestingModule', () => {
-    let component: HostComponent;
-    let fixture: ComponentFixture<HostComponent>;
+  let component: HostComponent;
+  let fixture: ComponentFixture<HostComponent>;
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            imports: [
-                CommonModule,
-                FontAwesomeTestingModule
-            ],
-            declarations: [
-                HostComponent
-            ]
-        }).compileComponents();
-    }));
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [CommonModule, FontAwesomeTestingModule],
+      declarations: [HostComponent],
+    }).compileComponents();
+  }));
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(HostComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-    });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(HostComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-    it('should allow you to import the module without errors', () => {
-        expect(component).toBeTruthy();
-    });
+  it('should allow you to import the module without errors', () => {
+    expect(component).toBeTruthy();
+  });
 });

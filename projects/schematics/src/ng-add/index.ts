@@ -10,7 +10,7 @@ import { createSourceFile, ScriptTarget } from 'typescript';
 import { Schema } from './schema';
 import { angularFontawesomeVersion, iconPackVersion, svgCoreVersion } from './versions';
 
-export default function (options: Schema): Rule {
+export default function(options: Schema): Rule {
   return chain([
     (tree: Tree, context: SchematicContext) => {
       addPackageJsonDependency(tree, {
@@ -38,7 +38,7 @@ export default function (options: Schema): Rule {
 
       return tree;
     },
-    addModule(options.project)
+    addModule(options.project),
   ]);
 }
 
@@ -49,7 +49,12 @@ function addModule(projectName?: string): Rule {
     const buildOptions = getProjectTargetOptions(project, 'build');
     const modulePath = getAppModulePath(host, buildOptions.main);
     const moduleSource = getSourceFile(host, modulePath);
-    const changes = addImportToModule(moduleSource, modulePath, 'FontAwesomeModule', '@fortawesome/angular-fontawesome');
+    const changes = addImportToModule(
+      moduleSource,
+      modulePath,
+      'FontAwesomeModule',
+      '@fortawesome/angular-fontawesome',
+    );
     const recorder = host.beginUpdate(modulePath);
     changes.forEach((change) => {
       if (change instanceof InsertChange) {

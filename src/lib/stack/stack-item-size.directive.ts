@@ -1,6 +1,6 @@
 import { Directive, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { SizeProp } from '@fortawesome/fontawesome-svg-core';
-import { FaStackComponent} from './stack.component';
+import { FaStackComponent } from './stack.component';
 
 @Directive({
   // tslint:disable-next-line:directive-selector
@@ -22,7 +22,8 @@ export class FaStackItemSizeDirective implements OnChanges {
     if ('size' in changes) {
       throw new Error(
         'fa-icon is not allowed to customize size when used inside fa-stack. ' +
-        'Set size on the enclosing fa-stack instead: <fa-stack size="4x">...</fa-stack>.');
+          'Set size on the enclosing fa-stack instead: <fa-stack size="4x">...</fa-stack>.',
+      );
     }
   }
 }

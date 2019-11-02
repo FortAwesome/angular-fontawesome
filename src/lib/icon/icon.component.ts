@@ -13,7 +13,7 @@ import {
   RotateProp,
   SizeProp,
   Styles,
-  Transform
+  Transform,
 } from '@fortawesome/fontawesome-svg-core';
 import { FaConfig } from '../config';
 import { FaIconLibrary } from '../icon-library';
@@ -30,7 +30,7 @@ import { FaStackItemSizeDirective } from '../stack/stack-item-size.directive';
   host: {
     class: 'ng-fa-icon',
     '[attr.title]': 'title',
-  }
+  },
 })
 export class FaIconComponent implements OnChanges {
   @Input() icon: IconProp;
@@ -70,8 +70,7 @@ export class FaIconComponent implements OnChanges {
     private config: FaConfig,
     private iconLibrary: FaIconLibrary,
     @Optional() private stackItem: FaStackItemSizeDirective,
-  ) {
-  }
+  ) {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (this.icon == null && this.config.fallbackIcon == null) {
@@ -118,7 +117,8 @@ export class FaIconComponent implements OnChanges {
 
     const globalDefinition = findIconDefinition(lookup);
     if (globalDefinition != null) {
-      const message = 'Global icon library is deprecated. ' +
+      const message =
+        'Global icon library is deprecated. ' +
         'Consult https://github.com/FortAwesome/angular-fontawesome/blob/master/UPGRADING.md ' +
         'for the migration instructions.';
       if (this.config.globalLibrary === 'unset') {
@@ -158,8 +158,8 @@ export class FaIconComponent implements OnChanges {
       styles: this.styles != null ? this.styles : {},
       symbol: this.symbol,
       attributes: {
-        role: this.a11yRole
-      }
+        role: this.a11yRole,
+      },
     };
   }
 
@@ -168,4 +168,3 @@ export class FaIconComponent implements OnChanges {
     this.renderedIconHTML = this.sanitizer.bypassSecurityTrustHtml(renderedIcon.html.join('\n'));
   }
 }
-

@@ -14,9 +14,7 @@ import { FaStackComponent } from '../lib/stack/stack.component';
 
 export function initTest<T>(component: Type<T>, providers?: any[]): ComponentFixture<T> {
   TestBed.configureTestingModule({
-    imports: [
-      CommonModule,
-    ],
+    imports: [CommonModule],
     declarations: [
       FaIconComponent,
       FaDuotoneIconComponent,
@@ -27,14 +25,11 @@ export function initTest<T>(component: Type<T>, providers?: any[]): ComponentFix
       FaStackItemSizeDirective,
       component,
     ],
-    providers
+    providers,
   });
   TestBed.overrideModule(BrowserDynamicTestingModule, {
     set: {
-      entryComponents: [
-        FaIconComponent,
-        FaDuotoneIconComponent,
-      ],
+      entryComponents: [FaIconComponent, FaDuotoneIconComponent],
     },
   });
   library.add(faUser);
@@ -48,14 +43,5 @@ export function queryByCss(fixture: ComponentFixture<any>, cssSelector: string):
 export const faDummy: IconDefinition = {
   prefix: 'fad',
   iconName: 'dummy' as IconName,
-  icon: [
-    512,
-    512,
-    [],
-    'f030',
-    [
-      'M50 50 H412 V250 H50 Z',
-      'M50 262 H412 V462 H50 Z'
-    ]
-  ]
+  icon: [512, 512, [], 'f030', ['M50 50 H412 V250 H50 Z', 'M50 262 H412 V462 H50 Z']],
 };

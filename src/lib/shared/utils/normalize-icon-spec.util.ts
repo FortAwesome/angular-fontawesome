@@ -6,7 +6,7 @@ import { isIconLookup } from './is-icon-lookup.util';
  */
 export const faNormalizeIconSpec = (
   iconSpec: IconProp | IconDefinition,
-  defaultPrefix: IconPrefix
+  defaultPrefix: IconPrefix,
 ): IconLookup | IconDefinition => {
   if (isIconLookup(iconSpec)) {
     return iconSpec;

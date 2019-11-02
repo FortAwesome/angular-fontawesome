@@ -3,11 +3,7 @@ import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontaweso
 import { MockFaIconLibraryService } from './icon/mock-icon-library.service';
 
 @NgModule({
-  exports: [
-    FontAwesomeModule
-  ],
-  providers: [
-    { provide: FaIconLibrary, useExisting: MockFaIconLibraryService }
-  ]
+  exports: [FontAwesomeModule],
+  providers: [{ provide: FaIconLibrary, useExisting: MockFaIconLibraryService }],
 })
-export class FontAwesomeTestingModule { }
+export class FontAwesomeTestingModule {}

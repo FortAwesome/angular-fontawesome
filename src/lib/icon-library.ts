@@ -7,7 +7,7 @@ export interface FaIconLibraryInterface {
   getIconDefinition(prefix: IconPrefix, name: IconName): IconDefinition | null;
 }
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class FaIconLibrary implements FaIconLibraryInterface {
   private definitions: { [prefix: string]: { [name: string]: IconDefinition } } = {};
 

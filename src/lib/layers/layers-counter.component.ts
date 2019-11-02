@@ -8,8 +8,8 @@ import { FaLayersComponent } from './layers.component';
   selector: 'fa-layers-counter',
   template: '',
   host: {
-    class: 'ng-fa-layers-counter'
-  }
+    class: 'ng-fa-layers-counter',
+  },
 })
 export class FaLayersCounterComponent implements OnChanges {
   @Input() content: string;
@@ -39,9 +39,6 @@ export class FaLayersCounterComponent implements OnChanges {
   }
 
   private updateContent(params: CounterParams) {
-    this.renderedHTML = this.sanitizer.bypassSecurityTrustHtml(
-      counter(this.content || '', params).html.join('')
-    );
+    this.renderedHTML = this.sanitizer.bypassSecurityTrustHtml(counter(this.content || '', params).html.join(''));
   }
 }
-
