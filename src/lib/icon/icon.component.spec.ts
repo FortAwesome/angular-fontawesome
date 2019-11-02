@@ -202,7 +202,7 @@ describe('FaIconComponent', () => {
     }
 
     const fixture = initTest(HostComponent);
-    const config = TestBed.get(FaConfig);
+    const config = TestBed.inject(FaConfig);
     config.defaultPrefix = 'far';
     fixture.detectChanges();
     expect(queryByCss(fixture, 'svg').getAttribute('data-prefix')).toEqual('far');

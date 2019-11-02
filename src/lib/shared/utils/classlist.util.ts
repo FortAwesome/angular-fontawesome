@@ -10,7 +10,6 @@ export const faClassList = (props: FaProps): string[] => {
     'fa-pulse': props.pulse,
     'fa-fw': props.fixedWidth,
     'fa-border': props.border,
-    'fa-li': props.listItem,
     'fa-inverse': props.inverse,
     'fa-layers-counter': props.counter,
     'fa-flip-horizontal': props.flip === 'horizontal' || props.flip === 'both',

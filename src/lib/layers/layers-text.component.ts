@@ -25,7 +25,6 @@ export class FaLayersTextComponent implements OnChanges {
   @Input() pull?: PullProp;
   @Input() border?: boolean;
   @Input() inverse?: boolean;
-  @Input() listItem?: boolean;
   @Input() rotate?: RotateProp;
   @Input() fixedWidth?: boolean;
   @Input() transform?: string | Transform;
@@ -54,7 +53,6 @@ export class FaLayersTextComponent implements OnChanges {
       pulse: this.pulse,
       border: this.border,
       inverse: this.inverse,
-      listItem: this.listItem,
       size: this.size || null,
       pull: this.pull || null,
       rotate: this.rotate || null,
