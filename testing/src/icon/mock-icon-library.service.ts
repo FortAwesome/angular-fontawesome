@@ -13,11 +13,11 @@ export const dummyIcon: IconDefinition = {
 })
 export class MockFaIconLibrary implements FaIconLibraryInterface {
   addIcons() {
-    // do nothing
+    throw new Error('Attempt to add an icon to the MockFaIconLibrary.');
   }
 
   addIconPacks() {
-    // do nothing
+    throw new Error('Attempt to add an icon pack to the MockFaIconLibrary.');
   }
 
   getIconDefinition(prefix: IconPrefix, name: IconName): IconDefinition {
