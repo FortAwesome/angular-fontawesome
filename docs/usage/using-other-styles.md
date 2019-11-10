@@ -1,30 +1,26 @@
 # Using other styles
 
-## Add more styles or Pro icons
-Brands are separated into their own style and for customers upgrading from version 4 to 5 we have a limited number of Regular icons available.
+Font Awesome icons are separated into styles, which are shipped in separate packages to meet different needs and to reduce individual packages size. To use an icon you'll need to install a package which contains it.
 
-If you are a [Font Awesome Pro](https://fontawesome.com/pro) subscriber you can install Pro packages.
+The general workflow of adding a new icon:
 
-> NOTE: Using the Pro packages requires [additional configuration](https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers).
+1. Visit [fontawesome.com/icons](https://fontawesome.com/icons) to browse icons.
+1. Open the icon page to find out which style it belongs to.
+1. Install a package containing the icon if not already installed (use style name from the previous step and see full package names below).
+1. Import the icon from the installed package and use it in your application using either [icon library](./icon-library.md) or [explicit references](./explicit-reference.md) approach.
 
-**Visit [fontawesome.com/icons](https://fontawesome.com/icons) to search for free and Pro icons**
+Packages prefixed with `free` are available for everybody, while packages prefixed with `pro` require a [Font Awesome Pro](https://fontawesome.com/pro) subscription and require [additional configuration](https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers#installing-pro).
 
 ## Solid Icons
 
 ```bash
 $ yarn add @fortawesome/free-solid-svg-icons
+# or
 $ yarn add @fortawesome/pro-solid-svg-icons
 ```
 
 ```javascript
 import { faClock } from '@fortawesome/free-solid-svg-icons';
-
-// Add an icon to the library for convenient access in other components
-library.add(faClock);
-```
-
-```html
-<fa-icon [icon]="['fas', 'clock']"></fa-icon>
 ```
 
 ## Brand Icons
@@ -35,31 +31,18 @@ $ yarn add @fortawesome/free-brands-svg-icons
 
 ```javascript
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
-
-// Add an icon to the library for convenient access in other components
-library.add(faTwitter);
-```
-
-```html
-<fa-icon [icon]="['fab', 'twitter']"></fa-icon>
 ```
 
 ## Regular Icons
 
 ```bash
 $ yarn add @fortawesome/free-regular-svg-icons
+# or
 $ yarn add @fortawesome/pro-regular-svg-icons
 ```
 
 ```javascript
 import { faCalendar } from '@fortawesome/free-regular-svg-icons';
-
-// Add an icon to the library for convenient access in other components
-library.add(faCalendar);
-```
-
-```html
-<fa-icon [icon]="['far', 'calendar']"></fa-icon>
 ```
 
 ## Pro-only Light Icons
@@ -70,13 +53,6 @@ $ yarn add @fortawesome/pro-light-svg-icons
 
 ```javascript
 import { faArrowAltRight } from '@fortawesome/pro-light-svg-icons';
-
-// Add an icon to the library for convenient access in other components
-library.add(faArrowAltRight);
-```
-
-```html
-<fa-icon [icon]="['fal', 'calendar']"></fa-icon>
 ```
 
 ## Pro-only Duotone Icons
@@ -87,23 +63,25 @@ $ yarn add @fortawesome/pro-duotone-svg-icons
 
 ```javascript
 import { faCamera } from '@fortawesome/pro-duotone-svg-icons';
-
-// Add an icon to the library for convenient access in other components
-library.add(faCamera);
-```
-
-```html
-<fa-duotone-icon [icon]="['fad', 'camera']"></fa-duotone-icon>
-```
+````
 
 ## Same Icon from Multiple Styles
+
+To use the same icon from the multiple styles you'll need to use import aliases to avoid the name conflicts:
 
 ```javascript
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 import { faStar as fasStar } from '@fortawesome/free-solid-svg-icons';
 
 // Add icons to the library for convenient access in other components
-library.add(fasStar, farStar);
+import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
+
+export class AppModule {
+  constructor(library: FaIconLibrary) {
+    // Add multiple icons to the library
+    library.addIcons(fasStar, farStar);
+  }
+}
 ```
 
 ```html
