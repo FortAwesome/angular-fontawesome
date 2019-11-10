@@ -8,5 +8,5 @@
     }
   },
   "files": ["src/test.ts"],
-  "include": ["**/*.spec.ts", "**/*.d.ts"]
+  "include": ["src/**/*.spec.ts", "testing/**/*.spec.ts", "**/*.d.ts"]
 }

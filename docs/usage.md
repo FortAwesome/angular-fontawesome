@@ -49,3 +49,8 @@ Take your icons to the next level with these advanced features.
 * [Layers with text](./usage/features.md#layers-with-text)
 * [Layers with counter](./usage/features.md#layers-with-counter)
 * [Programmatic API](./usage/features.md#programmatic-api)
+
+## Guides
+Guides cover specific topics or use cases.
+
+* [Testing](./guide/testing.md)
