@@ -115,7 +115,7 @@ describe('FaIconComponent', () => {
 
     const fixture = initTest(HostComponent);
     expect(() => fixture.detectChanges()).toThrow(
-      new Error('FontAwesome: Property `icon` is required for `fa-icon`/`fa-duotone-icon` components.'),
+      new Error('Property `icon` is required for `fa-icon`/`fa-duotone-icon` components.'),
     );
   });
 
@@ -295,7 +295,7 @@ describe('FaIconComponent', () => {
 
     const fixture = initTest(HostComponent);
     expect(() => fixture.detectChanges()).toThrow(
-      new Error('FontAwesome: Could not find icon with iconName=circle and prefix=fas.'),
+      new Error('Could not find icon with iconName=circle and prefix=fas in the icon library.'),
     );
   });
 
