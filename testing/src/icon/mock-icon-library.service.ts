@@ -11,7 +11,7 @@ export const dummyIcon: IconDefinition = {
 @Injectable({
   providedIn: 'root',
 })
-export class MockFaIconLibraryService implements FaIconLibraryInterface {
+export class MockFaIconLibrary implements FaIconLibraryInterface {
   addIcons() {
     // do nothing
   }
