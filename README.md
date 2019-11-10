@@ -10,14 +10,12 @@ Official Angular component for Font Awesome 5
 
 ## Installation
 
-<!-- TODO: uncomment for the next release and mention in Compatibility table
 Using `ng add`:
 
 ```
 # See Compatibility table below to choose a correct version
 $ ng add @fortawesome/angular-fontawesome@<version>
 ```
--->
 
 Using [Yarn](https://yarnpkg.com)
 ```
@@ -37,12 +35,13 @@ $ npm install @fortawesome/angular-fontawesome@<version>
 
 ### Compatiblity table
 
-|@fortawesome/angular-fontawesome|Angular|
-|-|-|
-|0.1.x|5.x|
-|0.2.x|6.x|
-|0.3.x|6.x && 7.x|
-|0.4.x, 0.5.x|8.x|
+|@fortawesome/angular-fontawesome|Angular|ng-add|
+|-|-|-|
+|0.1.x|5.x|not supported|
+|0.2.x|6.x|not supported|
+|0.3.x|6.x && 7.x|not supported|
+|0.4.x, 0.5.x|8.x|not supported|
+|0.6.x|8.x,9.x|supported|
 
 ## Usage
 To get up and running using Font Awesome with Angular follow below steps:
@@ -131,6 +130,8 @@ being awesome contributors to this project. **We'd like to take a moment to reco
 [<img src="https://github.com/damienwebdev.png?size=72" alt="damienwebdev" width="72">](https://github.com/damienwebdev)
 [<img src="https://github.com/ronniebarker.png?size=72" alt="ronniebarker" width="72">](https://github.com/ronniebarker)
 [<img src="https://github.com/bhanuhiteshi.png?size=72" alt="bhanuhiteshi" width="72">](https://github.com/bhanuhiteshi)
+[<img src="https://github.com/plinkpaste.png?size=72" alt="plinkpaste" width="72">](https://github.com/plinkpaste)
+[<img src="https://github.com/ej2.png?size=72" alt="ej2" width="72">](https://github.com/ej2)
 
 If we've missed someone (which is quite likely) submit a Pull Request to us and we'll get it resolved.
 

@@ -5,6 +5,30 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.6.0-alpha.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.6.0-alpha.0) - 2019-11-11
+
+Make sure to check [upgrade instructions](https://github.com/FortAwesome/angular-fontawesome/blob/master/UPGRADING.md).
+
+### Added
+
+* Support for Angular 9 and Ivy.
+* [`FontAwesomeTestingModule`](https://github.com/FortAwesome/angular-fontawesome/blob/master/docs/guide/testing.md#use-fontawesometestingmodule-to-mock-icon-library) to simplify testing components using icon library.
+* `FaConfig.fallbackIcon` which allows to specify a fallback icon to use when `FaIconComponent.icon` is not set or specified icon definition is missing from the icon library.
+* `ng-add` schematic to simplify initial library setup.
+* [Documentation](https://github.com/FortAwesome/angular-fontawesome/blob/master/docs/guide/testing.md) on how to test components using Font Awesome icons.
+* `LICENSE` file into the published package.
+
+### Changed
+
+* `FaConfig.globalLibrary` default value has been changed to `false`. `fa-icon`/`fa-duotone-icon` won't look for icon definitions in the global icon library by default. See [upgrade instructions](https://github.com/FortAwesome/angular-fontawesome/blob/master/docs/upgrading/0.4.0-0.5.0.md#migrate-from-global-icon-library-to-faiconlibrary) for the previous release for more details about this change.
+* Warning when `FaIconComponent.icon` is not set or specified icon definition is missing in the icon library was changed into a hard error to make it more clear and visible (in particular in the unit tests).
+
+### Removed
+
+* `FaIconComponent.iconProp` was removed. Use `FaIconComponent.icon` instead.
+* `FaIconComponent.listItem` was removed. Use `FaIconComponent.fixedWidth` + custom CSS to render icons as list markers.
+* `FaIconService` was removed. Use `FaConfig` instead.
+
 ## [0.5.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.5.0) - 2019-08-12
 
 Make sure to check [upgrade instructions](https://github.com/FortAwesome/angular-fontawesome/blob/master/UPGRADING.md).

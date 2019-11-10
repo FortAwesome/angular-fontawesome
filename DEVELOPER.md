@@ -31,6 +31,8 @@ Command     | Purpose
 `yarn lint`        | Verify code style
 `yarn test`        | Execute unit tests
 `yarn test:schematics`        | Execute unit tests for schematics
+`yarn test:demo`        | Execute unit tests of the demo project
+`yarn test:integration`        | Execute integration tests
 `yarn start`       | Run development server for the demo application
 `yarn build`       | Build library
 `yarn build:schematics`       | Build schematics (should be run after the library build)
@@ -43,7 +45,7 @@ Command     | Purpose
 1. Update Compatibility table in `README.md`
 1. Update the `CHANGELOG.md`
 1. Update the `UPGRADING.md` if necessary
-1. `yarn build`
+1. `yarn build && yarn build:schematics`
 1. `cd dist/angular-fontawesome`
 1. `npm publish`
 1. `git commit -a -m 'Release VERSION'`

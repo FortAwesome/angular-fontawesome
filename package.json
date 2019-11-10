@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/ng-packagr/package.schema.json",
   "name": "@fortawesome/angular-fontawesome",
-  "version": "0.5.0",
+  "version": "0.6.0-alpha.0",
   "description": "Angular Fontawesome, an Angular library",
   "scripts": {
     "test": "ng test angular-fontawesome --watch=false --browsers=ChromeCI",
@@ -40,7 +40,8 @@
     "Damien Retzinger <damienwebdev@gmail.com>",
     "Ronnie Barker <ronnie.barker@theagileworkshop.com>",
     "bhanuhiteshi <bhanu.singh@hiteshi.com>",
-    "James Hyde <plinkpaste@jameshy.de>"
+    "James Hyde <plinkpaste@jameshy.de>",
+    "ej2 <edward.emanuel@gmail.com>"
   ],
   "license": "MIT",
   "bugs": {
