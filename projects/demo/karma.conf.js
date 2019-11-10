@@ -28,5 +28,11 @@ module.exports = function(config) {
     browsers: ['Chrome'],
     singleRun: false,
     restartOnFileChange: true,
+    customLaunchers: {
+      ChromeCI: {
+        base: `${process.env['TRAVIS'] ? 'ChromeHeadless' : 'Chrome'}`,
+        flags: process.env['TRAVIS'] ? ['--no-sandbox'] : [],
+      },
+    },
   });
 };

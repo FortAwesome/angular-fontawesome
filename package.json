@@ -6,6 +6,7 @@
   "scripts": {
     "test": "ng test angular-fontawesome --watch=false --browsers=ChromeCI",
     "test:schematics": "ts-node --project projects/schematics/tsconfig.json node_modules/.bin/jasmine projects/schematics/src/**/*.spec.ts",
+    "test:demo": "ng test demo --watch=false --browsers=ChromeCI",
     "test:integration": "ng e2e demo --prod",
     "lint": "ng lint",
     "start": "ng serve demo",
