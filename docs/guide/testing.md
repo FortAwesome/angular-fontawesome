@@ -7,22 +7,32 @@ This guide explains how to test components, which use Font Awesome icons.
 Testing components using explicit reference does not require any special setup. You only need to add `FontAwesomeModule` to the `imports` of the testing module to be able to use `angular-fontawesome` components in the tests.
 
 ```typescript
-import { Component } from '@angular/core';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { NgModule } from '@angular/core';
 
-@Component({
-  selector: 'app-explicit-reference',
-  template: '<fa-icon [icon]="faUser"></fa-icon>',
+import { FontAwesomeModule, FaIconLibrary, FaConfig } from '@fortawesome/angular-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faFacebook } from '@fortawesome/free-brands-svg-icons';
+
+@NgModule({
+  declarations: [],
+  providers: [FaIconLibrary, FaConfig],
+  imports: [FontAwesomeModule],
+  exports: [FontAwesomeModule]
 })
-export class ExplicitReferenceComponent {
-  faUser = faUser;
+export class FontAwesomeIconsModule {
+  constructor(library: FaIconLibrary) {
+    library.addIcons(
+      faStar,
+      faFacebook,
+    );
+  }
 }
 ```
 
 ```typescript
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { ExplicitReferenceComponent } from './explicit-reference.component';
+import { FontAwesomeIconsModule } from './font-awesome-icons.module';
 
 describe('ExplicitReferenceComponent', () => {
   let component: ExplicitReferenceComponent;
@@ -30,7 +40,10 @@ describe('ExplicitReferenceComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [FontAwesomeModule], // <--
+      imports: [
+          FontAwesomeModule       // <--
+          FontAwesomeIconsModule, // <--
+      ],
       declarations: [ExplicitReferenceComponent],
     });
   });
@@ -50,7 +63,8 @@ describe('ExplicitReferenceComponent', () => {
 
 ## Test components using [icon library](../usage/icon-library.md)
 
-When it comes to testing components using icon library you'll need to setup the icon library in one way or another otherwise component will throw because of the missing icon definition. The icon library setup is needed because most likely `AppModule` where you normally add icons to the library is not part of the tested component spec and therefore icons added there are not available.
+When it comes to testing components using icon library you'll need to setup the icon library in one way or another otherwise component will throw because of the missing icon definition.
+The icon library setup is needed because most likely `AppModule` where you normally add icons to the library is not part of the tested component spec and therefore icons added there are not available.
 
 There are two main options how to deal with the icon library in the tests:
 
