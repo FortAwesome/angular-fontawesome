@@ -90,6 +90,34 @@
                   "maximumWarning": "6kb"
                 }
               ]
+            },
+            "production-ve": {
+              "tsConfig": "projects/demo/tsconfig.app-ve.json",
+              "fileReplacements": [
+                {
+                  "replace": "projects/demo/src/environments/environment.ts",
+                  "with": "projects/demo/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ]
             }
           }
         },
@@ -101,6 +129,9 @@
           "configurations": {
             "production": {
               "browserTarget": "demo:build:production"
+            },
+            "production-ve": {
+              "browserTarget": "demo:build:production-ve"
             }
           }
         },
@@ -142,6 +173,9 @@
           "configurations": {
             "production": {
               "devServerTarget": "demo:serve:production"
+            },
+            "production-ve": {
+              "devServerTarget": "demo:serve:production-ve"
             }
           }
         }

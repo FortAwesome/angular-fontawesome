@@ -96,7 +96,7 @@ const setup = async () => {
       'ng-new',
       {
         name: 'test-app',
-        version: '8.3.0',
+        version: '9.0.0-rc.6',
         directory: '.',
       },
       Tree.empty(),
