@@ -1,6 +1,6 @@
 # Developer Documentation
 
-Thanks for taking the time to consider contributing to the project. You will find some example documentation here that will help you get a local environment setup for contributing to the project as well as some helpful guidance on how you can help keep `angular-fontawesome` going.
+Thanks for taking the time to consider contributing to the project. You will find documentation here that will help you get a local environment setup for contributing to the project as well as some helpful guidance on how you can help keep `angular-fontawesome` going.
 
 ## Prerequisites
 
@@ -11,9 +11,10 @@ Thanks for taking the time to consider contributing to the project. You will fin
 ## Setting up the local environment
 
 1. `git clone https://github.com/FortAwesome/angular-fontawesome`
-2. `yarn` - install dependencies
-3. `yarn start` - start sample application
-4. Visit http://localhost:4200 and observe sample application running
+1. `yarn` - install dependencies
+1. `yarn build:watch` (in terminal 1) - build the library and keep watching for changes
+1. `yarn start` (in terminal 2) - start sample application using library distribution from the previous step
+1. Visit http://localhost:4200 and observe sample application running
 
 ## Make changes
 

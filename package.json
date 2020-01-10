@@ -11,6 +11,7 @@
     "lint": "ng lint",
     "start": "ng serve demo",
     "build": "ng build angular-fontawesome --prod",
+    "build:watch": "ng build angular-fontawesome --watch",
     "build:demo": "ng build demo --prod",
     "build:schematics": "tsc -p projects/schematics/tsconfig.json && ts-node -O '{\"module\":\"commonjs\"}' tasks/build-schematics.ts",
     "format": "prettier --write --ignore-path .gitignore '**/*.{js,ts,json,html}'",
