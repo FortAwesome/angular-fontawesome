@@ -21,6 +21,13 @@ export class FaConfig {
   fallbackIcon: IconDefinition = null;
 
   /**
+   * Set icons to the same fixed width.
+   * @see {@link: https://fontawesome.com/how-to-use/on-the-web/styling/fixed-width-icons}
+   * @default false
+   */
+  fixedWidth?: boolean;
+
+  /**
    * Whether components should lookup icon definitions in the global icon
    * library (the one available from
    * `import { library } from '@fortawesome/fontawesome-svg-core')`.

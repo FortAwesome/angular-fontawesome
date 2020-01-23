@@ -144,7 +144,7 @@ export class FaIconComponent implements OnChanges {
       size: this.size || null,
       pull: this.pull || null,
       rotate: this.rotate || null,
-      fixedWidth: this.fixedWidth,
+      fixedWidth: typeof this.fixedWidth === 'boolean' ? this.fixedWidth : this.config.fixedWidth,
       stackItemSize: this.stackItem != null ? this.stackItem.stackItemSize : null,
     };
 

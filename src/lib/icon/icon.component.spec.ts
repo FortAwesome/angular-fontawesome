@@ -207,6 +207,77 @@ describe('FaIconComponent', () => {
     expect(queryByCss(fixture, 'svg').getAttribute('data-prefix')).toEqual('far');
   });
 
+  it('should have no fixed width by default', () => {
+    @Component({
+      selector: 'fa-host',
+      template: '<fa-icon icon="user"></fa-icon>',
+    })
+    class HostComponent {
+      constructor(iconLibrary: FaIconLibrary) {
+        iconLibrary.addIcons(faUser, faUserRegular);
+      }
+    }
+
+    const fixture = initTest(HostComponent);
+    const config = TestBed.inject(FaConfig);
+    fixture.detectChanges();
+    expect(queryByCss(fixture, '.fa-fw')).toBeFalsy();
+  });
+
+  it('should be able to set fixed width with default config', () => {
+    @Component({
+      selector: 'fa-host',
+      template: '<fa-icon icon="user"></fa-icon>',
+    })
+    class HostComponent {
+      constructor(iconLibrary: FaIconLibrary) {
+        iconLibrary.addIcons(faUser, faUserRegular);
+      }
+    }
+
+    const fixture = initTest(HostComponent);
+    const config = TestBed.inject(FaConfig);
+    config.fixedWidth = true;
+    fixture.detectChanges();
+    expect(queryByCss(fixture, '.fa-fw')).toBeTruthy();
+  });
+
+  it('should be able to set fixed width explicitly', () => {
+    @Component({
+      selector: 'fa-host',
+      template: '<fa-icon icon="user" [fixedWidth]="true"></fa-icon>',
+    })
+    class HostComponent {
+      constructor(iconLibrary: FaIconLibrary) {
+        iconLibrary.addIcons(faUser, faUserRegular);
+      }
+    }
+
+    const fixture = initTest(HostComponent);
+    const config = TestBed.inject(FaConfig);
+    config.fixedWidth = false;
+    fixture.detectChanges();
+    expect(queryByCss(fixture, '.fa-fw')).toBeTruthy();
+  });
+
+  it('should be able to override global fixed width explicitly', () => {
+    @Component({
+      selector: 'fa-host',
+      template: '<fa-icon icon="user" [fixedWidth]="false"></fa-icon>',
+    })
+    class HostComponent {
+      constructor(iconLibrary: FaIconLibrary) {
+        iconLibrary.addIcons(faUser, faUserRegular);
+      }
+    }
+
+    const fixture = initTest(HostComponent);
+    const config = TestBed.inject(FaConfig);
+    config.fixedWidth = true;
+    fixture.detectChanges();
+    expect(queryByCss(fixture, '.fa-fw')).toBeFalsy();
+  });
+
   it('should use icon definition from the icon library', () => {
     @Component({
       selector: 'fa-host',

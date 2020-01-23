@@ -67,3 +67,17 @@ export class AppComponent {
   }
 }
 ```
+
+## Apply fixed width by default
+
+The fixed width class, `fa-fw`, can be applied globally by injecting the `FaConfig` and modyfing the `fixedWidth` property.
+
+```ts
+import { FaConfig } from '@fortawesome/angular-fontawesome';
+
+export class AppComponent {
+  constructor(faConfig: FaConfig) {
+    faConfig.fixedWidth = true;
+  }
+}
+```
