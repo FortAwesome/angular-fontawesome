@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 import { faMobile, faUser } from '@fortawesome/free-solid-svg-icons';
 import { faDummy, initTest, queryByCss } from '../../testing/helpers';
-import { FaLayersComponent } from './layers.component';
+import { FaConfig } from '../config';
 
 describe('FaLayersComponent', () => {
   it('should render layers icon', () => {
@@ -48,7 +49,7 @@ describe('FaLayersComponent', () => {
     expect(queryByCss(fixture, '.fa-2x')).toBeTruthy();
   });
 
-  it('should include fixed width', () => {
+  it('should include fixed width when set explicitly', () => {
     @Component({
       selector: 'fa-host',
       template: '<fa-layers [fixedWidth]="true"></fa-layers>',
@@ -56,11 +57,27 @@ describe('FaLayersComponent', () => {
     class HostComponent {}
 
     const fixture = initTest(HostComponent);
+    const config = TestBed.inject(FaConfig);
+    config.fixedWidth = false;
     fixture.detectChanges();
     expect(queryByCss(fixture, '.fa-fw')).toBeTruthy();
   });
 
-  it('should not include fixed width', () => {
+  it('should include fixed width when set with global config', () => {
+    @Component({
+      selector: 'fa-host',
+      template: '<fa-layers></fa-layers>',
+    })
+    class HostComponent {}
+
+    const fixture = initTest(HostComponent);
+    const config = TestBed.inject(FaConfig);
+    config.fixedWidth = true;
+    fixture.detectChanges();
+    expect(queryByCss(fixture, '.fa-fw')).toBeTruthy();
+  });
+
+  it('should not include fixed width when set explicitly', () => {
     @Component({
       selector: 'fa-host',
       template: `
@@ -77,8 +94,10 @@ describe('FaLayersComponent', () => {
     }
 
     const fixture = initTest(HostComponent);
+    const config = TestBed.inject(FaConfig);
+    config.fixedWidth = true;
     fixture.detectChanges();
-    expect(queryByCss(fixture, '.fa-fw')).toBeFalsy();
+    expect(queryByCss(fixture, 'fa-layers.fa-fw')).toBeFalsy();
   });
 
   it('should allow setting custom class on the host element', () => {

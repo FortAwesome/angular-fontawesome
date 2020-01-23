@@ -1,6 +1,6 @@
 import { Component, ElementRef, HostBinding, Input, OnChanges, OnInit, Renderer2, SimpleChanges } from '@angular/core';
 import { SizeProp } from '@fortawesome/fontawesome-svg-core';
-
+import { FaConfig } from '../config';
 /**
  * Fontawesome layers.
  */
@@ -15,10 +15,11 @@ export class FaLayersComponent implements OnInit, OnChanges {
 
   @Input() @HostBinding('class.fa-fw') fixedWidth?: boolean;
 
-  constructor(private renderer: Renderer2, private elementRef: ElementRef) {}
+  constructor(private renderer: Renderer2, private elementRef: ElementRef, private config: FaConfig) {}
 
   ngOnInit() {
     this.renderer.addClass(this.elementRef.nativeElement, 'fa-layers');
+    this.fixedWidth = typeof this.fixedWidth === 'boolean' ? this.fixedWidth : this.config.fixedWidth;
   }
 
   ngOnChanges(changes: SimpleChanges) {
