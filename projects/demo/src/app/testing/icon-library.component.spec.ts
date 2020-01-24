@@ -1,3 +1,4 @@
+import { NgModule } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
@@ -37,6 +38,38 @@ describe('IconLibraryComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [FontAwesomeTestingModule], // <--
+      declarations: [IconLibraryComponent],
+    });
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(IconLibraryComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+
+@NgModule({
+  imports: [FontAwesomeModule],
+  exports: [FontAwesomeModule],
+})
+class FontAwesomeIconsModule {
+  constructor(library: FaIconLibrary) {
+    library.addIcons(faUser);
+  }
+}
+
+describe('IconLibraryComponent', () => {
+  let component: IconLibraryComponent;
+  let fixture: ComponentFixture<IconLibraryComponent>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [FontAwesomeIconsModule], // <--
       declarations: [IconLibraryComponent],
     });
   });

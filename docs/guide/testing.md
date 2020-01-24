@@ -52,10 +52,72 @@ describe('ExplicitReferenceComponent', () => {
 
 When it comes to testing components using icon library you'll need to setup the icon library in one way or another otherwise component will throw because of the missing icon definition. The icon library setup is needed because most likely `AppModule` where you normally add icons to the library is not part of the tested component spec and therefore icons added there are not available.
 
-There are two main options how to deal with the icon library in the tests:
+There are several options how to deal with the icon library in the tests:
 
+- (recommended) define a wrapper module for `FontAwesomeModule` to configure an icon library in a single place
 - configure regular `FaIconLibrary` in each spec with icons used by the component
 - use `FontAwesomeTestingModule`, which will mock `FaIconLibrary` and render stub icons instead of the real ones
+
+### Define a wrapper module for `FontAwesomeModule`
+
+With this approach you would define a new module, which wraps `FontAwesomeModule` and configures an icon library. Then this module can be used instead of `FontAwesomeModule` both in the `AppModule` and test code thus the icon library configuration is shared between application and tests. Below is the example of such wrapper module:
+
+```typescript
+import { NgModule } from '@angular/core';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+
+@NgModule({
+  imports: [FontAwesomeModule],
+  exports: [FontAwesomeModule],
+})
+class FontAwesomeIconsModule {
+  constructor(library: FaIconLibrary) {
+    library.addIcons(faUser);
+  }
+}
+```
+
+And here is how it should be used in test code:
+
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-regular-icon-library',
+  template: '<fa-icon icon="user"></fa-icon>',
+})
+export class IconLibraryComponent {}
+```
+
+```typescript
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { IconLibraryComponent } from './icon-library.component';
+
+describe('IconLibraryComponent', () => {
+  let component: IconLibraryComponent;
+  let fixture: ComponentFixture<IconLibraryComponent>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [FontAwesomeIconsModule], // <--
+      declarations: [IconLibraryComponent],
+    });
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(IconLibraryComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+```
+
+*This approach was [initially suggested by 1FpGLLjZSZMx6k on StackOverflow](https://stackoverflow.com/a/58380192/1377864).*
 
 ### Configure regular `FaIconLibrary`
 
