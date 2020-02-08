@@ -5,6 +5,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.6.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.6.0) - 2020-02-08
+
+Make sure to check [upgrade instructions](https://github.com/FortAwesome/angular-fontawesome/blob/master/UPGRADING.md).
+
+### Added
+
+* [`FaConfig.fixedWidth` property](https://github.com/FortAwesome/angular-fontawesome/blob/master/docs/usage/icon-library.md#apply-fixed-width-by-default) to provide a default value for `FaIcon.fixedWidth` and `FaLayers.fixedWidth` properties.
+* Documentation of a [convenient approach](https://github.com/FortAwesome/angular-fontawesome/blob/master/docs/guide/testing.md#define-a-wrapper-module-for-fontawesomemodule) to test components using icon library.
+
+### Removed
+
+* Angular 8.x is no longer supported. If you are using this version, please, stick with version 0.5.0.
+
 ## [0.6.0-alpha.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.6.0-alpha.0) - 2019-11-11
 
 Make sure to check [upgrade instructions](https://github.com/FortAwesome/angular-fontawesome/blob/master/UPGRADING.md).
