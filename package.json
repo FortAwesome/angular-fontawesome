@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/ng-packagr/package.schema.json",
   "name": "@fortawesome/angular-fontawesome",
-  "version": "0.6.0-alpha.0",
+  "version": "0.6.0",
   "description": "Angular Fontawesome, an Angular library",
   "scripts": {
     "test": "ng test angular-fontawesome --watch=false --browsers=ChromeCI",
@@ -42,7 +42,8 @@
     "Ronnie Barker <ronnie.barker@theagileworkshop.com>",
     "bhanuhiteshi <bhanu.singh@hiteshi.com>",
     "James Hyde <plinkpaste@jameshy.de>",
-    "ej2 <edward.emanuel@gmail.com>"
+    "ej2 <edward.emanuel@gmail.com>",
+    "Peter Blazejewicz <peterblazejewicz@users.noreply.github.com>"
   ],
   "license": "MIT",
   "bugs": {
@@ -96,7 +97,7 @@
   ],
   "peerDependencies": {
     "@angular/core": "^9.0.0",
-    "@fortawesome/fontawesome-svg-core": "^1.2.21"
+    "@fortawesome/fontawesome-svg-core": "^1.2.27"
   },
   "ngPackage": {
     "lib": {
