@@ -44,3 +44,10 @@ Thumbs.db
 /*.iml
 /*.ipr
 /*.iws
+
+# Yarn
+/.yarn/*
+!/.yarn/releases
+!/.yarn/plugins
+!/.yarn/sdks
+!/.yarn/versions
