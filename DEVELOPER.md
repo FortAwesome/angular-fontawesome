@@ -48,7 +48,8 @@ Command     | Purpose
 1. Update the `UPGRADING.md` if necessary
 1. `yarn build && yarn build:schematics`
 1. `cd dist/angular-fontawesome`
-1. `npm publish`
+1. `npm publish` - publish to public registry
+1. `npm publish --registry https://npm.fontawesome.com` - publish to Pro registry
 1. `git commit -a -m 'Release VERSION'`
 1. `git tag <version> && git push && git push --tags` - create a tag and push all changes to GitHub
 1. Create a [new release](https://github.com/FortAwesome/angular-fontawesome/releases/new) with CHANGELOG details
