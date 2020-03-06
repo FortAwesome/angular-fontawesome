@@ -1,10 +1,10 @@
 <a href="https://fontawesome.com">
-  <img align="right" width="100" height="100" alt="Official Javascript Component" src="https://img.fortawesome.com/349cfdf6/official-javascript-component.svg">
+  <img align="right" width="100" height="100" alt="Official Javascript Component" src="https://img.fontawesome.com/349cfdf6/official-javascript-component.svg">
 </a>
 
 # angular-fontawesome
 
-[![npm](https://img.shields.io/npm/v/@fortawesome/angular-fontawesome.svg?style=flat-square)](https://www.npmjs.com/package/@fortawesome/angular-fontawesome)
+[![npm](https://img.shields.io/npm/v/@fontawesome/angular-fontawesome.svg?style=flat-square)](https://www.npmjs.com/package/@fontawesome/angular-fontawesome)
 
 Official Angular component for Font Awesome 5
 
@@ -14,28 +14,28 @@ Using `ng add`:
 
 ```
 # See Compatibility table below to choose a correct version
-$ ng add @fortawesome/angular-fontawesome@<version>
+$ ng add @fontawesome/angular-fontawesome@<version>
 ```
 
 Using [Yarn](https://yarnpkg.com)
 ```
-$ yarn add @fortawesome/fontawesome-svg-core
-$ yarn add @fortawesome/free-solid-svg-icons
+$ yarn add @fontawesome/fontawesome-svg-core
+$ yarn add @fontawesome/free-solid-svg-icons
 # See Compatibility table below to choose a correct version
-$ yarn add @fortawesome/angular-fontawesome@<version>
+$ yarn add @fontawesome/angular-fontawesome@<version>
 ```
 
 Using [NPM](https://www.npmjs.com/)
 ```
-$ npm install @fortawesome/fontawesome-svg-core
-$ npm install @fortawesome/free-solid-svg-icons
+$ npm install @fontawesome/fontawesome-svg-core
+$ npm install @fontawesome/free-solid-svg-icons
 # See Compatibility table below to choose a correct version
-$ npm install @fortawesome/angular-fontawesome@<version>
+$ npm install @fontawesome/angular-fontawesome@<version>
 ```
 
 ### Compatiblity table
 
-|@fortawesome/angular-fontawesome|Angular|ng-add|
+|@fontawesome/angular-fontawesome|Angular|ng-add|
 |-|-|-|
 |0.1.x|5.x|not supported|
 |0.2.x|6.x|not supported|
@@ -54,7 +54,7 @@ To get up and running using Font Awesome with Angular follow below steps:
     import { NgModule } from '@angular/core';
     
     import { AppComponent } from './app.component';
-    import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+    import { FontAwesomeModule } from '@fontawesome/angular-fontawesome';
     
     @NgModule({
       imports: [
@@ -72,7 +72,7 @@ To get up and running using Font Awesome with Angular follow below steps:
 
     ```typescript
     import { Component } from '@angular/core';
-    import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+    import { faCoffee } from '@fontawesome/free-solid-svg-icons';
     
     @Component({
       selector: 'app-root',
