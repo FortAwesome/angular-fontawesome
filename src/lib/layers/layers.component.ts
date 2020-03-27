@@ -6,9 +6,7 @@ import { FaConfig } from '../config';
  */
 @Component({
   selector: 'fa-layers',
-  template: `
-    <ng-content select="fa-icon, fa-duotone-icon, fa-layers-text, fa-layers-counter"></ng-content>
-  `,
+  template: `<ng-content select="fa-icon, fa-duotone-icon, fa-layers-text, fa-layers-counter"></ng-content>`,
 })
 export class FaLayersComponent implements OnInit, OnChanges {
   @Input() size?: SizeProp;

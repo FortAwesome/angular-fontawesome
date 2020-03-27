@@ -159,9 +159,7 @@ describe('FaIconComponent', () => {
   it('should have title attribute, when title input is set using Angular binding syntax', () => {
     @Component({
       selector: 'fa-host',
-      template: `
-        <fa-icon [icon]="faUser" [title]="'User John Smith'"></fa-icon>
-      `,
+      template: `<fa-icon [icon]="faUser" [title]="'User John Smith'"></fa-icon> `,
     })
     class HostComponent {
       faUser = faUser;
