@@ -21,9 +21,7 @@ describe('FaLayersCounterComponent', () => {
   it('should throw an error if counter layer is used outside of fa-layers', () => {
     @Component({
       selector: 'fa-host',
-      template: `
-        <fa-layers-counter content="300"></fa-layers-counter>
-      `,
+      template: `<fa-layers-counter content="300"></fa-layers-counter> `,
     })
     class HostComponent {}
 

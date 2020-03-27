@@ -21,9 +21,7 @@ describe('FaLayersTextComponent', () => {
   it('should throw an error if text layer is used outside of fa-layers', () => {
     @Component({
       selector: 'fa-host',
-      template: `
-        <fa-layers-text content="Test"></fa-layers-text>
-      `,
+      template: `<fa-layers-text content="Test"></fa-layers-text> `,
     })
     class HostComponent {}
 

@@ -43,7 +43,7 @@
       "schematics": {
         "@schematics/angular:component": {
           "inlineStyle": true,
-          "styleext": "scss"
+          "style": "scss"
         }
       },
       "root": "projects/demo",

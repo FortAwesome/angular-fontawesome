@@ -13,7 +13,7 @@ import { getAppModulePath } from '@schematics/angular/utility/ng-ast-utils';
 import { Schema } from './schema';
 import { angularFontawesomeVersion, iconPackVersion, svgCoreVersion } from './versions';
 
-export default function(options: Schema): Rule {
+export default function (options: Schema): Rule {
   return chain([
     (tree: Tree, context: SchematicContext) => {
       addPackageJsonDependency(tree, {

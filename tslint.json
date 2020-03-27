@@ -1,5 +1,5 @@
 {
-  "extends": ["tslint:recommended", "tslint-config-prettier"],
+  "extends": ["tslint:recommended"],
   "rulesDirectory": ["node_modules/codelyzer"],
   "rules": {
     "member-access": [true, "no-public"],
