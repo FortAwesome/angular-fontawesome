@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.6.1](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.6.1) - 2020-03-28
+
+### Fixed
+
+* Fixed crash when running `ng add` schematic on a project using Angular 9.1 and TypeScript 3.7.
+
 ## [0.6.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.6.0) - 2020-02-08
 
 Make sure to check [upgrade instructions](https://github.com/FortAwesome/angular-fontawesome/blob/master/UPGRADING.md).

@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/ng-packagr/package.schema.json",
   "name": "@fortawesome/angular-fontawesome",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Angular Fontawesome, an Angular library",
   "scripts": {
     "test": "ng test angular-fontawesome --watch=false --browsers=ChromeCI",
