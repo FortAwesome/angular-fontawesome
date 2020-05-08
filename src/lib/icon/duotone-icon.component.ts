@@ -49,18 +49,18 @@ export class FaDuotoneIconComponent extends FaIconComponent {
   @Input() secondaryColor?: string;
 
   protected findIconDefinition(i: IconProp | IconDefinition): IconDefinition | null {
-    const lookup = super.findIconDefinition(i);
+    const definition = super.findIconDefinition(i);
 
-    if (lookup != null && lookup.prefix !== 'fad') {
+    if (definition != null && !Array.isArray(definition.icon[4])) {
       throw new Error(
         'The specified icon does not appear to be a Duotone icon. ' +
           'Check that you specified the correct style: ' +
-          `<fa-duotone-icon [icon]="['fab', '${lookup.iconName}']"></fa-duotone-icon> ` +
-          `or use: <fa-icon icon="${lookup.iconName}"></fa-icon> instead.`,
+          `<fa-duotone-icon [icon]="['fad', '${definition.iconName}']"></fa-duotone-icon> ` +
+          `or use: <fa-icon icon="${definition.iconName}"></fa-icon> instead.`,
       );
     }
 
-    return lookup;
+    return definition;
   }
 
   protected buildParams() {
