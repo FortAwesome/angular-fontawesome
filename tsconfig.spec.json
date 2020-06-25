@@ -2,7 +2,7 @@
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
-    "types": ["jasmine", "node"],
+    "types": ["jasmine"],
     "paths": {
       "@fortawesome/angular-fontawesome": ["src/lib/public_api.ts"]
     }
