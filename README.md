@@ -133,6 +133,7 @@ being awesome contributors to this project. **We'd like to take a moment to reco
 [<img src="https://github.com/plinkpaste.png?size=72" alt="plinkpaste" width="72">](https://github.com/plinkpaste)
 [<img src="https://github.com/ej2.png?size=72" alt="ej2" width="72">](https://github.com/ej2)
 [<img src="https://github.com/peterblazejewicz.png?size=72" alt="peterblazejewicz" width="72">](https://github.com/peterblazejewicz)
+[<img src="https://github.com/arjenbrandenburgh.png?size=72" alt="arjenbrandenburgh" width="72">](https://github.com/arjenbrandenburgh)
 
 If we've missed someone (which is quite likely) submit a Pull Request to us and we'll get it resolved.
 

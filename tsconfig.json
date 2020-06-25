@@ -1,24 +1,23 @@
+/*
+  This is a "Solution Style" tsconfig.json file, and is used by editors and TypeScript’s language server to improve development experience.
+  It is not intended to be used to perform a compilation.
+
+  To learn more about this file see: https://angular.io/config/solution-tsconfig.
+*/
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
-    "sourceMap": true,
-    "declaration": false,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "experimentalDecorators": true,
-    "importHelpers": true,
-    "target": "es2015",
-    "strict": true,
-    "strictPropertyInitialization": false,
-    "strictNullChecks": false,
-    "stripInternal": true,
-    "typeRoots": ["node_modules/@types"],
-    "lib": ["es2017", "dom"],
-    "paths": {
-      "@fortawesome/angular-fontawesome": ["dist/angular-fontawesome"],
-      "@fortawesome/angular-fontawesome/testing": ["dist/angular-fontawesome/testing"]
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.lib.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/demo/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/demo/tsconfig.spec.json"
     }
-  }
+  ]
 }

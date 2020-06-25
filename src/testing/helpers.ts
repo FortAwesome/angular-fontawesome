@@ -27,11 +27,6 @@ export function initTest<T>(component: Type<T>, providers?: any[]): ComponentFix
     ],
     providers,
   });
-  TestBed.overrideModule(BrowserDynamicTestingModule, {
-    set: {
-      entryComponents: [FaIconComponent, FaDuotoneIconComponent],
-    },
-  });
   library.add(faUser);
   return TestBed.createComponent(component);
 }
