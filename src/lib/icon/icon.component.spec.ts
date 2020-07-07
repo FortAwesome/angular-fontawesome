@@ -1,6 +1,6 @@
 import { Component, ComponentFactoryResolver, ViewChild, ViewContainerRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { IconProp, library } from '@fortawesome/fontawesome-svg-core';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faUser as faUserRegular } from '@fortawesome/free-regular-svg-icons';
 import { faCircle, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Subject } from 'rxjs';
@@ -292,70 +292,7 @@ describe('FaIconComponent', () => {
     expect(queryByCss(fixture, 'svg')).toBeTruthy();
   });
 
-  it('should use icon definition from the global icon library and throw error with globalLibrary unset', () => {
-    @Component({
-      selector: 'fa-host',
-      template: '<fa-icon icon="user"></fa-icon>',
-    })
-    class HostComponent {
-      constructor() {
-        library.add(faUser);
-      }
-    }
-
-    const fixture = initTest(HostComponent);
-    expect(() => fixture.detectChanges()).toThrow(
-      new Error(
-        'Global icon library is deprecated. ' +
-          'Consult https://github.com/FortAwesome/angular-fontawesome/blob/master/UPGRADING.md ' +
-          'for the migration instructions.',
-      ),
-    );
-  });
-
-  it('should not use icon definition from the global icon library and throw error with globalLibrary false', () => {
-    @Component({
-      selector: 'fa-host',
-      template: '<fa-icon icon="user"></fa-icon>',
-    })
-    class HostComponent {
-      constructor(config: FaConfig) {
-        library.add(faUser);
-        config.globalLibrary = false;
-      }
-    }
-
-    const fixture = initTest(HostComponent);
-    expect(() => fixture.detectChanges()).toThrow(
-      new Error(
-        'Global icon library is deprecated. ' +
-          'Consult https://github.com/FortAwesome/angular-fontawesome/blob/master/UPGRADING.md ' +
-          'for the migration instructions.',
-      ),
-    );
-  });
-
-  it('should use icon definition from the global icon library without warnings with globalLibrary true', () => {
-    @Component({
-      selector: 'fa-host',
-      template: '<fa-icon icon="user"></fa-icon>',
-    })
-    class HostComponent {
-      constructor(config: FaConfig) {
-        library.add(faUser);
-        config.globalLibrary = true;
-      }
-    }
-
-    const spy = spyOn(console, 'error');
-
-    const fixture = initTest(HostComponent);
-    fixture.detectChanges();
-    expect(queryByCss(fixture, 'svg')).toBeTruthy();
-    expect(spy).not.toHaveBeenCalledWith();
-  });
-
-  it('should throw an error if icon definition is found neither in icon library, nor in global icon library', () => {
+  it('should throw an error if icon definition is not found in the icon library', () => {
     @Component({
       selector: 'fa-host',
       template: '<fa-icon icon="circle"></fa-icon>',

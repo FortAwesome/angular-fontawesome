@@ -1,6 +1,5 @@
 import { Component, ElementRef, Type } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCircle, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FaIconComponent } from '../icon/icon.component';
 import { FaStackItemSizeDirective } from './stack-item-size.directive';
@@ -10,7 +9,6 @@ const initTest = <T>(component: Type<T>): ComponentFixture<T> => {
   TestBed.configureTestingModule({
     declarations: [FaStackComponent, FaStackItemSizeDirective, FaIconComponent, component],
   });
-  library.add(faUser);
   return TestBed.createComponent(component);
 };
 
