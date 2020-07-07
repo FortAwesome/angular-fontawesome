@@ -124,21 +124,6 @@ export class FaIconComponent implements OnChanges {
       return definition;
     }
 
-    const globalDefinition = findIconDefinition(lookup);
-    if (globalDefinition != null) {
-      const message =
-        'Global icon library is deprecated. ' +
-        'Consult https://github.com/FortAwesome/angular-fontawesome/blob/master/UPGRADING.md ' +
-        'for the migration instructions.';
-      if (this.config.globalLibrary === 'unset') {
-        console.error('FontAwesome: ' + message);
-      } else if (!this.config.globalLibrary) {
-        throw new Error(message);
-      }
-
-      return globalDefinition;
-    }
-
     faWarnIfIconDefinitionMissing(lookup);
     return null;
   }
