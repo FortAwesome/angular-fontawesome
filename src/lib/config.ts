@@ -47,7 +47,7 @@ export class FaConfig {
    * library.
    *
    * @deprecated This option is deprecated since 0.5.0. In 0.6.0 default will
-   * be changed to false. In 0.7.0 the option will be removed together with the
+   * be changed to false. In 0.8.0 the option will be removed together with the
    * support for the global icon library.
    *
    * @default false

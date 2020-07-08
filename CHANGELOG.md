@@ -5,6 +5,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.7.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.7.0) - 2020-07-08
+
+### Fixed
+
+* Make it possible to use `fa-duotone-icon` with custom duotone icons.
+
+### Added
+
+* Support for Angular 10.
+
+### Removed
+
+* Angular 9.x is no longer supported. If you are using this version, please, stick with version 0.6.1.
+
 ## [0.6.1](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.6.1) - 2020-03-28
 
 ### Fixed
