@@ -33,7 +33,7 @@ $ npm install @fortawesome/free-solid-svg-icons
 $ npm install @fortawesome/angular-fontawesome@<version>
 ```
 
-### Compatiblity table
+### Compatibility table
 
 |@fortawesome/angular-fontawesome|Angular|ng-add|
 |-|-|-|
