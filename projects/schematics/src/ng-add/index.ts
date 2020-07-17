@@ -66,7 +66,12 @@ function addModule(projectName?: string): Rule {
     });
     host.commitUpdate(recorder);
 
-    context.addTask(new TslintFixTask(modulePath, {}));
+    /* tslint is required to add a tslint fix task */
+    try {
+      require('tslint');
+      context.addTask(new TslintFixTask(modulePath, {}));
+    } catch (err) {
+    }
 
     return host;
   };
