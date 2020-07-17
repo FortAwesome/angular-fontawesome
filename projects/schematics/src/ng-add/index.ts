@@ -71,6 +71,7 @@ function addModule(projectName?: string): Rule {
       require('tslint');
       context.addTask(new TslintFixTask(modulePath, {}));
     } catch (err) {
+      context.logger.warn('Formatting was skipped because tslint is not installed.');
     }
 
     return host;
