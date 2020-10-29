@@ -54,3 +54,4 @@ Take your icons to the next level with these advanced features.
 Guides cover specific topics or use cases.
 
 * [Testing](./guide/testing.md)
+* [Storybook](./guide/storybook.md)
