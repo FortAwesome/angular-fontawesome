@@ -1699,7 +1699,7 @@ __metadata:
     jasmine-spec-reporter: ~7.0.0
     karma: ~6.3.2
     karma-chrome-launcher: ~3.1.0
-    karma-coverage-istanbul-reporter: ~3.0.3
+    karma-coverage: ~2.0.3
     karma-jasmine: ~4.0.1
     karma-jasmine-html-reporter: ^1.6.0
     ng-packagr: ^12.0.0
@@ -6804,13 +6804,6 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"istanbul-lib-coverage@npm:^2.0.5":
-  version: 2.0.5
-  resolution: "istanbul-lib-coverage@npm:2.0.5"
-  checksum: 72737ebc48c31a45ab80fb1161b4c79a7d035d3088007ec55ec7a53b8bf6ae107a8222335e018978720270d71f2036abe73e150da4733f573be32398ad6aedd1
-  languageName: node
-  linkType: hard
-
 "istanbul-lib-coverage@npm:^3.0.0":
   version: 3.0.0
   resolution: "istanbul-lib-coverage@npm:3.0.0"
@@ -6818,7 +6811,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"istanbul-lib-instrument@npm:^4.0.3":
+"istanbul-lib-instrument@npm:^4.0.1, istanbul-lib-instrument@npm:^4.0.3":
   version: 4.0.3
   resolution: "istanbul-lib-instrument@npm:4.0.3"
   dependencies:
@@ -6841,20 +6834,18 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"istanbul-lib-source-maps@npm:^3.0.6":
-  version: 3.0.6
-  resolution: "istanbul-lib-source-maps@npm:3.0.6"
+"istanbul-lib-source-maps@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "istanbul-lib-source-maps@npm:4.0.0"
   dependencies:
     debug: ^4.1.1
-    istanbul-lib-coverage: ^2.0.5
-    make-dir: ^2.1.0
-    rimraf: ^2.6.3
+    istanbul-lib-coverage: ^3.0.0
     source-map: ^0.6.1
-  checksum: f883303e1487669a9a2eb88c98fbdc5dec4c5610caa087c7629eb6a5718f8af53ad541cc820b1a92879590a4cef4a6ea60d579be047dd4a011829a74df4db27e
+  checksum: 018b5feeb4a3eb32675abb0129e88e48009de6c0b1c1c7006e8dadd5b15e54f4c09cbbeba0febf8bd7bacd25a514abc61c91e4340479d859a0c185448f692099
   languageName: node
   linkType: hard
 
-"istanbul-reports@npm:^3.0.2":
+"istanbul-reports@npm:^3.0.0":
   version: 3.0.2
   resolution: "istanbul-reports@npm:3.0.2"
   dependencies:
@@ -7108,16 +7099,17 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"karma-coverage-istanbul-reporter@npm:~3.0.3":
-  version: 3.0.3
-  resolution: "karma-coverage-istanbul-reporter@npm:3.0.3"
+"karma-coverage@npm:~2.0.3":
+  version: 2.0.3
+  resolution: "karma-coverage@npm:2.0.3"
   dependencies:
     istanbul-lib-coverage: ^3.0.0
+    istanbul-lib-instrument: ^4.0.1
     istanbul-lib-report: ^3.0.0
-    istanbul-lib-source-maps: ^3.0.6
-    istanbul-reports: ^3.0.2
+    istanbul-lib-source-maps: ^4.0.0
+    istanbul-reports: ^3.0.0
     minimatch: ^3.0.4
-  checksum: 05528120eb419738ceaed36299342017d09f83e50bd9a031af346402880f54d007c2b107a5969a8df1ebce39246257894629dff39edeaec7104017b07a9ac0d0
+  checksum: 9357913789f2e622bb05c36234089920d16cae4fef44ad425eccf2bf71576d2dc07a9d21dbe9766645a8d9981884ea1febffbf51985473bef4a2f05097b631db
   languageName: node
   linkType: hard
 
