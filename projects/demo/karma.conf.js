@@ -30,8 +30,8 @@ module.exports = function (config) {
     restartOnFileChange: true,
     customLaunchers: {
       ChromeCI: {
-        base: `${process.env['TRAVIS'] ? 'ChromeHeadless' : 'Chrome'}`,
-        flags: process.env['TRAVIS'] ? ['--no-sandbox'] : [],
+        base: `${process.env['CI'] ? 'ChromeHeadless' : 'Chrome'}`,
+        flags: process.env['CI'] ? ['--no-sandbox'] : [],
       },
     },
   });
