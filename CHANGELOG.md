@@ -5,6 +5,21 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.8.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.8.0) - 2020-11-12
+
+### Fixed
+
+* Fixed ng add crash if tslint is not installed.
+
+### Added
+
+* Support for Angular 11.
+* [Documentation](https://github.com/FortAwesome/angular-fontawesome/blob/master/docs/guide/storybook.md) on how to use angular-fontawesome with Storybook.
+
+### Removed
+
+* Angular 10.x is no longer supported. If you are using this version, please, stick with version 0.7.0.
+
 ## [0.7.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.7.0) - 2020-07-08
 
 ### Fixed

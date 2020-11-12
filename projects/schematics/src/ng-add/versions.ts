@@ -1,3 +1,3 @@
-export const svgCoreVersion = '^1.2.28';
-export const angularFontawesomeVersion = '~0.7.0';
-export const iconPackVersion = '^5.13.0';
+export const svgCoreVersion = '^1.2.32';
+export const angularFontawesomeVersion = '~0.8.0';
+export const iconPackVersion = '^5.15.1';
