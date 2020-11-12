@@ -21,31 +21,6 @@
     "type": "git",
     "url": "https://github.com/FortAwesome/angular-fontawesome"
   },
-  "contributors": [
-    "Mike Wilkerson <mwilkerson@gmail.com>",
-    "Yaroslav Admin <devoto13@gmail.com>",
-    "Travis Chase <travis@fontawesome.com>",
-    "Rob Madole <rob@fontawesome.com>",
-    "Zeev Katz <zeevk6@gmail.com>",
-    "Scott Cooper <scttcper@gmail.com>",
-    "Brian Talbot <hi.talbs@gmail.com>",
-    "Davide Pastore <pasdavide@gmail.com>",
-    "donmckenna <don@mothhead.com>",
-    "Austin Turner <paustint@gmail.com>",
-    "Maximilian Zellhofer <max.zellhofer@gmail.com>",
-    "elebitzero <42903164+elebitzero@users.noreply.github.com>",
-    "Maciej Cenkar <maciej.cenkar@leonteq.com>",
-    "Siddharth Ajmera <5053266+SiddAjmera@users.noreply.github.com>",
-    "Stephanie Purvis <thestephaniepurvis@gmail.com>",
-    "Gasser Loïc <loicgasser4@gmail.com>",
-    "Damien Retzinger <damienwebdev@gmail.com>",
-    "Ronnie Barker <ronnie.barker@theagileworkshop.com>",
-    "bhanuhiteshi <bhanu.singh@hiteshi.com>",
-    "James Hyde <plinkpaste@jameshy.de>",
-    "ej2 <edward.emanuel@gmail.com>",
-    "Peter Blazejewicz <peterblazejewicz@users.noreply.github.com>",
-    "Arjen Brandenburgh <mail@arjenbrandenburgh.nl>"
-  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/FortAwesome/angular-fontawesome/issues"
