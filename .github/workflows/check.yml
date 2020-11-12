@@ -1,0 +1,23 @@
+name: check
+on: pull_request
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+      - uses: actions/cache@v2
+        with:
+          path: .yarn/cache
+          key: ${{ hashFiles('yarn.lock') }}
+      - run: yarn
+      - run: yarn format:enforce
+      - run: yarn lint
+      - run: yarn test
+      - run: yarn test:schematics
+      - run: yarn build
+      - run: yarn build:schematics
+      - run: yarn test:demo
+      - run: yarn test:integration
