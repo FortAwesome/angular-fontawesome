@@ -1,4 +1,3 @@
-import { WorkspaceProject } from '@angular-devkit/core/src/experimental/workspace';
 import { chain, Rule, SchematicContext, SchematicsException, Tree } from '@angular-devkit/schematics';
 import { NodePackageInstallTask, TslintFixTask } from '@angular-devkit/schematics/tasks';
 import {
@@ -10,6 +9,7 @@ import { InsertChange } from '@schematics/angular/utility/change';
 import { getWorkspace } from '@schematics/angular/utility/config';
 import { addPackageJsonDependency, NodeDependencyType } from '@schematics/angular/utility/dependencies';
 import { getAppModulePath } from '@schematics/angular/utility/ng-ast-utils';
+import { WorkspaceProject } from '@schematics/angular/utility/workspace-models';
 import { Schema } from './schema';
 import { angularFontawesomeVersion, iconPackVersion, svgCoreVersion } from './versions';
 
