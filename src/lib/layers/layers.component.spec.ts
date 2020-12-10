@@ -147,4 +147,25 @@ describe('FaLayersComponent', () => {
     fixture.detectChanges();
     expect(queryByCss(fixture, 'fa-duotone-icon')).toBeTruthy();
   });
+
+  it('should support icons wrapped into ng-container', () => {
+    @Component({
+      selector: 'fa-host',
+      template: `
+        <fa-layers>
+          <ng-container>
+            <fa-icon [icon]="faUser"></fa-icon>
+            <fa-layers-text [content]="'Dummy'" [styles]="{ color: 'Tomato' }"></fa-layers-text>
+          </ng-container>
+        </fa-layers>
+      `,
+    })
+    class HostComponent {
+      faUser = faUser;
+    }
+
+    const fixture = initTest(HostComponent);
+    fixture.detectChanges();
+    expect(queryByCss(fixture, 'fa-icon')).toBeTruthy();
+  });
 });

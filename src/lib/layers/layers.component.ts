@@ -1,12 +1,13 @@
 import { Component, ElementRef, HostBinding, Input, OnChanges, OnInit, Renderer2, SimpleChanges } from '@angular/core';
 import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 import { FaConfig } from '../config';
+
 /**
  * Fontawesome layers.
  */
 @Component({
   selector: 'fa-layers',
-  template: `<ng-content select="fa-icon, fa-duotone-icon, fa-layers-text, fa-layers-counter"></ng-content>`,
+  template: `<ng-content></ng-content>`,
 })
 export class FaLayersComponent implements OnInit, OnChanges {
   @Input() size?: SizeProp;
