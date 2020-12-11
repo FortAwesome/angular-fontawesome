@@ -23,6 +23,7 @@ import { FaProps } from '../shared/models/props.model';
 import { faClassList } from '../shared/utils/classlist.util';
 import { faNormalizeIconSpec } from '../shared/utils/normalize-icon-spec.util';
 import { FaStackItemSizeDirective } from '../stack/stack-item-size.directive';
+import { FaStackComponent } from '../stack/stack.component';
 
 @Component({
   selector: 'fa-icon',
@@ -70,7 +71,15 @@ export class FaIconComponent implements OnChanges {
     private config: FaConfig,
     private iconLibrary: FaIconLibrary,
     @Optional() private stackItem: FaStackItemSizeDirective,
-  ) {}
+    @Optional() stack: FaStackComponent,
+  ) {
+    if (stack != null && stackItem == null) {
+      console.error(
+        'FontAwesome: fa-icon and fa-duotone-icon elements must specify stackItemSize attribute when wrapped into ' +
+          'fa-stack. Example: <fa-icon stackItemSize="2x"></fa-icon>.',
+      );
+    }
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     if (this.icon == null && this.config.fallbackIcon == null) {
