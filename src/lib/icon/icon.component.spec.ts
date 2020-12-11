@@ -159,7 +159,7 @@ describe('FaIconComponent', () => {
   it('should have title attribute, when title input is set using Angular binding syntax', () => {
     @Component({
       selector: 'fa-host',
-      template: `<fa-icon [icon]="faUser" [title]="'User John Smith'"></fa-icon> `,
+      template: ` <fa-icon [icon]="faUser" [title]="'User John Smith'"></fa-icon> `,
     })
     class HostComponent {
       faUser = faUser;
@@ -404,5 +404,24 @@ describe('FaIconComponent', () => {
     expect(queryByCss(fixture, '.fa-user')).toBeTruthy();
     expect(queryByCss(fixture, '.fa-circle')).toBeFalsy();
     expect(spy).not.toHaveBeenCalledWith();
+  });
+
+  it('should warn when stackItemSize attribute is missing on icon inside fa-stack', () => {
+    @Component({
+      selector: 'fa-host',
+      template: '<fa-stack><fa-icon [icon]="faCircle"></fa-icon></fa-stack>',
+    })
+    class HostComponent {
+      faCircle = faCircle;
+    }
+
+    const spy = spyOn(console, 'error');
+
+    const fixture = initTest(HostComponent);
+    fixture.detectChanges();
+    expect(spy).toHaveBeenCalledWith(
+      'FontAwesome: fa-icon and fa-duotone-icon elements must specify stackItemSize attribute when wrapped into ' +
+        'fa-stack. Example: <fa-icon stackItemSize="2x"></fa-icon>.',
+    );
   });
 });
