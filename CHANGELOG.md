@@ -5,6 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.8.1](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.8.1) - 2020-12-11
+
+### Fixed
+
+* Support fa-layers with content wrapped into ng-container. ([#283](https://github.com/FortAwesome/angular-fontawesome/issues/283))
+* Warn about missing stackItemSize on fa-icon inside fa-stack instead of silently dropping elements. ([#177](https://github.com/FortAwesome/angular-fontawesome/issues/177))
+
 ## [0.8.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.8.0) - 2020-11-12
 
 ### Fixed
