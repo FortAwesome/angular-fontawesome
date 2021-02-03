@@ -1,3 +1,4 @@
+import { workspaces } from '@angular-devkit/core';
 import { chain, Rule, SchematicContext, SchematicsException, Tree } from '@angular-devkit/schematics';
 import { NodePackageInstallTask, TslintFixTask } from '@angular-devkit/schematics/tasks';
 import {
@@ -6,10 +7,9 @@ import {
 } from '@schematics/angular/third_party/github.com/Microsoft/TypeScript/lib/typescript';
 import { addImportToModule } from '@schematics/angular/utility/ast-utils';
 import { InsertChange } from '@schematics/angular/utility/change';
-import { getWorkspace } from '@schematics/angular/utility/config';
 import { addPackageJsonDependency, NodeDependencyType } from '@schematics/angular/utility/dependencies';
 import { getAppModulePath } from '@schematics/angular/utility/ng-ast-utils';
-import { WorkspaceProject } from '@schematics/angular/utility/workspace-models';
+import { getWorkspace } from '@schematics/angular/utility/workspace';
 import { Schema } from './schema';
 import { angularFontawesomeVersion, iconPackVersion, svgCoreVersion } from './versions';
 
@@ -41,16 +41,20 @@ export default function (options: Schema): Rule {
 
       return tree;
     },
-    addModule(options.project),
+    addModule(options),
   ]);
 }
 
-function addModule(projectName?: string): Rule {
-  return (host: Tree, context: SchematicContext) => {
-    const workspace = getWorkspace(host);
-    const project = workspace.projects[projectName || workspace.defaultProject!];
+function addModule(options: Schema): Rule {
+  return async (host: Tree, context: SchematicContext) => {
+    const workspace = await getWorkspace(host);
+    const projectName = options.project ?? (workspace.extensions.defaultProject as string);
+    const project = workspace.projects.get(projectName);
+    if (project == null) {
+      throw new SchematicsException(`Project with name ${projectName} does not exist.`);
+    }
     const buildOptions = getProjectTargetOptions(project, 'build');
-    const modulePath = getAppModulePath(host, buildOptions.main);
+    const modulePath = getAppModulePath(host, buildOptions.main as string);
     const moduleSource = getSourceFile(host, modulePath);
     const changes = addImportToModule(
       moduleSource,
@@ -73,8 +77,6 @@ function addModule(projectName?: string): Rule {
     } catch (err) {
       context.logger.warn('Formatting was skipped because tslint is not installed.');
     }
-
-    return host;
   };
 }
 
@@ -87,13 +89,10 @@ function getSourceFile(host: Tree, path: string) {
   return createSourceFile(path, content, ScriptTarget.Latest, true);
 }
 
-export function getProjectTargetOptions(project: WorkspaceProject, buildTarget: string) {
-  if (project.targets && project.targets[buildTarget] && project.targets[buildTarget].options) {
-    return project.targets[buildTarget].options;
-  }
-
-  if (project.architect && project.architect[buildTarget] && project.architect[buildTarget].options) {
-    return project.architect[buildTarget].options;
+export function getProjectTargetOptions(project: workspaces.ProjectDefinition, buildTarget: string) {
+  const buildTargetObject = project.targets.get(buildTarget);
+  if (buildTargetObject && buildTargetObject.options) {
+    return buildTargetObject.options;
   }
 
   throw new SchematicsException(`Cannot determine project target configuration for: ${buildTarget}.`);
