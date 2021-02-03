@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.8.2](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.8.2) - 2021-02-03
+
+### Fixed
+* Crash when running `ng add` in Angular CLI 11.1 project. ([#291](https://github.com/FortAwesome/angular-fontawesome/issues/291))
+
 ## [0.8.1](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.8.1) - 2020-12-11
 
 ### Fixed
