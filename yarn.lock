@@ -1683,9 +1683,9 @@ __metadata:
     "@angular/language-service": ~12.0.0
     "@angular/platform-browser": ~12.0.0
     "@angular/platform-browser-dynamic": ~12.0.0
-    "@fortawesome/fontawesome-svg-core": ^1.2.32
-    "@fortawesome/free-regular-svg-icons": ^5.15.1
-    "@fortawesome/free-solid-svg-icons": ^5.15.1
+    "@fortawesome/fontawesome-svg-core": ^1.2.35
+    "@fortawesome/free-regular-svg-icons": ^5.15.3
+    "@fortawesome/free-solid-svg-icons": ^5.15.3
     "@types/jasmine": ~3.7.2
     "@types/node": ~14.14.45
     "@typescript-eslint/eslint-plugin": 4.23.0
@@ -1723,7 +1723,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/fontawesome-svg-core@npm:^1.2.32":
+"@fortawesome/fontawesome-svg-core@npm:^1.2.35":
   version: 1.2.35
   resolution: "@fortawesome/fontawesome-svg-core@npm:1.2.35"
   dependencies:
@@ -1732,7 +1732,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/free-regular-svg-icons@npm:^5.15.1":
+"@fortawesome/free-regular-svg-icons@npm:^5.15.3":
   version: 5.15.3
   resolution: "@fortawesome/free-regular-svg-icons@npm:5.15.3"
   dependencies:
@@ -1741,7 +1741,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/free-solid-svg-icons@npm:^5.15.1":
+"@fortawesome/free-solid-svg-icons@npm:^5.15.3":
   version: 5.15.3
   resolution: "@fortawesome/free-solid-svg-icons@npm:5.15.3"
   dependencies:
