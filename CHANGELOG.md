@@ -5,6 +5,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.9.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.9.0) - 2021-05-13
+
+### Added
+
+* Support for Angular 12.
+
+### Removed
+
+* Angular 11.x is no longer supported. If you are using this version, please, stick with version 0.8.2.
+
 ## [0.8.2](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.8.2) - 2021-02-03
 
 ### Fixed
