@@ -18,8 +18,10 @@
           "configurations": {
             "production": {
               "tsConfig": "tsconfig.lib.prod.json"
-            }
-          }
+            },
+            "development": {}
+          },
+          "defaultConfiguration": "production"
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
@@ -53,7 +55,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "aot": true,
             "outputPath": "dist/demo",
             "index": "projects/demo/src/index.html",
             "main": "projects/demo/src/main.ts",
@@ -61,7 +62,13 @@
             "tsConfig": "projects/demo/tsconfig.app.json",
             "assets": ["projects/demo/src/favicon.ico", "projects/demo/src/assets"],
             "styles": ["projects/demo/src/styles.scss"],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -90,48 +97,23 @@
                 }
               ]
             },
-            "production-ve": {
-              "tsConfig": "projects/demo/tsconfig.app-ve.json",
-              "fileReplacements": [
-                {
-                  "replace": "projects/demo/src/environments/environment.ts",
-                  "with": "projects/demo/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb"
-                }
-              ]
-            }
-          }
+            "development": {}
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "demo:build"
           },
           "configurations": {
             "production": {
               "browserTarget": "demo:build:production"
             },
-            "production-ve": {
-              "browserTarget": "demo:build:production-ve"
+            "development": {
+              "browserTarget": "demo:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -165,17 +147,17 @@
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "projects/demo/e2e/protractor.conf.js",
-            "devServerTarget": "demo:serve"
+            "protractorConfig": "projects/demo/e2e/protractor.conf.js"
           },
           "configurations": {
             "production": {
               "devServerTarget": "demo:serve:production"
             },
-            "production-ve": {
-              "devServerTarget": "demo:serve:production-ve"
+            "development": {
+              "devServerTarget": "demo:serve:development"
             }
-          }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

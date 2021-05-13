@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "id": "angular-fontawesome-ng-add",
+  "$id": "angular-fontawesome-ng-add",
   "title": "Font Awesome ng-add schematic",
   "type": "object",
   "properties": {
