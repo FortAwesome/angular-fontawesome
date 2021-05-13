@@ -77,9 +77,9 @@ describe('FaIconComponent', () => {
       template: '<fa-icon [icon]="faUser"></fa-icon>',
     })
     class HostComponent {
-      faUser = faUser;
-
       @ViewChild(FaIconComponent, { static: true }) iconComponent: FaIconComponent;
+
+      faUser = faUser;
     }
 
     const fixture = initTest(HostComponent);

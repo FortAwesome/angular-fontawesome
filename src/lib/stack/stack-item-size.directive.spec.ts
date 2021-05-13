@@ -6,17 +6,16 @@ import { FaIconComponent } from '../icon/icon.component';
 import { FaStackItemSizeDirective } from './stack-item-size.directive';
 import { FaStackComponent } from './stack.component';
 
-function initTest<T>(component: Type<T>): ComponentFixture<T> {
+const initTest = <T>(component: Type<T>): ComponentFixture<T> => {
   TestBed.configureTestingModule({
     declarations: [FaStackComponent, FaStackItemSizeDirective, FaIconComponent, component],
   });
   library.add(faUser);
   return TestBed.createComponent(component);
-}
+};
 
-function queryByCss(fixture: ComponentFixture<any>, cssQuery: string): ElementRef {
-  return fixture.nativeElement.querySelector(cssQuery);
-}
+const queryByCss = (fixture: ComponentFixture<any>, cssQuery: string): ElementRef =>
+  fixture.nativeElement.querySelector(cssQuery);
 
 describe('FaStackItemSizeDirective', () => {
   it('should attach fa-stack-1x or fa-stack-2x classes to icons', () => {

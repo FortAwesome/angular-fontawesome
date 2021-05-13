@@ -22,6 +22,7 @@ export class FaConfig {
 
   /**
    * Set icons to the same fixed width.
+   *
    * @see {@link: https://fontawesome.com/how-to-use/on-the-web/styling/fixed-width-icons}
    * @default false
    */
