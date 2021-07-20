@@ -1,12 +1,12 @@
 # Usage
 
-## Methodologies
-There are two methodologies for using `angular-fontawesome`. Each has their own benefits and trade-offs but we leave it to you to decide how you'd like to utilize the library.
+## Approaches
+There are two approaches for using `angular-fontawesome`. Each has its own pros and cons, so we leave it to you to decide how you'd like to use the library.
 
 * [Explicit Reference](./usage/explicit-reference.md)
 * [Icon Library](./usage/icon-library.md)
 
-Whichever methodology you choose only icons you imported will end up in the bundle and the remaining ones will be tree-shaken away.
+Whichever approach you choose only the icons you have imported will end up in the bundle, and the remaining ones will be tree-shaken away.
 
 ## Using Additional Styles
 Take advantage of the other FontAwesome icon styles.

@@ -1,6 +1,8 @@
-# Explicit reference
+# Explicit reference approach
 
-One of the methodologies of using the `angular-fontawesome` library is "Explicit Reference." This involves explicity importing the typescript constants from the npm packages, and setting them directly in the component. This is not as convenient as using the [icon library](./icon-library.md) method but if you believe "explicit is better than implicit" then this method is for you.
+The explicit reference approach involves explicitly importing the icon definition from the npm package, assigning it to the component's property and then binding this property to the `icon` input of the `fa-icon` component.
+
+While this approach is more verbose than the [icon library](./icon-library.md) approach, it makes it much easier to figure out where or whether the given icon is used. For example, with Find usages feature of the IDE. Another benefit of this approach is that it will produce a compile-time error if an icon is missing.
 
 `src/app/app.component.html`
 
@@ -11,6 +13,9 @@ One of the methodologies of using the `angular-fontawesome` library is "Explicit
 ```
 
 `src/app/app.component.ts`
+
+1. Import an icon like `{ faCoffee } from '@fortawesome/free-solid-svg-icons'`.
+1. Assign icon to the component property using `faCoffee = faCoffee`.
 
 ```typescript
 import { Component } from '@angular/core';
@@ -29,8 +34,10 @@ export class AppComponent {
 
 `src/app/app.module.ts`
 
-1. Import `{ FontAwesomeModule } from '@fortawesome/angular-fontawesome'`
-1. Add `FontAwesomeModule` to `imports`
+1. Import `{ FontAwesomeModule } from '@fortawesome/angular-fontawesome'`.
+1. Add `FontAwesomeModule` to `imports`.
+
+   Note that you need to add `FontAwesomeModule` to the `imports` of every module where you want to use `fa-icon` component, because of Angular module encapsulation. You can read more about it in [this blog post](https://indepth.dev/posts/1056/avoiding-common-confusions-with-modules-in-angular#module-encapsulation).
 
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
