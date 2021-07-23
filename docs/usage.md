@@ -55,3 +55,4 @@ Guides cover specific topics or use cases.
 
 * [Testing](./guide/testing.md)
 * [Storybook](./guide/storybook.md)
+* [Advanced uses](./guide/advanced-uses.md)
