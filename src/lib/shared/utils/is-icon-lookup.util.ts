@@ -1,4 +1,4 @@
-import { IconLookup, IconProp } from '@fortawesome/fontawesome-svg-core';
+import { IconLookup, IconProp } from '../../types';
 
 /**
  * Returns if is IconLookup or not.

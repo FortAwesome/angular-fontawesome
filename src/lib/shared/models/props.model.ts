@@ -1,13 +1,13 @@
 import {
   FaSymbol,
   FlipProp,
-  IconProp,
   PullProp,
   RotateProp,
   SizeProp,
   Styles,
   Transform,
 } from '@fortawesome/fontawesome-svg-core';
+import { IconProp } from '../../types';
 
 /**
  * Fontawesome props.

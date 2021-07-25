@@ -1,7 +1,6 @@
 import { DecimalPipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { FaConfig, FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { IconDefinition, IconName } from '@fortawesome/fontawesome-svg-core';
+import { FaConfig, FaIconLibrary, FontAwesomeModule, IconDefinition } from '@fortawesome/angular-fontawesome';
 import { faFlag, faUser as regularUser } from '@fortawesome/free-regular-svg-icons';
 import {
   faAdjust,
@@ -48,7 +47,7 @@ export class AppComponent {
   faSpinner = faSpinner;
   faDummy: IconDefinition = {
     prefix: 'fad',
-    iconName: 'dummy' as IconName,
+    iconName: 'dummy',
     icon: [512, 512, [], 'f030', ['M50 50 H412 V250 H50 Z', 'M50 262 H412 V462 H50 Z']],
   };
 
