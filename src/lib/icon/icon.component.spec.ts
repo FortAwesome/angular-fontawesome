@@ -1,6 +1,5 @@
 import { Component, ViewChild, ViewContainerRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faUser as faUserRegular } from '@fortawesome/free-regular-svg-icons';
 import { faCircle, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Subject } from 'rxjs';
@@ -8,6 +7,7 @@ import { startWith } from 'rxjs/operators';
 import { initTest, queryByCss } from '../../testing/helpers';
 import { FaConfig } from '../config';
 import { FaIconLibrary } from '../icon-library';
+import { IconProp } from '../types';
 import { FaIconComponent } from './icon.component';
 
 describe('FaIconComponent', () => {

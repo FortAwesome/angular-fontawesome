@@ -4,9 +4,8 @@ import {
   FaSymbol,
   FlipProp,
   icon,
-  IconDefinition,
+  IconDefinition as CoreIconDefinition,
   IconParams,
-  IconProp,
   parse,
   PullProp,
   RotateProp,
@@ -22,6 +21,7 @@ import { faClassList } from '../shared/utils/classlist.util';
 import { faNormalizeIconSpec } from '../shared/utils/normalize-icon-spec.util';
 import { FaStackItemSizeDirective } from '../stack/stack-item-size.directive';
 import { FaStackComponent } from '../stack/stack.component';
+import { IconDefinition, IconProp } from '../types';
 
 @Component({
   selector: 'fa-icon',
@@ -86,18 +86,18 @@ export class FaIconComponent implements OnChanges {
     }
   }
 
-  ngOnChanges(changes: SimpleChanges) {
+  ngOnChanges(changes: SimpleChanges): void {
     if (this.icon == null && this.config.fallbackIcon == null) {
       faWarnIfIconSpecMissing();
       return;
     }
 
     if (changes) {
-      const iconToBeRendered = this.icon != null ? this.icon : this.config.fallbackIcon;
-      const iconDefinition = this.findIconDefinition(iconToBeRendered);
+      const iconDefinition = this.findIconDefinition(this.icon ?? this.config.fallbackIcon);
       if (iconDefinition != null) {
         const params = this.buildParams();
-        this.renderIcon(iconDefinition, params);
+        const renderedIcon = icon(iconDefinition, params);
+        this.renderedIconHTML = this.sanitizer.bypassSecurityTrustHtml(renderedIcon.html.join('\n'));
       }
     }
   }
@@ -113,15 +113,15 @@ export class FaIconComponent implements OnChanges {
     this.ngOnChanges({});
   }
 
-  protected findIconDefinition(i: IconProp | IconDefinition): IconDefinition | null {
+  protected findIconDefinition(i: IconProp | IconDefinition): CoreIconDefinition | null {
     const lookup = faNormalizeIconSpec(i, this.config.defaultPrefix);
     if ('icon' in lookup) {
-      return lookup;
+      return lookup as CoreIconDefinition;
     }
 
     const definition = this.iconLibrary.getIconDefinition(lookup.prefix, lookup.iconName);
     if (definition != null) {
-      return definition;
+      return definition as CoreIconDefinition;
     }
 
     faWarnIfIconDefinitionMissing(lookup);
@@ -153,10 +153,5 @@ export class FaIconComponent implements OnChanges {
         role: this.a11yRole,
       },
     };
-  }
-
-  private renderIcon(definition: IconDefinition, params: IconParams) {
-    const renderedIcon = icon(definition, params);
-    this.renderedIconHTML = this.sanitizer.bypassSecurityTrustHtml(renderedIcon.html.join('\n'));
   }
 }

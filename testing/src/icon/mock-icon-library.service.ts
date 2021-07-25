@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { FaIconLibraryInterface } from '@fortawesome/angular-fontawesome';
-import { IconDefinition, IconName, IconPrefix } from '@fortawesome/fontawesome-svg-core';
+import { FaIconLibraryInterface, IconDefinition, IconName, IconPrefix } from '@fortawesome/angular-fontawesome';
 
 export const dummyIcon: IconDefinition = {
   prefix: 'fad',
-  iconName: 'dummy' as IconName,
+  iconName: 'dummy',
   icon: [512, 512, [], 'f030', 'M50 50 H462 V462 H50 Z'],
 };
 

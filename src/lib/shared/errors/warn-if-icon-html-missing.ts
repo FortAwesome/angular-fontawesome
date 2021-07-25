@@ -1,4 +1,4 @@
-import { IconLookup } from '@fortawesome/fontawesome-svg-core';
+import { IconLookup } from '../../types';
 
 export const faWarnIfIconDefinitionMissing = (iconSpec: IconLookup) => {
   throw new Error(
