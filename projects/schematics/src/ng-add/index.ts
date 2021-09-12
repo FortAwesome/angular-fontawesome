@@ -1,6 +1,6 @@
 import { workspaces } from '@angular-devkit/core';
 import { chain, Rule, SchematicContext, SchematicsException, Tree } from '@angular-devkit/schematics';
-import { NodePackageInstallTask, TslintFixTask } from '@angular-devkit/schematics/tasks';
+import { NodePackageInstallTask } from '@angular-devkit/schematics/tasks';
 import {
   createSourceFile,
   ScriptTarget,
@@ -46,7 +46,7 @@ export default function (options: Schema): Rule {
 }
 
 function addModule(options: Schema): Rule {
-  return async (host: Tree, context: SchematicContext) => {
+  return async (host: Tree) => {
     const workspace = await getWorkspace(host);
     const projectName = options.project ?? (workspace.extensions.defaultProject as string);
     const project = workspace.projects.get(projectName);
@@ -69,14 +69,6 @@ function addModule(options: Schema): Rule {
       }
     });
     host.commitUpdate(recorder);
-
-    /* tslint is required to add a tslint fix task */
-    try {
-      require('tslint');
-      context.addTask(new TslintFixTask(modulePath, {}));
-    } catch (err) {
-      context.logger.warn('Formatting was skipped because tslint is not installed.');
-    }
   };
 }
 
