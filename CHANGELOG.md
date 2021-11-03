@@ -5,6 +5,24 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.10.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.10.0) - 2021-11-03
+
+Make sure to check [upgrade instructions](https://github.com/FortAwesome/angular-fontawesome/blob/master/UPGRADING.md).
+
+### Added
+
+* Support for Angular 13.
+* [Guides](https://github.com/FortAwesome/angular-fontawesome/blob/master/docs/guide/advanced-uses.md) on more advanced use cases.
+
+### Changed
+
+* Approaches documentation has been improved.
+
+### Removed
+
+* Deprecated support for the global icon library.
+* Angular 12.x is no longer supported. If you are using this version, please, stick with version 0.9.0.
+
 ## [0.9.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.9.0) - 2021-05-13
 
 ### Added
