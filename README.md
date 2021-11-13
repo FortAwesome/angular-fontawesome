@@ -6,7 +6,7 @@
 
 [![npm](https://img.shields.io/npm/v/@fortawesome/angular-fontawesome.svg?style=flat-square)](https://www.npmjs.com/package/@fortawesome/angular-fontawesome)
 
-Official Angular component for Font Awesome 5
+Official Angular component for Font Awesome 5+
 
 ## Installation
 
@@ -35,17 +35,17 @@ $ npm install @fortawesome/angular-fontawesome@<version>
 
 ### Compatibility table
 
-|@fortawesome/angular-fontawesome|Angular|ng-add|
-|-|-|-|
-|0.1.x|5.x|not supported|
-|0.2.x|6.x|not supported|
-|0.3.x|6.x && 7.x|not supported|
-|0.4.x, 0.5.x|8.x|not supported|
-|0.6.x|9.x|supported|
-|0.7.x|10.x|supported|
-|0.8.x|11.x|supported|
-|0.9.x|12.x|supported|
-|0.10.x|13.x|supported|
+|@fortawesome/angular-fontawesome|Angular|Font Awesome|ng-add|
+|-|-|-|-|
+|0.1.x|5.x|5.x|not supported|
+|0.2.x|6.x|5.x|not supported|
+|0.3.x|6.x && 7.x|5.x|not supported|
+|0.4.x, 0.5.x|8.x|5.x|not supported|
+|0.6.x|9.x|5.x|supported|
+|0.7.x|10.x|5.x|supported|
+|0.8.x|11.x|5.x|supported|
+|0.9.x|12.x|5.x|supported|
+|0.10.x|13.x|5.x && 6.x|supported|
 
 ## Usage
 To get up and running using Font Awesome with Angular follow below steps:

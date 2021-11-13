@@ -1,5 +1,5 @@
 import { inject } from '@angular/core/testing';
-import { far, faSun as farSun, faUser as farUser } from '@fortawesome/free-regular-svg-icons';
+import { far, faSun as farSun, faUser as farUser, faFileAlt } from '@fortawesome/free-regular-svg-icons';
 import { fas, faSun, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FaIconLibrary } from './icon-library';
 
@@ -38,5 +38,10 @@ describe('FaIconLibrary', () => {
   it('should return null if icon name is not registered', inject([FaIconLibrary], (library: FaIconLibrary) => {
     library.addIcons(faUser);
     expect(library.getIconDefinition('fas', 'sun')).toBeNull();
+  }));
+
+  it('should be possible to look up icon by alias (FA6 feature)', inject([FaIconLibrary], (library: FaIconLibrary) => {
+    library.addIcons(faFileAlt);
+    expect(library.getIconDefinition('far', 'file-alt')).toBe(faFileAlt);
   }));
 });
