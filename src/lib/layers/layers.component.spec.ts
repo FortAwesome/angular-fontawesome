@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { SizeProp } from '@fortawesome/fontawesome-svg-core';
-import { faMobile, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faCoffee, faUser } from '@fortawesome/free-solid-svg-icons';
 import { faDummy, initTest, queryByCss } from '../../testing/helpers';
 import { FaConfig } from '../config';
 
@@ -13,14 +13,14 @@ describe('FaLayersComponent', () => {
       template: `
         <fa-layers>
           <fa-icon [icon]="faUser"></fa-icon>
-          <fa-icon [icon]="faMobile"></fa-icon>
-          <fa-layers-text [content]="'User with mobile'" [styles]="{ color: 'Tomato' }"></fa-layers-text>
+          <fa-icon [icon]="faCoffee"></fa-icon>
+          <fa-layers-text [content]="'User with coffee'" [styles]="{ color: 'Tomato' }"></fa-layers-text>
         </fa-layers>
       `,
     })
     class HostComponent {
       faUser = faUser;
-      faMobile = faMobile;
+      faCoffee = faCoffee;
     }
 
     const fixture = initTest(HostComponent);
@@ -34,14 +34,14 @@ describe('FaLayersComponent', () => {
       template: `
         <fa-layers size="2x">
           <fa-icon [icon]="faUser"></fa-icon>
-          <fa-icon [icon]="faMobile"></fa-icon>
-          <fa-layers-text [content]="'User with mobile'" [styles]="{ color: 'Tomato' }"></fa-layers-text>
+          <fa-icon [icon]="faCoffee"></fa-icon>
+          <fa-layers-text [content]="'User with coffee'" [styles]="{ color: 'Tomato' }"></fa-layers-text>
         </fa-layers>
       `,
     })
     class HostComponent {
       faUser = faUser;
-      faMobile = faMobile;
+      faCoffee = faCoffee;
     }
 
     const fixture = initTest(HostComponent);
@@ -83,14 +83,14 @@ describe('FaLayersComponent', () => {
       template: `
         <fa-layers [fixedWidth]="false">
           <fa-icon [icon]="faUser"></fa-icon>
-          <fa-icon [icon]="faMobile"></fa-icon>
-          <fa-layers-text [content]="'User with mobile'" [styles]="{ color: 'Tomato' }"></fa-layers-text>
+          <fa-icon [icon]="faCoffee"></fa-icon>
+          <fa-layers-text [content]="'User with coffee'" [styles]="{ color: 'Tomato' }"></fa-layers-text>
         </fa-layers>
       `,
     })
     class HostComponent {
       faUser = faUser;
-      faMobile = faMobile;
+      faCoffee = faCoffee;
     }
 
     const fixture = initTest(HostComponent);

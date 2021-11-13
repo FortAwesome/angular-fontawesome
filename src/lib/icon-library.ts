@@ -17,6 +17,11 @@ export class FaIconLibrary implements FaIconLibraryInterface {
         this.definitions[icon.prefix] = {};
       }
       this.definitions[icon.prefix][icon.iconName] = icon;
+      for (const alias of icon.icon[2]) {
+        if (typeof alias === 'string') {
+          this.definitions[icon.prefix][alias] = icon;
+        }
+      }
     }
   }
 

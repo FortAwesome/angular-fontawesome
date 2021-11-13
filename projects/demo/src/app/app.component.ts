@@ -12,7 +12,6 @@ import {
   faFighterJet,
   faFlag as solidFlag,
   faMagic,
-  faMobile,
   faSquare,
   faSync,
   faTimes,
@@ -35,7 +34,6 @@ export class AppComponent {
   faCircle = faCircle;
   faCoffee = faCoffee;
   faSquare = faSquare;
-  faMobile = faMobile;
   regularUser = regularUser;
   faEllipsisH = faEllipsisH;
   faFighterJet = faFighterJet;
