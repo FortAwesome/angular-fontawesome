@@ -5,6 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.10.1](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.10.1) - 2021-11-13
+
+### Added
+
+* Official support for Font Awesome 6 Beta.
+* Support for icon aliases introduced in Font Awesome 6 Beta.
+
 ## [0.10.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.10.0) - 2021-11-03
 
 Make sure to check [upgrade instructions](https://github.com/FortAwesome/angular-fontawesome/blob/master/UPGRADING.md).
