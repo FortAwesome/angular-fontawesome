@@ -6,7 +6,7 @@
 
 [![npm](https://img.shields.io/npm/v/@fortawesome/angular-fontawesome.svg?style=flat-square)](https://www.npmjs.com/package/@fortawesome/angular-fontawesome)
 
-Official Angular component for Font Awesome 5+
+Official Angular component for Font Awesome 6+
 
 ## Installation
 
@@ -56,10 +56,10 @@ To get up and running using Font Awesome with Angular follow below steps:
     ```typescript
     import { BrowserModule } from '@angular/platform-browser';
     import { NgModule } from '@angular/core';
-    
+
     import { AppComponent } from './app.component';
     import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-    
+
     @NgModule({
       imports: [
         BrowserModule,
@@ -77,7 +77,7 @@ To get up and running using Font Awesome with Angular follow below steps:
     ```typescript
     import { Component } from '@angular/core';
     import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-    
+
     @Component({
       selector: 'app-root',
       templateUrl: './app.component.html'
@@ -119,34 +119,29 @@ The following contributors have either helped to start this project, have contri
 code, are actively maintaining it (including documentation), or in other ways
 being awesome contributors to this project. **We'd like to take a moment to recognize them.**
 
-[<img src="https://github.com/devoto13.png?size=72" alt="devoto13" width="72">](https://github.com/devoto13)
-[<img src="https://github.com/zeevkatz.png?size=72" alt="zeevkatz" width="72">](https://github.com/zeevkatz)
-[<img src="https://github.com/scttcper.png?size=72" alt="scttcper" width="72">](https://github.com/scttcper)
-[<img src="https://github.com/DavidePastore.png?size=72" alt="DavidePastore" width="72">](https://github.com/DavidePastore)
-[<img src="https://github.com/donmckenna.png?size=72" alt="donmckenna" width="72">](https://github.com/donmckenna)
-[<img src="https://github.com/paustint.png?size=72" alt="paustint" width="72">](https://github.com/paustint)
-[<img src="https://github.com/mzellho.png?size=72" alt="mzellho" width="72">](https://github.com/mzellho)
-[<img src="https://github.com/elebitzero.png?size=72" alt="elebitzero" width="72">](https://github.com/elebitzero)
-[<img src="https://github.com/mcenkar.png?size=72" alt="mcenkar" width="72">](https://github.com/mcenkar)
-[<img src="https://github.com/SiddAjmera.png?size=72" alt="SiddAjmera" width="72">](https://github.com/SiddAjmera)
-[<img src="https://github.com/stephaniepurvis.png?size=72" alt="stephaniepurvis" width="72">](https://github.com/stephaniepurvis)
-[<img src="https://github.com/loicgasser.png?size=72" alt="loicgasser" width="72">](https://github.com/loicgasser)
-[<img src="https://github.com/damienwebdev.png?size=72" alt="damienwebdev" width="72">](https://github.com/damienwebdev)
-[<img src="https://github.com/ronniebarker.png?size=72" alt="ronniebarker" width="72">](https://github.com/ronniebarker)
-[<img src="https://github.com/bhanuhiteshi.png?size=72" alt="bhanuhiteshi" width="72">](https://github.com/bhanuhiteshi)
-[<img src="https://github.com/MrSuttonmann.png?size=72" alt="MrSuttonmann" width="72">](https://github.com/MrSuttonmann)
-[<img src="https://github.com/ej2.png?size=72" alt="ej2" width="72">](https://github.com/ej2)
-[<img src="https://github.com/peterblazejewicz.png?size=72" alt="peterblazejewicz" width="72">](https://github.com/peterblazejewicz)
-[<img src="https://github.com/arjenbrandenburgh.png?size=72" alt="arjenbrandenburgh" width="72">](https://github.com/arjenbrandenburgh)
-[<img src="https://github.com/athisun.png?size=72" alt="athisun" width="72">](https://github.com/athisun)
-[<img src="https://github.com/madebyjeffrey.png?size=72" alt="madebyjeffrey" width="72">](https://github.com/madebyjeffrey)
-[<img src="https://github.com/benjamincharity.png?size=72" alt="benjamincharity" width="72">](https://github.com/benjamincharity)
+| Name              | GitHub                                                    |
+| ----------------- | --------------------------------------------------------- |
+| devoto13          | [@devoto13](https://github.com/devoto13)                  |
+| zeevkatz          | [@zeevkatz](https://github.com/zeevkatz)                  |
+| scttcper          | [@scttcper](https://github.com/scttcper)                  |
+| DavidePastore     | [@DavidePastore](https://github.com/DavidePastore)        |
+| donmckenna        | [@donmckenna](https://github.com/donmckenna)              |
+| paustint          | [@paustint](https://github.com/paustint)                  |
+| mzellho           | [@mzellho](https://github.com/mzellho)                    |
+| elebitzero        | [@elebitzero](https://github.com/elebitzero)              |
+| mcenkar           | [@mcenkar](https://github.com/mcenkar)                    |
+| SiddAjmera        | [@SiddAjmera](https://github.com/SiddAjmera)              |
+| stephaniepurvis   | [@stephaniepurvis](https://github.com/stephaniepurvis)    |
+| loicgasser        | [@loicgasser](https://github.com/loicgasser)              |
+| damienwebdev      | [@damienwebdev](https://github.com/damienwebdev)          |
+| ronniebarker      | [@ronniebarker](https://github.com/ronniebarker)          |
+| bhanuhiteshi      | [@bhanuhiteshi](https://github.com/bhanuhiteshi)          |
+| MrSuttonmann      | [@MrSuttonmann](https://github.com/MrSuttonmann)          |
+| peterblazejewicz  | [@peterblazejewicz](https://github.com/peterblazejewicz)  |
+| arjenbrandenburgh | [@arjenbrandenburgh](https://github.com/arjenbrandenburgh)|
+| athisun           | [@athisun](https://github.com/athisun)                    |
+| madebyjeffrey     | [@madebyjeffrey](https://github.com/madebyjeffrey)        |
+| benjamincharity   | [@benjamincharity](https://github.com/benjamincharity)    |
+| Font Awesome Team | [@FortAwesome](https://github.com/orgs/FortAwesome/people)|
 
 If we've missed someone (which is quite likely) submit a Pull Request to us and we'll get it resolved.
-
-The Font Awesome team:
-
-[<img src="https://github.com/mlwilkerson.png?size=72" alt="mlwilkerson" width="72">](https://github.com/mlwilkerson)
-[<img src="https://github.com/supercodepoet.png?size=72" alt="supercodepoet" width="72">](https://github.com/supercodepoet)
-[<img src="https://github.com/robmadole.png?size=72" alt="robmadole" width="72">](https://github.com/robmadole)
-[<img src="https://github.com/talbs.png?size=72" alt="talbs" width="72">](https://github.com/talbs)
