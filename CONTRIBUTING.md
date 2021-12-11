@@ -12,7 +12,7 @@ Trying to figure out how to make it work? Or how to use it in your scenario?
 
 ## Report a Bug
 
-1. Create a test case that reproduces the unexpected behavior using [this StackBlitz template](https://stackblitz.com/edit/angular-z8v4ux)
+1. Create a test case that reproduces the unexpected behavior using [this StackBlitz template](https://stackblitz.com/edit/angular-ivy-9mvggg)
 2. [Open a new issue with this template](https://github.com/FortAwesome/angular-fontawesome/issues/new?template=bug-report.md), and be sure to include a link to the reproduction you made with StackBlitz.
 
 ## Submit a Pull Request
