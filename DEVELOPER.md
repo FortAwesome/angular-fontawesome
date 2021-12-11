@@ -53,3 +53,4 @@ Command     | Purpose
 1. `git commit -a -m 'Release VERSION'`
 1. `git tag <version> && git push && git push --tags` - create a tag and push all changes to GitHub
 1. Create a [new release](https://github.com/FortAwesome/angular-fontawesome/releases/new) with CHANGELOG details
+1. Update StackBlitz sample projects: [one](https://stackblitz.com/edit/angular-ivy-7jrcne) and [two](https://stackblitz.com/edit/angular-ivy-9mvggg)
