@@ -29,4 +29,20 @@ describe('FaLayersCounterComponent', () => {
       new Error('FaLayersCounterComponent should be used as child of FaLayersComponent only.'),
     );
   });
+
+  it('should include position class', () => {
+    @Component({
+      selector: 'fa-host',
+      template: `
+        <fa-layers>
+          <fa-layers-counter [position]="'bottom-left'" [content]="'Test'"></fa-layers-counter>
+        </fa-layers>
+      `,
+    })
+    class HostComponent {}
+
+    const fixture = initTest(HostComponent);
+    fixture.detectChanges();
+    expect(queryByCss(fixture, '.fa-layers-bottom-left')).toBeTruthy();
+  });
 });

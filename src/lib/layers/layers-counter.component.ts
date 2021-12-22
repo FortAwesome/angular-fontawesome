@@ -16,6 +16,7 @@ export class FaLayersCounterComponent implements OnChanges {
   @Input() title?: string;
   @Input() styles?: Styles;
   @Input() classes?: string[] = [];
+  @Input() position?: 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left';
 
   @HostBinding('innerHTML') renderedHTML: SafeHtml;
 
@@ -31,9 +32,16 @@ export class FaLayersCounterComponent implements OnChanges {
   }
 
   protected buildParams(): CounterParams {
+    const classes = [];
+    if (this.classes != null) {
+      classes.push(...this.classes);
+    }
+    if (this.position != null) {
+      classes.push(`fa-layers-${this.position}`);
+    }
     return {
       title: this.title,
-      classes: this.classes,
+      classes,
       styles: this.styles,
     };
   }
