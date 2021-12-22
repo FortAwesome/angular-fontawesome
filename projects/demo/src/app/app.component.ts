@@ -48,6 +48,8 @@ export class AppComponent {
   isSyncAnimated = true;
   magicLevel = 0;
 
+  selectedPosition: string;
+
   constructor(library: FaIconLibrary, faConfig: FaConfig) {
     // Notice that we're adding two different icon objects to the library.
     // Each of them within their respective icon npm packages are exported as faUser,
@@ -70,5 +72,9 @@ export class AppComponent {
     // You don't specify the prefix in that case, because the icon object knows its own prefix.
     library.addIcons(faUser, regularUser);
     faConfig.fallbackIcon = faMagic;
+  }
+
+  onChange(event: any) {
+    this.selectedPosition = event.target.value;
   }
 }

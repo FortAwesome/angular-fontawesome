@@ -81,18 +81,37 @@
     ></fa-layers-text>
   </fa-layers>
 </div>
-<p>Slide and increase the number.</p>
-<input
-  type="range"
-  [min]="1000"
-  [max]="2000"
-  [value]="notificationsCounter"
-  (input)="notificationsCounter = $event.target.value"
-/>
+
+<div class="wrapper">
+  <div class="slider">
+    <p class="title">Slide and increase the number.</p>
+    <input
+      type="range"
+      [min]="1000"
+      [max]="2000"
+      [value]="notificationsCounter"
+      (input)="notificationsCounter = $event.target.value"
+    />
+  </div>
+  <div class="selection">
+    <p>Select a position.</p>
+    <select name="select" (change)="onChange($event)">
+      <option value="top-right">top-right</option>
+      <option value="top-left">top-left</option>
+      <option value="bottom-right">bottom-right</option>
+      <option value="bottom-left">bottom-left</option>
+    </select>
+  </div>
+</div>
+
 <div>
   <fa-layers [fixedWidth]="true" size="3x">
     <fa-icon [icon]="faBell"></fa-icon>
-    <fa-layers-counter [content]="notificationsCounter | number" title="Unread Messages"></fa-layers-counter>
+    <fa-layers-counter
+      [position]="selectedPosition"
+      [content]="notificationsCounter | number"
+      title="Unread Messages"
+    ></fa-layers-counter>
   </fa-layers>
 </div>
 

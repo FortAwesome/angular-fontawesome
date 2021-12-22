@@ -1,3 +1,17 @@
 :host {
   font-family: Tahoma, Geneva, sans-serif;
 }
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  width: 40%;
+  justify-content: flex-start !important;
+}
+
+select {
+  font-size: 15px;
+  font-family: Tahoma, Geneva, sans-serif;
+}
