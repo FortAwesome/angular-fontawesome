@@ -2,11 +2,12 @@ import { Tree } from '@angular-devkit/schematics';
 import { SchematicTestRunner } from '@angular-devkit/schematics/testing';
 import * as path from 'path';
 import { Schema } from './schema';
+import { angularFontawesomeVersion, iconPackVersion, v5 } from './versions';
 
 const collectionPath = path.join(__dirname, '../collection.json');
 
 describe('ng-add', () => {
-  it('adds dependencies to package.json', async () => {
+  it('adds v6 dependencies to package.json', async () => {
     const { runner, appTree } = await setup();
 
     const tree = await runner.runSchematicAsync<Schema>('ng-add', {}, appTree).toPromise();
@@ -16,8 +17,24 @@ describe('ng-add', () => {
 
     const dependencies = packageJson.dependencies;
 
-    expect(dependencies['@fortawesome/fontawesome-svg-core']).toBeDefined();
-    expect(dependencies['@fortawesome/angular-fontawesome']).toBeDefined();
+    expect(dependencies['@fortawesome/fontawesome-svg-core']).toBe(iconPackVersion);
+    expect(dependencies['@fortawesome/free-solid-svg-icons']).toBe(iconPackVersion);
+    expect(dependencies['@fortawesome/angular-fontawesome']).toBe(angularFontawesomeVersion);
+  });
+
+  it('adds v5 dependencies to package.json', async () => {
+    const { runner, appTree } = await setup();
+
+    const tree = await runner.runSchematicAsync<Schema>('ng-add', { version: '5' }, appTree).toPromise();
+
+    const packageJson = JSON.parse(tree.readContent('package.json'));
+    expect(packageJson.dependencies).toBeDefined();
+
+    const dependencies = packageJson.dependencies;
+
+    expect(dependencies['@fortawesome/fontawesome-svg-core']).toBe(v5.svgCoreVersion);
+    expect(dependencies['@fortawesome/free-solid-svg-icons']).toBe(v5.iconPackVersion);
+    expect(dependencies['@fortawesome/angular-fontawesome']).toBe(angularFontawesomeVersion);
   });
 
   it('adds FontAwesomeModule import to the AppModule', async () => {

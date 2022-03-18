@@ -11,7 +11,7 @@ import { addPackageJsonDependency, NodeDependencyType } from '@schematics/angula
 import { getAppModulePath } from '@schematics/angular/utility/ng-ast-utils';
 import { getWorkspace } from '@schematics/angular/utility/workspace';
 import { Schema } from './schema';
-import { angularFontawesomeVersion, iconPackVersion, svgCoreVersion } from './versions';
+import { angularFontawesomeVersion, iconPackVersion, v5 } from './versions';
 
 export default function (options: Schema): Rule {
   return chain([
@@ -19,7 +19,7 @@ export default function (options: Schema): Rule {
       addPackageJsonDependency(tree, {
         type: NodeDependencyType.Default,
         name: '@fortawesome/fontawesome-svg-core',
-        version: svgCoreVersion,
+        version: options.version === '6' ? iconPackVersion : v5.svgCoreVersion,
       });
 
       addPackageJsonDependency(tree, {
@@ -33,7 +33,7 @@ export default function (options: Schema): Rule {
         addPackageJsonDependency(tree, {
           type: NodeDependencyType.Default,
           name: `@fortawesome/${pack}-svg-icons`,
-          version: iconPackVersion,
+          version: options.version === '6' ? iconPackVersion : v5.iconPackVersion,
         });
       }
 
