@@ -11,12 +11,40 @@
         "$source": "projectName"
       }
     },
+    "version": {
+      "description": "The FontAwesome version to install.",
+      "type": "string",
+      "default": "6",
+      "x-prompt": {
+        "message": "Choose Font Awesome version you would like to use:",
+        "type": "list",
+        "items": [
+          {
+            "value": "6",
+            "label": "Font Awesome 6"
+          },
+          {
+            "value": "5",
+            "label": "Font Awesome 5"
+          }
+        ]
+      }
+    },
     "iconPackages": {
       "description": "The icon packages to install.",
       "type": "array",
       "items": {
         "type": "string",
-        "enum": ["free-solid", "free-regular", "free-brands", "pro-solid", "pro-regular", "pro-light", "pro-duotone"]
+        "enum": [
+          "free-solid",
+          "free-regular",
+          "free-brands",
+          "pro-solid",
+          "pro-regular",
+          "pro-light",
+          "pro-duotone",
+          "pro-thin"
+        ]
       },
       "default": ["free-solid"],
       "x-prompt": {
@@ -38,19 +66,23 @@
           },
           {
             "value": "pro-solid",
-            "label": "Pro Solid Icons    [ Requires: https://fontawesome.com/pro ]"
+            "label": "Pro Solid Icons    [ Requires Pro plan: https://fontawesome.com/plans ]"
           },
           {
             "value": "pro-regular",
-            "label": "Pro Regular Icons  [ Requires: https://fontawesome.com/pro ]"
+            "label": "Pro Regular Icons  [ Requires Pro plan: https://fontawesome.com/plans ]"
           },
           {
             "value": "pro-light",
-            "label": "Pro Light Icons    [ Requires: https://fontawesome.com/pro ]"
+            "label": "Pro Light Icons    [ Requires Pro plan: https://fontawesome.com/plans ]"
           },
           {
             "value": "pro-duotone",
-            "label": "Pro Duotone Icons  [ Requires: https://fontawesome.com/pro ]"
+            "label": "Pro Duotone Icons  [ Requires Pro plan: https://fontawesome.com/plans ]"
+          },
+          {
+            "value": "pro-thin",
+            "label": "Pro Thin Icons     [ Requires Pro plan: https://fontawesome.com/plans ]"
           }
         ]
       }
