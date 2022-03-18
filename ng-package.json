@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
+  "lib": {
+    "entryFile": "src/lib/public_api.ts",
+    "flatModuleFile": "angular-fontawesome"
+  },
+  "dest": "./dist/angular-fontawesome"
+}

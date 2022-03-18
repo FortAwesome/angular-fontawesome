@@ -13,7 +13,7 @@
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "tsconfig.lib.json",
-            "project": "package.json"
+            "project": "ng-package.json"
           },
           "configurations": {
             "production": {
@@ -148,6 +148,10 @@
             },
             "development": {
               "devServerTarget": "demo:serve:development"
+            },
+            "ci": {
+              "devServerTarget": "demo:serve:production",
+              "webdriverUpdate": false
             }
           },
           "defaultConfiguration": "production"
