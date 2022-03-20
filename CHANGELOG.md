@@ -5,6 +5,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.10.2](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.10.2) - 2022-03-20
+
+### Added
+
+* `position` input for `fa-layers-counter` component.
+* `@fortawesome/fontawesome-svg-core@^6.1.0` as a valid peer dependency.
+* Possible to pick v5 or v6 to the ng-add schematic.
+
 ## [0.10.1](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.10.1) - 2021-11-13
 
 ### Added
