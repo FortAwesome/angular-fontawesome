@@ -11,9 +11,11 @@ import {
   faEllipsisH,
   faFighterJet,
   faFlag as solidFlag,
+  faHeart,
   faMagic,
+  faSpinner,
   faSquare,
-  faSync,
+  faCog,
   faTimes,
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
@@ -25,7 +27,7 @@ import {
 })
 export class AppComponent {
   faBell = faBell;
-  faSync = faSync;
+  faCog = faCog;
   faFlag = faFlag;
   solidFlag = solidFlag;
   faTimes = faTimes;
@@ -38,6 +40,8 @@ export class AppComponent {
   faEllipsisH = faEllipsisH;
   faFighterJet = faFighterJet;
   faBatteryQuarter = faBatteryQuarter;
+  faHeart = faHeart;
+  faSpinner = faSpinner;
   faDummy: IconDefinition = {
     prefix: 'fad',
     iconName: 'dummy' as IconName,
@@ -45,7 +49,7 @@ export class AppComponent {
   };
 
   notificationsCounter = 1000;
-  isSyncAnimated = true;
+  isAnimated = true;
   magicLevel = 0;
 
   selectedPosition: 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left';

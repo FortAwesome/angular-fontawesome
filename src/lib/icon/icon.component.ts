@@ -18,7 +18,7 @@ import { FaConfig } from '../config';
 import { FaIconLibrary } from '../icon-library';
 import { faWarnIfIconDefinitionMissing } from '../shared/errors/warn-if-icon-html-missing';
 import { faWarnIfIconSpecMissing } from '../shared/errors/warn-if-icon-spec-missing';
-import { FaProps } from '../shared/models/props.model';
+import { AnimationProp, FaProps } from '../shared/models/props.model';
 import { faClassList } from '../shared/utils/classlist.util';
 import { faNormalizeIconSpec } from '../shared/utils/normalize-icon-spec.util';
 import { FaStackItemSizeDirective } from '../stack/stack-item-size.directive';
@@ -42,8 +42,29 @@ export class FaIconComponent implements OnChanges {
    * screen readers.
    */
   @Input() title?: string;
-  @Input() spin?: boolean;
-  @Input() pulse?: boolean;
+
+  /**
+   * Icon animation.
+   *
+   * Most of the animations are only available when using Font Awesome 6. With
+   * Font Awesome 5, only 'spin' and 'spin-pulse' are supported.
+   */
+  @Input() animation?: AnimationProp;
+
+  /**
+   * @deprecated Use animation="spin" instead. To be removed in 0.14.0.
+   */
+  @Input() set spin(value: boolean) {
+    this.animation = value ? 'spin' : undefined;
+  }
+
+  /**
+   * @deprecated Use animation="spin-pulse" instead. To be removed in 0.14.0.
+   */
+  @Input() set pulse(value: boolean) {
+    this.animation = value ? 'spin-pulse' : undefined;
+  }
+
   @Input() mask?: IconProp;
 
   /**
@@ -144,8 +165,7 @@ export class FaIconComponent implements OnChanges {
   protected buildParams() {
     const classOpts: FaProps = {
       flip: this.flip,
-      spin: this.spin,
-      pulse: this.pulse,
+      animation: this.animation,
       border: this.border,
       inverse: this.inverse,
       size: this.size || null,

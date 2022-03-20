@@ -15,8 +15,7 @@ import {
 export interface FaProps {
   mask?: IconProp;
   className?: string;
-  spin?: boolean;
-  pulse?: boolean;
+  animation?: AnimationProp;
   border?: boolean;
   fixedWidth?: boolean;
   counter?: boolean;
@@ -30,3 +29,15 @@ export interface FaProps {
   style?: Styles;
   stackItemSize?: '1x' | '2x';
 }
+
+export type AnimationProp =
+  | 'beat'
+  | 'fade'
+  | 'beat-fade'
+  | 'bounce'
+  | 'flip'
+  | 'shake'
+  | 'spin'
+  | 'spin-reverse'
+  | 'spin-pulse'
+  | 'spin-pulse-reverse';

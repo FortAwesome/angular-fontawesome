@@ -37,9 +37,60 @@
 <h3>Change Size</h3>
 <fa-icon [icon]="faAdjust" size="2x"></fa-icon>
 
-<h3>Animation</h3>
-<p>Click to toggle animation.</p>
-<fa-icon [icon]="faSync" [spin]="isSyncAnimated" (click)="isSyncAnimated = !isSyncAnimated"></fa-icon>
+<h3>Animations</h3>
+
+<button type="button" (click)="isAnimated = !isAnimated">Toggle animations</button>
+
+<p>
+  <fa-icon [icon]="faHeart" [animation]="isAnimated ? 'beat' : undefined"></fa-icon>&nbsp;
+  <fa-icon
+    [icon]="faHeart"
+    [animation]="isAnimated ? 'beat' : undefined"
+    style="--fa-animation-duration: 0.5s"
+  ></fa-icon
+  >&nbsp;
+  <fa-icon [icon]="faHeart" [animation]="isAnimated ? 'beat' : undefined" style="--fa-beat-scale: 2"></fa-icon>
+</p>
+
+<p>
+  <fa-icon [icon]="faHeart" [animation]="isAnimated ? 'fade' : undefined"></fa-icon>&nbsp;
+  <fa-icon [icon]="faHeart" [animation]="isAnimated ? 'fade' : undefined" style="--fa-fade-opacity: 0.1"></fa-icon
+  >&nbsp;
+</p>
+
+<p>
+  <fa-icon [icon]="faHeart" [animation]="isAnimated ? 'beat-fade' : undefined"></fa-icon>&nbsp;
+  <fa-icon
+    [icon]="faHeart"
+    [animation]="isAnimated ? 'beat-fade' : undefined"
+    style="--fa-beat-fade-opacity: 0.1"
+  ></fa-icon
+  >&nbsp;
+  <fa-icon [icon]="faHeart" [animation]="isAnimated ? 'beat-fade' : undefined" style="--fa-beat-fade-scale: 2"></fa-icon
+  >&nbsp;
+</p>
+
+<p><fa-icon [icon]="faHeart" [animation]="isAnimated ? 'bounce' : undefined"></fa-icon>&nbsp;</p>
+
+<p>
+  <fa-icon [icon]="faHeart" [animation]="isAnimated ? 'flip' : undefined"></fa-icon>&nbsp;
+  <fa-icon
+    [icon]="faHeart"
+    [animation]="isAnimated ? 'flip' : undefined"
+    style="--fa-flip-x: 1; --fa-flip-y: 0"
+  ></fa-icon
+  >&nbsp;
+</p>
+
+<p><fa-icon [icon]="faHeart" [animation]="isAnimated ? 'shake' : undefined"></fa-icon>&nbsp;</p>
+
+<p>
+  <fa-icon [icon]="faCog" [animation]="isAnimated ? 'spin' : undefined"></fa-icon>&nbsp;
+  <fa-icon [icon]="faCog" [animation]="isAnimated ? 'spin-reverse' : undefined"></fa-icon>&nbsp;
+  <fa-icon [icon]="faSpinner" [animation]="isAnimated ? 'spin-pulse' : undefined"></fa-icon>&nbsp;
+  <fa-icon [icon]="faSpinner" [animation]="isAnimated ? 'spin-pulse-reverse' : undefined"></fa-icon>&nbsp;
+</p>
+
 <p>Slide to turn up the magic.</p>
 <fa-icon [icon]="faMagic" transform="rotate-{{ magicLevel }}"></fa-icon>
 <input type="range" [value]="magicLevel" (input)="magicLevel = $any($event.target).value" />
