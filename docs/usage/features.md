@@ -41,8 +41,9 @@ The following features are available as part of Font Awesome. Note that the synt
 [FontAwesome Spec](https://fontawesome.com/how-to-use/on-the-web/styling/animating-icons)
 
 ```html
-<fa-icon [icon]="['fas', 'spinner']" [spin]="true"></fa-icon>
-<fa-icon [icon]="['fas', 'spinner']" [pulse]="true"></fa-icon>
+<fa-icon [icon]="['fas', 'cog']" animation="spin"></fa-icon>
+<fa-icon [icon]="['fas', 'heart']" animation="beat"></fa-icon>
+<fa-icon [icon]="['fas', 'bell']" animation="shake"></fa-icon>
 ```
 
 ### Border

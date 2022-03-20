@@ -1,5 +1,5 @@
 export { FontAwesomeModule } from './fontawesome.module';
-export { FaProps } from './shared/models/props.model';
+export { AnimationProp, FaProps } from './shared/models/props.model';
 export { FaIconComponent } from './icon/icon.component';
 export { FaDuotoneIconComponent } from './icon/duotone-icon.component';
 export { FaConfig } from './config';

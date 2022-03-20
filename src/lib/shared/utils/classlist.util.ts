@@ -6,8 +6,14 @@ import { FaProps } from '../models/props.model';
  */
 export const faClassList = (props: FaProps): string[] => {
   const classes = {
-    'fa-spin': props.spin,
-    'fa-pulse': props.pulse,
+    [`fa-${props.animation}`]: props.animation != null && !props.animation.startsWith('spin'),
+    'fa-spin': props.animation === 'spin' || props.animation === 'spin-reverse',
+    'fa-spin-pulse': props.animation === 'spin-pulse' || props.animation === 'spin-pulse-reverse',
+    'fa-spin-reverse': props.animation === 'spin-reverse' || props.animation === 'spin-pulse-reverse',
+    // According to https://fontawesome.com/docs/web/style/animate#spin fa-pulse
+    // class is deprecated, remove the below line when Font Awesome 5 support
+    // is dropped.
+    'fa-pulse': props.animation === 'spin-pulse' || props.animation === 'spin-pulse-reverse',
     'fa-fw': props.fixedWidth,
     'fa-border': props.border,
     'fa-inverse': props.inverse,

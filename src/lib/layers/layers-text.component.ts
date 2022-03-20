@@ -12,7 +12,7 @@ import {
   Transform,
 } from '@fortawesome/fontawesome-svg-core';
 import { faWarnIfParentNotExist } from '../shared/errors/warn-if-parent-not-exist';
-import { FaProps } from '../shared/models/props.model';
+import { AnimationProp, FaProps } from '../shared/models/props.model';
 import { faClassList } from '../shared/utils/classlist.util';
 import { FaLayersComponent } from './layers.component';
 
@@ -46,8 +46,21 @@ export class FaLayersTextComponent implements OnChanges {
    * This input is deprecated since 0.12.0 and will be removed in 0.13.0.
    */
   @Input() classes?: string[] = [];
-  @Input() spin?: boolean;
-  @Input() pulse?: boolean;
+
+  /**
+   * @deprecated This input was incorrectly exposed and never worked correctly. To be removed in 0.14.0.
+   */
+  @Input() set spin(value: boolean) {
+    this.animation = value ? 'spin' : undefined;
+  }
+
+  /**
+   * @deprecated This input was incorrectly exposed and never worked correctly. To be removed in 0.14.0.
+   */
+  @Input() set pulse(value: boolean) {
+    this.animation = value ? 'spin-pulse' : undefined;
+  }
+
   @Input() flip?: FlipProp;
   @Input() size?: SizeProp;
   @Input() pull?: PullProp;
@@ -58,6 +71,8 @@ export class FaLayersTextComponent implements OnChanges {
   @Input() transform?: string | Transform;
 
   @HostBinding('innerHTML') renderedHTML: SafeHtml;
+
+  private animation: AnimationProp;
 
   constructor(@Optional() private parent: FaLayersComponent, private sanitizer: DomSanitizer) {
     faWarnIfParentNotExist(this.parent, 'FaLayersComponent', this.constructor.name);
@@ -76,8 +91,7 @@ export class FaLayersTextComponent implements OnChanges {
   protected buildParams(): TextParams {
     const classOpts: FaProps = {
       flip: this.flip,
-      spin: this.spin,
-      pulse: this.pulse,
+      animation: this.animation,
       border: this.border,
       inverse: this.inverse,
       size: this.size || null,
