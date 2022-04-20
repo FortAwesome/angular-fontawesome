@@ -9,7 +9,7 @@ The general workflow of adding a new icon:
 1. Install a package containing the icon if not already installed (use style name from the previous step and see full package names below).
 1. Import the icon from the installed package and use it in your application using either [icon library](./icon-library.md) or [explicit references](./explicit-reference.md) approach.
 
-Packages prefixed with `free` are available for everybody, while packages prefixed with `pro` require a [Font Awesome Pro](https://fontawesome.com/pro) subscription and require [additional configuration](https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers#installing-pro).
+Packages prefixed with `free` are available for everybody, while packages prefixed with `pro` require a [Font Awesome Pro](https://fontawesome.com/plans) subscription and  [additional configuration](https://fontawesome.com/docs/web/setup/packages#_1-configure-access).
 
 ## Solid Icons
 
