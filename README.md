@@ -10,6 +10,8 @@ Official Angular component for Font Awesome 5+
 
 ## Installation
 
+If you have [FontAwesome Pro](https://fontawesome.com/plans) subscription, make sure to [configure access](https://fontawesome.com/docs/web/setup/packages#_1-configure-access) before following the installation instructions.
+
 Using `ng add`:
 
 ```
