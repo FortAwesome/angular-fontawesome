@@ -1,6 +1,6 @@
 {
   "name": "@fortawesome/angular-fontawesome",
-  "version": "0.10.2",
+  "version": "0.11.0",
   "description": "Angular Fontawesome, an Angular library",
   "scripts": {
     "test": "ng test angular-fontawesome --watch=false --browsers=ChromeCI",
