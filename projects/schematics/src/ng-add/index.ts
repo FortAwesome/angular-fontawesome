@@ -48,7 +48,7 @@ export default function (options: Schema): Rule {
 function addModule(options: Schema): Rule {
   return async (host: Tree) => {
     const workspace = await getWorkspace(host);
-    const projectName = options.project ?? (workspace.extensions.defaultProject as string);
+    const projectName = options.project as string;
     const project = workspace.projects.get(projectName);
     if (project == null) {
       throw new SchematicsException(`Project with name ${projectName} does not exist.`);

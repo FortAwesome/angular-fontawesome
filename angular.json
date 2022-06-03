@@ -159,7 +159,6 @@
       }
     }
   },
-  "defaultProject": "angular-fontawesome",
   "cli": {
     "analytics": false
   }
