@@ -2,7 +2,6 @@ import { Component, HostBinding, Input, OnChanges, Optional, SimpleChanges } fro
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import {
   FaSymbol,
-  findIconDefinition,
   FlipProp,
   icon,
   IconDefinition,
@@ -38,6 +37,7 @@ export class FaIconComponent implements OnChanges {
 
   /**
    * Specify a title for the icon.
+   *
    * This text will be displayed in a tooltip on hover and presented to the
    * screen readers.
    */
@@ -45,6 +45,15 @@ export class FaIconComponent implements OnChanges {
   @Input() spin?: boolean;
   @Input() pulse?: boolean;
   @Input() mask?: IconProp;
+
+  /**
+   * Set `style` attribute on the SVG element rendered by the component.
+   *
+   * @deprecated This input breaks view encapsulation and is not recommended.
+   * For simple cases (like colors), use `style` on the component itself, for
+   * more complex usages, explicitly opt-in to break the view encapsulation.
+   * This input is deprecated since 0.12.0 and will be removed in 0.13.0.
+   */
   @Input() styles?: Styles;
   @Input() flip?: FlipProp;
   @Input() size?: SizeProp;
@@ -54,6 +63,15 @@ export class FaIconComponent implements OnChanges {
   @Input() symbol?: FaSymbol;
   @Input() rotate?: RotateProp;
   @Input() fixedWidth?: boolean;
+
+  /**
+   * Set `class` attribute on the SVG element rendered by the component.
+   *
+   * @deprecated This input breaks view encapsulation and is not recommended.
+   * For simple cases (like colors), use `class` on the component itself, for
+   * more complex usages, explicitly opt-in to break the view encapsulation.
+   * This input is deprecated since 0.12.0 and will be removed in 0.13.0.
+   */
   @Input() classes?: string[] = [];
   @Input() transform?: string | Transform;
 
@@ -86,14 +104,8 @@ export class FaIconComponent implements OnChanges {
       return faWarnIfIconSpecMissing();
     }
 
-    let iconToBeRendered: IconProp = null;
-    if (this.icon == null) {
-      iconToBeRendered = this.config.fallbackIcon;
-    } else {
-      iconToBeRendered = this.icon;
-    }
-
     if (changes) {
+      const iconToBeRendered = this.icon != null ? this.icon : this.config.fallbackIcon;
       const iconDefinition = this.findIconDefinition(iconToBeRendered);
       if (iconDefinition != null) {
         const params = this.buildParams();
