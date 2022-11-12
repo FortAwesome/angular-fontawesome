@@ -2,7 +2,7 @@
   "$schema": "../../../node_modules/@angular-devkit/schematics/collection-schema.json",
   "schematics": {
     "ng-add": {
-      "description": "Adds Font Awesome 5 to the application without affecting any templates.",
+      "description": "Adds Font Awesome to the application without affecting any templates.",
       "factory": "./ng-add/index",
       "schema": "./ng-add/schema.json"
     }
