@@ -180,22 +180,18 @@ Each `<fa-icon>` declared inside an `<fa-stack>` element **must** include the `s
 
 ### Programmatic API
 
-To create `FaIconComponent` dynamically using `ComponentFactoryResolver`:
+To create `FaIconComponent` dynamically:
 
 ```ts
 @Component({
   selector: 'fa-host',
-  template: '<ng-container #host></ng-container>'
+  template: '<button (click)="createIcon()">Create</button><br><ng-container #host></ng-container>'
 })
 class HostComponent {
   @ViewChild('host', {static: true, read: ViewContainerRef}) container: ViewContainerRef;
 
-  constructor(private cfr: ComponentFactoryResolver) {
-  }
-
   createIcon() {
-    const factory = this.cfr.resolveComponentFactory(FaIconComponent);
-    const componentRef = this.container.createComponent(factory);
+    const componentRef = this.container.createComponent(FaIconComponent);
     componentRef.instance.icon = faUser;
     // Note that FaIconComponent.render() should be called to update the
     // rendered SVG after setting/updating component inputs.
