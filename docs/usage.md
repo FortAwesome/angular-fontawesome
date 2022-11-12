@@ -26,8 +26,7 @@ Utilize core FontAwesome features
 * [Animations](./usage/features.md#animations)
 * [Border](./usage/features.md#border)
 * [Pull](./usage/features.md#pull)
-* [Custom Classes](./usage/features.md#custom-classes)
-* [Default Style](./usage/features.md#default-style)
+* [Custom styles](./usage/features.md#custom-styles)
 
 ## Features specific for Duotone icons
 Additional features available for Duotone icons
@@ -51,8 +50,9 @@ Take your icons to the next level with these advanced features.
 * [Programmatic API](./usage/features.md#programmatic-api)
 
 ## Guides
-Guides cover specific topics or use cases.
+Guides on specific topics or use cases.
 
 * [Testing](./guide/testing.md)
 * [Storybook](./guide/storybook.md)
 * [Advanced uses](./guide/advanced-uses.md)
+* [Styling icon internals](./guide/styling-icon-internals.md)

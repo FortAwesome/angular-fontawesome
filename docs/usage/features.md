@@ -60,16 +60,21 @@ The following features are available as part of Font Awesome. Note that the synt
 <fa-icon [icon]="['fas', 'coffee']" pull="right"></fa-icon>
 ```
 
-### Custom Classes
+### Custom styles
 
-```html
-<fa-icon [icon]="['fas', 'coffee']" [classes]="['my-icon-class']"></fa-icon>
+Simple styles can be applied using usual [class and style bindings](https://angular.io/guide/class-binding):
+
+```css
+.red-icon {
+  color: red;
+}
 ```
 
-### Default Style
 ```html
-<fa-icon [icon]="['fas', 'coffee']" [styles]="{'stroke': 'red', 'color': 'red'}"></fa-icon>
+<fa-icon [icon]="['fas', 'coffee']" class="red-icon" [style]="{display: 'inline-block', padding: '5px'}"></fa-icon>
 ```
+
+For more advanced styling, see [Styling icon internals](../guide/styling-icon-internals.md).
 
 ## Duotone icons
 
