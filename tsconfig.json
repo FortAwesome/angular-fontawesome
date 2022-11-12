@@ -9,7 +9,7 @@
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es2020",
+    "target": "ES2022",
     "strict": true,
     "strictPropertyInitialization": false,
     "strictNullChecks": false,
@@ -19,6 +19,7 @@
     "paths": {
       "@fortawesome/angular-fontawesome": ["dist/angular-fontawesome"],
       "@fortawesome/angular-fontawesome/testing": ["dist/angular-fontawesome/testing"]
-    }
+    },
+    "useDefineForClassFields": false
   }
 }
