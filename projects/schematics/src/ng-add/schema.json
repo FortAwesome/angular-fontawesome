@@ -43,7 +43,8 @@
           "pro-regular",
           "pro-light",
           "pro-duotone",
-          "pro-thin"
+          "pro-thin",
+          "sharp-solid"
         ]
       },
       "default": ["free-solid"],
@@ -83,6 +84,10 @@
           {
             "value": "pro-thin",
             "label": "Pro Thin Icons     [ Requires Pro plan: https://fontawesome.com/plans ]"
+          },
+          {
+            "value": "sharp-solid",
+            "label": "Sharp Solid Icons  [ Requires Pro plan: https://fontawesome.com/plans ]"
           }
         ]
       }

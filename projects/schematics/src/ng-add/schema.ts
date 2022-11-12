@@ -15,5 +15,6 @@ export interface Schema {
     | 'pro-light'
     | 'pro-duotone'
     | 'pro-thin'
+    | 'sharp-solid'
   )[];
 }

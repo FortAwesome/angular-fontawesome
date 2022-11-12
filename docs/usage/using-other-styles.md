@@ -9,7 +9,7 @@ The general workflow of adding a new icon:
 1. Install a package containing the icon if not already installed (use style name from the previous step and see full package names below).
 1. Import the icon from the installed package and use it in your application using either [icon library](./icon-library.md) or [explicit references](./explicit-reference.md) approach.
 
-Packages prefixed with `free` are available for everybody, while packages prefixed with `pro` require a [Font Awesome Pro](https://fontawesome.com/plans) subscription and  [additional configuration](https://fontawesome.com/docs/web/setup/packages#_1-configure-access).
+Packages prefixed with `free` are available for everybody, while packages prefixed with `pro` and `sharp` require a [Font Awesome Pro](https://fontawesome.com/plans) subscription and [additional configuration](https://fontawesome.com/docs/web/setup/packages#_1-configure-access).
 
 ## Solid Icons
 
@@ -63,6 +63,16 @@ $ yarn add @fortawesome/pro-duotone-svg-icons
 
 ```javascript
 import { faCamera } from '@fortawesome/pro-duotone-svg-icons';
+````
+
+## Pro-only Sharp Solid Icons
+
+```bash
+$ yarn add @fortawesome/sharp-solid-svg-icons
+```
+
+```javascript
+import { faCamera } from '@fortawesome/sharp-solid-svg-icons';
 ````
 
 ## Same Icon from Multiple Styles
