@@ -5,6 +5,27 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.12.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.12.0) - 2022-11-18
+
+Make sure to check [upgrade instructions](https://github.com/FortAwesome/angular-fontawesome/blob/master/UPGRADING.md).
+
+### Added
+
+* Support for Angular 15.
+* Documentation and option in `ng-add` schematic to use new [Sharp Solid](https://blog.fontawesome.com/introducing-font-awesome-sharp/) icons style. 
+
+### Changed
+
+* Documentation on how to create `fa-icon` programmatically updated to not use deprecated `ComponentFactoryResolver`.
+
+### Deprecated
+
+* `classes` and `styles` inputs on all components are deprecated for removal as confusing and generally not useful. See [upgrade instructions](https://github.com/FortAwesome/angular-fontawesome/blob/master/docs/upgrading/0.11.0-0.12.0.md#remove-usage-of-the-deprecated-styles-and-classes-inputs) for the suggested migration path.
+
+### Removed
+
+* Angular 14.x is no longer supported. If you are using this version, please, stick with version 0.11.1.
+
 ## [0.11.1](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.11.1) - 2022-06-16
 
 ### Fixed

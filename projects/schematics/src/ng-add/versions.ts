@@ -1,4 +1,4 @@
-export const angularFontawesomeVersion = '~0.11.1';
+export const angularFontawesomeVersion = '~0.12.0';
 export const iconPackVersion = '^6.2.0';
 
 export const v5 = {
