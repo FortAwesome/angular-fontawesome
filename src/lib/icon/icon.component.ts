@@ -101,7 +101,8 @@ export class FaIconComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     if (this.icon == null && this.config.fallbackIcon == null) {
-      return faWarnIfIconSpecMissing();
+      faWarnIfIconSpecMissing();
+      return;
     }
 
     if (changes) {
