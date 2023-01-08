@@ -48,7 +48,7 @@ export class AppComponent {
   isSyncAnimated = true;
   magicLevel = 0;
 
-  selectedPosition: string;
+  selectedPosition: 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left';
 
   constructor(library: FaIconLibrary, faConfig: FaConfig) {
     // Notice that we're adding two different icon objects to the library.

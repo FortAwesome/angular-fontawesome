@@ -12,11 +12,9 @@ export const faNormalizeIconSpec = (
     return iconSpec;
   }
 
-  if (Array.isArray(iconSpec) && (iconSpec as string[]).length === 2) {
-    return { prefix: iconSpec[0], iconName: iconSpec[1] };
-  }
-
   if (typeof iconSpec === 'string') {
     return { prefix: defaultPrefix, iconName: iconSpec };
   }
+
+  return { prefix: iconSpec[0], iconName: iconSpec[1] };
 };
