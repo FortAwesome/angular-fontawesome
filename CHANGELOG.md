@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.12.1](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.12.1) - 2023-01-09
+
+### Added
+
+* Support for all animations from Font Awesome 6. See [Animating icons](https://fontawesome.com/docs/web/style/animate).
+
 ## [0.12.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.12.0) - 2022-11-18
 
 Make sure to check [upgrade instructions](https://github.com/FortAwesome/angular-fontawesome/blob/master/UPGRADING.md).
