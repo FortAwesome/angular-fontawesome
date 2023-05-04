@@ -1,18 +1,11 @@
 {
   "root": true,
-  "ignorePatterns": [
-    "projects/**/*"
-  ],
+  "ignorePatterns": ["projects/**/*"],
   "overrides": [
     {
-      "files": [
-        "*.ts"
-      ],
+      "files": ["*.ts"],
       "parserOptions": {
-        "project": [
-          "tsconfig.lib.json",
-          "tsconfig.spec.json"
-        ],
+        "project": ["tsconfig.lib.json", "tsconfig.spec.json"],
         "createDefaultProgram": true
       },
       "extends": [
@@ -24,9 +17,7 @@
         "@angular-eslint/component-class-suffix": [
           "error",
           {
-            "suffixes": [
-              "Component"
-            ]
+            "suffixes": ["Component"]
           }
         ],
         "@angular-eslint/component-max-inline-declarations": [
@@ -46,9 +37,7 @@
         "@angular-eslint/directive-class-suffix": [
           "error",
           {
-            "suffixes": [
-              "Directive"
-            ]
+            "suffixes": ["Directive"]
           }
         ],
         "@angular-eslint/directive-selector": [
@@ -77,19 +66,12 @@
         "@typescript-eslint/no-var-requires": "error",
         "no-empty": "error",
         "no-fallthrough": "off",
-        "arrow-body-style": [
-          "error",
-          "as-needed"
-        ]
+        "arrow-body-style": ["error", "as-needed"]
       }
     },
     {
-      "files": [
-        "*.html"
-      ],
-      "extends": [
-        "plugin:@angular-eslint/template/recommended"
-      ],
+      "files": ["*.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended"],
       "rules": {}
     }
   ]
