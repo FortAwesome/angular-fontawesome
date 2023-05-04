@@ -5,7 +5,7 @@ Thanks for taking the time to consider contributing to the project. You will fin
 ## Prerequisites
 
 * [git](https://git-scm.com/downloads)
-* [node 16+](https://nodejs.org/en/download/)
+* [node 18+](https://nodejs.org/en/download/)
 
 ## Setting up the local environment
 
