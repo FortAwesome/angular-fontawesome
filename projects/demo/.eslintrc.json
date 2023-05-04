@@ -1,9 +1,13 @@
 {
   "extends": "../../.eslintrc.json",
-  "ignorePatterns": ["!**/*"],
+  "ignorePatterns": [
+    "!**/*"
+  ],
   "overrides": [
     {
-      "files": ["*.ts"],
+      "files": [
+        "*.ts"
+      ],
       "parserOptions": {
         "project": [
           "projects/demo/tsconfig.app.json",
@@ -16,7 +20,9 @@
         "@angular-eslint/component-class-suffix": [
           "error",
           {
-            "suffixes": ["Component"]
+            "suffixes": [
+              "Component"
+            ]
           }
         ],
         "@angular-eslint/component-max-inline-declarations": [
@@ -36,7 +42,9 @@
         "@angular-eslint/directive-class-suffix": [
           "error",
           {
-            "suffixes": ["Directive"]
+            "suffixes": [
+              "Directive"
+            ]
           }
         ],
         "@angular-eslint/directive-selector": [
@@ -65,11 +73,16 @@
         "@typescript-eslint/no-var-requires": "error",
         "no-empty": "error",
         "no-fallthrough": "off",
-        "arrow-body-style": ["error", "as-needed"]
+        "arrow-body-style": [
+          "error",
+          "as-needed"
+        ]
       }
     },
     {
-      "files": ["*.html"],
+      "files": [
+        "*.html"
+      ],
       "rules": {}
     }
   ]
