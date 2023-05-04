@@ -25,8 +25,7 @@ describe('ng-add', () => {
   it('adds v5 dependencies to package.json', async () => {
     const { runner, appTree } = await setup();
 
-    const tree = await runner
-      .runSchematic<Schema>('ng-add', { project: 'test-app', version: '5' }, appTree);
+    const tree = await runner.runSchematic<Schema>('ng-add', { project: 'test-app', version: '5' }, appTree);
 
     const packageJson = JSON.parse(tree.readContent('package.json'));
     expect(packageJson.dependencies).toBeDefined();
@@ -63,17 +62,14 @@ describe('ng-add', () => {
   it('allows to install several @fortawesome/*-svg-icons packages', async () => {
     const { runner, appTree } = await setup();
 
-    const tree = await runner
-      .runSchematic<Schema>(
-        'ng-add',
-        {
-          project: 'test-app',
-          iconPackages: ['free-solid', 'free-brands', 'free-regular'],
-        },
-        appTree,
-      )
-      ;
-
+    const tree = await runner.runSchematic<Schema>(
+      'ng-add',
+      {
+        project: 'test-app',
+        iconPackages: ['free-solid', 'free-brands', 'free-regular'],
+      },
+      appTree,
+    );
     const packageJson = JSON.parse(tree.readContent('package.json'));
     expect(packageJson.dependencies).toBeDefined();
 
@@ -86,17 +82,14 @@ describe('ng-add', () => {
   it('allows to install no icon packages', async () => {
     const { runner, appTree } = await setup();
 
-    const tree = await runner
-      .runSchematic<Schema>(
-        'ng-add',
-        {
-          project: 'test-app',
-          iconPackages: [],
-        },
-        appTree,
-      )
-      ;
-
+    const tree = await runner.runSchematic<Schema>(
+      'ng-add',
+      {
+        project: 'test-app',
+        iconPackages: [],
+      },
+      appTree,
+    );
     const packageJson = JSON.parse(tree.readContent('package.json'));
     expect(packageJson.dependencies).toBeDefined();
 
@@ -108,17 +101,16 @@ describe('ng-add', () => {
 const setup = async () => {
   const runner = new SchematicTestRunner('schematics', collectionPath);
 
-  const appTree = await runner
-    .runExternalSchematic(
-      '@schematics/angular',
-      'ng-new',
-      {
-        name: 'test-app',
-        version: '9.0.0-rc.6',
-        directory: '.',
-      },
-      Tree.empty(),
-    );
+  const appTree = await runner.runExternalSchematic(
+    '@schematics/angular',
+    'ng-new',
+    {
+      name: 'test-app',
+      version: '9.0.0-rc.6',
+      directory: '.',
+    },
+    Tree.empty(),
+  );
 
   return { runner, appTree };
 };
