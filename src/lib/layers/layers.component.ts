@@ -7,6 +7,7 @@ import { FaConfig } from '../config';
  */
 @Component({
   selector: 'fa-layers',
+  standalone: true,
   template: `<ng-content></ng-content>`,
 })
 export class FaLayersComponent implements OnInit, OnChanges {

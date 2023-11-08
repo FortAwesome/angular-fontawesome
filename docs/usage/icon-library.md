@@ -2,7 +2,7 @@
 
 The icon library approach provides convenient usage in the templates, but the icons have to be managed separately from the components. This has long-term maintenance implications, specifically, this means that there is no easy way to tell if any given icon is in use. Therefore, if someone accidentally removes an icon from the icon library, the application will build just fine, but the component that needs this icon will break at runtime.
 
-Icons should be registered only once in the `AppModule`'s constructor using `FaIconLibrary.addIcons()` or `FaIconLibrary.addIconPacks()` calls. Icons added to the library will be available everywhere in the application and can be referenced just by their name. This eliminates the need to explicitly import icons and assign them to a property of every individual component to be able to use them in the template as with the [explicit reference](./explicit-reference.md) approach.
+Icons should be registered only once in the `AppComponent`'s constructor using `FaIconLibrary.addIcons()` or `FaIconLibrary.addIconPacks()` calls. Icons added to the library will be available everywhere in the application and can be referenced just by their name. This eliminates the need to explicitly import icons and assign them to a property of every individual component to be able to use them in the template as with the [explicit reference](./explicit-reference.md) approach.
 
 `src/app/app.component.html`
 
@@ -13,29 +13,28 @@ Icons should be registered only once in the `AppModule`'s constructor using `FaI
 <fa-icon [icon]="['fas', 'coffee']"></fa-icon>
 ```
 
-`src/app/app.module.ts`
+`src/app/app.component.ts`
 
 1. Import `{ FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome'`.
 1. Add `FontAwesomeModule` to `imports`.
 
-   Note that you need to add `FontAwesomeModule` to the `imports` of every module where you want to use `fa-icon` component, because of Angular module encapsulation. You can read more about it in [this blog post](https://indepth.dev/posts/1056/avoiding-common-confusions-with-modules-in-angular#module-encapsulation).
-1. Inject `FaIconLibrary` into constructor of the module.
+   Note that you need to add `FontAwesomeModule` to the `imports` of every module/component where you want to use `fa-icon` component, because of Angular module encapsulation. You can read more about it in [this blog post](https://indepth.dev/posts/1056/avoiding-common-confusions-with-modules-in-angular#module-encapsulation).
+1. Inject `FaIconLibrary` into constructor of the `AppComponent`.
 1. Import an icon like `{ faCoffee } from '@fortawesome/free-solid-svg-icons'`.
 1. Add icon to the library with `library.addIcons(faCoffee)`.
 
 ```typescript
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { Component } from '@angular/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-import { AppComponent } from './app.component';
 
-@NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, FontAwesomeModule],
-  bootstrap: [AppComponent]
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [FontAwesomeModule],
+  templateUrl: './app.component.html',
 })
-export class AppModule {
+export class AppComponent {
   constructor(library: FaIconLibrary) {
     // Add an icon to the library for convenient access in other components
     library.addIcons(faCoffee);
@@ -49,7 +48,7 @@ You can also import entire icon styles. But be careful! This way of importing ic
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 
-export class AppModule {
+export class AppComponent {
   constructor(library: FaIconLibrary) {
     library.addIconPacks(fas, far);
   }

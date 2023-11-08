@@ -3,6 +3,8 @@ import { appPage } from './app.page';
 
 describe('Angular FontAwesome demo', () => {
   beforeEach(async () => {
+    // TODO: Migrate off Protractor as wait for Angular does not seem to work in the standalone mode
+    browser.waitForAngularEnabled(false);
     await appPage.navigateTo();
   });
 

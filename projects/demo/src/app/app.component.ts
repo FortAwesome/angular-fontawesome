@@ -1,5 +1,6 @@
+import { DecimalPipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { FaConfig, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { FaConfig, FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { IconDefinition, IconName } from '@fortawesome/fontawesome-svg-core';
 import { faFlag, faUser as regularUser } from '@fortawesome/free-regular-svg-icons';
 import {
@@ -19,9 +20,12 @@ import {
   faTimes,
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
+import { AlternatePrefixComponent } from './alternate-prefix.component';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [DecimalPipe, FontAwesomeModule, AlternatePrefixComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })

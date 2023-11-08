@@ -14,48 +14,25 @@ While this approach is more verbose than the [icon library](./icon-library.md) a
 
 `src/app/app.component.ts`
 
+1. Import `{ FontAwesomeModule } from '@fortawesome/angular-fontawesome'`.
+1. Add `FontAwesomeModule` to `imports`.
+
+   Note that you need to add `FontAwesomeModule` to the `imports` of every module/component where you want to use `fa-icon` component, because of Angular module encapsulation. You can read more about it in [this blog post](https://indepth.dev/posts/1056/avoiding-common-confusions-with-modules-in-angular#module-encapsulation).
 1. Import an icon like `{ faCoffee } from '@fortawesome/free-solid-svg-icons'`.
 1. Assign icon to the component property using `faCoffee = faCoffee`.
 
 ```typescript
 import { Component } from '@angular/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [FontAwesomeModule],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
   faCoffee = faCoffee;
 }
-```
-
-`src/app/app.module.ts`
-
-1. Import `{ FontAwesomeModule } from '@fortawesome/angular-fontawesome'`.
-1. Add `FontAwesomeModule` to `imports`.
-
-   Note that you need to add `FontAwesomeModule` to the `imports` of every module where you want to use `fa-icon` component, because of Angular module encapsulation. You can read more about it in [this blog post](https://indepth.dev/posts/1056/avoiding-common-confusions-with-modules-in-angular#module-encapsulation).
-
-```typescript
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    FontAwesomeModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
 ```
