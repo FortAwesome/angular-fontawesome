@@ -14,7 +14,10 @@ export class FaStackComponent implements OnInit, OnChanges {
    */
   @Input() size?: SizeProp;
 
-  constructor(private renderer: Renderer2, private elementRef: ElementRef) {}
+  constructor(
+    private renderer: Renderer2,
+    private elementRef: ElementRef,
+  ) {}
 
   ngOnInit() {
     this.renderer.addClass(this.elementRef.nativeElement, 'fa-stack');

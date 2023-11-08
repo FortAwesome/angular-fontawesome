@@ -43,7 +43,7 @@ describe('FaDuotoneIconComponent', () => {
 
     const fixture = initTest(HostComponent);
     fixture.detectChanges();
-    expect(queryByCss(fixture, 'svg').style.getPropertyValue('--fa-primary-opacity')).toBe(' 0.1');
+    expect(queryByCss(fixture, 'svg').style.getPropertyValue('--fa-primary-opacity')).toBe('0.1');
   });
 
   it('should allow to customize opacity of the secondary layer', () => {
@@ -57,7 +57,7 @@ describe('FaDuotoneIconComponent', () => {
 
     const fixture = initTest(HostComponent);
     fixture.detectChanges();
-    expect(queryByCss(fixture, 'svg').style.getPropertyValue('--fa-secondary-opacity')).toBe(' 0.9');
+    expect(queryByCss(fixture, 'svg').style.getPropertyValue('--fa-secondary-opacity')).toBe('0.9');
   });
 
   it('should allow to customize color of the primary layer', () => {
@@ -71,7 +71,7 @@ describe('FaDuotoneIconComponent', () => {
 
     const fixture = initTest(HostComponent);
     fixture.detectChanges();
-    expect(queryByCss(fixture, 'svg').style.getPropertyValue('--fa-primary-color')).toBe(' red');
+    expect(queryByCss(fixture, 'svg').style.getPropertyValue('--fa-primary-color')).toBe('red');
   });
 
   it('should allow to customize color of the secondary layer', () => {
@@ -85,7 +85,7 @@ describe('FaDuotoneIconComponent', () => {
 
     const fixture = initTest(HostComponent);
     fixture.detectChanges();
-    expect(queryByCss(fixture, 'svg').style.getPropertyValue('--fa-secondary-color')).toBe(' red');
+    expect(queryByCss(fixture, 'svg').style.getPropertyValue('--fa-secondary-color')).toBe('red');
   });
 
   it('should throw if specified icon is not a Duotone icon', () => {

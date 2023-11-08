@@ -74,7 +74,10 @@ export class FaLayersTextComponent implements OnChanges {
 
   private animation: AnimationProp;
 
-  constructor(@Optional() private parent: FaLayersComponent, private sanitizer: DomSanitizer) {
+  constructor(
+    @Optional() private parent: FaLayersComponent,
+    private sanitizer: DomSanitizer,
+  ) {
     faWarnIfParentNotExist(this.parent, 'FaLayersComponent', this.constructor.name);
   }
 
