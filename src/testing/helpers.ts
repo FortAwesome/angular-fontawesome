@@ -12,8 +12,8 @@ import { FaStackComponent } from '../lib/stack/stack.component';
 
 export const initTest = <T>(component: Type<T>, providers?: any[]): ComponentFixture<T> => {
   TestBed.configureTestingModule({
-    imports: [CommonModule],
-    declarations: [
+    imports: [
+      CommonModule,
       FaIconComponent,
       FaDuotoneIconComponent,
       FaLayersComponent,
@@ -21,8 +21,8 @@ export const initTest = <T>(component: Type<T>, providers?: any[]): ComponentFix
       FaLayersCounterComponent,
       FaStackComponent,
       FaStackItemSizeDirective,
-      component,
     ],
+    declarations: [component],
     providers,
   });
   return TestBed.createComponent(component);

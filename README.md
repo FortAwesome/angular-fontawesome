@@ -53,38 +53,21 @@ $ npm install @fortawesome/angular-fontawesome@<version>
 |0.13.x|16.x|5.x && 6.x|supported|
 
 ## Usage
-To get up and running using Font Awesome with Angular follow below steps:
 
-1. Add `FontAwesomeModule` to `imports` in
-`src/app/app.module.ts`:
+To get up and running using Font Awesome with Angular follow the below steps:
 
-    ```typescript
-    import { BrowserModule } from '@angular/platform-browser';
-    import { NgModule } from '@angular/core';
-    
-    import { AppComponent } from './app.component';
-    import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-    
-    @NgModule({
-      imports: [
-        BrowserModule,
-        FontAwesomeModule
-      ],
-      declarations: [AppComponent],
-      bootstrap: [AppComponent]
-    })
-    export class AppModule { }
-    ```
-
-2. Tie the icon to the property in your component
+1. Add `FontAwesomeModule` to the `imports` and tie the icon to the property in your component
 `src/app/app.component.ts`:
 
     ```typescript
     import { Component } from '@angular/core';
+    import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     import { faCoffee } from '@fortawesome/free-solid-svg-icons';
     
     @Component({
       selector: 'app-root',
+      standalone: true,
+      imports: [FontAwesomeModule], // alternatively, individual components can be imported
       templateUrl: './app.component.html'
     })
     export class AppComponent {
@@ -92,7 +75,7 @@ To get up and running using Font Awesome with Angular follow below steps:
     }
     ```
 
-3. Use the icon in the template
+1. Use the icon in the template
 `src/app/app.component.html`:
 
     ```html

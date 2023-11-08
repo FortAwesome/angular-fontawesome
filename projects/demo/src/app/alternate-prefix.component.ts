@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { FaConfig, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { FaConfig, FaIconComponent, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faBellSlash, faHandPaper, faUser } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-alternate-prefix',
+  standalone: true,
+  imports: [FaIconComponent],
   templateUrl: './alternate-prefix.component.html',
   providers: [FaConfig],
 })

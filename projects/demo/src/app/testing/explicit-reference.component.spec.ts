@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ExplicitReferenceComponent } from './explicit-reference.component';
 
 describe('ExplicitReferenceComponent', () => {
@@ -8,8 +7,7 @@ describe('ExplicitReferenceComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [FontAwesomeModule], // <--
-      declarations: [ExplicitReferenceComponent],
+      imports: [ExplicitReferenceComponent],
     });
   });
 

@@ -26,6 +26,7 @@ import { FaStackComponent } from '../stack/stack.component';
 
 @Component({
   selector: 'fa-icon',
+  standalone: true,
   template: ``,
   host: {
     class: 'ng-fa-icon',

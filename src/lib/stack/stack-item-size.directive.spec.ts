@@ -7,7 +7,8 @@ import { FaStackComponent } from './stack.component';
 
 const initTest = <T>(component: Type<T>): ComponentFixture<T> => {
   TestBed.configureTestingModule({
-    declarations: [FaStackComponent, FaStackItemSizeDirective, FaIconComponent, component],
+    imports: [FaStackComponent, FaStackItemSizeDirective, FaIconComponent],
+    declarations: [component],
   });
   return TestBed.createComponent(component);
 };

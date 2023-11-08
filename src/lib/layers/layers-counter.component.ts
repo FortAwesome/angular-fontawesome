@@ -6,6 +6,7 @@ import { FaLayersComponent } from './layers.component';
 
 @Component({
   selector: 'fa-layers-counter',
+  standalone: true,
   template: '',
   host: {
     class: 'ng-fa-layers-counter',

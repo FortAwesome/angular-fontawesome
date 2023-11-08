@@ -8,7 +8,7 @@ import { FaStackItemSizeDirective } from './stack/stack-item-size.directive';
 import { FaStackComponent } from './stack/stack.component';
 
 @NgModule({
-  declarations: [
+  imports: [
     FaIconComponent,
     FaDuotoneIconComponent,
     FaLayersComponent,

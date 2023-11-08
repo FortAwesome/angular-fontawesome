@@ -11,8 +11,7 @@ describe('IconLibraryComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [FontAwesomeModule], // <--
-      declarations: [IconLibraryComponent],
+      imports: [IconLibraryComponent],
     });
   });
 
@@ -37,8 +36,7 @@ describe('IconLibraryComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [FontAwesomeTestingModule], // <--
-      declarations: [IconLibraryComponent],
+      imports: [FontAwesomeTestingModule, IconLibraryComponent], // <--
     });
   });
 
@@ -69,8 +67,7 @@ describe('IconLibraryComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [FontAwesomeIconsModule], // <--
-      declarations: [IconLibraryComponent],
+      imports: [FontAwesomeIconsModule, IconLibraryComponent], // <--
     });
   });
 
