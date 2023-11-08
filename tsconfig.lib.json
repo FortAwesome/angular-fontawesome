@@ -5,7 +5,7 @@
     "declaration": true,
     "declarationMap": true,
     "inlineSources": true,
-    "types": []
+    "types": ["node"]
   },
-  "exclude": ["src/testing/*.ts", "src/test.ts", "**/*.spec.ts"]
+  "exclude": ["src/testing/*.ts", "**/*.spec.ts"]
 }

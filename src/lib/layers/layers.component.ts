@@ -14,7 +14,11 @@ export class FaLayersComponent implements OnInit, OnChanges {
 
   @Input() @HostBinding('class.fa-fw') fixedWidth?: boolean;
 
-  constructor(private renderer: Renderer2, private elementRef: ElementRef, private config: FaConfig) {}
+  constructor(
+    private renderer: Renderer2,
+    private elementRef: ElementRef,
+    private config: FaConfig,
+  ) {}
 
   ngOnInit() {
     this.renderer.addClass(this.elementRef.nativeElement, 'fa-layers');

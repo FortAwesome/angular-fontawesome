@@ -37,14 +37,22 @@ describe('ng-add', () => {
     expect(dependencies['@fortawesome/angular-fontawesome']).toBe(angularFontawesomeVersion);
   });
 
-  it('adds FontAwesomeModule import to the AppModule', async () => {
-    const { runner, appTree } = await setup();
+  it('adds FontAwesomeModule import to the AppModule when standalone=false', async () => {
+    const { runner, appTree } = await setup(false);
 
     const tree = await runner.runSchematic<Schema>('ng-add', { project: 'test-app' }, appTree);
 
     const contents = tree.readContent('src/app/app.module.ts');
 
     expect(contents).toContain('import { FontAwesomeModule }');
+  });
+
+  it('does not attempt to add FontAwesomeModule import to the AppModule when standalone=true', async () => {
+    const { runner, appTree } = await setup();
+
+    const tree = await runner.runSchematic<Schema>('ng-add', { project: 'test-app' }, appTree);
+
+    expect(tree.files).not.toContain('/src/app/app.module.ts');
   });
 
   it('installs @fortawesome/free-solid-svg-icons package by default', async () => {
@@ -98,7 +106,7 @@ describe('ng-add', () => {
   });
 });
 
-const setup = async () => {
+const setup = async (standalone?: boolean) => {
   const runner = new SchematicTestRunner('schematics', collectionPath);
 
   const appTree = await runner.runExternalSchematic(
@@ -108,6 +116,7 @@ const setup = async () => {
       name: 'test-app',
       version: '9.0.0-rc.6',
       directory: '.',
+      standalone,
     },
     Tree.empty(),
   );

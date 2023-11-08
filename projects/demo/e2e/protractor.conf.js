@@ -8,6 +8,7 @@ const { SpecReporter, StacktraceOption } = require('jasmine-spec-reporter');
  * @type { import("protractor").Config }
  */
 exports.config = {
+  chromeDriver: require(`chromedriver/lib/chromedriver`).path,
   allScriptsTimeout: 11000,
   specs: ['./src/**/*.e2e-spec.ts'],
   capabilities: {

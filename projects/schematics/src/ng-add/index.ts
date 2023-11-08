@@ -8,7 +8,8 @@ import {
 import { addImportToModule } from '@schematics/angular/utility/ast-utils';
 import { InsertChange } from '@schematics/angular/utility/change';
 import { addPackageJsonDependency, NodeDependencyType } from '@schematics/angular/utility/dependencies';
-import { getAppModulePath } from '@schematics/angular/utility/ng-ast-utils';
+import { getAppModulePath, isStandaloneApp } from '@schematics/angular/utility/ng-ast-utils';
+import { getMainFilePath } from '@schematics/angular/utility/standalone/util';
 import { getWorkspace } from '@schematics/angular/utility/workspace';
 import { Schema } from './schema';
 import { angularFontawesomeVersion, iconPackVersion, v5 } from './versions';
@@ -53,22 +54,24 @@ function addModule(options: Schema): Rule {
     if (project == null) {
       throw new SchematicsException(`Project with name ${projectName} does not exist.`);
     }
-    const buildOptions = getProjectTargetOptions(project, 'build');
-    const modulePath = getAppModulePath(host, buildOptions.main as string);
-    const moduleSource = getSourceFile(host, modulePath);
-    const changes = addImportToModule(
-      moduleSource,
-      modulePath,
-      'FontAwesomeModule',
-      '@fortawesome/angular-fontawesome',
-    );
-    const recorder = host.beginUpdate(modulePath);
-    changes.forEach((change) => {
-      if (change instanceof InsertChange) {
-        recorder.insertLeft(change.pos, change.toAdd);
-      }
-    });
-    host.commitUpdate(recorder);
+    const mainPath = await getMainFilePath(host, projectName);
+    if (!isStandaloneApp(host, mainPath)) {
+      const modulePath = getAppModulePath(host, mainPath);
+      const moduleSource = getSourceFile(host, modulePath);
+      const changes = addImportToModule(
+        moduleSource,
+        modulePath,
+        'FontAwesomeModule',
+        '@fortawesome/angular-fontawesome',
+      );
+      const recorder = host.beginUpdate(modulePath);
+      changes.forEach((change) => {
+        if (change instanceof InsertChange) {
+          recorder.insertLeft(change.pos, change.toAdd);
+        }
+      });
+      host.commitUpdate(recorder);
+    }
   };
 }
 
