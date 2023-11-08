@@ -5,6 +5,21 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.14.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.14.0) - 2023-11-08
+
+### Added
+
+* Support for Angular 17.
+* Possibility to use all components as standalone.
+
+### Changed
+
+* Examples to use standalone components instead of modules.
+
+### Removed
+
+* Angular 16.x is no longer supported. If you are using this version, please, stick with version 0.13.0.
+
 ## [0.13.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.13.0) - 2023-05-04
 
 ### Added

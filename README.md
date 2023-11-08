@@ -51,6 +51,7 @@ $ npm install @fortawesome/angular-fontawesome@<version>
 |0.11.x|14.x|5.x && 6.x|supported|
 |0.12.x|15.x|5.x && 6.x|supported|
 |0.13.x|16.x|5.x && 6.x|supported|
+|0.14.x|17.x|5.x && 6.x|supported|
 
 ## Usage
 
