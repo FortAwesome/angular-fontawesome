@@ -52,20 +52,6 @@ export class FaIconComponent implements OnChanges {
    */
   @Input() animation?: AnimationProp;
 
-  /**
-   * @deprecated Use animation="spin" instead. To be removed in 0.14.0.
-   */
-  @Input() set spin(value: boolean) {
-    this.animation = value ? 'spin' : undefined;
-  }
-
-  /**
-   * @deprecated Use animation="spin-pulse" instead. To be removed in 0.14.0.
-   */
-  @Input() set pulse(value: boolean) {
-    this.animation = value ? 'spin-pulse' : undefined;
-  }
-
   @Input() mask?: IconProp;
 
   /**

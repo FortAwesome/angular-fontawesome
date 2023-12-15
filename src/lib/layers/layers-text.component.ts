@@ -48,20 +48,6 @@ export class FaLayersTextComponent implements OnChanges {
    */
   @Input() classes?: string[] = [];
 
-  /**
-   * @deprecated This input was incorrectly exposed and never worked correctly. To be removed in 0.14.0.
-   */
-  @Input() set spin(value: boolean) {
-    this.animation = value ? 'spin' : undefined;
-  }
-
-  /**
-   * @deprecated This input was incorrectly exposed and never worked correctly. To be removed in 0.14.0.
-   */
-  @Input() set pulse(value: boolean) {
-    this.animation = value ? 'spin-pulse' : undefined;
-  }
-
   @Input() flip?: FlipProp;
   @Input() size?: SizeProp;
   @Input() pull?: PullProp;
