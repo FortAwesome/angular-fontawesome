@@ -130,7 +130,7 @@ For more advanced styling, see [Styling icon internals](../guide/styling-icon-in
 
 ### Stateful Animations
 ```html
-<fa-icon [icon]="['fas', 'sync']" [spin]="isSyncAnimated" (click)="isSyncAnimated=!isSyncAnimated"></fa-icon>
+<fa-icon [icon]="['fas', 'sync']" [animation]="isSyncAnimated ? 'spin' : undefined" (click)="isSyncAnimated=!isSyncAnimated"></fa-icon>
 ```
 
 ### Transform within binding:
@@ -219,7 +219,7 @@ class HostComponent {
   @ViewChild(FaIconComponent, {static: true}) iconComponent: FaIconComponent;
 
   spinIcon() {
-    this.iconComponent.spin = true;
+    this.iconComponent.animation = 'spin';
     // Note that FaIconComponent.render() should be called to update the
     // rendered SVG after setting/updating component inputs.
     this.iconComponent.render();

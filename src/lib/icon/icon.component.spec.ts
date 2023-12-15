@@ -28,20 +28,20 @@ describe('FaIconComponent', () => {
   it('should support binding to boolean inputs', () => {
     @Component({
       selector: 'fa-host',
-      template: '<fa-icon [icon]="faUser" [spin]="isAnimated"></fa-icon>',
+      template: '<fa-icon [icon]="faUser" [inverse]="isInverse"></fa-icon>',
     })
     class HostComponent {
       faUser = faUser;
-      isAnimated = false;
+      isInverse = false;
     }
 
     const fixture = initTest(HostComponent);
     fixture.detectChanges();
-    expect(queryByCss(fixture, 'svg').classList.contains('fa-spin')).toBeFalsy();
+    expect(queryByCss(fixture, 'svg').classList.contains('fa-inverse')).toBeFalsy();
 
-    fixture.componentInstance.isAnimated = true;
+    fixture.componentInstance.isInverse = true;
     fixture.detectChanges();
-    expect(queryByCss(fixture, 'svg').classList.contains('fa-spin')).toBeTruthy();
+    expect(queryByCss(fixture, 'svg').classList.contains('fa-inverse')).toBeTruthy();
   });
 
   it('should be able to create component dynamically', () => {
@@ -86,7 +86,7 @@ describe('FaIconComponent', () => {
     fixture.detectChanges();
     expect(queryByCss(fixture, 'svg').classList.contains('fa-spin')).toBeFalsy();
 
-    fixture.componentInstance.iconComponent.spin = true;
+    fixture.componentInstance.iconComponent.animation = 'spin';
     fixture.componentInstance.iconComponent.render();
     fixture.detectChanges();
     expect(queryByCss(fixture, 'svg').classList.contains('fa-spin')).toBeTruthy();
