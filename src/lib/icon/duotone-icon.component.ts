@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IconDefinition, IconProp } from '@fortawesome/fontawesome-svg-core';
+import { IconDefinition, IconParams, IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FaIconComponent } from './icon.component';
 
 @Component({
@@ -64,11 +64,21 @@ export class FaDuotoneIconComponent extends FaIconComponent {
     return definition;
   }
 
-  protected buildParams() {
+  protected buildParams(): IconParams {
     const params = super.buildParams();
 
     if (this.swapOpacity === true || this.swapOpacity === 'true') {
-      params.classes.push('fa-swap-opacity');
+      if (Array.isArray(params.classes)) {
+        params.classes.push('fa-swap-opacity');
+      } else if (typeof params.classes === 'string') {
+        params.classes = [params.classes, 'fa-swap-opacity'];
+      } else {
+        params.classes = ['fa-swap-opacity'];
+      }
+    }
+
+    if (params.styles == null) {
+      params.styles = {};
     }
     if (this.primaryOpacity != null) {
       params.styles['--fa-primary-opacity'] = this.primaryOpacity.toString();

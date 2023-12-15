@@ -7,7 +7,7 @@ describe('FaLayersTextComponent', () => {
       selector: 'fa-host',
       template: `
         <fa-layers>
-          <fa-layers-text [content]="'Test'" [styles]="{ color: 'Tomato' }"></fa-layers-text>
+          <fa-layers-text [content]="'Test'"></fa-layers-text>
         </fa-layers>
       `,
     })
