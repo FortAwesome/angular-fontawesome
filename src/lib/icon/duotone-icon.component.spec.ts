@@ -1,4 +1,4 @@
-import { Component, ComponentFactoryResolver, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, ViewChild, ViewContainerRef } from '@angular/core';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faDummy, initTest, queryByCss } from '../../testing/helpers';
 import { FaDuotoneIconComponent } from './duotone-icon.component';
@@ -115,11 +115,8 @@ describe('FaDuotoneIconComponent', () => {
     class HostComponent {
       @ViewChild('host', { static: true, read: ViewContainerRef }) container: ViewContainerRef;
 
-      constructor(private cfr: ComponentFactoryResolver) {}
-
       createIcon() {
-        const factory = this.cfr.resolveComponentFactory(FaDuotoneIconComponent);
-        const componentRef = this.container.createComponent(factory);
+        const componentRef = this.container.createComponent(FaDuotoneIconComponent);
         componentRef.instance.icon = faDummy;
         componentRef.instance.render();
       }

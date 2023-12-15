@@ -1,4 +1,4 @@
-import { Component, ComponentFactoryResolver, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, ViewChild, ViewContainerRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faUser as faUserRegular } from '@fortawesome/free-regular-svg-icons';
@@ -52,11 +52,8 @@ describe('FaIconComponent', () => {
     class HostComponent {
       @ViewChild('host', { static: true, read: ViewContainerRef }) container: ViewContainerRef;
 
-      constructor(private cfr: ComponentFactoryResolver) {}
-
       createIcon() {
-        const factory = this.cfr.resolveComponentFactory(FaIconComponent);
-        const componentRef = this.container.createComponent(factory);
+        const componentRef = this.container.createComponent(FaIconComponent);
         componentRef.instance.icon = faUser;
         componentRef.instance.render();
       }
