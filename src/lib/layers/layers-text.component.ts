@@ -6,7 +6,6 @@ import {
   PullProp,
   RotateProp,
   SizeProp,
-  Styles,
   text,
   TextParams,
   Transform,
@@ -27,27 +26,6 @@ import { FaLayersComponent } from './layers.component';
 export class FaLayersTextComponent implements OnChanges {
   @Input() content: string;
   @Input() title?: string;
-
-  /**
-   * Set `style` attribute on the SVG element rendered by the component.
-   *
-   * @deprecated This input breaks view encapsulation and is not recommended.
-   * For simple cases (like colors), use `style` on the component itself, for
-   * more complex usages, explicitly opt-in to break the view encapsulation.
-   * This input is deprecated since 0.12.0 and will be removed in 0.13.0.
-   */
-  @Input() styles?: Styles;
-
-  /**
-   * Set `class` attribute on the SVG element rendered by the component.
-   *
-   * @deprecated This input breaks view encapsulation and is not recommended.
-   * For simple cases (like colors), use `class` on the component itself, for
-   * more complex usages, explicitly opt-in to break the view encapsulation.
-   * This input is deprecated since 0.12.0 and will be removed in 0.13.0.
-   */
-  @Input() classes?: string[] = [];
-
   @Input() flip?: FlipProp;
   @Input() size?: SizeProp;
   @Input() pull?: PullProp;
@@ -94,9 +72,8 @@ export class FaLayersTextComponent implements OnChanges {
 
     return {
       transform: parsedTransform,
-      classes: [...faClassList(classOpts), ...this.classes],
+      classes: faClassList(classOpts),
       title: this.title,
-      styles: this.styles,
     };
   }
 

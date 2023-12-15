@@ -7,7 +7,7 @@ describe('FaLayersCounterComponent', () => {
       selector: 'fa-host',
       template: `
         <fa-layers>
-          <fa-layers-counter [content]="'Test'" [styles]="{ color: 'Tomato' }"></fa-layers-counter>
+          <fa-layers-counter [content]="'Test'"></fa-layers-counter>
         </fa-layers>
       `,
     })

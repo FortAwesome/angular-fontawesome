@@ -37,6 +37,11 @@
 <h3>Change Size</h3>
 <fa-icon [icon]="faAdjust" size="2x"></fa-icon>
 
+<h3>Change color</h3>
+
+<p>Using custom style: <fa-icon [icon]="faAdjust" [style.color]="'red'"></fa-icon></p>
+<p>Using custom class: <fa-icon [icon]="faAdjust" class="green-icon"></fa-icon></p>
+
 <h3>Animations</h3>
 
 <button type="button" (click)="isAnimated = !isAnimated">Toggle animations</button>
@@ -106,12 +111,12 @@
 <p>Custom icons created with multiple layers.</p>
 <div>
   <fa-layers [fixedWidth]="true" size="4x">
-    <fa-icon [icon]="faCircle" [styles]="{ color: 'Tomato' }"></fa-icon>
+    <fa-icon [icon]="faCircle" [style.color]="'Tomato'"></fa-icon>
     <fa-icon [icon]="faTimes" [inverse]="true" transform="shrink-6"></fa-icon>
   </fa-layers>
   <fa-layers [fixedWidth]="true" size="4x">
     <fa-icon [icon]="faSquare"></fa-icon>
-    <fa-icon [icon]="faBatteryQuarter" transform="shrink-8" [styles]="{ color: 'Tomato' }"></fa-icon>
+    <fa-icon [icon]="faBatteryQuarter" transform="shrink-8" [style.color]="'Tomato'"></fa-icon>
   </fa-layers>
   <fa-layers [fixedWidth]="true" size="4x">
     <fa-icon [icon]="faFighterJet"></fa-icon>
@@ -124,12 +129,7 @@
 <div>
   <fa-layers [fixedWidth]="true" size="4x">
     <fa-icon [icon]="faFlag"></fa-icon>
-    <fa-layers-text
-      title="Fort Awesome"
-      [content]="'Fa'"
-      transform="up-4"
-      [styles]="{ 'font-size': '0.3em' }"
-    ></fa-layers-text>
+    <fa-layers-text title="Fort Awesome" [content]="'Fa'" transform="up-4" [style.font-size]="'0.3em'"></fa-layers-text>
   </fa-layers>
 </div>
 

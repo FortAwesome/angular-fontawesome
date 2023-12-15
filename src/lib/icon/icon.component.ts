@@ -11,7 +11,6 @@ import {
   PullProp,
   RotateProp,
   SizeProp,
-  Styles,
   Transform,
 } from '@fortawesome/fontawesome-svg-core';
 import { FaConfig } from '../config';
@@ -53,16 +52,6 @@ export class FaIconComponent implements OnChanges {
   @Input() animation?: AnimationProp;
 
   @Input() mask?: IconProp;
-
-  /**
-   * Set `style` attribute on the SVG element rendered by the component.
-   *
-   * @deprecated This input breaks view encapsulation and is not recommended.
-   * For simple cases (like colors), use `style` on the component itself, for
-   * more complex usages, explicitly opt-in to break the view encapsulation.
-   * This input is deprecated since 0.12.0 and will be removed in 0.13.0.
-   */
-  @Input() styles?: Styles;
   @Input() flip?: FlipProp;
   @Input() size?: SizeProp;
   @Input() pull?: PullProp;
@@ -71,16 +60,6 @@ export class FaIconComponent implements OnChanges {
   @Input() symbol?: FaSymbol;
   @Input() rotate?: RotateProp;
   @Input() fixedWidth?: boolean;
-
-  /**
-   * Set `class` attribute on the SVG element rendered by the component.
-   *
-   * @deprecated This input breaks view encapsulation and is not recommended.
-   * For simple cases (like colors), use `class` on the component itself, for
-   * more complex usages, explicitly opt-in to break the view encapsulation.
-   * This input is deprecated since 0.12.0 and will be removed in 0.13.0.
-   */
-  @Input() classes?: string[] = [];
   @Input() transform?: string | Transform;
 
   /**
@@ -149,7 +128,7 @@ export class FaIconComponent implements OnChanges {
     return null;
   }
 
-  protected buildParams() {
+  protected buildParams(): IconParams {
     const classOpts: FaProps = {
       flip: this.flip,
       animation: this.animation,
@@ -167,9 +146,8 @@ export class FaIconComponent implements OnChanges {
     return {
       title: this.title,
       transform: parsedTransform,
-      classes: [...faClassList(classOpts), ...this.classes],
+      classes: faClassList(classOpts),
       mask: this.mask != null ? this.findIconDefinition(this.mask) : null,
-      styles: this.styles != null ? this.styles : {},
       symbol: this.symbol,
       attributes: {
         role: this.a11yRole,

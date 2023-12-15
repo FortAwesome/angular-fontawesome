@@ -14,7 +14,7 @@ describe('FaLayersComponent', () => {
         <fa-layers>
           <fa-icon [icon]="faUser"></fa-icon>
           <fa-icon [icon]="faCoffee"></fa-icon>
-          <fa-layers-text [content]="'User with coffee'" [styles]="{ color: 'Tomato' }"></fa-layers-text>
+          <fa-layers-text [content]="'User with coffee'"></fa-layers-text>
         </fa-layers>
       `,
     })
@@ -35,7 +35,7 @@ describe('FaLayersComponent', () => {
         <fa-layers size="2x">
           <fa-icon [icon]="faUser"></fa-icon>
           <fa-icon [icon]="faCoffee"></fa-icon>
-          <fa-layers-text [content]="'User with coffee'" [styles]="{ color: 'Tomato' }"></fa-layers-text>
+          <fa-layers-text [content]="'User with coffee'"></fa-layers-text>
         </fa-layers>
       `,
     })
@@ -84,7 +84,7 @@ describe('FaLayersComponent', () => {
         <fa-layers [fixedWidth]="false">
           <fa-icon [icon]="faUser"></fa-icon>
           <fa-icon [icon]="faCoffee"></fa-icon>
-          <fa-layers-text [content]="'User with coffee'" [styles]="{ color: 'Tomato' }"></fa-layers-text>
+          <fa-layers-text [content]="'User with coffee'"></fa-layers-text>
         </fa-layers>
       `,
     })
@@ -135,7 +135,7 @@ describe('FaLayersComponent', () => {
       template: `
         <fa-layers>
           <fa-duotone-icon [icon]="faDummy"></fa-duotone-icon>
-          <fa-layers-text [content]="'Dummy'" [styles]="{ color: 'Tomato' }"></fa-layers-text>
+          <fa-layers-text [content]="'Dummy'"></fa-layers-text>
         </fa-layers>
       `,
     })
@@ -155,7 +155,7 @@ describe('FaLayersComponent', () => {
         <fa-layers>
           <ng-container>
             <fa-icon [icon]="faUser"></fa-icon>
-            <fa-layers-text [content]="'Dummy'" [styles]="{ color: 'Tomato' }"></fa-layers-text>
+            <fa-layers-text [content]="'Dummy'"></fa-layers-text>
           </ng-container>
         </fa-layers>
       `,
