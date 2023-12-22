@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IconDefinition, IconPrefix } from '@fortawesome/fontawesome-common-types';
+import { IconDefinition, IconPrefix } from '@fortawesome/fontawesome-svg-core';
 
 @Injectable({ providedIn: 'root' })
 export class FaConfig {
