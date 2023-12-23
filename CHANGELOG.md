@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.14.1](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.14.1) - 2023-12-23
+
+### Fixed
+
+* Removed import from `@fortawesome/fontawesome-common-types`, which was an undeclared dependency.
+
 ## [0.14.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.14.0) - 2023-11-08
 
 ### Added
