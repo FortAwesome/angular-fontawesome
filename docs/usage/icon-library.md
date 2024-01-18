@@ -55,6 +55,31 @@ export class AppComponent {
 }
 ```
 
+A better way can be to use a [https://fontawesome.com/kits](Font Awesome Kit) to only include the icons you choose. You can even upload your own icons.
+
+[Find out more about Kits and how you can use them in JavaScript projects](https://fontawesome.com/docs/web/setup/use-kit)
+
+_In these examples, you would replace "KIT_CODE" with the unique identifier for your Pro Kit_
+
+```typescript
+import { Component } from '@angular/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { all } from '@awesome.me/kit-KIT_CODE/icons';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [FontAwesomeModule],
+  templateUrl: './app.component.html',
+})
+export class AppComponent {
+  constructor(library: FaIconLibrary) {
+    // Add an icon to the library for convenient access in other components
+    library.addIcons(...all);
+  }
+}
+```
+
 ## Changing the default prefix
 
 The default prefix, `fas`, can be adjusted by injecting the `FaConfig` and modifying the `defaultPrefix` property.

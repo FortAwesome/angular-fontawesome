@@ -2,7 +2,7 @@
 
 While `<fa-icon>` component provides a convenient way to render a Font Awesome icon in the Angular app, there are situations where you can't use it. This guide describes such situations and how to use Font Awesome JavaScript API to deal with them.
 
-The Font Awesome JavaScript API is distributed as the [`@fortawesome/fontawesome-svg-core`](https://www.npmjs.com/package/@fortawesome/fontawesome-svg-core) package. The [documentation](https://fontawesome.com/v5.15/how-to-use/javascript-api/setup/getting-started) for the JavaScript API is available on the official website.
+The Font Awesome JavaScript API is distributed as the [`@fortawesome/fontawesome-svg-core`](https://www.npmjs.com/package/@fortawesome/fontawesome-svg-core) package. The [documentation](https://fontawesome.com/docs/apis/javascript/get-started) for the JavaScript API is available on the official website.
 
 ## Replace `<i>` tags with icons in the arbitrary HTML
 
