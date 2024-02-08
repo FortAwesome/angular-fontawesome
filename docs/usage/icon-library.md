@@ -55,7 +55,7 @@ export class AppComponent {
 }
 ```
 
-A better way can be to use a [https://fontawesome.com/kits](Font Awesome Kit) to only include the icons you choose. You can even upload your own icons.
+A better way can be to use a [Font Awesome Kit](https://fontawesome.com/kits) to only include the icons you choose. You can even upload your own icons.
 
 [Find out more about Kits and how you can use them in JavaScript projects](https://fontawesome.com/docs/web/setup/use-kit)
 
