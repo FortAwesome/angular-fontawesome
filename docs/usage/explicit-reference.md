@@ -36,3 +36,25 @@ export class AppComponent {
   faCoffee = faCoffee;
 }
 ```
+
+You can also use a [Font Awesome Kit](https://fontawesome.com/kits). With a Kit
+you can upload your own icons or pick only the icons you'd like to use.
+
+[Find out more about Kits and how you can use them in JavaScript projects](https://fontawesome.com/docs/web/setup/use-kit)
+
+```typescript
+import { Component } from '@angular/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faCoffee } from '@awesome.me/kit-KIT_CODE/icons/classic/solid'; // KIT_CODE is a unique identifier for you Pro Kit
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [FontAwesomeModule],
+  templateUrl: './app.component.html',
+})
+export class AppComponent {
+  faCoffee = faCoffee;
+}
+```
+
