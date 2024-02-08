@@ -81,7 +81,7 @@ import { faArrowAltRight } from '@fortawesome/pro-light-svg-icons';
 
 ## Pro-only Kit
 
-You can now use your [https://fontawesome.com/kits](Font Awesome Kit) with angular-fontawesome. With a Kit you can upload your own icons or pick only the icons you'd like to use.
+You can now use your [Font Awesome Kit](https://fontawesome.com/kits) with angular-fontawesome. With a Kit you can upload your own icons or pick only the icons you'd like to use.
 
 [Find out more about Kits and how you can use them in JavaScript projects](https://fontawesome.com/docs/web/setup/use-kit)
 
