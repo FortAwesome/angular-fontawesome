@@ -37,7 +37,7 @@ export class AppComponent {
 }
 ```
 
-You can also use a [https://fontawesome.com/kits](Font Awesome Kit). With a Kit
+You can also use a [Font Awesome Kit](https://fontawesome.com/kits). With a Kit
 you can upload your own icons or pick only the icons you'd like to use.
 
 [Find out more about Kits and how you can use them in JavaScript projects](https://fontawesome.com/docs/web/setup/use-kit)
