@@ -9,7 +9,7 @@ describe('Angular FontAwesome demo', () => {
   });
 
   it('should render all icons', async () => {
-    expect(await appPage.icons.count()).toBe(45);
+    expect(await appPage.icons.count()).toBe(46);
   });
 
   afterEach(async () => {

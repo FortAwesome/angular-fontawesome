@@ -23,9 +23,9 @@ The following features are available as part of Font Awesome. Note that the synt
 [FontAwesome Spec](https://fontawesome.com/how-to-use/on-the-web/styling/rotating-icons):
 
 ```html
-<fa-icon [icon]="['fas', 'coffee']" rotate="90"></fa-icon>
-<fa-icon [icon]="['fas', 'coffee']" rotate="180"></fa-icon>
-<fa-icon [icon]="['fas', 'coffee']" rotate="270"></fa-icon>
+<fa-icon [icon]="['fas', 'coffee']" [rotate]="90"></fa-icon>
+<fa-icon [icon]="['fas', 'coffee']" [rotate]="180"></fa-icon>
+<fa-icon [icon]="['fas', 'coffee']" [rotate]="270"></fa-icon>
 ```
 
 ### Flip
