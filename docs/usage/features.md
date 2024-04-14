@@ -154,6 +154,8 @@ Each `<fa-icon>` declared inside an `<fa-stack>` element **must** include the `s
 </fa-stack>
 ```
 
+When using standalone components, make sure to also add `FaStackItemSizeDirective` to the imports alongside with the `FaStackComponent`. Without the directive, the stacked icon will not render correctly.
+
 ### Layers
 [FontAwesome Spec](https://fontawesome.com/how-to-use/on-the-web/styling/layering):
 
