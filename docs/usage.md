@@ -53,6 +53,7 @@ Take your icons to the next level with these advanced features.
 Guides on specific topics or use cases.
 
 * [Testing](./guide/testing.md)
+* [Custom icons](./guide/custom-icons.md)
 * [Storybook](./guide/storybook.md)
 * [Advanced uses](./guide/advanced-uses.md)
 * [Styling icon internals](./guide/styling-icon-internals.md)

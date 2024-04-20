@@ -4,7 +4,7 @@ import { FaIconLibraryInterface, IconDefinition, IconName, IconPrefix } from '@f
 export const dummyIcon: IconDefinition = {
   prefix: 'fad',
   iconName: 'dummy',
-  icon: [512, 512, [], 'f030', 'M50 50 H462 V462 H50 Z'],
+  icon: [512, 512, [], '', 'M50 50 H462 V462 H50 Z'],
 };
 
 @Injectable({

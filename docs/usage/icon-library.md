@@ -80,6 +80,18 @@ export class AppComponent {
 }
 ```
 
+Kit packages use a [subpath exports](https://nodejs.org/api/packages.html#subpath-exports) feature of Node.js. If you
+get an error like `Cannot find module '@awesome.me/kit-KIT_CODE/icons' or its corresponding type declartions.`, you may
+need to update your `tsconfig.json` to set `moduleResolution` to `bundler`: 
+
+```json
+{
+  "compilerOptions": {
+    "moduleResolution": "bundler"
+  }
+}
+```
+
 ## Changing the default prefix
 
 The default prefix, `fas`, can be adjusted by injecting the `FaConfig` and modifying the `defaultPrefix` property.

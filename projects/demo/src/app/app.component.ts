@@ -8,6 +8,7 @@ import {
   faBell,
   faCircle,
   faCoffee,
+  faCog,
   faEllipsisH,
   faFighterJet,
   faFlag as solidFlag,
@@ -15,7 +16,6 @@ import {
   faMagic,
   faSpinner,
   faSquare,
-  faCog,
   faTimes,
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
@@ -48,7 +48,7 @@ export class AppComponent {
   faDummy: IconDefinition = {
     prefix: 'fad',
     iconName: 'dummy',
-    icon: [512, 512, [], 'f030', ['M50 50 H412 V250 H50 Z', 'M50 262 H412 V462 H50 Z']],
+    icon: [512, 512, [], '', ['M50 50 H412 V250 H50 Z', 'M50 262 H412 V462 H50 Z']],
   };
 
   notificationsCounter = 1000;
