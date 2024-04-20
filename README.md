@@ -89,6 +89,7 @@ To get up and running using Font Awesome with Angular follow the below steps:
 * [Using other styles](./docs/usage/using-other-styles.md)
 * [Full feature list](./docs/usage/features.md)
 * [Upgrading instructions](UPGRADING.md)
+* [Frequency asked questions](./docs/faq.md)
 
 ## Examples
 
