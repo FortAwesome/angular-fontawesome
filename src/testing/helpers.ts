@@ -34,5 +34,5 @@ export const queryByCss = (fixture: ComponentFixture<any>, cssSelector: string):
 export const faDummy: IconDefinition = {
   prefix: 'fad',
   iconName: 'dummy',
-  icon: [512, 512, [], 'f030', ['M50 50 H412 V250 H50 Z', 'M50 262 H412 V462 H50 Z']],
+  icon: [512, 512, [], '', ['M50 50 H412 V250 H50 Z', 'M50 262 H412 V462 H50 Z']],
 };

@@ -58,3 +58,15 @@ export class AppComponent {
 }
 ```
 
+Kit packages use a [subpath exports](https://nodejs.org/api/packages.html#subpath-exports) feature of Node.js. If you
+get an error like `Cannot find module '@awesome.me/kit-KIT_CODE/icons/classic/solid' or its corresponding type 
+declartions.`, you may need to update your `tsconfig.json` to set `moduleResolution` to `bundler`:
+
+```json
+{
+  "compilerOptions": {
+    "moduleResolution": "bundler"
+  }
+}
+```
+
