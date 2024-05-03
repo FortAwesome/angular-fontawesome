@@ -6,7 +6,7 @@
     "angular-fontawesome": {
       "projectType": "library",
       "root": "",
-      "sourceRoot": "src",
+      "sourceRoot": ".",
       "prefix": "fa",
       "architect": {
         "build": {
@@ -26,6 +26,10 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
+            "include": [
+              "src/**/*.spec.ts",
+              "testing/**/*.spec.ts"
+            ],
             "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js"
