@@ -26,10 +26,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "include": [
-              "src/**/*.spec.ts",
-              "testing/**/*.spec.ts"
-            ],
+            "include": ["src/**/*.spec.ts", "testing/src/**/*.spec.ts"],
             "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js"
@@ -38,7 +35,7 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html", "testing/src/**/*.ts", "testing/src/**/*.html"]
           }
         }
       }
