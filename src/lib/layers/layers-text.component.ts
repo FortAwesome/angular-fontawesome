@@ -11,7 +11,7 @@ import {
   Transform,
 } from '@fortawesome/fontawesome-svg-core';
 import { faWarnIfParentNotExist } from '../shared/errors/warn-if-parent-not-exist';
-import { AnimationProp, FaProps } from '../shared/models/props.model';
+import { FaProps } from '../shared/models/props.model';
 import { faClassList } from '../shared/utils/classlist.util';
 import { FaLayersComponent } from './layers.component';
 
@@ -37,8 +37,6 @@ export class FaLayersTextComponent implements OnChanges {
 
   @HostBinding('innerHTML') renderedHTML: SafeHtml;
 
-  private animation: AnimationProp;
-
   constructor(
     @Optional() private parent: FaLayersComponent,
     private sanitizer: DomSanitizer,
@@ -59,7 +57,6 @@ export class FaLayersTextComponent implements OnChanges {
   protected buildParams(): TextParams {
     const classOpts: FaProps = {
       flip: this.flip,
-      animation: this.animation,
       border: this.border,
       inverse: this.inverse,
       size: this.size || null,
