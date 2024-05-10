@@ -55,7 +55,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/demo",
+            "outputPath": "dist/demo/browser",
             "index": "projects/demo/src/index.html",
             "main": "projects/demo/src/main.ts",
             "polyfills": ["zone.js"],
@@ -143,6 +143,62 @@
             },
             "development": {
               "devServerTarget": "demo:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/demo/server",
+            "main": "projects/demo/server.ts",
+            "tsConfig": "projects/demo/tsconfig.server.json",
+            "buildOptimizer": false,
+            "optimization": false,
+            "sourceMap": true,
+            "extractLicenses": false,
+            "vendorChunk": true
+          },
+          "configurations": {
+            "production": {
+              "buildOptimizer": true,
+              "outputHashing": "media",
+              "optimization": true,
+              "sourceMap": false,
+              "extractLicenses": true,
+              "vendorChunk": false
+            },
+            "development": {}
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@angular-devkit/build-angular:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "demo:build:development",
+              "serverTarget": "demo:server:development"
+            },
+            "production": {
+              "browserTarget": "demo:build:production",
+              "serverTarget": "demo:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@angular-devkit/build-angular:prerender",
+          "options": {
+            "routes": ["/"]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "demo:build:production",
+              "serverTarget": "demo:server:production"
+            },
+            "development": {
+              "browserTarget": "demo:build:development",
+              "serverTarget": "demo:server:development"
             }
           },
           "defaultConfiguration": "production"
