@@ -1,4 +1,5 @@
-import { Component, HostBinding, Input, OnChanges, Optional, SimpleChanges } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, HostBinding, inject, Input, OnChanges, Optional, SimpleChanges } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import {
   FaSymbol,
@@ -18,6 +19,7 @@ import { faWarnIfIconDefinitionMissing } from '../shared/errors/warn-if-icon-htm
 import { faWarnIfIconSpecMissing } from '../shared/errors/warn-if-icon-spec-missing';
 import { AnimationProp, FaProps } from '../shared/models/props.model';
 import { faClassList } from '../shared/utils/classlist.util';
+import { ensureCss } from '../shared/utils/css';
 import { faNormalizeIconSpec } from '../shared/utils/normalize-icon-spec.util';
 import { FaStackItemSizeDirective } from '../stack/stack-item-size.directive';
 import { FaStackComponent } from '../stack/stack.component';
@@ -71,6 +73,8 @@ export class FaIconComponent implements OnChanges {
 
   @HostBinding('innerHTML') renderedIconHTML: SafeHtml;
 
+  private document = inject(DOCUMENT);
+
   constructor(
     private sanitizer: DomSanitizer,
     private config: FaConfig,
@@ -96,6 +100,7 @@ export class FaIconComponent implements OnChanges {
       const iconDefinition = this.findIconDefinition(this.icon ?? this.config.fallbackIcon);
       if (iconDefinition != null) {
         const params = this.buildParams();
+        ensureCss(this.document, this.config);
         const renderedIcon = icon(iconDefinition, params);
         this.renderedIconHTML = this.sanitizer.bypassSecurityTrustHtml(renderedIcon.html.join('\n'));
       }

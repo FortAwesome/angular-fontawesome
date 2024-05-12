@@ -25,6 +25,7 @@ jobs:
       - run: yarn test:demo
       - run: yarn add -D chromedriver@~`google-chrome --version | awk '{print $3}' | awk -F. '{print $1}'`
       - run: yarn test:integration
+      - run: yarn test:integration:ssr
   check6:
     name: Font Awesome 6
     runs-on: ubuntu-latest
@@ -48,3 +49,4 @@ jobs:
       - run: yarn test:demo
       - run: yarn add -D chromedriver@~`google-chrome --version | awk '{print $3}' | awk -F. '{print $1}'`
       - run: yarn test:integration
+      - run: yarn test:integration:ssr

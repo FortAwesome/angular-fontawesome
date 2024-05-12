@@ -1,4 +1,5 @@
-import { Component, HostBinding, Input, OnChanges, Optional, SimpleChanges } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, HostBinding, inject, Input, OnChanges, Optional, SimpleChanges } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import {
   FlipProp,
@@ -10,9 +11,11 @@ import {
   TextParams,
   Transform,
 } from '@fortawesome/fontawesome-svg-core';
+import { FaConfig } from '../config';
 import { faWarnIfParentNotExist } from '../shared/errors/warn-if-parent-not-exist';
 import { FaProps } from '../shared/models/props.model';
 import { faClassList } from '../shared/utils/classlist.util';
+import { ensureCss } from '../shared/utils/css';
 import { FaLayersComponent } from './layers.component';
 
 @Component({
@@ -36,6 +39,9 @@ export class FaLayersTextComponent implements OnChanges {
   @Input() transform?: string | Transform;
 
   @HostBinding('innerHTML') renderedHTML: SafeHtml;
+
+  private document = inject(DOCUMENT);
+  private config = inject(FaConfig);
 
   constructor(
     @Optional() private parent: FaLayersComponent,
@@ -75,6 +81,7 @@ export class FaLayersTextComponent implements OnChanges {
   }
 
   private updateContent(params: TextParams) {
+    ensureCss(this.document, this.config);
     this.renderedHTML = this.sanitizer.bypassSecurityTrustHtml(text(this.content || '', params).html.join('\n'));
   }
 }

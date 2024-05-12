@@ -1,7 +1,10 @@
-import { Component, HostBinding, Input, OnChanges, Optional, SimpleChanges } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, HostBinding, inject, Input, OnChanges, Optional, SimpleChanges } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { counter, CounterParams } from '@fortawesome/fontawesome-svg-core';
+import { FaConfig } from '../config';
 import { faWarnIfParentNotExist } from '../shared/errors/warn-if-parent-not-exist';
+import { ensureCss } from '../shared/utils/css';
 import { FaLayersComponent } from './layers.component';
 
 @Component({
@@ -18,6 +21,9 @@ export class FaLayersCounterComponent implements OnChanges {
   @Input() position?: 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left';
 
   @HostBinding('innerHTML') renderedHTML: SafeHtml;
+
+  private document = inject(DOCUMENT);
+  private config = inject(FaConfig);
 
   constructor(
     @Optional() private parent: FaLayersComponent,
@@ -41,6 +47,7 @@ export class FaLayersCounterComponent implements OnChanges {
   }
 
   private updateContent(params: CounterParams) {
+    ensureCss(this.document, this.config);
     this.renderedHTML = this.sanitizer.bypassSecurityTrustHtml(counter(this.content || '', params).html.join(''));
   }
 }

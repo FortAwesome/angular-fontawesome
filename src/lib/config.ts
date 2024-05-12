@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { config } from '@fortawesome/fontawesome-svg-core';
 import { IconDefinition, IconPrefix } from './types';
 
 @Injectable({ providedIn: 'root' })
@@ -26,4 +27,25 @@ export class FaConfig {
    * @default false
    */
   fixedWidth?: boolean;
+
+  /**
+   * Automatically add Font Awesome styles to the document when icon is rendered.
+   *
+   * For the majority of the cases the automatically added CSS is sufficient,
+   * please refer to the linked guide for more information on when to disable
+   * this feature.
+   *
+   * @see {@link: https://github.com/FortAwesome/angular-fontawesome/blob/main/docs/guide/adding-css.md}
+   * @default true
+   */
+  set autoAddCss(value: boolean) {
+    config.autoAddCss = value;
+    this._autoAddCss = value;
+  }
+
+  get autoAddCss() {
+    return this._autoAddCss;
+  }
+
+  private _autoAddCss = true;
 }

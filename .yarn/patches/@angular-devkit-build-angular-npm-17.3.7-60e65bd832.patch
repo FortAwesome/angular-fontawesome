@@ -1,0 +1,22 @@
+diff --git a/src/builders/protractor/index.js b/src/builders/protractor/index.js
+index 34d8f76bac7ece1fcb6d7afd722ec99fad4efccc..6ec016ee9d1a04ba0b1dc4742340a2cbe2b9b80f 100755
+--- a/src/builders/protractor/index.js
++++ b/src/builders/protractor/index.js
+@@ -108,17 +108,7 @@ async function execute(options, context) {
+             const serverOptions = await context.getTargetOptions(target);
+             const overrides = {
+                 watch: false,
+-                liveReload: false,
+             };
+-            if (options.host !== undefined) {
+-                overrides.host = options.host;
+-            }
+-            else if (typeof serverOptions.host === 'string') {
+-                options.host = serverOptions.host;
+-            }
+-            else {
+-                options.host = overrides.host = 'localhost';
+-            }
+             if (options.port !== undefined) {
+                 overrides.port = options.port;
+             }
