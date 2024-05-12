@@ -7,6 +7,7 @@
     "test:schematics": "ts-node --project projects/schematics/tsconfig.json node_modules/.bin/jasmine projects/schematics/src/**/*.spec.ts",
     "test:demo": "ng test demo --watch=false --browsers=ChromeCI",
     "test:integration": "ng e2e demo",
+    "test:integration:ssr": "ng e2e demo --configuration ssr",
     "lint": "ng lint",
     "start": "ng serve demo",
     "start:ssr": "ng run demo:serve-ssr",
@@ -26,7 +27,7 @@
   },
   "homepage": "https://github.com/FortAwesome/angular-fontawesome",
   "devDependencies": {
-    "@angular-devkit/build-angular": "^17.3.7",
+    "@angular-devkit/build-angular": "patch:@angular-devkit/build-angular@npm%3A17.3.7#~/.yarn/patches/@angular-devkit-build-angular-npm-17.3.7-60e65bd832.patch",
     "@angular-devkit/core": "^17.3.7",
     "@angular-devkit/schematics": "^17.3.7",
     "@angular-eslint/builder": "^17.0.0",

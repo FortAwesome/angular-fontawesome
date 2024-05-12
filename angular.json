@@ -141,8 +141,9 @@
               "devServerTarget": "demo:serve:production",
               "webdriverUpdate": false
             },
-            "development": {
-              "devServerTarget": "demo:serve:development"
+            "ssr": {
+              "devServerTarget": "demo:serve-ssr:production",
+              "webdriverUpdate": false
             }
           },
           "defaultConfiguration": "production"

@@ -57,3 +57,4 @@ Guides on specific topics or use cases.
 * [Storybook](./guide/storybook.md)
 * [Advanced uses](./guide/advanced-uses.md)
 * [Styling icon internals](./guide/styling-icon-internals.md)
+* [Adding CSS](./guide/adding-css.md)
