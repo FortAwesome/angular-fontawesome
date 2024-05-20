@@ -1,19 +1,9 @@
-import {
-  FaSymbol,
-  FlipProp,
-  PullProp,
-  RotateProp,
-  SizeProp,
-  Styles,
-  Transform,
-} from '@fortawesome/fontawesome-svg-core';
-import { IconProp } from '../../types';
+import { FlipProp, PullProp, RotateProp, SizeProp } from '@fortawesome/fontawesome-svg-core';
 
 /**
  * Fontawesome props.
  */
 export interface FaProps {
-  mask?: IconProp;
   className?: string;
   animation?: AnimationProp;
   border?: boolean;
@@ -24,9 +14,6 @@ export interface FaProps {
   size?: SizeProp;
   pull?: PullProp;
   rotate?: RotateProp;
-  transform?: string | Transform;
-  symbol?: FaSymbol;
-  style?: Styles;
   stackItemSize?: '1x' | '2x';
 }
 

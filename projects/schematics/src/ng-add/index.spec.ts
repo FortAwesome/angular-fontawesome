@@ -17,7 +17,6 @@ describe('ng-add', () => {
 
     const dependencies = packageJson.dependencies;
 
-    expect(dependencies['@fortawesome/fontawesome-svg-core']).toBe(iconPackVersion);
     expect(dependencies['@fortawesome/free-solid-svg-icons']).toBe(iconPackVersion);
     expect(dependencies['@fortawesome/angular-fontawesome']).toBe(angularFontawesomeVersion);
   });
@@ -32,7 +31,6 @@ describe('ng-add', () => {
 
     const dependencies = packageJson.dependencies;
 
-    expect(dependencies['@fortawesome/fontawesome-svg-core']).toBe(v5.svgCoreVersion);
     expect(dependencies['@fortawesome/free-solid-svg-icons']).toBe(v5.iconPackVersion);
     expect(dependencies['@fortawesome/angular-fontawesome']).toBe(angularFontawesomeVersion);
   });

@@ -19,12 +19,6 @@ export default function (options: Schema): Rule {
     (tree: Tree, context: SchematicContext) => {
       addPackageJsonDependency(tree, {
         type: NodeDependencyType.Default,
-        name: '@fortawesome/fontawesome-svg-core',
-        version: options.version === '6' ? iconPackVersion : v5.svgCoreVersion,
-      });
-
-      addPackageJsonDependency(tree, {
-        type: NodeDependencyType.Default,
         name: '@fortawesome/angular-fontawesome',
         version: angularFontawesomeVersion,
       });

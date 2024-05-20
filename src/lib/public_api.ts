@@ -10,3 +10,15 @@ export { FaStackComponent } from './stack/stack.component';
 export { FaStackItemSizeDirective } from './stack/stack-item-size.directive';
 export { FaIconLibrary, FaIconLibraryInterface } from './icon-library';
 export { IconPrefix, IconName, IconLookup, IconDefinition, IconPack } from './types';
+
+export {
+  IconParams,
+  CounterParams,
+  TextParams,
+  FaSymbol,
+  FlipProp,
+  PullProp,
+  RotateProp,
+  SizeProp,
+  Transform,
+} from '@fortawesome/fontawesome-svg-core';
