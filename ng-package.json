@@ -4,5 +4,6 @@
     "entryFile": "src/lib/public_api.ts",
     "flatModuleFile": "angular-fontawesome"
   },
-  "dest": "./dist/angular-fontawesome"
+  "dest": "./dist/angular-fontawesome",
+  "allowedNonPeerDependencies": ["@fortawesome/fontawesome-svg-core"]
 }
