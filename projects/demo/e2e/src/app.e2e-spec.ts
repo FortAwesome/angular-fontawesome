@@ -24,6 +24,7 @@ describe('Angular FontAwesome demo', () => {
     const context = await appPage.appRoot.getAttribute('ng-server-context');
     if (context !== 'ssr') {
       // Skip the test if the page is not server-side rendered.
+      console.warn('Skipping test as the page is not server-side rendered.');
       return;
     }
 

@@ -1,7 +1,5 @@
 {
-  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/angular-fontawesome/testing",
-  "deleteDestPath": true,
+  "$schema": "../node_modules/ng-packagr/ng-entrypoint.schema.json",
   "lib": {
     "entryFile": "src/public_api.ts"
   }
