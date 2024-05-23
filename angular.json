@@ -53,22 +53,23 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/demo/browser",
+            "outputPath": {
+              "base": "dist/demo"
+            },
             "index": "projects/demo/src/index.html",
-            "main": "projects/demo/src/main.ts",
             "polyfills": ["zone.js"],
             "tsConfig": "projects/demo/tsconfig.app.json",
             "assets": ["projects/demo/src/favicon.ico", "projects/demo/src/assets"],
             "styles": ["projects/demo/src/styles.scss"],
             "scripts": [],
-            "vendorChunk": true,
             "extractLicenses": false,
-            "buildOptimizer": false,
             "sourceMap": true,
             "optimization": false,
-            "namedChunks": true
+            "namedChunks": true,
+            "browser": "projects/demo/src/main.ts",
+            "server": "projects/demo/src/main.server.ts"
           },
           "configurations": {
             "production": {
@@ -76,22 +77,24 @@
               "outputHashing": "all",
               "sourceMap": false,
               "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb"
-                }
-              ]
+              "extractLicenses": true
             },
-            "development": {}
+            "development": {},
+            "production-ssr": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "ssr": {
+                "entry": "projects/demo/server.ts"
+              }
+            },
+            "development-ssr": {
+              "ssr": {
+                "entry": "projects/demo/server.ts"
+              }
+            }
           },
           "defaultConfiguration": "production"
         },
@@ -104,15 +107,15 @@
             },
             "development": {
               "buildTarget": "demo:build:development"
+            },
+            "production-ssr": {
+              "buildTarget": "demo:build:production-ssr"
+            },
+            "development-ssr": {
+              "buildTarget": "demo:build:development-ssr"
             }
           },
           "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "buildTarget": "demo:build"
-          }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
@@ -141,65 +144,9 @@
               "devServerTarget": "demo:serve:production",
               "webdriverUpdate": false
             },
-            "ssr": {
-              "devServerTarget": "demo:serve-ssr:production",
+            "production-ssr": {
+              "devServerTarget": "demo:serve:production-ssr",
               "webdriverUpdate": false
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "server": {
-          "builder": "@angular-devkit/build-angular:server",
-          "options": {
-            "outputPath": "dist/demo/server",
-            "main": "projects/demo/server.ts",
-            "tsConfig": "projects/demo/tsconfig.server.json",
-            "buildOptimizer": false,
-            "optimization": false,
-            "sourceMap": true,
-            "extractLicenses": false,
-            "vendorChunk": true
-          },
-          "configurations": {
-            "production": {
-              "buildOptimizer": true,
-              "outputHashing": "media",
-              "optimization": true,
-              "sourceMap": false,
-              "extractLicenses": true,
-              "vendorChunk": false
-            },
-            "development": {}
-          },
-          "defaultConfiguration": "production"
-        },
-        "serve-ssr": {
-          "builder": "@angular-devkit/build-angular:ssr-dev-server",
-          "configurations": {
-            "development": {
-              "browserTarget": "demo:build:development",
-              "serverTarget": "demo:server:development"
-            },
-            "production": {
-              "browserTarget": "demo:build:production",
-              "serverTarget": "demo:server:production"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "prerender": {
-          "builder": "@angular-devkit/build-angular:prerender",
-          "options": {
-            "routes": ["/"]
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "demo:build:production",
-              "serverTarget": "demo:server:production"
-            },
-            "development": {
-              "browserTarget": "demo:build:development",
-              "serverTarget": "demo:server:development"
             }
           },
           "defaultConfiguration": "production"
