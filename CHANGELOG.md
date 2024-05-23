@@ -5,13 +5,35 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
-## [0.15.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.15.0)
+## [0.15.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.15.0) - 2024-05-23
 
 Make sure to check [upgrade instructions](https://github.com/FortAwesome/angular-fontawesome/blob/master/UPGRADING.md).
 
+### Added
+
+* Support for Angular 18.
+* Documentation on how to use NPM Kit packages.
+* Documentation on how to correctly use fa-stack in standalone components.
+* Documentation on how to use custom icons.
+* FAQ page with considerations on whether to use this library.
+* Configuration option for the `FontAwesomeTestingModule` to not throw errors when adding icons.
+* Documentation on how to add global styles to the page.
+
+### Fixed
+
+* Documentation for the `rotate` input.
+* Global styles are now correctly added to the page in SSR context.
+
+### Changed
+
+* `icon` input type is now more permissive.
+* `@fortawesome/fontawesome-svg-core` became a regular dependency.
+
 ### Removed
 
-- Deprecated inputs `spin` and `pulse`. Use `animation` input instead.
+* Angular 17.x is no longer supported. If you are using this version, please, stick with version 0.14.1.
+* Deprecated inputs `spin` and `pulse`. Use `animation` input instead.
+* Deprecated inputs `styles` and `classes`.
 
 ## [0.14.1](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.14.1) - 2023-12-23
 

@@ -2409,8 +2409,8 @@ __metadata:
     "@angular/router": "npm:^18.0.0"
     "@angular/ssr": "npm:^18.0.1"
     "@fortawesome/fontawesome-svg-core": "npm:^6.5.2"
-    "@fortawesome/free-regular-svg-icons": "npm:^6.4.2"
-    "@fortawesome/free-solid-svg-icons": "npm:^6.4.2"
+    "@fortawesome/free-regular-svg-icons": "npm:^6.5.2"
+    "@fortawesome/free-solid-svg-icons": "npm:^6.5.2"
     "@types/express": "npm:^4.17.21"
     "@types/jasmine": "npm:~4.3.6"
     "@types/node": "npm:~20.12.12"
@@ -2444,13 +2444,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@fortawesome/fontawesome-common-types@npm:6.4.2":
-  version: 6.4.2
-  resolution: "@fortawesome/fontawesome-common-types@npm:6.4.2"
-  checksum: 121bb1c55f7578d7516a1dfb95b4b5644d3aacd04cbbbddef317b99ec84ddd56aa8f6414abff190e9fc72ea1754f1beef1c5068641c31fbaf8407822a1733f82
-  languageName: node
-  linkType: hard
-
 "@fortawesome/fontawesome-common-types@npm:6.5.2":
   version: 6.5.2
   resolution: "@fortawesome/fontawesome-common-types@npm:6.5.2"
@@ -2467,21 +2460,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/free-regular-svg-icons@npm:^6.4.2":
-  version: 6.4.2
-  resolution: "@fortawesome/free-regular-svg-icons@npm:6.4.2"
+"@fortawesome/free-regular-svg-icons@npm:^6.5.2":
+  version: 6.5.2
+  resolution: "@fortawesome/free-regular-svg-icons@npm:6.5.2"
   dependencies:
-    "@fortawesome/fontawesome-common-types": "npm:6.4.2"
-  checksum: dc735e3511f2147367451715cb1143df2656e6e69e5f21cb20071b5349a458ab2845dda89b16b9d7dd2bc9e913d9d93ed51ea3702f4fc4d774373f14e7f6768e
+    "@fortawesome/fontawesome-common-types": "npm:6.5.2"
+  checksum: dff7e3cc4a5433b020b0cf9e5ba95cedec7f64cda38b1183bbac5cead9d0a54b6d70671fbf799a8b5e3befb7f8955a546cf013d62b941fd03cd4516ef18613e7
   languageName: node
   linkType: hard
 
-"@fortawesome/free-solid-svg-icons@npm:^6.4.2":
-  version: 6.4.2
-  resolution: "@fortawesome/free-solid-svg-icons@npm:6.4.2"
+"@fortawesome/free-solid-svg-icons@npm:^6.5.2":
+  version: 6.5.2
+  resolution: "@fortawesome/free-solid-svg-icons@npm:6.5.2"
   dependencies:
-    "@fortawesome/fontawesome-common-types": "npm:6.4.2"
-  checksum: 1a46c27be60ecdfaecd82f5e8ef07cbf5843b040f03fbab36da2eafc839df97efb437cc2c7ce5df53c6e71c06bf4ef8b520b62c4c0b153fe8a2a04368f155410
+    "@fortawesome/fontawesome-common-types": "npm:6.5.2"
+  checksum: af2778b91ba4bf7b61ae0cdf0d39d75b6906a82bfdf8e977881d987b86a32ce157297853b7892aa3b609076b5542ea1e1e78b520d57b6f50677a2a748cf3434c
   languageName: node
   linkType: hard
 

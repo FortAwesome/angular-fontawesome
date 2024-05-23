@@ -1,6 +1,6 @@
 {
   "name": "@fortawesome/angular-fontawesome",
-  "version": "0.14.1",
+  "version": "0.15.0",
   "description": "Angular Fontawesome, an Angular library",
   "scripts": {
     "test": "ng test angular-fontawesome --watch=false --browsers=ChromeCI",
@@ -47,8 +47,8 @@
     "@angular/platform-server": "^18.0.0",
     "@angular/router": "^18.0.0",
     "@angular/ssr": "^18.0.1",
-    "@fortawesome/free-regular-svg-icons": "^6.4.2",
-    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/free-regular-svg-icons": "^6.5.2",
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@types/express": "^4.17.21",
     "@types/jasmine": "~4.3.6",
     "@types/node": "~20.12.12",
