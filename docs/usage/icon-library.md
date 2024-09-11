@@ -25,7 +25,7 @@ Icons should be registered only once in the `AppComponent`'s constructor using `
 
 ```typescript
 import { Component } from '@angular/core';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -45,6 +45,7 @@ export class AppComponent {
 You can also import entire icon styles. But be careful! This way of importing icons does not support tree-shaking, so all icons from the imported package will end up in the bundle.
 
 ```typescript
+import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 
@@ -63,7 +64,7 @@ _In these examples, you would replace "KIT_CODE" with the unique identifier for 
 
 ```typescript
 import { Component } from '@angular/core';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { all } from '@awesome.me/kit-KIT_CODE/icons';
 
 @Component({
