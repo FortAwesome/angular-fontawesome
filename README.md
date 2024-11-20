@@ -51,6 +51,7 @@ $ npm install @fortawesome/angular-fontawesome@<version>
 | 0.13.x                           | 16.x       | 5.x && 6.x   | supported     |
 | 0.14.x                           | 17.x       | 5.x && 6.x   | supported     |
 | 0.15.x                           | 18.x       | 5.x && 6.x   | supported     |
+| 1.x                              | 19.x       | 5.x && 6.x   | supported     |
 
 ## Usage
 
@@ -132,6 +133,8 @@ being awesome contributors to this project. **We'd like to take a moment to reco
 [<img src="https://github.com/NayeBeckham.png?size=72" alt="NayeBeckham" width="72">](https://github.com/NayeBeckham)
 [<img src="https://github.com/Nosfistis.png?size=72" alt="Nosfistis" width="72">](https://github.com/Nosfistis)
 [<img src="https://github.com/bleistift-zwei.png?size=72" alt="bleistift-zwei" width="72">](https://github.com/bleistift-zwei)
+[<img src="https://github.com/igorls.png?size=72" alt="igorls" width="72">](https://github.com/igorls)
+[<img src="https://github.com/jasonlundien.png?size=72" alt="jasonlundien" width="72">](https://github.com/jasonlundien)
 [<img src="https://github.com/FortAwesome.png?size=72" alt="Font Awesome Team" width="72">](https://github.com/orgs/FortAwesome/people)
 
 If we've missed someone (which is quite likely) submit a Pull Request to us and we'll get it resolved.

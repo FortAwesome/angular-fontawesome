@@ -5,6 +5,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [1.0.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/1.0.0) - 2024-11-20
+
+There are no major changes in this release. The version bump is to signal that the library is stable now and no major breaking changes are expected in the future.
+
+### Added
+
+* Support for Angular 19.
+* All available icon packages to the `ng-add` schematic.
+* Possibility to specify custom `rotate` value for `fa-icon` and `fa-duotone-icon` components.
+
+### Removed
+
+* Angular 18.x is no longer supported. If you are using this version, please, stick with version 0.15.0.
+
 ## [0.15.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/0.15.0) - 2024-05-23
 
 Make sure to check [upgrade instructions](https://github.com/FortAwesome/angular-fontawesome/blob/master/UPGRADING.md).
