@@ -5,6 +5,7 @@ describe('FaLayersCounterComponent', () => {
   it('should render counter layer', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: `
         <fa-layers>
           <fa-layers-counter [content]="'Test'"></fa-layers-counter>
@@ -21,6 +22,7 @@ describe('FaLayersCounterComponent', () => {
   it('should throw an error if counter layer is used outside of fa-layers', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: `<fa-layers-counter content="300"></fa-layers-counter> `,
     })
     class HostComponent {}
@@ -33,6 +35,7 @@ describe('FaLayersCounterComponent', () => {
   it('should include position class', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: `
         <fa-layers>
           <fa-layers-counter [position]="'bottom-left'" [content]="'Test'"></fa-layers-counter>

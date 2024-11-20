@@ -14,6 +14,7 @@ describe('FaIconComponent', () => {
   it('should render SVG icon', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: '<fa-icon [icon]="faUser"></fa-icon>',
     })
     class HostComponent {
@@ -28,6 +29,7 @@ describe('FaIconComponent', () => {
   it('should support binding to boolean inputs', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: '<fa-icon [icon]="faUser" [inverse]="isInverse"></fa-icon>',
     })
     class HostComponent {
@@ -47,6 +49,7 @@ describe('FaIconComponent', () => {
   it('should be able to create component dynamically', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: '<ng-container #host></ng-container>',
     })
     class HostComponent {
@@ -71,6 +74,7 @@ describe('FaIconComponent', () => {
   it('should be able to update icon programmatically', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: '<fa-icon [icon]="faUser"></fa-icon>',
     })
     class HostComponent {
@@ -92,6 +96,7 @@ describe('FaIconComponent', () => {
   it('should be possible to customize `role` attribute of the rendered SVG icon', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: '<fa-icon [icon]="faUser" a11yRole="presentation"></fa-icon>',
     })
     class HostComponent {
@@ -106,6 +111,7 @@ describe('FaIconComponent', () => {
   it('should throw an error when icon attribute is missing', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: '<fa-icon [icon]="undefined"></fa-icon>',
     })
     class HostComponent {}
@@ -119,6 +125,7 @@ describe('FaIconComponent', () => {
   it('should work with AsyncPipe and default value', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: '<fa-icon [icon]="icon | async"></fa-icon>',
     })
     class HostComponent {
@@ -141,6 +148,7 @@ describe('FaIconComponent', () => {
   it('should render a <title> element', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: '<fa-icon [icon]="faUser" title="User John Smith"></fa-icon>',
     })
     class HostComponent {
@@ -156,6 +164,7 @@ describe('FaIconComponent', () => {
   it('should have title attribute, when title input is set using Angular binding syntax', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: ` <fa-icon [icon]="faUser" [title]="'User John Smith'"></fa-icon> `,
     })
     class HostComponent {
@@ -171,6 +180,7 @@ describe('FaIconComponent', () => {
   it('should use default icon prefix', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: '<fa-icon icon="user"></fa-icon>',
     })
     class HostComponent {
@@ -187,6 +197,7 @@ describe('FaIconComponent', () => {
   it('should be able to override default icon prefix', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: '<fa-icon icon="user"></fa-icon>',
     })
     class HostComponent {
@@ -205,6 +216,7 @@ describe('FaIconComponent', () => {
   it('should have no fixed width by default', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: '<fa-icon icon="user"></fa-icon>',
     })
     class HostComponent {
@@ -222,6 +234,7 @@ describe('FaIconComponent', () => {
   it('should be able to set fixed width with default config', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: '<fa-icon icon="user"></fa-icon>',
     })
     class HostComponent {
@@ -240,6 +253,7 @@ describe('FaIconComponent', () => {
   it('should be able to set fixed width explicitly', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: '<fa-icon icon="user" [fixedWidth]="true"></fa-icon>',
     })
     class HostComponent {
@@ -258,6 +272,7 @@ describe('FaIconComponent', () => {
   it('should be able to override global fixed width explicitly', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: '<fa-icon icon="user" [fixedWidth]="false"></fa-icon>',
     })
     class HostComponent {
@@ -276,6 +291,7 @@ describe('FaIconComponent', () => {
   it('should use icon definition from the icon library', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: '<fa-icon icon="user"></fa-icon>',
     })
     class HostComponent {
@@ -292,6 +308,7 @@ describe('FaIconComponent', () => {
   it('should throw an error if icon definition is not found in the icon library', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: '<fa-icon icon="circle"></fa-icon>',
     })
     class HostComponent {}
@@ -305,6 +322,7 @@ describe('FaIconComponent', () => {
   it('should display a fallback icon when specified in the config, and icon attribute is missing', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: '<fa-icon [icon]="undefined"></fa-icon>',
     })
     class HostComponent {
@@ -323,6 +341,7 @@ describe('FaIconComponent', () => {
   it('should display the icon specified in the icon attribute when both it and the fallback icon config are present', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: '<fa-icon [icon]="faUser"></fa-icon>',
     })
     class HostComponent {
@@ -343,6 +362,7 @@ describe('FaIconComponent', () => {
   it('should warn when stackItemSize attribute is missing on icon inside fa-stack', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: '<fa-stack><fa-icon [icon]="faCircle"></fa-icon></fa-stack>',
     })
     class HostComponent {
