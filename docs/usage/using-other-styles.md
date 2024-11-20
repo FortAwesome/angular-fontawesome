@@ -54,10 +54,17 @@ npm install --save @fortawesome/pro-regular-svg-icons
 npm install --save @fortawesome/pro-light-svg-icons
 npm install --save @fortawesome/pro-thin-svg-icons
 npm install --save @fortawesome/pro-duotone-svg-icons
+npm install --save @fortawesome/duotone-regular-svg-icons
+npm install --save @fortawesome/duotone-light-svg-icons
+npm install --save @fortawesome/duotone-thin-svg-icons
 npm install --save @fortawesome/sharp-solid-svg-icons
 npm install --save @fortawesome/sharp-regular-svg-icons
 npm install --save @fortawesome/sharp-light-svg-icons
 npm install --save @fortawesome/sharp-thin-svg-icons
+npm install --save @fortawesome/sharp-duotone-solid-svg-icons
+npm install --save @fortawesome/sharp-duotone-regular-svg-icons
+npm install --save @fortawesome/sharp-duotone-light-svg-icons
+npm install --save @fortawesome/sharp-duotone-thin-svg-icons
 ```
 
 ```bash
@@ -67,10 +74,17 @@ yarn add @fortawesome/pro-regular-svg-icons
 yarn add @fortawesome/pro-light-svg-icons
 yarn add @fortawesome/pro-thin-svg-icons
 yarn add @fortawesome/pro-duotone-svg-icons
+yarn add @fortawesome/duotone-regular-svg-icons
+yarn add @fortawesome/duotone-light-svg-icons
+yarn add @fortawesome/duotone-thin-svg-icons
 yarn add @fortawesome/sharp-solid-svg-icons
 yarn add @fortawesome/sharp-regular-svg-icons
 yarn add @fortawesome/sharp-light-svg-icons
 yarn add @fortawesome/sharp-thin-svg-icons
+yarn add @fortawesome/sharp-duotone-solid-svg-icons
+yarn add @fortawesome/sharp-duotone-regular-svg-icons
+yarn add @fortawesome/sharp-duotone-light-svg-icons
+yarn add @fortawesome/sharp-duotone-thin-svg-icons
 ```
 
 Example using the Light style:
