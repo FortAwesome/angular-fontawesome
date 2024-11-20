@@ -20,7 +20,6 @@ import { FaLayersComponent } from './layers.component';
 
 @Component({
   selector: 'fa-layers-text',
-  standalone: true,
   template: '',
   host: {
     class: 'ng-fa-layers-text',

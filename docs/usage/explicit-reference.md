@@ -28,7 +28,6 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   imports: [FontAwesomeModule],
   templateUrl: './app.component.html',
 })
@@ -49,7 +48,6 @@ import { faCoffee } from '@awesome.me/kit-KIT_CODE/icons/classic/solid'; // KIT_
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   imports: [FontAwesomeModule],
   templateUrl: './app.component.html',
 })

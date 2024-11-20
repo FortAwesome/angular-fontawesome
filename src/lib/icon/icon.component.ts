@@ -27,7 +27,6 @@ import { IconDefinition, IconProp } from '../types';
 
 @Component({
   selector: 'fa-icon',
-  standalone: true,
   template: ``,
   host: {
     class: 'ng-fa-icon',

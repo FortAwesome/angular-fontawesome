@@ -4,7 +4,6 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-explicit-reference',
-  standalone: true,
   imports: [FaIconComponent],
   template: '<fa-icon [icon]="faUser"></fa-icon>',
 })
