@@ -1,6 +1,6 @@
 {
   "name": "@fortawesome/angular-fontawesome",
-  "version": "0.16.0",
+  "version": "0.15.0",
   "description": "Angular Fontawesome, an Angular library",
   "scripts": {
     "test": "ng test angular-fontawesome --watch=false --browsers=ChromeCI",
@@ -89,6 +89,9 @@
     "icon",
     "svg"
   ],
+  "peerDependencies": {
+    "@angular/core": "^19.0.0"
+  },
   "schematics": "./schematics/collection.json",
   "packageManager": "yarn@4.0.1"
 }
