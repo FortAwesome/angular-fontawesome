@@ -11,6 +11,7 @@ import {
   PullProp,
   RotateProp,
   SizeProp,
+  Styles,
   Transform,
 } from '@fortawesome/fontawesome-svg-core';
 import { FaConfig } from '../config';
@@ -18,7 +19,7 @@ import { FaIconLibrary } from '../icon-library';
 import { faWarnIfIconDefinitionMissing } from '../shared/errors/warn-if-icon-html-missing';
 import { faWarnIfIconSpecMissing } from '../shared/errors/warn-if-icon-spec-missing';
 import { AnimationProp, FaProps } from '../shared/models/props.model';
-import { faClassList } from '../shared/utils/classlist.util';
+import { faClassList, isKnownRotateValue } from '../shared/utils/classlist.util';
 import { ensureCss } from '../shared/utils/css';
 import { faNormalizeIconSpec } from '../shared/utils/normalize-icon-spec.util';
 import { FaStackItemSizeDirective } from '../stack/stack-item-size.directive';
@@ -59,7 +60,7 @@ export class FaIconComponent implements OnChanges {
   @Input() border?: boolean;
   @Input() inverse?: boolean;
   @Input() symbol?: FaSymbol;
-  @Input() rotate?: RotateProp;
+  @Input() rotate?: RotateProp | string;
   @Input() fixedWidth?: boolean;
   @Input() transform?: string | Transform;
 
@@ -147,6 +148,11 @@ export class FaIconComponent implements OnChanges {
 
     const parsedTransform = typeof this.transform === 'string' ? parse.transform(this.transform) : this.transform;
 
+    const styles: Styles = {};
+    if (classOpts.rotate != null && !isKnownRotateValue(classOpts.rotate)) {
+      styles['--fa-rotate-angle'] = `${classOpts.rotate}`;
+    }
+
     return {
       title: this.title,
       transform: parsedTransform,
@@ -156,6 +162,7 @@ export class FaIconComponent implements OnChanges {
       attributes: {
         role: this.a11yRole,
       },
+      styles,
     };
   }
 }

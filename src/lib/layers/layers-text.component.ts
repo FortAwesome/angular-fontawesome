@@ -7,6 +7,7 @@ import {
   PullProp,
   RotateProp,
   SizeProp,
+  Styles,
   text,
   TextParams,
   Transform,
@@ -14,7 +15,7 @@ import {
 import { FaConfig } from '../config';
 import { faWarnIfParentNotExist } from '../shared/errors/warn-if-parent-not-exist';
 import { FaProps } from '../shared/models/props.model';
-import { faClassList } from '../shared/utils/classlist.util';
+import { faClassList, isKnownRotateValue } from '../shared/utils/classlist.util';
 import { ensureCss } from '../shared/utils/css';
 import { FaLayersComponent } from './layers.component';
 
@@ -33,7 +34,7 @@ export class FaLayersTextComponent implements OnChanges {
   @Input() pull?: PullProp;
   @Input() border?: boolean;
   @Input() inverse?: boolean;
-  @Input() rotate?: RotateProp;
+  @Input() rotate?: RotateProp | string;
   @Input() fixedWidth?: boolean;
   @Input() transform?: string | Transform;
 
@@ -72,10 +73,16 @@ export class FaLayersTextComponent implements OnChanges {
 
     const parsedTransform = typeof this.transform === 'string' ? parse.transform(this.transform) : this.transform;
 
+    const styles: Styles = {};
+    if (classOpts.rotate != null && !isKnownRotateValue(classOpts.rotate)) {
+      styles['--fa-rotate-angle'] = `${classOpts.rotate}`;
+    }
+
     return {
       transform: parsedTransform,
       classes: faClassList(classOpts),
       title: this.title,
+      styles,
     };
   }
 
