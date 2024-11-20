@@ -67,27 +67,67 @@
           },
           {
             "value": "pro-solid",
-            "label": "Pro Solid Icons    [ Requires Pro plan: https://fontawesome.com/plans ]"
+            "label": "Pro Solid Icons [ Requires Pro plan: https://fontawesome.com/plans ]"
           },
           {
             "value": "pro-regular",
-            "label": "Pro Regular Icons  [ Requires Pro plan: https://fontawesome.com/plans ]"
+            "label": "Pro Regular Icons [ Requires Pro plan: https://fontawesome.com/plans ]"
           },
           {
             "value": "pro-light",
-            "label": "Pro Light Icons    [ Requires Pro plan: https://fontawesome.com/plans ]"
-          },
-          {
-            "value": "pro-duotone",
-            "label": "Pro Duotone Icons  [ Requires Pro plan: https://fontawesome.com/plans ]"
+            "label": "Pro Light Icons [ Requires Pro plan: https://fontawesome.com/plans ]"
           },
           {
             "value": "pro-thin",
-            "label": "Pro Thin Icons     [ Requires Pro plan: https://fontawesome.com/plans ]"
+            "label": "Pro Thin Icons [ Requires Pro plan: https://fontawesome.com/plans ]"
+          },
+          {
+            "value": "pro-duotone",
+            "label": "Pro Duotone Icons [ Requires Pro plan: https://fontawesome.com/plans ]"
+          },
+          {
+            "value": "duotone-regular",
+            "label": "Duotone Regular Icons [ Requires Pro plan: https://fontawesome.com/plans ]"
+          },
+          {
+            "value": "duotone-light",
+            "label": "Duotone Light Icons [ Requires Pro plan: https://fontawesome.com/plans ]"
+          },
+          {
+            "value": "duotone-thin",
+            "label": "Duotone Thin Icons [ Requires Pro plan: https://fontawesome.com/plans ]"
           },
           {
             "value": "sharp-solid",
-            "label": "Sharp Solid Icons  [ Requires Pro plan: https://fontawesome.com/plans ]"
+            "label": "Sharp Solid Icons [ Requires Pro plan: https://fontawesome.com/plans ]"
+          },
+          {
+            "value": "sharp-regular",
+            "label": "Sharp Regular Icons [ Requires Pro plan: https://fontawesome.com/plans ]"
+          },
+          {
+            "value": "sharp-light",
+            "label": "Sharp Light Icons [ Requires Pro plan: https://fontawesome.com/plans ]"
+          },
+          {
+            "value": "sharp-thin",
+            "label": "Sharp Thin Icons [ Requires Pro plan: https://fontawesome.com/plans ]"
+          },
+          {
+            "value": "sharp-duotone-solid",
+            "label": "Sharp Duotone Solid Icons [ Requires Pro plan: https://fontawesome.com/plans ]"
+          },
+          {
+            "value": "sharp-duotone-regular",
+            "label": "Sharp Duotone Regular Icons [ Requires Pro plan: https://fontawesome.com/plans ]"
+          },
+          {
+            "value": "sharp-duotone-light",
+            "label": "Sharp Duotone Light Icons [ Requires Pro plan: https://fontawesome.com/plans ]"
+          },
+          {
+            "value": "sharp-duotone-thin",
+            "label": "Sharp Duotone Thin Icons [ Requires Pro plan: https://fontawesome.com/plans ]"
           }
         ]
       }
