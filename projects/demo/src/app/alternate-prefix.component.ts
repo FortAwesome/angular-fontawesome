@@ -4,7 +4,6 @@ import { faBellSlash, faHandPaper, faUser } from '@fortawesome/free-regular-svg-
 
 @Component({
   selector: 'app-alternate-prefix',
-  standalone: true,
   imports: [FaIconComponent],
   templateUrl: './alternate-prefix.component.html',
   providers: [FaConfig],

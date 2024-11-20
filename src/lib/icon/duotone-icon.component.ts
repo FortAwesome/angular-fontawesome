@@ -5,7 +5,6 @@ import { FaIconComponent } from './icon.component';
 
 @Component({
   selector: 'fa-duotone-icon',
-  standalone: true,
   template: ``,
 })
 export class FaDuotoneIconComponent extends FaIconComponent {

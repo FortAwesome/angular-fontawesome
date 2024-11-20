@@ -5,7 +5,6 @@ import { FaStackComponent } from './stack.component';
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
   selector: 'fa-icon[stackItemSize],fa-duotone-icon[stackItemSize]',
-  standalone: true,
 })
 export class FaStackItemSizeDirective implements OnChanges {
   /**

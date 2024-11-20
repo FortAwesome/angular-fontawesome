@@ -19,7 +19,6 @@ import { ensureCss } from '../shared/utils/css';
  */
 @Component({
   selector: 'fa-layers',
-  standalone: true,
   template: `<ng-content></ng-content>`,
 })
 export class FaLayersComponent implements OnInit, OnChanges {
