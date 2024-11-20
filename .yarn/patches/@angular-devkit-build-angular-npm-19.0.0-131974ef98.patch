@@ -1,5 +1,5 @@
 diff --git a/src/builders/protractor/index.js b/src/builders/protractor/index.js
-index 34d8f76bac7ece1fcb6d7afd722ec99fad4efccc..6ec016ee9d1a04ba0b1dc4742340a2cbe2b9b80f 100755
+index c3175770fe275393ea2d997c627469c898339754..55a8316756931c22e6d32b471304cb944bebee63 100755
 --- a/src/builders/protractor/index.js
 +++ b/src/builders/protractor/index.js
 @@ -108,17 +108,7 @@ async function execute(options, context) {

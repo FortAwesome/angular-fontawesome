@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/FortAwesome/angular-fontawesome",
   "devDependencies": {
-    "@angular-devkit/build-angular": "^19.0.0",
+    "@angular-devkit/build-angular": "patch:@angular-devkit/build-angular@npm%3A19.0.0#~/.yarn/patches/@angular-devkit-build-angular-npm-19.0.0-131974ef98.patch",
     "@angular-devkit/core": "^19.0.0",
     "@angular-devkit/schematics": "^19.0.0",
     "@angular-eslint/builder": "^18.4.1",

@@ -135,7 +135,7 @@
           }
         },
         "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
+          "builder": "@angular-devkit/build-angular:private-protractor",
           "options": {
             "protractorConfig": "projects/demo/e2e/protractor.conf.js"
           },
