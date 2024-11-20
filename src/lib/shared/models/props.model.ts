@@ -13,7 +13,7 @@ export interface FaProps {
   flip?: FlipProp;
   size?: SizeProp;
   pull?: PullProp;
-  rotate?: RotateProp;
+  rotate?: RotateProp | string;
   stackItemSize?: '1x' | '2x';
 }
 

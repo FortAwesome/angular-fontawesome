@@ -26,6 +26,8 @@ The following features are available as part of Font Awesome. Note that the synt
 <fa-icon [icon]="['fas', 'coffee']" [rotate]="90"></fa-icon>
 <fa-icon [icon]="['fas', 'coffee']" [rotate]="180"></fa-icon>
 <fa-icon [icon]="['fas', 'coffee']" [rotate]="270"></fa-icon>
+<!-- Or any value supported by the rotate() transform can be specified. -->
+<fa-icon [icon]="['fas', 'coffee']" rotate="45deg"></fa-icon>
 ```
 
 ### Flip

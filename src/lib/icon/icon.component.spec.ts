@@ -378,4 +378,57 @@ describe('FaIconComponent', () => {
         'fa-stack. Example: <fa-icon stackItemSize="2x"></fa-icon>.',
     );
   });
+
+  it('should be able to set predefined rotate as a number', () => {
+    @Component({
+      selector: 'fa-host',
+      standalone: false,
+      template: '<fa-icon icon="user" [rotate]="90"></fa-icon>',
+    })
+    class HostComponent {
+      constructor(iconLibrary: FaIconLibrary) {
+        iconLibrary.addIcons(faUser, faUserRegular);
+      }
+    }
+
+    const fixture = initTest(HostComponent);
+    fixture.detectChanges();
+    expect(queryByCss(fixture, '.fa-rotate-90')).toBeTruthy();
+  });
+
+  it('should be able to set predefined rotate as a string', () => {
+    @Component({
+      selector: 'fa-host',
+      standalone: false,
+      template: '<fa-icon icon="user" rotate="90"></fa-icon>',
+    })
+    class HostComponent {
+      constructor(iconLibrary: FaIconLibrary) {
+        iconLibrary.addIcons(faUser, faUserRegular);
+      }
+    }
+
+    const fixture = initTest(HostComponent);
+    fixture.detectChanges();
+    expect(queryByCss(fixture, '.fa-rotate-90')).toBeTruthy();
+  });
+
+  it('should be able to set customer rotate', () => {
+    @Component({
+      selector: 'fa-host',
+      standalone: false,
+      template: '<fa-icon icon="user" rotate="45deg"></fa-icon>',
+    })
+    class HostComponent {
+      constructor(iconLibrary: FaIconLibrary) {
+        iconLibrary.addIcons(faUser, faUserRegular);
+      }
+    }
+
+    const fixture = initTest(HostComponent);
+    fixture.detectChanges();
+    const svg = queryByCss(fixture, '.fa-rotate-by');
+    expect(svg).toBeTruthy();
+    expect(getComputedStyle(svg).getPropertyValue('--fa-rotate-angle')).toBe('45deg');
+  });
 });

@@ -10,7 +10,7 @@ describe('Angular FontAwesome demo', () => {
   });
 
   it('should render all icons', async () => {
-    expect(await appPage.icons.count()).toBe(46);
+    expect(await appPage.icons.count()).toBe(47);
   });
 
   it('should only add styles once', async () => {
