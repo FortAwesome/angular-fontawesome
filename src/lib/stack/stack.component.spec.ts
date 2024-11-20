@@ -7,6 +7,7 @@ describe('FaStackComponent', () => {
   it('should render stack icon', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: `
         <fa-stack>
           <fa-icon [icon]="faCircle" stackItemSize="2x"></fa-icon>
@@ -27,6 +28,7 @@ describe('FaStackComponent', () => {
   it('should work with duotone icons', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: `
         <fa-stack>
           <fa-icon [icon]="faCircle" stackItemSize="2x"></fa-icon>
@@ -47,6 +49,7 @@ describe('FaStackComponent', () => {
   it('should include size class', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: `
         <fa-stack size="2x">
           <fa-icon [icon]="faCircle" stackItemSize="2x"></fa-icon>

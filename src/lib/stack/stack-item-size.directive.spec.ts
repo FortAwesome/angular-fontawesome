@@ -20,6 +20,7 @@ describe('FaStackItemSizeDirective', () => {
   it('should attach fa-stack-1x or fa-stack-2x classes to icons', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: `
         <fa-stack>
           <fa-icon [icon]="faCircle" stackItemSize="2x"></fa-icon>
@@ -41,6 +42,7 @@ describe('FaStackItemSizeDirective', () => {
   it('should throw an error when setting size input together with stackItemSize', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: `
         <fa-stack>
           <fa-icon [icon]="faCircle" stackItemSize="2x"></fa-icon>

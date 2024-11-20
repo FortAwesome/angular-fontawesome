@@ -7,6 +7,7 @@ import { FontAwesomeTestingModule } from './testing.module';
 
 @Component({
   selector: 'fa-host',
+  standalone: false,
   template: '<fa-icon icon="someicon"></fa-icon>',
 })
 class HostComponent {}

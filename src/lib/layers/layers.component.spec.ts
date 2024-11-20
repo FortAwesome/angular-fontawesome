@@ -10,6 +10,7 @@ describe('FaLayersComponent', () => {
   it('should render layers icon', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: `
         <fa-layers>
           <fa-icon [icon]="faUser"></fa-icon>
@@ -31,6 +32,7 @@ describe('FaLayersComponent', () => {
   it('should include size class', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: `
         <fa-layers size="2x">
           <fa-icon [icon]="faUser"></fa-icon>
@@ -52,6 +54,7 @@ describe('FaLayersComponent', () => {
   it('should include fixed width when set explicitly', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: '<fa-layers [fixedWidth]="true"></fa-layers>',
     })
     class HostComponent {}
@@ -66,6 +69,7 @@ describe('FaLayersComponent', () => {
   it('should include fixed width when set with global config', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: '<fa-layers></fa-layers>',
     })
     class HostComponent {}
@@ -80,6 +84,7 @@ describe('FaLayersComponent', () => {
   it('should not include fixed width when set explicitly', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: `
         <fa-layers [fixedWidth]="false">
           <fa-icon [icon]="faUser"></fa-icon>
@@ -103,6 +108,7 @@ describe('FaLayersComponent', () => {
   it('should allow setting custom class on the host element', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: `
         <fa-layers class="custom-class" [fixedWidth]="fixedWidth" [size]="size"></fa-layers>
         <fa-layers [class.custom-class]="true" [fixedWidth]="fixedWidth" [size]="size"></fa-layers>
@@ -132,6 +138,7 @@ describe('FaLayersComponent', () => {
   it('should support duotone icons', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: `
         <fa-layers>
           <fa-duotone-icon [icon]="faDummy"></fa-duotone-icon>
@@ -151,6 +158,7 @@ describe('FaLayersComponent', () => {
   it('should support icons wrapped into ng-container', () => {
     @Component({
       selector: 'fa-host',
+      standalone: false,
       template: `
         <fa-layers>
           <ng-container>
