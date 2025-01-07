@@ -12,6 +12,7 @@ export { FaIconLibrary, FaIconLibraryInterface } from './icon-library';
 export { IconPrefix, IconName, IconLookup, IconDefinition, IconPack } from './types';
 
 export {
+  IconDefinition,
   IconParams,
   CounterParams,
   TextParams,
