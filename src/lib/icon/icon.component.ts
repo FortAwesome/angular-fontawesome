@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, HostBinding, inject, Input, OnChanges, Optional, SimpleChanges } from '@angular/core';
+import { Component, HostBinding, inject, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import {
   FaSymbol,
@@ -73,19 +73,18 @@ export class FaIconComponent implements OnChanges {
 
   @HostBinding('innerHTML') renderedIconHTML: SafeHtml;
 
-  private document = inject(DOCUMENT);
+  private readonly document = inject(DOCUMENT);
+  private readonly sanitizer = inject(DomSanitizer);
+  private readonly config = inject(FaConfig);
+  private readonly iconLibrary = inject(FaIconLibrary);
+  private readonly stackItem = inject(FaStackItemSizeDirective, { optional: true });
+  private readonly stack = inject(FaStackComponent, { optional: true });
 
-  constructor(
-    private sanitizer: DomSanitizer,
-    private config: FaConfig,
-    private iconLibrary: FaIconLibrary,
-    @Optional() private stackItem: FaStackItemSizeDirective,
-    @Optional() stack: FaStackComponent,
-  ) {
-    if (stack != null && stackItem == null) {
+  constructor() {
+    if (this.stack != null && this.stackItem == null) {
       console.error(
         'FontAwesome: fa-icon and fa-duotone-icon elements must specify stackItemSize attribute when wrapped into ' +
-          'fa-stack. Example: <fa-icon stackItemSize="2x"></fa-icon>.',
+        'fa-stack. Example: <fa-icon stackItemSize="2x"></fa-icon>.',
       );
     }
   }

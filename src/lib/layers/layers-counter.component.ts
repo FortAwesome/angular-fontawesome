@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, HostBinding, inject, Input, OnChanges, Optional, SimpleChanges } from '@angular/core';
+import { Component, HostBinding, inject, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { counter, CounterParams } from '@fortawesome/fontawesome-svg-core';
 import { FaConfig } from '../config';
@@ -23,11 +23,10 @@ export class FaLayersCounterComponent implements OnChanges {
 
   private document = inject(DOCUMENT);
   private config = inject(FaConfig);
+  private parent = inject(FaLayersComponent, { optional: true });
+  private sanitizer = inject(DomSanitizer);
 
-  constructor(
-    @Optional() private parent: FaLayersComponent,
-    private sanitizer: DomSanitizer,
-  ) {
+  constructor() {
     faWarnIfParentNotExist(this.parent, 'FaLayersComponent', this.constructor.name);
   }
 

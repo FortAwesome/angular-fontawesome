@@ -26,13 +26,10 @@ export class FaLayersComponent implements OnInit, OnChanges {
 
   @Input() @HostBinding('class.fa-fw') fixedWidth?: boolean;
 
-  private document = inject(DOCUMENT);
-
-  constructor(
-    private renderer: Renderer2,
-    private elementRef: ElementRef,
-    private config: FaConfig,
-  ) {}
+  private readonly document = inject(DOCUMENT);
+  private readonly renderer = inject(Renderer2);
+  private readonly elementRef = inject(ElementRef);
+  private readonly config = inject(FaConfig);
 
   ngOnInit() {
     this.renderer.addClass(this.elementRef.nativeElement, 'fa-layers');

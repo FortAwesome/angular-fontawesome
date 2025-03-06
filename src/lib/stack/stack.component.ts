@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnChanges, OnInit, Renderer2, SimpleChanges } from '@angular/core';
+import { Component, ElementRef, inject, Input, OnChanges, OnInit, Renderer2, SimpleChanges } from '@angular/core';
 import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
@@ -14,10 +14,8 @@ export class FaStackComponent implements OnInit, OnChanges {
    */
   @Input() size?: SizeProp;
 
-  constructor(
-    private renderer: Renderer2,
-    private elementRef: ElementRef,
-  ) {}
+  private readonly renderer = inject(Renderer2);
+  private readonly elementRef = inject(ElementRef);
 
   ngOnInit() {
     this.renderer.addClass(this.elementRef.nativeElement, 'fa-stack');

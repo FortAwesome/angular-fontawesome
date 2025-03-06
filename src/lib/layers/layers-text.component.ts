@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, HostBinding, inject, Input, OnChanges, Optional, SimpleChanges } from '@angular/core';
+import { Component, HostBinding, inject, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import {
   FlipProp,
@@ -40,13 +40,12 @@ export class FaLayersTextComponent implements OnChanges {
 
   @HostBinding('innerHTML') renderedHTML: SafeHtml;
 
-  private document = inject(DOCUMENT);
-  private config = inject(FaConfig);
+  private readonly document = inject(DOCUMENT);
+  private readonly config = inject(FaConfig);
+  private readonly parent = inject(FaLayersComponent, { optional: true });
+  private readonly sanitizer = inject(DomSanitizer);
 
-  constructor(
-    @Optional() private parent: FaLayersComponent,
-    private sanitizer: DomSanitizer,
-  ) {
+  constructor() {
     faWarnIfParentNotExist(this.parent, 'FaLayersComponent', this.constructor.name);
   }
 

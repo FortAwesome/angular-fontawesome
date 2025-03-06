@@ -55,9 +55,9 @@ export class FaDuotoneIconComponent extends FaIconComponent {
     if (definition != null && !Array.isArray(definition.icon[4])) {
       throw new Error(
         'The specified icon does not appear to be a Duotone icon. ' +
-          'Check that you specified the correct style: ' +
-          `<fa-duotone-icon [icon]="['fad', '${definition.iconName}']"></fa-duotone-icon> ` +
-          `or use: <fa-icon icon="${definition.iconName}"></fa-icon> instead.`,
+        'Check that you specified the correct style: ' +
+        `<fa-duotone-icon [icon]="['fad', '${definition.iconName}']"></fa-duotone-icon> ` +
+        `or use: <fa-icon icon="${definition.iconName}"></fa-icon> instead.`,
       );
     }
 
