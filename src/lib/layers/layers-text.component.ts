@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, HostBinding, inject, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, HostBinding, inject, OnChanges, SimpleChanges, input } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import {
   FlipProp,
@@ -27,16 +27,16 @@ import { FaLayersComponent } from './layers.component';
   },
 })
 export class FaLayersTextComponent implements OnChanges {
-  @Input() content: string;
-  @Input() title?: string;
-  @Input() flip?: FlipProp;
-  @Input() size?: SizeProp;
-  @Input() pull?: PullProp;
-  @Input() border?: boolean;
-  @Input() inverse?: boolean;
-  @Input() rotate?: RotateProp | string;
-  @Input() fixedWidth?: boolean;
-  @Input() transform?: string | Transform;
+  readonly content = input.required<string>();
+  readonly title = input<string>();
+  readonly flip = input<FlipProp>();
+  readonly size = input<SizeProp>();
+  readonly pull = input<PullProp>();
+  readonly border = input<boolean>();
+  readonly inverse = input<boolean>();
+  readonly rotate = input<RotateProp | string>();
+  readonly fixedWidth = input<boolean>();
+  readonly transform = input<string | Transform>();
 
   @HostBinding('innerHTML') renderedHTML: SafeHtml;
 
@@ -61,16 +61,17 @@ export class FaLayersTextComponent implements OnChanges {
    */
   protected buildParams(): TextParams {
     const classOpts: FaProps = {
-      flip: this.flip,
-      border: this.border,
-      inverse: this.inverse,
-      size: this.size || null,
-      pull: this.pull || null,
-      rotate: this.rotate || null,
-      fixedWidth: this.fixedWidth,
+      flip: this.flip(),
+      border: this.border(),
+      inverse: this.inverse(),
+      size: this.size() || null,
+      pull: this.pull() || null,
+      rotate: this.rotate() || null,
+      fixedWidth: this.fixedWidth(),
     };
 
-    const parsedTransform = typeof this.transform === 'string' ? parse.transform(this.transform) : this.transform;
+    const transform = this.transform();
+    const parsedTransform = typeof transform === 'string' ? parse.transform(transform) : transform;
 
     const styles: Styles = {};
     if (classOpts.rotate != null && !isKnownRotateValue(classOpts.rotate)) {
@@ -80,13 +81,13 @@ export class FaLayersTextComponent implements OnChanges {
     return {
       transform: parsedTransform,
       classes: faClassList(classOpts),
-      title: this.title,
+      title: this.title(),
       styles,
     };
   }
 
   private updateContent(params: TextParams) {
     ensureCss(this.document, this.config);
-    this.renderedHTML = this.sanitizer.bypassSecurityTrustHtml(text(this.content || '', params).html.join('\n'));
+    this.renderedHTML = this.sanitizer.bypassSecurityTrustHtml(text(this.content() || '', params).html.join('\n'));
   }
 }

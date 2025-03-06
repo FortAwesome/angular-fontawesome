@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, HostBinding, inject, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, HostBinding, inject, OnChanges, SimpleChanges, input } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import {
   FaSymbol,
@@ -31,11 +31,11 @@ import { IconDefinition, IconProp } from '../types';
   template: ``,
   host: {
     class: 'ng-fa-icon',
-    '[attr.title]': 'title',
+    '[attr.title]': 'title()',
   },
 })
 export class FaIconComponent implements OnChanges {
-  @Input() icon: IconProp;
+  readonly icon = input.required<IconProp>();
 
   /**
    * Specify a title for the icon.
@@ -43,7 +43,7 @@ export class FaIconComponent implements OnChanges {
    * This text will be displayed in a tooltip on hover and presented to the
    * screen readers.
    */
-  @Input() title?: string;
+  readonly title = input<string>();
 
   /**
    * Icon animation.
@@ -51,25 +51,25 @@ export class FaIconComponent implements OnChanges {
    * Most of the animations are only available when using Font Awesome 6. With
    * Font Awesome 5, only 'spin' and 'spin-pulse' are supported.
    */
-  @Input() animation?: AnimationProp;
+  readonly animation = input<AnimationProp>();
 
-  @Input() mask?: IconProp;
-  @Input() flip?: FlipProp;
-  @Input() size?: SizeProp;
-  @Input() pull?: PullProp;
-  @Input() border?: boolean;
-  @Input() inverse?: boolean;
-  @Input() symbol?: FaSymbol;
-  @Input() rotate?: RotateProp | string;
-  @Input() fixedWidth?: boolean;
-  @Input() transform?: string | Transform;
+  readonly mask = input<IconProp>();
+  readonly flip = input<FlipProp>();
+  readonly size = input<SizeProp>();
+  readonly pull = input<PullProp>();
+  readonly border = input<boolean>();
+  readonly inverse = input<boolean>();
+  readonly symbol = input<FaSymbol>();
+  readonly rotate = input<RotateProp | string>();
+  readonly fixedWidth = input<boolean>();
+  readonly transform = input<string | Transform>();
 
   /**
    * Specify the `role` attribute for the rendered <svg> element.
    *
    * @default 'img'
    */
-  @Input() a11yRole: string;
+  readonly a11yRole = input<string>();
 
   @HostBinding('innerHTML') renderedIconHTML: SafeHtml;
 
@@ -90,13 +90,14 @@ export class FaIconComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.icon == null && this.config.fallbackIcon == null) {
+    const iconValue = this.icon();
+    if (iconValue == null && this.config.fallbackIcon == null) {
       faWarnIfIconSpecMissing();
       return;
     }
 
     if (changes) {
-      const iconDefinition = this.findIconDefinition(this.icon ?? this.config.fallbackIcon);
+      const iconDefinition = this.findIconDefinition(iconValue ?? this.config.fallbackIcon);
       if (iconDefinition != null) {
         const params = this.buildParams();
         ensureCss(this.document, this.config);
@@ -133,19 +134,21 @@ export class FaIconComponent implements OnChanges {
   }
 
   protected buildParams(): IconParams {
+    const fixedWidth = this.fixedWidth();
     const classOpts: FaProps = {
-      flip: this.flip,
-      animation: this.animation,
-      border: this.border,
-      inverse: this.inverse,
-      size: this.size || null,
-      pull: this.pull || null,
-      rotate: this.rotate || null,
-      fixedWidth: typeof this.fixedWidth === 'boolean' ? this.fixedWidth : this.config.fixedWidth,
-      stackItemSize: this.stackItem != null ? this.stackItem.stackItemSize : null,
+      flip: this.flip(),
+      animation: this.animation(),
+      border: this.border(),
+      inverse: this.inverse(),
+      size: this.size() || null,
+      pull: this.pull() || null,
+      rotate: this.rotate() || null,
+      fixedWidth: typeof fixedWidth === 'boolean' ? fixedWidth : this.config.fixedWidth,
+      stackItemSize: this.stackItem != null ? this.stackItem.stackItemSize() : null,
     };
 
-    const parsedTransform = typeof this.transform === 'string' ? parse.transform(this.transform) : this.transform;
+    const transform = this.transform();
+    const parsedTransform = typeof transform === 'string' ? parse.transform(transform) : transform;
 
     const styles: Styles = {};
     if (classOpts.rotate != null && !isKnownRotateValue(classOpts.rotate)) {
@@ -153,13 +156,13 @@ export class FaIconComponent implements OnChanges {
     }
 
     return {
-      title: this.title,
+      title: this.title(),
       transform: parsedTransform,
       classes: faClassList(classOpts),
-      mask: this.mask != null ? this.findIconDefinition(this.mask) : null,
-      symbol: this.symbol,
+      mask: this.mask != null ? this.findIconDefinition(this.mask()) : null,
+      symbol: this.symbol(),
       attributes: {
-        role: this.a11yRole,
+        role: this.a11yRole(),
       },
       styles,
     };

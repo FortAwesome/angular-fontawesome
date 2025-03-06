@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, Input, OnChanges, OnInit, Renderer2, SimpleChanges } from '@angular/core';
+import { Component, ElementRef, inject, OnChanges, OnInit, Renderer2, SimpleChanges, input } from '@angular/core';
 import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
@@ -12,7 +12,7 @@ export class FaStackComponent implements OnInit, OnChanges {
    * You'll need to set size using custom CSS to align stacked icon with a
    * simple one. E.g. `fa-stack { font-size: 0.5em; }`.
    */
-  @Input() size?: SizeProp;
+  readonly size = input<SizeProp>();
 
   private readonly renderer = inject(Renderer2);
   private readonly elementRef = inject(ElementRef);

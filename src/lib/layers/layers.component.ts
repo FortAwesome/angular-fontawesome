@@ -2,13 +2,13 @@ import { DOCUMENT } from '@angular/common';
 import {
   Component,
   ElementRef,
-  HostBinding,
   inject,
-  Input,
   OnChanges,
   OnInit,
   Renderer2,
   SimpleChanges,
+  input,
+  computed
 } from '@angular/core';
 import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 import { FaConfig } from '../config';
@@ -20,12 +20,17 @@ import { ensureCss } from '../shared/utils/css';
 @Component({
   selector: 'fa-layers',
   template: `<ng-content></ng-content>`,
+  host: {
+    '[class.fa-fw]': 'faFw()',
+  },
 })
 export class FaLayersComponent implements OnInit, OnChanges {
-  @Input() size?: SizeProp;
-
-  @Input() @HostBinding('class.fa-fw') fixedWidth?: boolean;
-
+  readonly size = input<SizeProp>();
+  readonly fixedWidth = input<boolean>();
+  readonly faFw = computed(() => {
+    const fixedWidth = this.fixedWidth();
+    return typeof fixedWidth === 'boolean' ? fixedWidth : this.config.fixedWidth
+  });
   private readonly document = inject(DOCUMENT);
   private readonly renderer = inject(Renderer2);
   private readonly elementRef = inject(ElementRef);
@@ -34,7 +39,6 @@ export class FaLayersComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.renderer.addClass(this.elementRef.nativeElement, 'fa-layers');
     ensureCss(this.document, this.config);
-    this.fixedWidth = typeof this.fixedWidth === 'boolean' ? this.fixedWidth : this.config.fixedWidth;
   }
 
   ngOnChanges(changes: SimpleChanges) {

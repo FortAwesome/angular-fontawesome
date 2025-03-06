@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { IconDefinition as CoreIconDefinition, IconParams } from '@fortawesome/fontawesome-svg-core';
 import { IconDefinition, IconProp } from '../types';
 import { FaIconComponent } from './icon.component';
@@ -15,7 +15,7 @@ export class FaDuotoneIconComponent extends FaIconComponent {
    *
    * @default false
    */
-  @Input() swapOpacity?: 'true' | 'false' | boolean;
+  readonly swapOpacity = input<'true' | 'false' | boolean>();
 
   /**
    * Customize the opacity of the primary icon layer.
@@ -23,7 +23,7 @@ export class FaDuotoneIconComponent extends FaIconComponent {
    *
    * @default 1.0
    */
-  @Input() primaryOpacity?: string | number;
+  readonly primaryOpacity = input<string | number>();
 
   /**
    * Customize the opacity of the secondary icon layer.
@@ -31,7 +31,7 @@ export class FaDuotoneIconComponent extends FaIconComponent {
    *
    * @default 0.4
    */
-  @Input() secondaryOpacity?: string | number;
+  readonly secondaryOpacity = input<string | number>();
 
   /**
    * Customize the color of the primary icon layer.
@@ -39,7 +39,7 @@ export class FaDuotoneIconComponent extends FaIconComponent {
    *
    * @default CSS inherited color
    */
-  @Input() primaryColor?: string;
+  readonly primaryColor = input<string>();
 
   /**
    * Customize the color of the secondary icon layer.
@@ -47,7 +47,7 @@ export class FaDuotoneIconComponent extends FaIconComponent {
    *
    * @default CSS inherited color
    */
-  @Input() secondaryColor?: string;
+  readonly secondaryColor = input<string>();
 
   protected findIconDefinition(i: IconProp | IconDefinition): CoreIconDefinition | null {
     const definition = super.findIconDefinition(i);
@@ -67,7 +67,8 @@ export class FaDuotoneIconComponent extends FaIconComponent {
   protected buildParams(): IconParams {
     const params = super.buildParams();
 
-    if (this.swapOpacity === true || this.swapOpacity === 'true') {
+    const swapOpacity = this.swapOpacity();
+    if (swapOpacity === true || swapOpacity === 'true') {
       if (Array.isArray(params.classes)) {
         params.classes.push('fa-swap-opacity');
       } else if (typeof params.classes === 'string') {
@@ -81,16 +82,16 @@ export class FaDuotoneIconComponent extends FaIconComponent {
       params.styles = {};
     }
     if (this.primaryOpacity != null) {
-      params.styles['--fa-primary-opacity'] = this.primaryOpacity.toString();
+      params.styles['--fa-primary-opacity'] = this.primaryOpacity().toString();
     }
     if (this.secondaryOpacity != null) {
-      params.styles['--fa-secondary-opacity'] = this.secondaryOpacity.toString();
+      params.styles['--fa-secondary-opacity'] = this.secondaryOpacity().toString();
     }
     if (this.primaryColor != null) {
-      params.styles['--fa-primary-color'] = this.primaryColor;
+      params.styles['--fa-primary-color'] = this.primaryColor();
     }
     if (this.secondaryColor != null) {
-      params.styles['--fa-secondary-color'] = this.secondaryColor;
+      params.styles['--fa-secondary-color'] = this.secondaryColor();
     }
 
     return params;

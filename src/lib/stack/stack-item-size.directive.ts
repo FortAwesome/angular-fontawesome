@@ -1,4 +1,4 @@
-import { Directive, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Directive, OnChanges, SimpleChanges, input } from '@angular/core';
 import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 import { FaStackComponent } from './stack.component';
 
@@ -11,12 +11,12 @@ export class FaStackItemSizeDirective implements OnChanges {
    * Specify whether icon inside {@link FaStackComponent} should be rendered in
    * regular size (1x) or as a larger icon (2x).
    */
-  @Input() stackItemSize: '1x' | '2x' = '1x';
+  readonly stackItemSize = input<'1x' | '2x'>('1x');
 
   /**
    * @internal
    */
-  @Input() size?: SizeProp;
+  readonly size = input<SizeProp>();
 
   ngOnChanges(changes: SimpleChanges) {
     if ('size' in changes) {

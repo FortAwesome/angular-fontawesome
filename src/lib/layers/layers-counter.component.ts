@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, HostBinding, inject, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, HostBinding, inject, OnChanges, SimpleChanges, input } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { counter, CounterParams } from '@fortawesome/fontawesome-svg-core';
 import { FaConfig } from '../config';
@@ -15,9 +15,9 @@ import { FaLayersComponent } from './layers.component';
   },
 })
 export class FaLayersCounterComponent implements OnChanges {
-  @Input() content: string;
-  @Input() title?: string;
-  @Input() position?: 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left';
+  readonly content = input.required<string>();
+  readonly title = input<string>();
+  readonly position = input<'bottom-right' | 'bottom-left' | 'top-right' | 'top-left'>();
 
   @HostBinding('innerHTML') renderedHTML: SafeHtml;
 
@@ -39,13 +39,13 @@ export class FaLayersCounterComponent implements OnChanges {
 
   protected buildParams(): CounterParams {
     return {
-      title: this.title,
-      classes: this.position != null ? [`fa-layers-${this.position}`] : undefined,
+      title: this.title(),
+      classes: this.position != null ? [`fa-layers-${this.position()}`] : undefined,
     };
   }
 
   private updateContent(params: CounterParams) {
     ensureCss(this.document, this.config);
-    this.renderedHTML = this.sanitizer.bypassSecurityTrustHtml(counter(this.content || '', params).html.join(''));
+    this.renderedHTML = this.sanitizer.bypassSecurityTrustHtml(counter(this.content() || '', params).html.join(''));
   }
 }
