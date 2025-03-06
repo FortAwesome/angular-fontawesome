@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Angular Fontawesome, an Angular library",
   "scripts": {
+    "ng": "ng",
     "test": "ng test angular-fontawesome --watch=false --browsers=ChromeCI",
     "test:schematics": "ts-node --project projects/schematics/tsconfig.json node_modules/.bin/jasmine projects/schematics/src/**/*.spec.ts",
     "test:demo": "ng test demo --watch=false --browsers=ChromeCI",

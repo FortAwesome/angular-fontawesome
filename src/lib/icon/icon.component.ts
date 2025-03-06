@@ -84,7 +84,7 @@ export class FaIconComponent implements OnChanges {
     if (this.stack != null && this.stackItem == null) {
       console.error(
         'FontAwesome: fa-icon and fa-duotone-icon elements must specify stackItemSize attribute when wrapped into ' +
-        'fa-stack. Example: <fa-icon stackItemSize="2x"></fa-icon>.',
+          'fa-stack. Example: <fa-icon stackItemSize="2x"></fa-icon>.',
       );
     }
   }

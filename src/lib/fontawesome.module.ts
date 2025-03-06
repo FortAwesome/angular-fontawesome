@@ -32,4 +32,4 @@ import { FaStackComponent } from './stack/stack.component';
     FaStackItemSizeDirective,
   ],
 })
-export class FontAwesomeModule { }
+export class FontAwesomeModule {}

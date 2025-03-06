@@ -55,11 +55,10 @@ describe('FaStackItemSizeDirective', () => {
       faCircle = faCircle;
     }
 
-    const fixture = initTest(HostComponent);
-    expect(() => fixture.detectChanges()).toThrow(
+    expect(() => initTest(HostComponent)).toThrow(
       new Error(
         'fa-icon is not allowed to customize size when used inside fa-stack. ' +
-          'Set size on the enclosing fa-stack instead: <fa-stack size="4x">...</fa-stack>.',
+        'Set size on the enclosing fa-stack instead: <fa-stack size="4x">...</fa-stack>.',
       ),
     );
   });

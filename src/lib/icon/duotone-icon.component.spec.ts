@@ -108,8 +108,8 @@ describe('FaDuotoneIconComponent', () => {
     expect(() => fixture.detectChanges()).toThrow(
       new Error(
         'The specified icon does not appear to be a Duotone icon. ' +
-          "Check that you specified the correct style: <fa-duotone-icon [icon]=\"['fad', 'user']\"></fa-duotone-icon> " +
-          'or use: <fa-icon icon="user"></fa-icon> instead.',
+        "Check that you specified the correct style: <fa-duotone-icon [icon]=\"['fad', 'user']\"></fa-duotone-icon> " +
+        'or use: <fa-icon icon="user"></fa-icon> instead.',
       ),
     );
   });
@@ -125,7 +125,7 @@ describe('FaDuotoneIconComponent', () => {
 
       createIcon() {
         const componentRef = this.container.createComponent(FaDuotoneIconComponent);
-        componentRef.instance.icon = faDummy;
+        componentRef.setInput('icon', faDummy);
         componentRef.instance.render();
       }
     }

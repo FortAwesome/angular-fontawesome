@@ -8,7 +8,7 @@ import {
   Renderer2,
   SimpleChanges,
   input,
-  computed
+  computed,
 } from '@angular/core';
 import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 import { FaConfig } from '../config';
@@ -29,7 +29,7 @@ export class FaLayersComponent implements OnInit, OnChanges {
   readonly fixedWidth = input<boolean>();
   readonly faFw = computed(() => {
     const fixedWidth = this.fixedWidth();
-    return typeof fixedWidth === 'boolean' ? fixedWidth : this.config.fixedWidth
+    return typeof fixedWidth === 'boolean' ? fixedWidth : this.config.fixedWidth;
   });
   private readonly document = inject(DOCUMENT);
   private readonly renderer = inject(Renderer2);

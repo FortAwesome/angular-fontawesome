@@ -1,6 +1,18 @@
 import { DecimalPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { FaConfig, FaDuotoneIconComponent, FaIconComponent, FaIconLibrary, FaLayersComponent, FaLayersCounterComponent, FaLayersTextComponent, FaStackComponent, FaStackItemSizeDirective, FontAwesomeModule, IconDefinition } from '@fortawesome/angular-fontawesome';
+import {
+  FaConfig,
+  FaDuotoneIconComponent,
+  FaIconComponent,
+  FaIconLibrary,
+  FaLayersComponent,
+  FaLayersCounterComponent,
+  FaLayersTextComponent,
+  FaStackComponent,
+  FaStackItemSizeDirective,
+  FontAwesomeModule,
+  IconDefinition,
+} from '@fortawesome/angular-fontawesome';
 import { faFlag, faUser as regularUser } from '@fortawesome/free-regular-svg-icons';
 import {
   faAdjust,
