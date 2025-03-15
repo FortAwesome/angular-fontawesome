@@ -7,11 +7,6 @@ import { FaLayersComponent } from './layers/layers.component';
 import { FaStackItemSizeDirective } from './stack/stack-item-size.directive';
 import { FaStackComponent } from './stack/stack.component';
 
-/**
- * @deprecated
- * This module is deprecated and will be removed in the next major version.
- * Instae use the standalone components directly in component import
- */
 @NgModule({
   imports: [
     FaIconComponent,
