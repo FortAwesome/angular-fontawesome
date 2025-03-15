@@ -81,16 +81,16 @@ export class FaDuotoneIconComponent extends FaIconComponent {
     if (params.styles == null) {
       params.styles = {};
     }
-    if (this.primaryOpacity != null) {
+    if (this.primaryOpacity() != null) {
       params.styles['--fa-primary-opacity'] = this.primaryOpacity().toString();
     }
-    if (this.secondaryOpacity != null) {
+    if (this.secondaryOpacity() != null) {
       params.styles['--fa-secondary-opacity'] = this.secondaryOpacity().toString();
     }
-    if (this.primaryColor != null) {
+    if (this.primaryColor() != null) {
       params.styles['--fa-primary-color'] = this.primaryColor();
     }
-    if (this.secondaryColor != null) {
+    if (this.secondaryColor() != null) {
       params.styles['--fa-secondary-color'] = this.secondaryColor();
     }
 

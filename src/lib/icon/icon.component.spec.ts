@@ -115,7 +115,7 @@ describe('FaIconComponent', () => {
       standalone: false,
       template: '<fa-icon [icon]="undefined"></fa-icon>',
     })
-    class HostComponent { }
+    class HostComponent {}
 
     const fixture = initTest(HostComponent);
     expect(() => fixture.detectChanges()).toThrow(
@@ -312,7 +312,7 @@ describe('FaIconComponent', () => {
       standalone: false,
       template: '<fa-icon icon="circle"></fa-icon>',
     })
-    class HostComponent { }
+    class HostComponent {}
 
     const fixture = initTest(HostComponent);
     expect(() => fixture.detectChanges()).toThrow(
@@ -376,7 +376,7 @@ describe('FaIconComponent', () => {
     fixture.detectChanges();
     expect(spy).toHaveBeenCalledWith(
       'FontAwesome: fa-icon and fa-duotone-icon elements must specify stackItemSize attribute when wrapped into ' +
-      'fa-stack. Example: <fa-icon stackItemSize="2x"></fa-icon>.',
+        'fa-stack. Example: <fa-icon stackItemSize="2x"></fa-icon>.',
     );
   });
 

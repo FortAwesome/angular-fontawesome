@@ -159,7 +159,7 @@ export class FaIconComponent implements OnChanges {
       title: this.title(),
       transform: parsedTransform,
       classes: faClassList(classOpts),
-      mask: this.mask != null ? this.findIconDefinition(this.mask()) : null,
+      mask: this.mask() != null ? this.findIconDefinition(this.mask()) : null,
       symbol: this.symbol(),
       attributes: {
         role: this.a11yRole(),
