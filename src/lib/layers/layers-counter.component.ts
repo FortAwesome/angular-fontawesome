@@ -38,9 +38,10 @@ export class FaLayersCounterComponent implements OnChanges {
   }
 
   protected buildParams(): CounterParams {
+    const position = this.position();
     return {
       title: this.title(),
-      classes: this.position != null ? [`fa-layers-${this.position()}`] : undefined,
+      classes: position != null ? [`fa-layers-${position}`] : undefined,
     };
   }
 
