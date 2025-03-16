@@ -39,7 +39,7 @@ export class FaLayersTextComponent {
   readonly fixedWidth = input<boolean>();
   readonly transform = input<string | Transform>();
 
-  renderedHTML = computed(() => {
+  readonly renderedHTML = computed(() => {
     const params = this.buildParams();
     return this.updateContent(params);
   });

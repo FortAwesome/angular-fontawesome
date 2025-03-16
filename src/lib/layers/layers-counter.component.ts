@@ -20,7 +20,7 @@ export class FaLayersCounterComponent {
   readonly title = input<string>();
   readonly position = input<'bottom-right' | 'bottom-left' | 'top-right' | 'top-left'>();
 
-  renderedHTML = computed(() => {
+  readonly renderedHTML = computed(() => {
     const params = this.buildParams();
     return this.updateContent(params);
   });
