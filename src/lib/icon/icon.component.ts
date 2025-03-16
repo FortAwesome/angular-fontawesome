@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, inject, input, model, computed } from '@angular/core';
+import { Component, inject, input, computed } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import {
   FaSymbol,
@@ -36,7 +36,7 @@ import { IconDefinition, IconProp } from '../types';
   },
 })
 export class FaIconComponent {
-  readonly icon = model.required<IconProp>();
+  readonly icon = input.required<IconProp>();
 
   /**
    * Specify a title for the icon.
@@ -44,7 +44,7 @@ export class FaIconComponent {
    * This text will be displayed in a tooltip on hover and presented to the
    * screen readers.
    */
-  readonly title = model<string>();
+  readonly title = input<string>();
 
   /**
    * Icon animation.
@@ -52,17 +52,17 @@ export class FaIconComponent {
    * Most of the animations are only available when using Font Awesome 6. With
    * Font Awesome 5, only 'spin' and 'spin-pulse' are supported.
    */
-  readonly animation = model<AnimationProp>();
+  readonly animation = input<AnimationProp>();
 
-  readonly mask = model<IconProp>();
-  readonly flip = model<FlipProp>();
-  readonly size = model<SizeProp>();
-  readonly pull = model<PullProp>();
-  readonly border = model<boolean>();
-  readonly inverse = model<boolean>();
-  readonly symbol = model<FaSymbol>();
-  readonly rotate = model<RotateProp | string>();
-  readonly fixedWidth = model<boolean>();
+  readonly mask = input<IconProp>();
+  readonly flip = input<FlipProp>();
+  readonly size = input<SizeProp>();
+  readonly pull = input<PullProp>();
+  readonly border = input<boolean>();
+  readonly inverse = input<boolean>();
+  readonly symbol = input<FaSymbol>();
+  readonly rotate = input<RotateProp | string>();
+  readonly fixedWidth = input<boolean>();
   readonly transform = input<string | Transform>();
 
   /**

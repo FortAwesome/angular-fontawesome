@@ -9,6 +9,7 @@ import { FaConfig } from '../config';
 import { FaIconLibrary } from '../icon-library';
 import { IconProp } from '../types';
 import { FaIconComponent } from './icon.component';
+import { SIGNAL, signalSetFn } from '@angular/core/primitives/signals';
 
 describe('FaIconComponent', () => {
   it('should render SVG icon', () => {
@@ -86,7 +87,7 @@ describe('FaIconComponent', () => {
     fixture.detectChanges();
     expect(queryByCss(fixture, 'svg').classList.contains('fa-spin')).toBeFalsy();
 
-    fixture.componentInstance.iconComponent.animation.set('spin');
+    signalSetFn(fixture.componentInstance.iconComponent.animation[SIGNAL], 'spin');
     fixture.detectChanges();
     expect(queryByCss(fixture, 'svg').classList.contains('fa-spin')).toBeTruthy();
   });
