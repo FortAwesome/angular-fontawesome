@@ -1,6 +1,6 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, HostBinding, inject, OnChanges, SimpleChanges, input } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { Component, inject, input, computed } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { counter, CounterParams } from '@fortawesome/fontawesome-svg-core';
 import { FaConfig } from '../config';
 import { faWarnIfParentNotExist } from '../shared/errors/warn-if-parent-not-exist';
@@ -12,14 +12,18 @@ import { FaLayersComponent } from './layers.component';
   template: '',
   host: {
     class: 'ng-fa-layers-counter',
+    '[innerHTML]': 'renderedHTML()',
   },
 })
-export class FaLayersCounterComponent implements OnChanges {
+export class FaLayersCounterComponent {
   readonly content = input.required<string>();
   readonly title = input<string>();
   readonly position = input<'bottom-right' | 'bottom-left' | 'top-right' | 'top-left'>();
 
-  @HostBinding('innerHTML') renderedHTML: SafeHtml;
+  renderedHTML = computed(() => {
+    const params = this.buildParams();
+    return this.updateContent(params);
+  });
 
   private document = inject(DOCUMENT);
   private config = inject(FaConfig);
@@ -28,13 +32,6 @@ export class FaLayersCounterComponent implements OnChanges {
 
   constructor() {
     faWarnIfParentNotExist(this.parent, 'FaLayersComponent', this.constructor.name);
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes) {
-      const params = this.buildParams();
-      this.updateContent(params);
-    }
   }
 
   protected buildParams(): CounterParams {
@@ -47,6 +44,6 @@ export class FaLayersCounterComponent implements OnChanges {
 
   private updateContent(params: CounterParams) {
     ensureCss(this.document, this.config);
-    this.renderedHTML = this.sanitizer.bypassSecurityTrustHtml(counter(this.content() || '', params).html.join(''));
+    return this.sanitizer.bypassSecurityTrustHtml(counter(this.content() || '', params).html.join(''));
   }
 }

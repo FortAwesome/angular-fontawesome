@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { faCircle, faUser } from '@fortawesome/free-solid-svg-icons';
 import { faDummy, initTest, queryByCss } from '../../testing/helpers';
-import { FaStackComponent } from './stack.component';
 
 describe('FaStackComponent', () => {
   it('should render stack icon', () => {

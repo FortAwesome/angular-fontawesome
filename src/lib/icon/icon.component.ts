@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, HostBinding, inject, OnChanges, SimpleChanges, input } from '@angular/core';
+import { Component, inject, input, model, computed } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import {
   FaSymbol,
@@ -32,10 +32,11 @@ import { IconDefinition, IconProp } from '../types';
   host: {
     class: 'ng-fa-icon',
     '[attr.title]': 'title()',
+    '[innerHTML]': 'renderedIconHTML()',
   },
 })
-export class FaIconComponent implements OnChanges {
-  readonly icon = input.required<IconProp>();
+export class FaIconComponent {
+  readonly icon = model.required<IconProp>();
 
   /**
    * Specify a title for the icon.
@@ -43,7 +44,7 @@ export class FaIconComponent implements OnChanges {
    * This text will be displayed in a tooltip on hover and presented to the
    * screen readers.
    */
-  readonly title = input<string>();
+  readonly title = model<string>();
 
   /**
    * Icon animation.
@@ -51,17 +52,17 @@ export class FaIconComponent implements OnChanges {
    * Most of the animations are only available when using Font Awesome 6. With
    * Font Awesome 5, only 'spin' and 'spin-pulse' are supported.
    */
-  readonly animation = input<AnimationProp>();
+  readonly animation = model<AnimationProp>();
 
-  readonly mask = input<IconProp>();
-  readonly flip = input<FlipProp>();
-  readonly size = input<SizeProp>();
-  readonly pull = input<PullProp>();
-  readonly border = input<boolean>();
-  readonly inverse = input<boolean>();
-  readonly symbol = input<FaSymbol>();
-  readonly rotate = input<RotateProp | string>();
-  readonly fixedWidth = input<boolean>();
+  readonly mask = model<IconProp>();
+  readonly flip = model<FlipProp>();
+  readonly size = model<SizeProp>();
+  readonly pull = model<PullProp>();
+  readonly border = model<boolean>();
+  readonly inverse = model<boolean>();
+  readonly symbol = model<FaSymbol>();
+  readonly rotate = model<RotateProp | string>();
+  readonly fixedWidth = model<boolean>();
   readonly transform = input<string | Transform>();
 
   /**
@@ -71,7 +72,22 @@ export class FaIconComponent implements OnChanges {
    */
   readonly a11yRole = input<string>();
 
-  @HostBinding('innerHTML') renderedIconHTML: SafeHtml;
+  renderedIconHTML = computed<SafeHtml | ''>(() => {
+    const iconValue = this.icon();
+    if (iconValue == null && this.config.fallbackIcon == null) {
+      faWarnIfIconSpecMissing();
+      return '';
+    }
+
+    const iconDefinition = this.findIconDefinition(iconValue ?? this.config.fallbackIcon);
+    if (!iconDefinition) {
+      return '';
+    }
+    const params = this.buildParams();
+    ensureCss(this.document, this.config);
+    const renderedIcon = icon(iconDefinition, params);
+    return this.sanitizer.bypassSecurityTrustHtml(renderedIcon.html.join('\n'));
+  });
 
   private readonly document = inject(DOCUMENT);
   private readonly sanitizer = inject(DomSanitizer);
@@ -87,35 +103,6 @@ export class FaIconComponent implements OnChanges {
           'fa-stack. Example: <fa-icon stackItemSize="2x"></fa-icon>.',
       );
     }
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    const iconValue = this.icon();
-    if (iconValue == null && this.config.fallbackIcon == null) {
-      faWarnIfIconSpecMissing();
-      return;
-    }
-
-    if (changes) {
-      const iconDefinition = this.findIconDefinition(iconValue ?? this.config.fallbackIcon);
-      if (iconDefinition != null) {
-        const params = this.buildParams();
-        ensureCss(this.document, this.config);
-        const renderedIcon = icon(iconDefinition, params);
-        this.renderedIconHTML = this.sanitizer.bypassSecurityTrustHtml(renderedIcon.html.join('\n'));
-      }
-    }
-  }
-
-  /**
-   * Programmatically trigger rendering of the icon.
-   *
-   * This method is useful, when creating {@link FaIconComponent} dynamically or
-   * changing its inputs programmatically as in these cases icon won't be
-   * re-rendered automatically.
-   */
-  render() {
-    this.ngOnChanges({});
   }
 
   protected findIconDefinition(i: IconProp | IconDefinition): CoreIconDefinition | null {

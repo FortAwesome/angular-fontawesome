@@ -1,6 +1,6 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, HostBinding, inject, OnChanges, SimpleChanges, input } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { Component, inject, input, computed } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import {
   FlipProp,
   parse,
@@ -24,9 +24,10 @@ import { FaLayersComponent } from './layers.component';
   template: '',
   host: {
     class: 'ng-fa-layers-text',
+    '[innerHTML]': 'renderedHTML()',
   },
 })
-export class FaLayersTextComponent implements OnChanges {
+export class FaLayersTextComponent {
   readonly content = input.required<string>();
   readonly title = input<string>();
   readonly flip = input<FlipProp>();
@@ -38,7 +39,10 @@ export class FaLayersTextComponent implements OnChanges {
   readonly fixedWidth = input<boolean>();
   readonly transform = input<string | Transform>();
 
-  @HostBinding('innerHTML') renderedHTML: SafeHtml;
+  renderedHTML = computed(() => {
+    const params = this.buildParams();
+    return this.updateContent(params);
+  });
 
   private readonly document = inject(DOCUMENT);
   private readonly config = inject(FaConfig);
@@ -47,13 +51,6 @@ export class FaLayersTextComponent implements OnChanges {
 
   constructor() {
     faWarnIfParentNotExist(this.parent, 'FaLayersComponent', this.constructor.name);
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes) {
-      const params = this.buildParams();
-      this.updateContent(params);
-    }
   }
 
   /**
@@ -88,6 +85,6 @@ export class FaLayersTextComponent implements OnChanges {
 
   private updateContent(params: TextParams) {
     ensureCss(this.document, this.config);
-    this.renderedHTML = this.sanitizer.bypassSecurityTrustHtml(text(this.content() || '', params).html.join('\n'));
+    return this.sanitizer.bypassSecurityTrustHtml(text(this.content() || '', params).html.join('\n'));
   }
 }

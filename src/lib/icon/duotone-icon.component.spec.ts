@@ -126,7 +126,6 @@ describe('FaDuotoneIconComponent', () => {
       createIcon() {
         const componentRef = this.container.createComponent(FaDuotoneIconComponent);
         componentRef.setInput('icon', faDummy);
-        componentRef.instance.render();
       }
     }
 

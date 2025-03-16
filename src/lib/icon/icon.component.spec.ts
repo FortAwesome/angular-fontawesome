@@ -1,5 +1,4 @@
 import { Component, ViewChild, ViewContainerRef } from '@angular/core';
-import { SIGNAL, signalSetFn } from '@angular/core/primitives/signals';
 import { TestBed } from '@angular/core/testing';
 import { faUser as faUserRegular } from '@fortawesome/free-regular-svg-icons';
 import { faCircle, faUser } from '@fortawesome/free-solid-svg-icons';
@@ -59,7 +58,6 @@ describe('FaIconComponent', () => {
       createIcon() {
         const componentRef = this.container.createComponent(FaIconComponent);
         componentRef.setInput('icon', faUser);
-        componentRef.instance.render();
       }
     }
 
@@ -88,8 +86,7 @@ describe('FaIconComponent', () => {
     fixture.detectChanges();
     expect(queryByCss(fixture, 'svg').classList.contains('fa-spin')).toBeFalsy();
 
-    signalSetFn(fixture.componentInstance.iconComponent.animation[SIGNAL], 'spin');
-    fixture.componentInstance.iconComponent.render();
+    fixture.componentInstance.iconComponent.animation.set('spin');
     fixture.detectChanges();
     expect(queryByCss(fixture, 'svg').classList.contains('fa-spin')).toBeTruthy();
   });
