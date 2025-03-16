@@ -1,11 +1,14 @@
-import { Component, ElementRef, inject, OnChanges, OnInit, Renderer2, SimpleChanges, input } from '@angular/core';
+import { Component, input, computed } from '@angular/core';
 import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
   selector: 'fa-stack',
   template: `<ng-content></ng-content>`,
+  host: {
+    '[class]': 'classes()',
+  },
 })
-export class FaStackComponent implements OnInit, OnChanges {
+export class FaStackComponent {
   /**
    * Size of the stacked icon.
    * Note that stacked icon is by default 2 times bigger, than non-stacked icon.
@@ -14,21 +17,12 @@ export class FaStackComponent implements OnInit, OnChanges {
    */
   readonly size = input<SizeProp>();
 
-  private readonly renderer = inject(Renderer2);
-  private readonly elementRef = inject(ElementRef);
-
-  ngOnInit() {
-    this.renderer.addClass(this.elementRef.nativeElement, 'fa-stack');
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    if ('size' in changes) {
-      if (changes.size.currentValue != null) {
-        this.renderer.addClass(this.elementRef.nativeElement, `fa-${changes.size.currentValue}`);
-      }
-      if (changes.size.previousValue != null) {
-        this.renderer.removeClass(this.elementRef.nativeElement, `fa-${changes.size.previousValue}`);
-      }
-    }
-  }
+  readonly classes = computed(() => {
+    const sizeValue = this.size();
+    const sizeClass = sizeValue ? { [`fa-${sizeValue}`]: true } : {};
+    return {
+      ...sizeClass,
+      'fa-stack': true,
+    };
+  });
 }
