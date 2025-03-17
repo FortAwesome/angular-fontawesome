@@ -209,11 +209,10 @@ class HostComponent {
   readonly container = viewChild('host', { read: ViewContainerRef });
 
   createIcon() {
-    const container = this.container();
-    if (!container) { return; }
+    if (!this.countainer()) { return; }
 
-    const componentRef = container.createComponent(FaIconComponent);
-    componentRef.setInput('icon', faUser); // no need to call render function now
+    const componentRef = this.countainer().createComponent(FaIconComponent);
+    componentRef.setInput('icon', faUser);
   }
 }
 ```
@@ -230,8 +229,7 @@ class HostComponent {
   readonly iconComponent = viewChild(FaIconComponent);
 
   spinIcon() {
-    const iconComponent = this.iconComponent();
-    this.iconComponent?.animation.set('spin');
+    this.iconComponent()?.animation.set('spin');
   }
 }
 ```
