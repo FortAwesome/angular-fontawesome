@@ -209,8 +209,6 @@ class HostComponent {
   readonly container = viewChild('host', { read: ViewContainerRef });
 
   createIcon() {
-    if (!this.countainer()) { return; }
-
     const componentRef = this.countainer().createComponent(FaIconComponent);
     componentRef.setInput('icon', faUser);
   }
@@ -229,7 +227,7 @@ class HostComponent {
   readonly iconComponent = viewChild(FaIconComponent);
 
   spinIcon() {
-    this.iconComponent()?.animation.set('spin');
+    this.iconComponent().animation.set('spin');
   }
 }
 ```

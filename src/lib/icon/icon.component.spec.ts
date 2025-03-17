@@ -1,4 +1,4 @@
-import { Component, signal, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, signal, viewChild, ViewChild, ViewContainerRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { faUser as faUserRegular } from '@fortawesome/free-regular-svg-icons';
@@ -54,10 +54,10 @@ describe('FaIconComponent', () => {
       template: '<ng-container #host></ng-container>',
     })
     class HostComponent {
-      @ViewChild('host', { static: true, read: ViewContainerRef }) container: ViewContainerRef;
+      container = viewChild('host', { read: ViewContainerRef });
 
       createIcon() {
-        const componentRef = this.container.createComponent(FaIconComponent);
+        const componentRef = this.container().createComponent(FaIconComponent);
         componentRef.setInput('icon', faUser);
       }
     }
