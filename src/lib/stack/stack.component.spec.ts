@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { faCircle, faUser } from '@fortawesome/free-solid-svg-icons';
 import { faDummy, initTest, queryByCss } from '../../testing/helpers';
 
@@ -9,14 +9,14 @@ describe('FaStackComponent', () => {
       standalone: false,
       template: `
         <fa-stack>
-          <fa-icon [icon]="faCircle" stackItemSize="2x"></fa-icon>
-          <fa-icon [icon]="faUser" [inverse]="true" stackItemSize="1x"></fa-icon>
+          <fa-icon [icon]="faCircle()" stackItemSize="2x"></fa-icon>
+          <fa-icon [icon]="faUser()" [inverse]="true" stackItemSize="1x"></fa-icon>
         </fa-stack>
       `,
     })
     class HostComponent {
-      faUser = faUser;
-      faCircle = faCircle;
+      faUser = signal(faUser);
+      faCircle = signal(faCircle);
     }
 
     const fixture = initTest(HostComponent);
@@ -30,14 +30,14 @@ describe('FaStackComponent', () => {
       standalone: false,
       template: `
         <fa-stack>
-          <fa-icon [icon]="faCircle" stackItemSize="2x"></fa-icon>
-          <fa-duotone-icon [icon]="dummyDuotoneIcon" [inverse]="true" stackItemSize="1x"></fa-duotone-icon>
+          <fa-icon [icon]="faCircle()" stackItemSize="2x"></fa-icon>
+          <fa-duotone-icon [icon]="dummyDuotoneIcon()" [inverse]="true" stackItemSize="1x"></fa-duotone-icon>
         </fa-stack>
       `,
     })
     class HostComponent {
-      dummyDuotoneIcon = faDummy;
-      faCircle = faCircle;
+      dummyDuotoneIcon = signal(faDummy);
+      faCircle = signal(faCircle);
     }
 
     const fixture = initTest(HostComponent);
@@ -51,14 +51,14 @@ describe('FaStackComponent', () => {
       standalone: false,
       template: `
         <fa-stack size="2x">
-          <fa-icon [icon]="faCircle" stackItemSize="2x"></fa-icon>
-          <fa-icon [icon]="faUser" [inverse]="true" stackItemSize="1x"></fa-icon>
+          <fa-icon [icon]="faCircle()" stackItemSize="2x"></fa-icon>
+          <fa-icon [icon]="faUser()" [inverse]="true" stackItemSize="1x"></fa-icon>
         </fa-stack>
       `,
     })
     class HostComponent {
-      faUser = faUser;
-      faCircle = faCircle;
+      faUser = signal(faUser);
+      faCircle = signal(faCircle);
     }
 
     const fixture = initTest(HostComponent);

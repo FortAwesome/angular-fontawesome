@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { SizeProp } from '@fortawesome/fontawesome-svg-core';
@@ -13,15 +13,15 @@ describe('FaLayersComponent', () => {
       standalone: false,
       template: `
         <fa-layers>
-          <fa-icon [icon]="faUser"></fa-icon>
-          <fa-icon [icon]="faCoffee"></fa-icon>
+          <fa-icon [icon]="faUser()"></fa-icon>
+          <fa-icon [icon]="faCoffee()"></fa-icon>
           <fa-layers-text [content]="'User with coffee'"></fa-layers-text>
         </fa-layers>
       `,
     })
     class HostComponent {
-      faUser = faUser;
-      faCoffee = faCoffee;
+      faUser = signal(faUser);
+      faCoffee = signal(faCoffee);
     }
 
     const fixture = initTest(HostComponent);
@@ -35,15 +35,15 @@ describe('FaLayersComponent', () => {
       standalone: false,
       template: `
         <fa-layers size="2x">
-          <fa-icon [icon]="faUser"></fa-icon>
-          <fa-icon [icon]="faCoffee"></fa-icon>
+          <fa-icon [icon]="faUser()"></fa-icon>
+          <fa-icon [icon]="faCoffee()"></fa-icon>
           <fa-layers-text [content]="'User with coffee'"></fa-layers-text>
         </fa-layers>
       `,
     })
     class HostComponent {
-      faUser = faUser;
-      faCoffee = faCoffee;
+      faUser = signal(faUser);
+      faCoffee = signal(faCoffee);
     }
 
     const fixture = initTest(HostComponent);
@@ -57,7 +57,7 @@ describe('FaLayersComponent', () => {
       standalone: false,
       template: '<fa-layers [fixedWidth]="true"></fa-layers>',
     })
-    class HostComponent {}
+    class HostComponent { }
 
     const fixture = initTest(HostComponent);
     const config = TestBed.inject(FaConfig);
@@ -72,7 +72,7 @@ describe('FaLayersComponent', () => {
       standalone: false,
       template: '<fa-layers></fa-layers>',
     })
-    class HostComponent {}
+    class HostComponent { }
 
     const fixture = initTest(HostComponent);
     const config = TestBed.inject(FaConfig);
@@ -87,15 +87,15 @@ describe('FaLayersComponent', () => {
       standalone: false,
       template: `
         <fa-layers [fixedWidth]="false">
-          <fa-icon [icon]="faUser"></fa-icon>
-          <fa-icon [icon]="faCoffee"></fa-icon>
+          <fa-icon [icon]="faUser()"></fa-icon>
+          <fa-icon [icon]="faCoffee()"></fa-icon>
           <fa-layers-text [content]="'User with coffee'"></fa-layers-text>
         </fa-layers>
       `,
     })
     class HostComponent {
-      faUser = faUser;
-      faCoffee = faCoffee;
+      faUser = signal(faUser);
+      faCoffee = signal(faCoffee);
     }
 
     const fixture = initTest(HostComponent);
@@ -110,17 +110,17 @@ describe('FaLayersComponent', () => {
       selector: 'fa-host',
       standalone: false,
       template: `
-        <fa-layers class="custom-class" [fixedWidth]="fixedWidth" [size]="size"></fa-layers>
-        <fa-layers [class.custom-class]="true" [fixedWidth]="fixedWidth" [size]="size"></fa-layers>
-        <fa-layers [ngClass]="{ 'custom-class': true }" [fixedWidth]="fixedWidth" [size]="size"></fa-layers>
-        <fa-layers [fixedWidth]="fixedWidth" [size]="size" class="custom-class"></fa-layers>
-        <fa-layers [fixedWidth]="fixedWidth" [size]="size" [class.custom-class]="true"></fa-layers>
-        <fa-layers [fixedWidth]="fixedWidth" [size]="size" [ngClass]="{ 'custom-class': true }"></fa-layers>
+        <fa-layers class="custom-class" [fixedWidth]="fixedWidth()" [size]="size()"></fa-layers>
+        <fa-layers [class.custom-class]="true" [fixedWidth]="fixedWidth()" [size]="size()"></fa-layers>
+        <fa-layers [ngClass]="{ 'custom-class': true }" [fixedWidth]="fixedWidth()" [size]="size()"></fa-layers>
+        <fa-layers [fixedWidth]="fixedWidth()" [size]="size()" class="custom-class"></fa-layers>
+        <fa-layers [fixedWidth]="fixedWidth()" [size]="size()" [class.custom-class]="true"></fa-layers>
+        <fa-layers [fixedWidth]="fixedWidth()" [size]="size()" [ngClass]="{ 'custom-class': true }"></fa-layers>
       `,
     })
     class HostComponent {
-      fixedWidth = true;
-      size: SizeProp = '4x';
+      fixedWidth = signal(true);
+      size = signal<SizeProp>('4x');
     }
 
     const fixture = initTest(HostComponent);
@@ -141,13 +141,13 @@ describe('FaLayersComponent', () => {
       standalone: false,
       template: `
         <fa-layers>
-          <fa-duotone-icon [icon]="faDummy"></fa-duotone-icon>
+          <fa-duotone-icon [icon]="faDummy()"></fa-duotone-icon>
           <fa-layers-text [content]="'Dummy'"></fa-layers-text>
         </fa-layers>
       `,
     })
     class HostComponent {
-      faDummy = faDummy;
+      faDummy = signal(faDummy);
     }
 
     const fixture = initTest(HostComponent);
@@ -162,14 +162,14 @@ describe('FaLayersComponent', () => {
       template: `
         <fa-layers>
           <ng-container>
-            <fa-icon [icon]="faUser"></fa-icon>
+            <fa-icon [icon]="faUser()"></fa-icon>
             <fa-layers-text [content]="'Dummy'"></fa-layers-text>
           </ng-container>
         </fa-layers>
       `,
     })
     class HostComponent {
-      faUser = faUser;
+      faUser = signal(faUser);
     }
 
     const fixture = initTest(HostComponent);

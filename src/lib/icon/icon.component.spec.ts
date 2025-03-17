@@ -1,5 +1,6 @@
-import { Component, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, signal, ViewChild, ViewContainerRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { faUser as faUserRegular } from '@fortawesome/free-regular-svg-icons';
 import { faCircle, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Subject } from 'rxjs';
@@ -15,10 +16,10 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-icon [icon]="faUser"></fa-icon>',
+      template: '<fa-icon [icon]="faUser()"></fa-icon>',
     })
     class HostComponent {
-      faUser = faUser;
+      faUser = signal(faUser);
     }
 
     const fixture = initTest(HostComponent);
@@ -30,18 +31,18 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-icon [icon]="faUser" [inverse]="isInverse"></fa-icon>',
+      template: '<fa-icon [icon]="faUser()" [inverse]="isInverse()"></fa-icon>',
     })
     class HostComponent {
-      faUser = faUser;
-      isInverse = false;
+      faUser = signal(faUser);
+      isInverse = signal(false);
     }
 
     const fixture = initTest(HostComponent);
     fixture.detectChanges();
     expect(queryByCss(fixture, 'svg').classList.contains('fa-inverse')).toBeFalsy();
 
-    fixture.componentInstance.isInverse = true;
+    fixture.componentInstance.isInverse.set(true);
     fixture.detectChanges();
     expect(queryByCss(fixture, 'svg').classList.contains('fa-inverse')).toBeTruthy();
   });
@@ -74,12 +75,12 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-icon [icon]="faUser"></fa-icon>',
+      template: '<fa-icon [icon]="faUser()"></fa-icon>',
     })
     class HostComponent {
       @ViewChild(FaIconComponent, { static: true }) iconComponent: FaIconComponent;
 
-      faUser = faUser;
+      faUser = signal(faUser);
     }
 
     const fixture = initTest(HostComponent);
@@ -95,10 +96,10 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-icon [icon]="faUser" a11yRole="presentation"></fa-icon>',
+      template: '<fa-icon [icon]="faUser()" a11yRole="presentation"></fa-icon>',
     })
     class HostComponent {
-      faUser = faUser;
+      faUser = signal(faUser);
     }
 
     const fixture = initTest(HostComponent);
@@ -112,7 +113,7 @@ describe('FaIconComponent', () => {
       standalone: false,
       template: '<fa-icon [icon]="undefined"></fa-icon>',
     })
-    class HostComponent {}
+    class HostComponent { }
 
     const fixture = initTest(HostComponent);
     expect(() => fixture.detectChanges()).toThrow(
@@ -143,14 +144,37 @@ describe('FaIconComponent', () => {
     expect(spy).not.toHaveBeenCalledWith();
   });
 
+  it('should work with stream converted to toSignal and default value', () => {
+    @Component({
+      selector: 'fa-host',
+      standalone: false,
+      template: '<fa-icon [icon]="icon()"></fa-icon>',
+    })
+    class HostComponent {
+      iconSubject = new Subject<IconProp>();
+
+      icon = toSignal(this.iconSubject.pipe(startWith(faCircle)));
+    }
+
+    const spy = spyOn(console, 'error');
+
+    const fixture = initTest(HostComponent);
+    fixture.detectChanges();
+    expect(queryByCss(fixture, '.fa-circle')).toBeTruthy();
+    fixture.componentInstance.iconSubject.next(faUser);
+    fixture.detectChanges();
+    expect(queryByCss(fixture, '.fa-user')).toBeTruthy();
+    expect(spy).not.toHaveBeenCalledWith();
+  });
+
   it('should render a <title> element', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-icon [icon]="faUser" title="User John Smith"></fa-icon>',
+      template: '<fa-icon [icon]="faUser()" title="User John Smith"></fa-icon>',
     })
     class HostComponent {
-      faUser = faUser;
+      faUser = signal(faUser);
     }
 
     const fixture = initTest(HostComponent);
@@ -163,10 +187,10 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: ` <fa-icon [icon]="faUser" [title]="'User John Smith'"></fa-icon> `,
+      template: ` <fa-icon [icon]="faUser()" [title]="'User John Smith'"></fa-icon> `,
     })
     class HostComponent {
-      faUser = faUser;
+      faUser = signal(faUser);
     }
 
     const fixture = initTest(HostComponent);
@@ -224,7 +248,6 @@ describe('FaIconComponent', () => {
     }
 
     const fixture = initTest(HostComponent);
-    const config = TestBed.inject(FaConfig);
     fixture.detectChanges();
     expect(queryByCss(fixture, '.fa-fw')).toBeFalsy();
   });
@@ -252,9 +275,10 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-icon icon="user" [fixedWidth]="true"></fa-icon>',
+      template: '<fa-icon icon="user" [fixedWidth]="fixedWidth()"></fa-icon>',
     })
     class HostComponent {
+      fixedWidth = signal(true);
       constructor(iconLibrary: FaIconLibrary) {
         iconLibrary.addIcons(faUser, faUserRegular);
       }
@@ -271,9 +295,10 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-icon icon="user" [fixedWidth]="false"></fa-icon>',
+      template: '<fa-icon icon="user" [fixedWidth]="fixedWidth()"></fa-icon>',
     })
     class HostComponent {
+      fixedWidth = signal(false);
       constructor(iconLibrary: FaIconLibrary) {
         iconLibrary.addIcons(faUser, faUserRegular);
       }
@@ -309,7 +334,7 @@ describe('FaIconComponent', () => {
       standalone: false,
       template: '<fa-icon icon="circle"></fa-icon>',
     })
-    class HostComponent {}
+    class HostComponent { }
 
     const fixture = initTest(HostComponent);
     expect(() => fixture.detectChanges()).toThrow(
@@ -340,10 +365,10 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-icon [icon]="faUser"></fa-icon>',
+      template: '<fa-icon [icon]="faUser()"></fa-icon>',
     })
     class HostComponent {
-      faUser = faUser;
+      faUser = signal(faUser);
       constructor(config: FaConfig) {
         config.fallbackIcon = faCircle;
       }
@@ -361,10 +386,10 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-stack><fa-icon [icon]="faCircle"></fa-icon></fa-stack>',
+      template: '<fa-stack><fa-icon [icon]="faCircle()"></fa-icon></fa-stack>',
     })
     class HostComponent {
-      faCircle = faCircle;
+      faCircle = signal(faCircle);
     }
 
     const spy = spyOn(console, 'error');
@@ -373,7 +398,7 @@ describe('FaIconComponent', () => {
     fixture.detectChanges();
     expect(spy).toHaveBeenCalledWith(
       'FontAwesome: fa-icon and fa-duotone-icon elements must specify stackItemSize attribute when wrapped into ' +
-        'fa-stack. Example: <fa-icon stackItemSize="2x"></fa-icon>.',
+      'fa-stack. Example: <fa-icon stackItemSize="2x"></fa-icon>.',
     );
   });
 
