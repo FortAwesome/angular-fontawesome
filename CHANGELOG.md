@@ -9,13 +9,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 Converted all library internal component implementation to use reactive Signal API. Now it uses signal, compute, effect, viewChild, etc.
 
-### Breaking Change
-
-* Deprecated the `render` function from the `fa-icon` component. The way of loading component programatically has changed, [please refer here](https://github.com/FortAwesome/angular-fontawesome/blob/master/docs/usage/features.md#programmatic-api) and migration guide [1.0.0 to 2.0.0](docs/upgrading/1.0.0-2.0.0.md)
+### Added
+* Documentation on changes in Programmatic API.
+* Documentation for upgrading 1.0.0 to 2.0.0
+* Updated code to use signal APIs.
 
 ### Removed
 
-* Angular 18.x is no longer supported. If you are using this version, please, stick with version 0.15.0.
+* Deprecated the `render` function from the `FaIconComponent`.
+* Programmatic API has changed, [please refer here](https://github.com/FortAwesome/angular-fontawesome/blob/master/docs/usage/features.md#programmatic-api) and migration guide [1.0.0 to 2.0.0](docs/upgrading/1.0.0-2.0.0.md)
 
 ## [1.0.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/1.0.0) - 2024-11-20
 
