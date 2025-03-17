@@ -5,6 +5,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [2.0.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/2.0.0) - 2025-03-18
+
+Converted all internal component implementation to use reactive API signal, compute, effect, viewChild, etc.
+
+### Breaking Change
+
+* Deprecated the use of setting `FaIconComponent` component property directly, instead call `.set` over a property of component, [refer here](https://github.com/FortAwesome/angular-fontawesome/blob/master/docs/usage/features.md#programmatic-api)
+
+### Removed
+
+* Angular 18.x is no longer supported. If you are using this version, please, stick with version 0.15.0.
+
 ## [1.0.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/1.0.0) - 2024-11-20
 
 There are no major changes in this release. The version bump is to signal that the library is stable now and no major breaking changes are expected in the future.

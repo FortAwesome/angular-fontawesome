@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, inject, input, computed } from '@angular/core';
+import { Component, inject, input, computed, ChangeDetectionStrategy } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import {
   FlipProp,
@@ -26,6 +26,7 @@ import { FaLayersComponent } from './layers.component';
     class: 'ng-fa-layers-text',
     '[innerHTML]': 'renderedHTML()',
   },
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FaLayersTextComponent {
   readonly content = input.required<string>();

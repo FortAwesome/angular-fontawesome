@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, inject, input, computed } from '@angular/core';
+import { Component, inject, input, computed, ChangeDetectionStrategy } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { counter, CounterParams } from '@fortawesome/fontawesome-svg-core';
 import { FaConfig } from '../config';
@@ -14,6 +14,7 @@ import { FaLayersComponent } from './layers.component';
     class: 'ng-fa-layers-counter',
     '[innerHTML]': 'renderedHTML()',
   },
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FaLayersCounterComponent {
   readonly content = input.required<string>();

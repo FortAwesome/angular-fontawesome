@@ -1,6 +1,6 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, inject, input, computed } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { Component, inject, computed, model, ChangeDetectionStrategy } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import {
   FaSymbol,
   FlipProp,
@@ -34,9 +34,10 @@ import { IconDefinition, IconProp } from '../types';
     '[attr.title]': 'title()',
     '[innerHTML]': 'renderedIconHTML()',
   },
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FaIconComponent {
-  readonly icon = input.required<IconProp>();
+  readonly icon = model.required<IconProp>();
 
   /**
    * Specify a title for the icon.
@@ -44,7 +45,7 @@ export class FaIconComponent {
    * This text will be displayed in a tooltip on hover and presented to the
    * screen readers.
    */
-  readonly title = input<string>();
+  readonly title = model<string>();
 
   /**
    * Icon animation.
@@ -52,27 +53,27 @@ export class FaIconComponent {
    * Most of the animations are only available when using Font Awesome 6. With
    * Font Awesome 5, only 'spin' and 'spin-pulse' are supported.
    */
-  readonly animation = input<AnimationProp>();
+  readonly animation = model<AnimationProp>();
 
-  readonly mask = input<IconProp>();
-  readonly flip = input<FlipProp>();
-  readonly size = input<SizeProp>();
-  readonly pull = input<PullProp>();
-  readonly border = input<boolean>();
-  readonly inverse = input<boolean>();
-  readonly symbol = input<FaSymbol>();
-  readonly rotate = input<RotateProp | string>();
-  readonly fixedWidth = input<boolean>();
-  readonly transform = input<string | Transform>();
+  readonly mask = model<IconProp>();
+  readonly flip = model<FlipProp>();
+  readonly size = model<SizeProp>();
+  readonly pull = model<PullProp>();
+  readonly border = model<boolean>();
+  readonly inverse = model<boolean>();
+  readonly symbol = model<FaSymbol>();
+  readonly rotate = model<RotateProp | string>();
+  readonly fixedWidth = model<boolean>();
+  readonly transform = model<string | Transform>();
 
   /**
    * Specify the `role` attribute for the rendered <svg> element.
    *
    * @default 'img'
    */
-  readonly a11yRole = input<string>();
+  readonly a11yRole = model<string>();
 
-  renderedIconHTML = computed<SafeHtml | ''>(() => {
+  readonly renderedIconHTML = computed(() => {
     const iconValue = this.icon();
     if (iconValue == null && this.config.fallbackIcon == null) {
       faWarnIfIconSpecMissing();

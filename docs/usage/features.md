@@ -190,6 +190,52 @@ When using standalone components, make sure to also add `FaStackItemSizeDirectiv
 
 ### Programmatic API
 
+#### v2.0.0 Onwards
+
+To create `FaIconComponent` dynamically:
+
+```ts
+@Component({
+  selector: 'fa-host',
+  template: `
+    <button (click)="createIcon()">
+      Create
+    </button>
+    <br>
+    <ng-container #host></ng-container>
+  `
+})
+class HostComponent {
+  readonly container = viewChild('host', { read: ViewContainerRef });
+
+  createIcon() {
+    const container = this.container();
+    if (!container) { return; }
+
+    const componentRef = container.createComponent(FaIconComponent);
+    componentRef.setInput('icon', faUser); // no need to call render function now
+  }
+}
+```
+
+To update `FaIconComponent` programmatically:
+
+```ts
+@Component({
+  selector: 'fa-host',
+  template: '<fa-icon [icon]="faUser" (click)="spinIcon()"></fa-icon>'
+})
+class HostComponent {
+  readonly faUser = faUser;
+  readonly iconComponent = viewChild(FaIconComponent);
+
+  spinIcon() {
+    const iconComponent = this.iconComponent();
+    this.iconComponent?.animation.set('spin');
+  }
+}
+```
+
 #### Upto v1.0.0
 
 To create `FaIconComponent` dynamically:
@@ -229,58 +275,6 @@ class HostComponent {
     // Note that FaIconComponent.render() should be called to update the
     // rendered SVG after setting/updating component inputs.
     this.iconComponent.render();
-  }
-}
-```
-
-#### v1.1.0 Onwards
-
-To create `FaIconComponent` dynamically:
-
-```ts
-@Component({
-  selector: 'fa-host',
-  template: `
-    <button (click)="createIcon()">
-      Create
-    </button>
-    <br>
-    <ng-container #host></ng-container>
-  `
-})
-class HostComponent {
-  readonly container = viewChild('host', { static: true, read: ViewContainerRef });
-
-  createIcon() {
-    const container = this.container();
-    if (!container) {
-      return;
-    }
-
-    const componentRef = container.createComponent(FaIconComponent);
-    componentRef.setInput('icon', faUser); // no need to call render function now
-  }
-}
-```
-
-To update `FaIconComponent` programmatically:
-
-```ts
-@Component({
-  selector: 'fa-host',
-  template: '<fa-icon [icon]="faUser" (click)="spinIcon()"></fa-icon>'
-})
-class HostComponent {
-  readonly faUser = faUser;
-  readonly iconComponent = viewChild(FaIconComponent, { static: true });
-
-  spinIcon() {
-    const iconComponent = this.iconComponent();
-    if (!container) {
-      return;
-    }
-
-    this.iconComponent.animation.set('spin');
   }
 }
 ```

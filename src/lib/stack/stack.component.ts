@@ -1,4 +1,4 @@
-import { Component, input, computed } from '@angular/core';
+import { Component, input, computed, ChangeDetectionStrategy } from '@angular/core';
 import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
@@ -7,6 +7,7 @@ import { SizeProp } from '@fortawesome/fontawesome-svg-core';
   host: {
     '[class]': 'classes()',
   },
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FaStackComponent {
   /**

@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { IconDefinition as CoreIconDefinition, IconParams } from '@fortawesome/fontawesome-svg-core';
 import { IconDefinition, IconProp } from '../types';
 import { FaIconComponent } from './icon.component';
@@ -6,6 +6,7 @@ import { FaIconComponent } from './icon.component';
 @Component({
   selector: 'fa-duotone-icon',
   template: ``,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FaDuotoneIconComponent extends FaIconComponent {
   /**
