@@ -7,11 +7,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [2.0.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/2.0.0) - 2025-03-18
 
-Converted all internal component implementation to use reactive API signal, compute, effect, viewChild, etc.
+Converted all library internal component implementation to use reactive Signal API. Now it uses signal, compute, effect, viewChild, etc.
 
 ### Breaking Change
 
-* Deprecated the use of setting `FaIconComponent` component property directly, instead call `.set` over a property of component, [refer here](https://github.com/FortAwesome/angular-fontawesome/blob/master/docs/usage/features.md#programmatic-api)
+* Deprecated the `render` function from the `fa-icon` component. The way of loading component programatically has changed, [please refer here](https://github.com/FortAwesome/angular-fontawesome/blob/master/docs/usage/features.md#programmatic-api) and migration guide [1.0.0 to 2.0.0](docs/upgrading/1.0.0-2.0.0.md)
 
 ### Removed
 
