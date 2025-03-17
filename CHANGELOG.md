@@ -7,12 +7,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [2.0.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/2.0.0) - 2025-03-18
 
-Converted all library internal component implementation to use reactive Signal API. Now it uses signal, compute, effect, viewChild, etc.
+Converted all library internal component implementation to use reactive Signal APIs.
 
 ### Added
 * Documentation on changes in Programmatic API.
 * Documentation for upgrading 1.0.0 to 2.0.0
-* Updated code to use signal APIs.
+* Updated code to use signal APIs like signal, computed, effect, input, model.
+* Updated `changeDetection: ChangeDetectionStrategy.OnPush` 🚀 for all components.
 
 ### Removed
 
