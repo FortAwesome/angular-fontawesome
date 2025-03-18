@@ -57,7 +57,7 @@ describe('FaLayersComponent', () => {
       standalone: false,
       template: '<fa-layers [fixedWidth]="true"></fa-layers>',
     })
-    class HostComponent { }
+    class HostComponent {}
 
     const fixture = initTest(HostComponent);
     const config = TestBed.inject(FaConfig);
@@ -72,7 +72,7 @@ describe('FaLayersComponent', () => {
       standalone: false,
       template: '<fa-layers></fa-layers>',
     })
-    class HostComponent { }
+    class HostComponent {}
 
     const fixture = initTest(HostComponent);
     const config = TestBed.inject(FaConfig);
