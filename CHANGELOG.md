@@ -5,7 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
-## [2.0.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/2.0.0) - 2025-03-18
+## [2.0.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/2.0.0) (work-in-progress)
 
 Converted all library internal component implementation to use reactive Signal APIs.
 
