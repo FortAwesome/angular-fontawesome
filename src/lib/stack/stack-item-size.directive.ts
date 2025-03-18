@@ -1,4 +1,4 @@
-import { Directive, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Directive, effect, input } from '@angular/core';
 import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 import { FaStackComponent } from './stack.component';
 
@@ -6,24 +6,25 @@ import { FaStackComponent } from './stack.component';
   // eslint-disable-next-line @angular-eslint/directive-selector
   selector: 'fa-icon[stackItemSize],fa-duotone-icon[stackItemSize]',
 })
-export class FaStackItemSizeDirective implements OnChanges {
+export class FaStackItemSizeDirective {
   /**
    * Specify whether icon inside {@link FaStackComponent} should be rendered in
    * regular size (1x) or as a larger icon (2x).
    */
-  @Input() stackItemSize: '1x' | '2x' = '1x';
+  readonly stackItemSize = input<'1x' | '2x'>('1x');
 
   /**
    * @internal
    */
-  @Input() size?: SizeProp;
+  readonly size = input<SizeProp>();
 
-  ngOnChanges(changes: SimpleChanges) {
-    if ('size' in changes) {
+  _effect = effect(() => {
+    const size = this.size();
+    if (size) {
       throw new Error(
         'fa-icon is not allowed to customize size when used inside fa-stack. ' +
           'Set size on the enclosing fa-stack instead: <fa-stack size="4x">...</fa-stack>.',
       );
     }
-  }
+  });
 }

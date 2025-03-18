@@ -1,6 +1,6 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, HostBinding, inject, Input, OnChanges, Optional, SimpleChanges } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { Component, inject, computed, model, ChangeDetectionStrategy } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import {
   FaSymbol,
   FlipProp,
@@ -31,11 +31,13 @@ import { IconDefinition, IconProp } from '../types';
   template: ``,
   host: {
     class: 'ng-fa-icon',
-    '[attr.title]': 'title',
+    '[attr.title]': 'title()',
+    '[innerHTML]': 'renderedIconHTML()',
   },
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FaIconComponent implements OnChanges {
-  @Input() icon: IconProp;
+export class FaIconComponent {
+  readonly icon = model.required<IconProp>();
 
   /**
    * Specify a title for the icon.
@@ -43,7 +45,7 @@ export class FaIconComponent implements OnChanges {
    * This text will be displayed in a tooltip on hover and presented to the
    * screen readers.
    */
-  @Input() title?: string;
+  readonly title = model<string>();
 
   /**
    * Icon animation.
@@ -51,71 +53,57 @@ export class FaIconComponent implements OnChanges {
    * Most of the animations are only available when using Font Awesome 6. With
    * Font Awesome 5, only 'spin' and 'spin-pulse' are supported.
    */
-  @Input() animation?: AnimationProp;
+  readonly animation = model<AnimationProp>();
 
-  @Input() mask?: IconProp;
-  @Input() flip?: FlipProp;
-  @Input() size?: SizeProp;
-  @Input() pull?: PullProp;
-  @Input() border?: boolean;
-  @Input() inverse?: boolean;
-  @Input() symbol?: FaSymbol;
-  @Input() rotate?: RotateProp | string;
-  @Input() fixedWidth?: boolean;
-  @Input() transform?: string | Transform;
+  readonly mask = model<IconProp>();
+  readonly flip = model<FlipProp>();
+  readonly size = model<SizeProp>();
+  readonly pull = model<PullProp>();
+  readonly border = model<boolean>();
+  readonly inverse = model<boolean>();
+  readonly symbol = model<FaSymbol>();
+  readonly rotate = model<RotateProp | string>();
+  readonly fixedWidth = model<boolean>();
+  readonly transform = model<string | Transform>();
 
   /**
    * Specify the `role` attribute for the rendered <svg> element.
    *
    * @default 'img'
    */
-  @Input() a11yRole: string;
+  readonly a11yRole = model<string>();
 
-  @HostBinding('innerHTML') renderedIconHTML: SafeHtml;
+  readonly renderedIconHTML = computed(() => {
+    const iconValue = this.icon();
+    if (iconValue == null && this.config.fallbackIcon == null) {
+      faWarnIfIconSpecMissing();
+      return '';
+    }
 
-  private document = inject(DOCUMENT);
+    const iconDefinition = this.findIconDefinition(iconValue ?? this.config.fallbackIcon);
+    if (!iconDefinition) {
+      return '';
+    }
+    const params = this.buildParams();
+    ensureCss(this.document, this.config);
+    const renderedIcon = icon(iconDefinition, params);
+    return this.sanitizer.bypassSecurityTrustHtml(renderedIcon.html.join('\n'));
+  });
 
-  constructor(
-    private sanitizer: DomSanitizer,
-    private config: FaConfig,
-    private iconLibrary: FaIconLibrary,
-    @Optional() private stackItem: FaStackItemSizeDirective,
-    @Optional() stack: FaStackComponent,
-  ) {
-    if (stack != null && stackItem == null) {
+  private readonly document = inject(DOCUMENT);
+  private readonly sanitizer = inject(DomSanitizer);
+  private readonly config = inject(FaConfig);
+  private readonly iconLibrary = inject(FaIconLibrary);
+  private readonly stackItem = inject(FaStackItemSizeDirective, { optional: true });
+  private readonly stack = inject(FaStackComponent, { optional: true });
+
+  constructor() {
+    if (this.stack != null && this.stackItem == null) {
       console.error(
         'FontAwesome: fa-icon and fa-duotone-icon elements must specify stackItemSize attribute when wrapped into ' +
           'fa-stack. Example: <fa-icon stackItemSize="2x"></fa-icon>.',
       );
     }
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (this.icon == null && this.config.fallbackIcon == null) {
-      faWarnIfIconSpecMissing();
-      return;
-    }
-
-    if (changes) {
-      const iconDefinition = this.findIconDefinition(this.icon ?? this.config.fallbackIcon);
-      if (iconDefinition != null) {
-        const params = this.buildParams();
-        ensureCss(this.document, this.config);
-        const renderedIcon = icon(iconDefinition, params);
-        this.renderedIconHTML = this.sanitizer.bypassSecurityTrustHtml(renderedIcon.html.join('\n'));
-      }
-    }
-  }
-
-  /**
-   * Programmatically trigger rendering of the icon.
-   *
-   * This method is useful, when creating {@link FaIconComponent} dynamically or
-   * changing its inputs programmatically as in these cases icon won't be
-   * re-rendered automatically.
-   */
-  render() {
-    this.ngOnChanges({});
   }
 
   protected findIconDefinition(i: IconProp | IconDefinition): CoreIconDefinition | null {
@@ -134,19 +122,21 @@ export class FaIconComponent implements OnChanges {
   }
 
   protected buildParams(): IconParams {
+    const fixedWidth = this.fixedWidth();
     const classOpts: FaProps = {
-      flip: this.flip,
-      animation: this.animation,
-      border: this.border,
-      inverse: this.inverse,
-      size: this.size || null,
-      pull: this.pull || null,
-      rotate: this.rotate || null,
-      fixedWidth: typeof this.fixedWidth === 'boolean' ? this.fixedWidth : this.config.fixedWidth,
-      stackItemSize: this.stackItem != null ? this.stackItem.stackItemSize : null,
+      flip: this.flip(),
+      animation: this.animation(),
+      border: this.border(),
+      inverse: this.inverse(),
+      size: this.size() || null,
+      pull: this.pull() || null,
+      rotate: this.rotate() || null,
+      fixedWidth: typeof fixedWidth === 'boolean' ? fixedWidth : this.config.fixedWidth,
+      stackItemSize: this.stackItem != null ? this.stackItem.stackItemSize() : null,
     };
 
-    const parsedTransform = typeof this.transform === 'string' ? parse.transform(this.transform) : this.transform;
+    const transform = this.transform();
+    const parsedTransform = typeof transform === 'string' ? parse.transform(transform) : transform;
 
     const styles: Styles = {};
     if (classOpts.rotate != null && !isKnownRotateValue(classOpts.rotate)) {
@@ -154,13 +144,13 @@ export class FaIconComponent implements OnChanges {
     }
 
     return {
-      title: this.title,
+      title: this.title(),
       transform: parsedTransform,
       classes: faClassList(classOpts),
-      mask: this.mask != null ? this.findIconDefinition(this.mask) : null,
-      symbol: this.symbol,
+      mask: this.mask() != null ? this.findIconDefinition(this.mask()) : null,
+      symbol: this.symbol(),
       attributes: {
-        role: this.a11yRole,
+        role: this.a11yRole(),
       },
       styles,
     };

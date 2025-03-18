@@ -190,6 +190,50 @@ When using standalone components, make sure to also add `FaStackItemSizeDirectiv
 
 ### Programmatic API
 
+#### v2.0.0 Onwards
+
+To create `FaIconComponent` dynamically:
+
+```ts
+@Component({
+  selector: 'fa-host',
+  template: `
+    <button (click)="createIcon()">
+      Create
+    </button>
+    <br>
+    <ng-container #host></ng-container>
+  `
+})
+class HostComponent {
+  readonly container = viewChild('host', { read: ViewContainerRef });
+
+  createIcon() {
+    const componentRef = this.countainer().createComponent(FaIconComponent);
+    componentRef.setInput('icon', faUser);
+  }
+}
+```
+
+To update `FaIconComponent` programmatically:
+
+```ts
+@Component({
+  selector: 'fa-host',
+  template: '<fa-icon [icon]="faUser" (click)="spinIcon()"></fa-icon>'
+})
+class HostComponent {
+  readonly faUser = faUser;
+  readonly iconComponent = viewChild(FaIconComponent);
+
+  spinIcon() {
+    this.iconComponent().animation.set('spin');
+  }
+}
+```
+
+#### Upto v1.0.0
+
 To create `FaIconComponent` dynamically:
 
 ```ts

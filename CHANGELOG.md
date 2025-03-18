@@ -5,6 +5,21 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [2.0.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/2.0.0) (work-in-progress)
+
+Converted all library internal component implementation to use reactive Signal APIs.
+
+### Added
+* Documentation on changes in Programmatic API.
+* Documentation for upgrading 1.0.0 to 2.0.0
+* Updated code to use signal APIs like signal, computed, effect, input, model.
+* Updated `changeDetection: ChangeDetectionStrategy.OnPush` 🚀 for all components.
+
+### Removed
+
+* Deprecated the `render` function from the `FaIconComponent`.
+* Programmatic API has changed, [please refer here](https://github.com/FortAwesome/angular-fontawesome/blob/master/docs/usage/features.md#programmatic-api) and migration guide [1.0.0 to 2.0.0](docs/upgrading/1.0.0-2.0.0.md)
+
 ## [1.0.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/1.0.0) - 2024-11-20
 
 There are no major changes in this release. The version bump is to signal that the library is stable now and no major breaking changes are expected in the future.

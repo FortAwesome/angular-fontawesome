@@ -1,4 +1,4 @@
-import { Component, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, signal, ViewChild, ViewContainerRef } from '@angular/core';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faDummy, initTest, queryByCss } from '../../testing/helpers';
 import { FaDuotoneIconComponent } from './duotone-icon.component';
@@ -8,10 +8,10 @@ describe('FaDuotoneIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-duotone-icon [icon]="faDummy"></fa-duotone-icon>',
+      template: '<fa-duotone-icon [icon]="faDummy()"></fa-duotone-icon>',
     })
     class HostComponent {
-      faDummy = faDummy;
+      faDummy = signal(faDummy);
     }
 
     const fixture = initTest(HostComponent);
@@ -23,10 +23,10 @@ describe('FaDuotoneIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-duotone-icon [icon]="faDummy" [swapOpacity]="true"></fa-duotone-icon>',
+      template: '<fa-duotone-icon [icon]="faDummy()" [swapOpacity]="true"></fa-duotone-icon>',
     })
     class HostComponent {
-      faDummy = faDummy;
+      faDummy = signal(faDummy);
     }
 
     const fixture = initTest(HostComponent);
@@ -38,10 +38,10 @@ describe('FaDuotoneIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-duotone-icon [icon]="faDummy" [primaryOpacity]="0.1"></fa-duotone-icon>',
+      template: '<fa-duotone-icon [icon]="faDummy()" [primaryOpacity]="0.1"></fa-duotone-icon>',
     })
     class HostComponent {
-      faDummy = faDummy;
+      faDummy = signal(faDummy);
     }
 
     const fixture = initTest(HostComponent);
@@ -53,10 +53,10 @@ describe('FaDuotoneIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-duotone-icon [icon]="faDummy" [secondaryOpacity]="0.9"></fa-duotone-icon>',
+      template: '<fa-duotone-icon [icon]="faDummy()" [secondaryOpacity]="0.9"></fa-duotone-icon>',
     })
     class HostComponent {
-      faDummy = faDummy;
+      faDummy = signal(faDummy);
     }
 
     const fixture = initTest(HostComponent);
@@ -68,10 +68,10 @@ describe('FaDuotoneIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-duotone-icon [icon]="faDummy" primaryColor="red"></fa-duotone-icon>',
+      template: '<fa-duotone-icon [icon]="faDummy()" primaryColor="red"></fa-duotone-icon>',
     })
     class HostComponent {
-      faDummy = faDummy;
+      faDummy = signal(faDummy);
     }
 
     const fixture = initTest(HostComponent);
@@ -83,10 +83,10 @@ describe('FaDuotoneIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-duotone-icon [icon]="faDummy" secondaryColor="red"></fa-duotone-icon>',
+      template: '<fa-duotone-icon [icon]="faDummy()" secondaryColor="red"></fa-duotone-icon>',
     })
     class HostComponent {
-      faDummy = faDummy;
+      faDummy = signal(faDummy);
     }
 
     const fixture = initTest(HostComponent);
@@ -98,10 +98,10 @@ describe('FaDuotoneIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-duotone-icon [icon]="faUser"></fa-duotone-icon>',
+      template: '<fa-duotone-icon [icon]="faUser()"></fa-duotone-icon>',
     })
     class HostComponent {
-      faUser = faUser;
+      faUser = signal(faUser);
     }
 
     const fixture = initTest(HostComponent);
@@ -125,8 +125,7 @@ describe('FaDuotoneIconComponent', () => {
 
       createIcon() {
         const componentRef = this.container.createComponent(FaDuotoneIconComponent);
-        componentRef.instance.icon = faDummy;
-        componentRef.instance.render();
+        componentRef.setInput('icon', faDummy);
       }
     }
 

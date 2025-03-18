@@ -17,3 +17,4 @@ You might also be interested in the larger umbrella project [upgrade guide](http
 * [0.9.0 to 0.10.0](docs/upgrading/0.9.0-0.10.0.md)
 * [0.11.0 to 0.12.0](docs/upgrading/0.11.0-0.12.0.md)
 * [0.14.0 to 0.15.0](docs/upgrading/0.14.0-0.15.0.md)
+* [1.0.0 to 2.0.0](docs/upgrading/1.0.0-2.0.0.md)

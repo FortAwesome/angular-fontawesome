@@ -1,4 +1,4 @@
-import { Component, ElementRef, Type } from '@angular/core';
+import { Component, ElementRef, signal, Type } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { faCircle, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FaIconComponent } from '../icon/icon.component';
@@ -23,14 +23,14 @@ describe('FaStackItemSizeDirective', () => {
       standalone: false,
       template: `
         <fa-stack>
-          <fa-icon [icon]="faCircle" stackItemSize="2x"></fa-icon>
-          <fa-icon [icon]="faUser" [inverse]="true" stackItemSize="1x"></fa-icon>
+          <fa-icon [icon]="faCircle()" stackItemSize="2x"></fa-icon>
+          <fa-icon [icon]="faUser()" [inverse]="true" stackItemSize="1x"></fa-icon>
         </fa-stack>
       `,
     })
     class HostComponent {
-      faUser = faUser;
-      faCircle = faCircle;
+      faUser = signal(faUser);
+      faCircle = signal(faCircle);
     }
 
     const fixture = initTest(HostComponent);
@@ -45,17 +45,18 @@ describe('FaStackItemSizeDirective', () => {
       standalone: false,
       template: `
         <fa-stack>
-          <fa-icon [icon]="faCircle" stackItemSize="2x"></fa-icon>
-          <fa-icon [icon]="faUser" [inverse]="true" size="1x" stackItemSize="1x"></fa-icon>
+          <fa-icon [icon]="faCircle()" stackItemSize="2x"></fa-icon>
+          <fa-icon [icon]="faUser()" [inverse]="true" size="1x" stackItemSize="1x"></fa-icon>
         </fa-stack>
       `,
     })
     class HostComponent {
-      faUser = faUser;
-      faCircle = faCircle;
+      faUser = signal(faUser);
+      faCircle = signal(faCircle);
     }
 
     const fixture = initTest(HostComponent);
+
     expect(() => fixture.detectChanges()).toThrow(
       new Error(
         'fa-icon is not allowed to customize size when used inside fa-stack. ' +

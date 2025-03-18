@@ -1,6 +1,6 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, HostBinding, inject, Input, OnChanges, Optional, SimpleChanges } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { Component, inject, input, computed, ChangeDetectionStrategy } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { counter, CounterParams } from '@fortawesome/fontawesome-svg-core';
 import { FaConfig } from '../config';
 import { faWarnIfParentNotExist } from '../shared/errors/warn-if-parent-not-exist';
@@ -12,41 +12,39 @@ import { FaLayersComponent } from './layers.component';
   template: '',
   host: {
     class: 'ng-fa-layers-counter',
+    '[innerHTML]': 'renderedHTML()',
   },
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FaLayersCounterComponent implements OnChanges {
-  @Input() content: string;
-  @Input() title?: string;
-  @Input() position?: 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left';
+export class FaLayersCounterComponent {
+  readonly content = input.required<string>();
+  readonly title = input<string>();
+  readonly position = input<'bottom-right' | 'bottom-left' | 'top-right' | 'top-left'>();
 
-  @HostBinding('innerHTML') renderedHTML: SafeHtml;
+  readonly renderedHTML = computed(() => {
+    const params = this.buildParams();
+    return this.updateContent(params);
+  });
 
   private document = inject(DOCUMENT);
   private config = inject(FaConfig);
+  private parent = inject(FaLayersComponent, { optional: true });
+  private sanitizer = inject(DomSanitizer);
 
-  constructor(
-    @Optional() private parent: FaLayersComponent,
-    private sanitizer: DomSanitizer,
-  ) {
+  constructor() {
     faWarnIfParentNotExist(this.parent, 'FaLayersComponent', this.constructor.name);
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes) {
-      const params = this.buildParams();
-      this.updateContent(params);
-    }
-  }
-
   protected buildParams(): CounterParams {
+    const position = this.position();
     return {
-      title: this.title,
-      classes: this.position != null ? [`fa-layers-${this.position}`] : undefined,
+      title: this.title(),
+      classes: position != null ? [`fa-layers-${position}`] : undefined,
     };
   }
 
   private updateContent(params: CounterParams) {
     ensureCss(this.document, this.config);
-    this.renderedHTML = this.sanitizer.bypassSecurityTrustHtml(counter(this.content || '', params).html.join(''));
+    return this.sanitizer.bypassSecurityTrustHtml(counter(this.content() || '', params).html.join(''));
   }
 }

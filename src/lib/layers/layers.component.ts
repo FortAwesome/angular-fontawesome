@@ -1,15 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import {
-  Component,
-  ElementRef,
-  HostBinding,
-  inject,
-  Input,
-  OnChanges,
-  OnInit,
-  Renderer2,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, inject, OnInit, input, computed, ChangeDetectionStrategy } from '@angular/core';
 import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 import { FaConfig } from '../config';
 import { ensureCss } from '../shared/utils/css';
@@ -20,34 +10,32 @@ import { ensureCss } from '../shared/utils/css';
 @Component({
   selector: 'fa-layers',
   template: `<ng-content></ng-content>`,
+  host: {
+    '[class]': 'classes()',
+  },
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FaLayersComponent implements OnInit, OnChanges {
-  @Input() size?: SizeProp;
+export class FaLayersComponent implements OnInit {
+  readonly size = input<SizeProp>();
+  readonly fixedWidth = input<boolean>();
+  readonly faFw = computed(() => {
+    const fixedWidth = this.fixedWidth();
+    return typeof fixedWidth === 'boolean' ? fixedWidth : this.config.fixedWidth;
+  });
+  readonly classes = computed(() => {
+    const sizeValue = this.size();
+    const sizeClass = sizeValue ? { [`fa-${sizeValue}`]: true } : {};
+    return {
+      ...sizeClass,
+      'fa-fw': this.faFw(),
+      'fa-layers': true,
+    };
+  });
 
-  @Input() @HostBinding('class.fa-fw') fixedWidth?: boolean;
-
-  private document = inject(DOCUMENT);
-
-  constructor(
-    private renderer: Renderer2,
-    private elementRef: ElementRef,
-    private config: FaConfig,
-  ) {}
+  private readonly document = inject(DOCUMENT);
+  private readonly config = inject(FaConfig);
 
   ngOnInit() {
-    this.renderer.addClass(this.elementRef.nativeElement, 'fa-layers');
     ensureCss(this.document, this.config);
-    this.fixedWidth = typeof this.fixedWidth === 'boolean' ? this.fixedWidth : this.config.fixedWidth;
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    if ('size' in changes) {
-      if (changes.size.currentValue != null) {
-        this.renderer.addClass(this.elementRef.nativeElement, `fa-${changes.size.currentValue}`);
-      }
-      if (changes.size.previousValue != null) {
-        this.renderer.removeClass(this.elementRef.nativeElement, `fa-${changes.size.previousValue}`);
-      }
-    }
   }
 }

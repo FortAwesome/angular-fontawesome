@@ -1,5 +1,5 @@
 import { DecimalPipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FaConfig, FaIconLibrary, FontAwesomeModule, IconDefinition } from '@fortawesome/angular-fontawesome';
 import { faFlag, faUser as regularUser } from '@fortawesome/free-regular-svg-icons';
 import {
@@ -56,7 +56,7 @@ export class AppComponent {
 
   selectedPosition: 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left';
 
-  constructor(library: FaIconLibrary, faConfig: FaConfig) {
+  constructor() {
     // Notice that we're adding two different icon objects to the library.
     // Each of them within their respective icon npm packages are exported as faUser,
     // but we've renamed the second one in order to disambiguate the two objects within
@@ -76,8 +76,8 @@ export class AppComponent {
     // <fa-icon [icon]="regularUser"></fa-icon>
     //
     // You don't specify the prefix in that case, because the icon object knows its own prefix.
-    library.addIcons(faUser, regularUser);
-    faConfig.fallbackIcon = faMagic;
+    inject(FaIconLibrary).addIcons(faUser, regularUser);
+    inject(FaConfig).fallbackIcon = faMagic;
   }
 
   onChange(event: any) {
