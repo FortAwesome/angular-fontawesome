@@ -29,21 +29,21 @@
   "homepage": "https://github.com/FortAwesome/angular-fontawesome",
   "devDependencies": {
     "@angular-devkit/build-angular": "patch:@angular-devkit/build-angular@npm%3A19.0.0#~/.yarn/patches/@angular-devkit-build-angular-npm-19.0.0-131974ef98.patch",
-    "@angular-devkit/core": "^19.0.0",
-    "@angular-devkit/schematics": "^19.0.0",
-    "@angular/animations": "^19.0.0",
-    "@angular/build": "^19.0.0",
-    "@angular/cli": "^19.0.0",
-    "@angular/common": "^19.0.0",
-    "@angular/compiler": "^19.0.0",
-    "@angular/compiler-cli": "^19.0.0",
-    "@angular/core": "^19.0.0",
-    "@angular/language-service": "^19.0.0",
-    "@angular/platform-browser": "^19.0.0",
-    "@angular/platform-browser-dynamic": "^19.0.0",
-    "@angular/platform-server": "^19.0.0",
-    "@angular/router": "^19.0.0",
-    "@angular/ssr": "^19.0.0",
+    "@angular-devkit/core": "^20.0.0",
+    "@angular-devkit/schematics": "^20.0.0",
+    "@angular/animations": "^20.0.0",
+    "@angular/build": "^20.0.0",
+    "@angular/cli": "^20.0.0",
+    "@angular/common": "^20.0.0",
+    "@angular/compiler": "^20.0.0",
+    "@angular/compiler-cli": "^20.0.0",
+    "@angular/core": "^20.0.0",
+    "@angular/language-service": "^20.0.0",
+    "@angular/platform-browser": "^20.0.0",
+    "@angular/platform-browser-dynamic": "^20.0.0",
+    "@angular/platform-server": "^20.0.0",
+    "@angular/router": "^20.0.0",
+    "@angular/ssr": "^20.0.0",
     "@fortawesome/free-regular-svg-icons": "^6.7.1",
     "@fortawesome/free-solid-svg-icons": "^6.7.1",
     "@types/express": "^4.17.21",
@@ -72,7 +72,7 @@
     "protractor": "~7.0.0",
     "rxjs": "^7.8.1",
     "ts-node": "~10.9.2",
-    "typescript": "~5.6.3",
+    "typescript": "~5.8.3",
     "zone.js": "~0.15.0"
   },
   "dependencies": {
@@ -88,7 +88,7 @@
     "svg"
   ],
   "peerDependencies": {
-    "@angular/core": "^19.0.0"
+    "@angular/core": "^20.0.0"
   },
   "schematics": "./schematics/collection.json",
   "packageManager": "yarn@4.5.1"
