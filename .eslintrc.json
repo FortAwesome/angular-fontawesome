@@ -72,6 +72,12 @@
       }
     },
     {
+      "files": ["*.spec.ts"],
+      "rules": {
+        "@angular-eslint/prefer-standalone": "off"
+      }
+    },
+    {
       "files": ["*.html"],
       "extends": ["plugin:@angular-eslint/template/recommended"],
       "rules": {}
