@@ -40,7 +40,7 @@ describe('ng-add', () => {
 
     const tree = await runner.runSchematic<Schema>('ng-add', { project: 'test-app' }, appTree);
 
-    const contents = tree.readContent('src/app/app.module.ts');
+    const contents = tree.readContent('src/app/app-module.ts');
 
     expect(contents).toContain('import { FontAwesomeModule }');
   });
