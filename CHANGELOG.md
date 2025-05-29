@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 Converted all library internal component implementation to use reactive Signal APIs.
 
 ### Added
+* Support for Angular 20.
 * Documentation on changes in Programmatic API.
 * Documentation for upgrading 1.0.0 to 2.0.0
 * Updated code to use signal APIs like signal, computed, effect, input, model.
