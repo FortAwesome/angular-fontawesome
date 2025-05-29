@@ -52,7 +52,7 @@ $ npm install @fortawesome/angular-fontawesome@<version>
 | 0.14.x                           | 17.x       | 5.x && 6.x   | supported     |
 | 0.15.x                           | 18.x       | 5.x && 6.x   | supported     |
 | 1.x                              | 19.x       | 5.x && 6.x   | supported     |
-| 2.x                              | 19.x       | 5.x && 6.x   | supported     |
+| 2.x                              | 20.x       | 5.x && 6.x   | supported     |
 
 ## Usage
 
