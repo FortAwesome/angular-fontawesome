@@ -1,5 +1,4 @@
-import { DOCUMENT } from '@angular/common';
-import { Component, inject, input, computed, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, input, computed, ChangeDetectionStrategy, DOCUMENT } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import {
   FlipProp,

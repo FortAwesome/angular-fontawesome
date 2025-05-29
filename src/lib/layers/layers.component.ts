@@ -1,5 +1,4 @@
-import { DOCUMENT } from '@angular/common';
-import { Component, inject, OnInit, input, computed, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, OnInit, input, computed, ChangeDetectionStrategy, DOCUMENT } from '@angular/core';
 import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 import { FaConfig } from '../config';
 import { ensureCss } from '../shared/utils/css';
