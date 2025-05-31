@@ -5,9 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
-## [2.0.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/2.0.0) (work-in-progress)
+## [2.0.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/2.0.0) (2025-05-31)
 
 Converted all library internal component implementation to use reactive Signal APIs.
+
+Make sure to check [upgrade instructions](https://github.com/FortAwesome/angular-fontawesome/blob/master/UPGRADING.md).
 
 ### Added
 * Support for Angular 20.
