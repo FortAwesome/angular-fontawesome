@@ -138,6 +138,6 @@ being awesome contributors to this project. **We'd like to take a moment to reco
 [<img src="https://github.com/jasonlundien.png?size=72" alt="jasonlundien" width="72">](https://github.com/jasonlundien)
 [<img src="https://github.com/FortAwesome.png?size=72" alt="Font Awesome Team" width="72">](https://github.com/orgs/FortAwesome/people)
 [<img src="https://github.com/pankajparkar.png?size=72" alt="pankajparkar" width="72">](https://github.com/pankajparkar)
-[<img src="https://github.com/medbenmakhlouf .png?size=72" alt="medbenmakhlouf " width="72">](https://github.com/medbenmakhlouf )
+[<img src="https://github.com/medbenmakhlouf.png?size=72" alt="medbenmakhlouf" width="72">](https://github.com/medbenmakhlouf)
 
 If we've missed someone (which is quite likely) submit a Pull Request to us and we'll get it resolved.
