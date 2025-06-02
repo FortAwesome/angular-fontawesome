@@ -87,12 +87,12 @@
               "namedChunks": false,
               "extractLicenses": true,
               "ssr": {
-                "entry": "projects/demo/server.ts"
+                "entry": "projects/demo/src/server.ts"
               }
             },
             "development-ssr": {
               "ssr": {
-                "entry": "projects/demo/server.ts"
+                "entry": "projects/demo/src/server.ts"
               }
             }
           },

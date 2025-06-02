@@ -1,6 +1,6 @@
-import { Component, signal, viewChild, ViewChild, ViewContainerRef } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
+import { Component, signal, viewChild, ViewContainerRef } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { TestBed } from '@angular/core/testing';
 import { faUser as faUserRegular } from '@fortawesome/free-regular-svg-icons';
 import { faCircle, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Subject } from 'rxjs';
@@ -57,7 +57,7 @@ describe('FaIconComponent', () => {
       container = viewChild('host', { read: ViewContainerRef });
 
       createIcon() {
-        const componentRef = this.container().createComponent(FaIconComponent);
+        const componentRef = this.container()!.createComponent(FaIconComponent);
         componentRef.setInput('icon', faUser);
       }
     }
@@ -78,7 +78,7 @@ describe('FaIconComponent', () => {
       template: '<fa-icon [icon]="faUser()"></fa-icon>',
     })
     class HostComponent {
-      @ViewChild(FaIconComponent, { static: true }) iconComponent: FaIconComponent;
+      iconComponent = viewChild(FaIconComponent);
 
       faUser = signal(faUser);
     }
@@ -87,7 +87,7 @@ describe('FaIconComponent', () => {
     fixture.detectChanges();
     expect(queryByCss(fixture, 'svg').classList.contains('fa-spin')).toBeFalsy();
 
-    fixture.componentInstance.iconComponent.animation.set('spin');
+    fixture.componentInstance.iconComponent()!.animation.set('spin');
     fixture.detectChanges();
     expect(queryByCss(fixture, 'svg').classList.contains('fa-spin')).toBeTruthy();
   });

@@ -1,4 +1,4 @@
-import { Component, signal, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, signal, viewChild, ViewContainerRef } from '@angular/core';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faDummy, initTest, queryByCss } from '../../testing/helpers';
 import { FaDuotoneIconComponent } from './duotone-icon.component';
@@ -121,10 +121,10 @@ describe('FaDuotoneIconComponent', () => {
       template: '<ng-container #host></ng-container>',
     })
     class HostComponent {
-      @ViewChild('host', { static: true, read: ViewContainerRef }) container: ViewContainerRef;
+      container = viewChild('host', { read: ViewContainerRef });
 
       createIcon() {
-        const componentRef = this.container.createComponent(FaDuotoneIconComponent);
+        const componentRef = this.container()!.createComponent(FaDuotoneIconComponent);
         componentRef.setInput('icon', faDummy);
       }
     }

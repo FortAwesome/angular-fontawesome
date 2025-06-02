@@ -36,5 +36,5 @@ export const faClassList = (props: FaProps): string[] => {
 
   return Object.keys(classes)
     .map((key) => (classes[key] ? key : null))
-    .filter((key) => key);
+    .filter((key): key is string => key != null);
 };

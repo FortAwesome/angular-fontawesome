@@ -54,7 +54,7 @@ export class AppComponent {
   isAnimated = true;
   magicLevel = 0;
 
-  selectedPosition: 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left';
+  selectedPosition: 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left' = 'bottom-right';
 
   constructor() {
     // Notice that we're adding two different icon objects to the library.
