@@ -13,6 +13,7 @@
     "start": "ng serve demo",
     "start:ssr": "ng serve demo --configuration development-ssr",
     "build": "ng build angular-fontawesome",
+    "build:demo": "ng build demo",
     "build:watch": "ng build angular-fontawesome -c development --watch",
     "build:schematics": "tsc -p projects/schematics/tsconfig.json && ts-node -O '{\"module\":\"commonjs\"}' tasks/build-schematics.ts",
     "format": "prettier --write --ignore-path .gitignore '**/*.{js,ts,json,html}'",

@@ -166,7 +166,7 @@
     <fa-icon [icon]="faBell"></fa-icon>
     <fa-layers-counter
       [position]="selectedPosition"
-      [content]="notificationsCounter | number"
+      [content]="$any(notificationsCounter | number)"
       title="Unread Messages"
     ></fa-layers-counter>
   </fa-layers>
@@ -179,4 +179,4 @@
   Icon uses a fallback icon when the main icon parameter is not specified. Useful for when the icon is loaded
   asynchronously. If no fallback icon is specified, the icon will not appear. (Not shown in this example.)
 </p>
-<fa-icon [icon]="undefined"></fa-icon>
+<fa-icon [icon]="undefined!"></fa-icon>

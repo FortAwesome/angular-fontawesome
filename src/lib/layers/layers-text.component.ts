@@ -1,4 +1,4 @@
-import { Component, inject, input, computed, ChangeDetectionStrategy, DOCUMENT } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, DOCUMENT, inject, input } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import {
   FlipProp,
@@ -61,9 +61,9 @@ export class FaLayersTextComponent {
       flip: this.flip(),
       border: this.border(),
       inverse: this.inverse(),
-      size: this.size() || null,
-      pull: this.pull() || null,
-      rotate: this.rotate() || null,
+      size: this.size(),
+      pull: this.pull(),
+      rotate: this.rotate(),
       fixedWidth: this.fixedWidth(),
     };
 

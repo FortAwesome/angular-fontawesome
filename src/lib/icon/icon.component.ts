@@ -1,6 +1,7 @@
-import { Component, inject, computed, model, ChangeDetectionStrategy, DOCUMENT } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, DOCUMENT, inject, model } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import {
+  Attributes,
   FaSymbol,
   FlipProp,
   icon,
@@ -127,15 +128,24 @@ export class FaIconComponent {
       animation: this.animation(),
       border: this.border(),
       inverse: this.inverse(),
-      size: this.size() || null,
-      pull: this.pull() || null,
-      rotate: this.rotate() || null,
+      size: this.size(),
+      pull: this.pull(),
+      rotate: this.rotate(),
       fixedWidth: typeof fixedWidth === 'boolean' ? fixedWidth : this.config.fixedWidth,
-      stackItemSize: this.stackItem != null ? this.stackItem.stackItemSize() : null,
+      stackItemSize: this.stackItem != null ? this.stackItem.stackItemSize() : undefined,
     };
 
     const transform = this.transform();
     const parsedTransform = typeof transform === 'string' ? parse.transform(transform) : transform;
+
+    const mask = this.mask();
+    const maskIconDefinition = mask != null ? this.findIconDefinition(mask) : null;
+
+    const attributes: Attributes = {};
+    const a11yRole = this.a11yRole();
+    if (a11yRole != null) {
+      attributes['role'] = a11yRole;
+    }
 
     const styles: Styles = {};
     if (classOpts.rotate != null && !isKnownRotateValue(classOpts.rotate)) {
@@ -146,11 +156,9 @@ export class FaIconComponent {
       title: this.title(),
       transform: parsedTransform,
       classes: faClassList(classOpts),
-      mask: this.mask() != null ? this.findIconDefinition(this.mask()) : null,
+      mask: maskIconDefinition ?? undefined,
       symbol: this.symbol(),
-      attributes: {
-        role: this.a11yRole(),
-      },
+      attributes,
       styles,
     };
   }

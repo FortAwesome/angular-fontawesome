@@ -50,7 +50,7 @@ export class FaDuotoneIconComponent extends FaIconComponent {
    */
   readonly secondaryColor = input<string>();
 
-  protected findIconDefinition(i: IconProp | IconDefinition): CoreIconDefinition | null {
+  protected override findIconDefinition(i: IconProp | IconDefinition): CoreIconDefinition | null {
     const definition = super.findIconDefinition(i);
 
     if (definition != null && !Array.isArray(definition.icon[4])) {
@@ -65,7 +65,7 @@ export class FaDuotoneIconComponent extends FaIconComponent {
     return definition;
   }
 
-  protected buildParams(): IconParams {
+  protected override buildParams(): IconParams {
     const params = super.buildParams();
 
     const swapOpacity = this.swapOpacity();
@@ -82,17 +82,21 @@ export class FaDuotoneIconComponent extends FaIconComponent {
     if (params.styles == null) {
       params.styles = {};
     }
-    if (this.primaryOpacity() != null) {
-      params.styles['--fa-primary-opacity'] = this.primaryOpacity().toString();
+    const primaryOpacity = this.primaryOpacity();
+    if (primaryOpacity != null) {
+      params.styles['--fa-primary-opacity'] = primaryOpacity.toString();
     }
-    if (this.secondaryOpacity() != null) {
-      params.styles['--fa-secondary-opacity'] = this.secondaryOpacity().toString();
+    const secondaryOpacity = this.secondaryOpacity();
+    if (secondaryOpacity != null) {
+      params.styles['--fa-secondary-opacity'] = secondaryOpacity.toString();
     }
-    if (this.primaryColor() != null) {
-      params.styles['--fa-primary-color'] = this.primaryColor();
+    const primaryColor = this.primaryColor();
+    if (primaryColor != null) {
+      params.styles['--fa-primary-color'] = primaryColor;
     }
-    if (this.secondaryColor() != null) {
-      params.styles['--fa-secondary-color'] = this.secondaryColor();
+    const secondaryColor = this.secondaryColor();
+    if (secondaryColor != null) {
+      params.styles['--fa-secondary-color'] = secondaryColor;
     }
 
     return params;

@@ -22,6 +22,7 @@ jobs:
       - run: yarn test:schematics
       - run: yarn build
       - run: yarn build:schematics
+      - run: yarn build:demo
       - run: yarn test:demo
       - run: yarn add -D chromedriver@~`google-chrome --version | awk '{print $3}' | awk -F. '{print $1}'`
       - run: yarn test:integration
@@ -46,6 +47,7 @@ jobs:
       - run: yarn test:schematics
       - run: yarn build
       - run: yarn build:schematics
+      - run: yarn build:demo
       - run: yarn test:demo
       - run: yarn add -D chromedriver@~`google-chrome --version | awk '{print $3}' | awk -F. '{print $1}'`
       - run: yarn test:integration

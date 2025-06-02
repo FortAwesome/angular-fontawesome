@@ -18,7 +18,7 @@ export class FaConfig {
    *
    * @default null
    */
-  fallbackIcon: IconDefinition = null;
+  fallbackIcon: IconDefinition | null = null;
 
   /**
    * Set icons to the same fixed width.

@@ -1,4 +1,4 @@
-import { browser, ElementFinder, logging } from 'protractor';
+import { browser, logging } from 'protractor';
 import { appPage } from './app.page';
 
 describe('Angular FontAwesome demo', () => {
@@ -14,7 +14,7 @@ describe('Angular FontAwesome demo', () => {
   });
 
   it('should only add styles once', async () => {
-    const styles: string[] = await appPage.styles.map((style: ElementFinder) => style.getAttribute('innerHTML'));
+    const styles: string[] = await appPage.styles.map((style) => style!.getAttribute('innerHTML'));
     const fontAwesomeStyles = styles.filter((style) => style.includes('.svg-inline--fa'));
 
     expect(fontAwesomeStyles.length).toBe(1);
@@ -22,7 +22,7 @@ describe('Angular FontAwesome demo', () => {
 
   it('should include styles in the server-side-rendered page', async () => {
     const context = await appPage.appRoot.getAttribute('ng-server-context');
-    if (context !== 'ssr') {
+    if (context !== 'ssg') {
       // Skip the test if the page is not server-side rendered.
       console.warn('Skipping test as the page is not server-side rendered.');
       return;
