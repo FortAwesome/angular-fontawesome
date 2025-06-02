@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [2.0.1](https://github.com/FortAwesome/angular-fontawesome/releases/tag/2.0.1) (2025-06-02)
+
+### Fixed
+
+* Restored possibility to set inputs to `undefined`.
+
 ## [2.0.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/2.0.0) (2025-05-31)
 
 Converted all library internal component implementation to use reactive Signal APIs.
