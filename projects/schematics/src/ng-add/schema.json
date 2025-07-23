@@ -20,6 +20,10 @@
         "type": "list",
         "items": [
           {
+            "value": "7",
+            "label": "Font Awesome 7"
+          },
+          {
             "value": "6",
             "label": "Font Awesome 6"
           },

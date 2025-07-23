@@ -18,6 +18,9 @@ import {
   faSquare,
   faTimes,
   faUser,
+  faBusSide,
+  faSpiral,
+  faSeptagon
 } from '@fortawesome/free-solid-svg-icons';
 import { AlternatePrefixComponent } from './alternate-prefix.component';
 
@@ -44,6 +47,12 @@ export class AppComponent {
   faBatteryQuarter = faBatteryQuarter;
   faHeart = faHeart;
   faSpinner = faSpinner;
+
+  // V7 Icons
+  faBusSide = faBusSide;
+  faSpiral = faSpiral;
+  faSeptagon = faSeptagon;
+
   faDummy: IconDefinition = {
     prefix: 'fad',
     iconName: 'dummy',
