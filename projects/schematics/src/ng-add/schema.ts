@@ -3,7 +3,7 @@ export interface Schema {
   project?: string;
 
   /** The FontAwesome version to install. */
-  version?: '5' | '6';
+  version?: '5' | '6' | '7' ;
 
   /** The icon packages to install */
   iconPackages?: (

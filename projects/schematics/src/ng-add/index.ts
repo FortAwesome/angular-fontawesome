@@ -12,7 +12,7 @@ import { getAppModulePath, isStandaloneApp } from '@schematics/angular/utility/n
 import { getMainFilePath } from '@schematics/angular/utility/standalone/util';
 import { getWorkspace } from '@schematics/angular/utility/workspace';
 import { Schema } from './schema';
-import { angularFontawesomeVersion, iconPackVersion, v5 } from './versions';
+import { angularFontawesomeVersion, iconPackVersionMap } from './versions';
 
 export default function (options: Schema): Rule {
   return chain([
@@ -28,7 +28,7 @@ export default function (options: Schema): Rule {
         addPackageJsonDependency(tree, {
           type: NodeDependencyType.Default,
           name: `@fortawesome/${pack}-svg-icons`,
-          version: options.version === '6' ? iconPackVersion : v5.iconPackVersion,
+          version: iconPackVersionMap[options.version as string].iconPackVersion,
         });
       }
 
