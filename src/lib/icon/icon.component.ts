@@ -31,7 +31,7 @@ import { IconDefinition, IconProp } from '../types';
   template: ``,
   host: {
     class: 'ng-fa-icon',
-    '[attr.title]': 'title()',
+    '[attr.title]': 'title() ?? undefined',
     '[innerHTML]': 'renderedIconHTML()',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
