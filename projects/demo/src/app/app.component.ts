@@ -20,7 +20,7 @@ import {
   faUser,
   faBusSide,
   faSpiral,
-  faSeptagon
+  faSeptagon,
 } from '@fortawesome/free-solid-svg-icons';
 import { AlternatePrefixComponent } from './alternate-prefix.component';
 
