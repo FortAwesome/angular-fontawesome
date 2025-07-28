@@ -11,16 +11,13 @@ import {
   faCog,
   faEllipsisH,
   faFighterJet,
-  faFlag as solidFlag,
   faHeart,
   faMagic,
   faSpinner,
   faSquare,
   faTimes,
   faUser,
-  faBusSide,
-  faSpiral,
-  faSeptagon,
+  faFlag as solidFlag,
 } from '@fortawesome/free-solid-svg-icons';
 import { AlternatePrefixComponent } from './alternate-prefix.component';
 
@@ -47,11 +44,6 @@ export class AppComponent {
   faBatteryQuarter = faBatteryQuarter;
   faHeart = faHeart;
   faSpinner = faSpinner;
-
-  // V7 Icons
-  faBusSide = faBusSide;
-  faSpiral = faSpiral;
-  faSeptagon = faSeptagon;
 
   faDummy: IconDefinition = {
     prefix: 'fad',
