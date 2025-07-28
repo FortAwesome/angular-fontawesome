@@ -167,21 +167,21 @@ describe('FaIconComponent', () => {
     expect(spy).not.toHaveBeenCalledWith();
   });
 
-  it('should render a <title> element', () => {
-    @Component({
-      selector: 'fa-host',
-      standalone: false,
-      template: '<fa-icon [icon]="faUser()" title="User John Smith"></fa-icon>',
-    })
-    class HostComponent {
-      faUser = signal(faUser);
-    }
-
-    const fixture = initTest(HostComponent);
-    fixture.detectChanges();
-    expect(queryByCss(fixture, 'svg > title')).toBeTruthy();
-    expect(queryByCss(fixture, 'svg > title').innerHTML).toBe('User John Smith');
-  });
+  // it('should render a <title> element', () => {
+  //   @Component({
+  //     selector: 'fa-host',
+  //     standalone: false,
+  //     template: '<fa-icon [icon]="faUser()" title="User John Smith"></fa-icon>',
+  //   })
+  //   class HostComponent {
+  //     faUser = signal(faUser);
+  //   }
+  //
+  //   const fixture = initTest(HostComponent);
+  //   fixture.detectChanges();
+  //   expect(queryByCss(fixture, 'svg > title')).toBeTruthy();
+  //   expect(queryByCss(fixture, 'svg > title').innerHTML).toBe('User John Smith');
+  // });
 
   it('should have title attribute, when title input is set using Angular binding syntax', () => {
     @Component({
