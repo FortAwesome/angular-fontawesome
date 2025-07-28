@@ -14,7 +14,7 @@
     "version": {
       "description": "The FontAwesome version to install.",
       "type": "string",
-      "default": "6",
+      "default": "7",
       "x-prompt": {
         "message": "Choose Font Awesome version you would like to use:",
         "type": "list",
@@ -46,9 +46,19 @@
           "pro-solid",
           "pro-regular",
           "pro-light",
-          "pro-duotone",
           "pro-thin",
-          "sharp-solid"
+          "pro-duotone",
+          "duotone-regular",
+          "duotone-light",
+          "duotone-thin",
+          "sharp-solid",
+          "sharp-regular",
+          "sharp-light",
+          "sharp-thin",
+          "sharp-duotone-solid",
+          "sharp-duotone-regular",
+          "sharp-duotone-light",
+          "sharp-duotone-thin"
         ]
       },
       "default": ["free-solid"],

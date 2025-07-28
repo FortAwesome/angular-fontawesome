@@ -12,6 +12,11 @@ Official Angular component for Font Awesome 5+
 
 If you have [FontAwesome Pro](https://fontawesome.com/plans) subscription, make sure to [configure access](https://fontawesome.com/docs/web/setup/packages#_1-configure-access) before following the installation instructions.
 
+> **Note:** Pro+ Icons are only available in Kit Packages
+> Along with a Pro+ Plan, you'll need to install a downloaded Kit package to use any of our Pro+ Icons — they are not available in any other packages.
+> [Read more](https://docs.fontawesome.com/web/setup/use-kit#using-kit-packages).
+
+
 Using `ng add`:
 
 ```
@@ -35,24 +40,25 @@ $ npm install @fortawesome/angular-fontawesome@<version>
 
 ### Compatibility table
 
-| @fortawesome/angular-fontawesome | Angular    | Font Awesome | ng-add        |
-|----------------------------------|------------|--------------|---------------|
-| 0.1.x                            | 5.x        | 5.x          | not supported |
-| 0.2.x                            | 6.x        | 5.x          | not supported |
-| 0.3.x                            | 6.x && 7.x | 5.x          | not supported |
-| 0.4.x, 0.5.x                     | 8.x        | 5.x          | not supported |
-| 0.6.x                            | 9.x        | 5.x          | supported     |
-| 0.7.x                            | 10.x       | 5.x          | supported     |
-| 0.8.x                            | 11.x       | 5.x          | supported     |
-| 0.9.x                            | 12.x       | 5.x          | supported     |
-| 0.10.x                           | 13.x       | 5.x && 6.x   | supported     |
-| 0.11.x                           | 14.x       | 5.x && 6.x   | supported     |
-| 0.12.x                           | 15.x       | 5.x && 6.x   | supported     |
-| 0.13.x                           | 16.x       | 5.x && 6.x   | supported     |
-| 0.14.x                           | 17.x       | 5.x && 6.x   | supported     |
-| 0.15.x                           | 18.x       | 5.x && 6.x   | supported     |
-| 1.x                              | 19.x       | 5.x && 6.x   | supported     |
-| 2.x                              | 20.x       | 5.x && 6.x   | supported     |
+| @fortawesome/angular-fontawesome | Angular    | Font Awesome      | ng-add        |
+|----------------------------------|------------|-------------------|---------------|
+| 0.1.x                            | 5.x        | 5.x               | not supported |
+| 0.2.x                            | 6.x        | 5.x               | not supported |
+| 0.3.x                            | 6.x && 7.x | 5.x               | not supported |
+| 0.4.x, 0.5.x                     | 8.x        | 5.x               | not supported |
+| 0.6.x                            | 9.x        | 5.x               | supported     |
+| 0.7.x                            | 10.x       | 5.x               | supported     |
+| 0.8.x                            | 11.x       | 5.x               | supported     |
+| 0.9.x                            | 12.x       | 5.x               | supported     |
+| 0.10.x                           | 13.x       | 5.x && 6.x        | supported     |
+| 0.11.x                           | 14.x       | 5.x && 6.x        | supported     |
+| 0.12.x                           | 15.x       | 5.x && 6.x        | supported     |
+| 0.13.x                           | 16.x       | 5.x && 6.x        | supported     |
+| 0.14.x                           | 17.x       | 5.x && 6.x        | supported     |
+| 0.15.x                           | 18.x       | 5.x && 6.x        | supported     |
+| 1.x                              | 19.x       | 5.x && 6.x        | supported     |
+| 2.x                              | 20.x       | 5.x && 6.x        | supported     |
+| 2.1.x                            | 20.x       | 5.x && 6.x && 7.x | supported     |
 
 ## Usage
 
@@ -65,6 +71,10 @@ To get up and running using Font Awesome with Angular follow the below steps:
     import { Component } from '@angular/core';
     import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+    
+   // Import from Kit Packages (Pro+ Icons)
+   // import {faCloud} from "@awesome.me/kit-<KIT_ID>/icons/slab/regular";
+   
     
     @Component({
       selector: 'app-root',
