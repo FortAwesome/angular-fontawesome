@@ -37,7 +37,7 @@ import { IconDefinition, IconProp } from '../types';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FaIconComponent {
-  readonly icon = model.required<IconProp>();
+  readonly icon = model<IconProp>();
 
   /**
    * Specify a title for the icon.
@@ -74,13 +74,13 @@ export class FaIconComponent {
   readonly a11yRole = model<string>();
 
   readonly renderedIconHTML = computed(() => {
-    const iconValue = this.icon();
-    if (iconValue == null && this.config.fallbackIcon == null) {
+    const iconValue = this.icon() ?? this.config.fallbackIcon;
+    if (!iconValue) {
       faWarnIfIconSpecMissing();
       return '';
     }
 
-    const iconDefinition = this.findIconDefinition(iconValue ?? this.config.fallbackIcon);
+    const iconDefinition = this.findIconDefinition(iconValue);
     if (!iconDefinition) {
       return '';
     }
