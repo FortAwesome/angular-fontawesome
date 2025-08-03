@@ -12,7 +12,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-explicit-reference',
-  template: '<fa-icon [icon]="faUser"></fa-icon>',
+  template: '<fa-icon [icon]="faUser" />',
 })
 export class ExplicitReferenceComponent {
   faUser = faUser;
@@ -85,7 +85,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-regular-icon-library',
-  template: '<fa-icon icon="user"></fa-icon>',
+  template: '<fa-icon icon="user" />',
 })
 export class IconLibraryComponent {}
 ```
@@ -128,7 +128,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-regular-icon-library',
-  template: '<fa-icon icon="user"></fa-icon>',
+  template: '<fa-icon icon="user" />',
 })
 export class IconLibraryComponent {}
 ```
@@ -175,7 +175,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-regular-icon-library',
-  template: '<fa-icon icon="user"></fa-icon>',
+  template: '<fa-icon icon="user" />',
 })
 export class IconLibraryComponent {}
 ```

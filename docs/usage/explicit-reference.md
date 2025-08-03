@@ -8,7 +8,7 @@ While this approach is more verbose than the [icon library](./icon-library.md) a
 
 ```html
 <div style="text-align:center">
-  <fa-icon [icon]="faCoffee"></fa-icon>
+  <fa-icon [icon]="faCoffee" />
 </div>
 ```
 

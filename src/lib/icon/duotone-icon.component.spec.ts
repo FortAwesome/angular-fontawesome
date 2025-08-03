@@ -8,7 +8,7 @@ describe('FaDuotoneIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-duotone-icon [icon]="faDummy()"></fa-duotone-icon>',
+      template: '<fa-duotone-icon [icon]="faDummy()" />',
     })
     class HostComponent {
       faDummy = signal(faDummy);
@@ -23,7 +23,7 @@ describe('FaDuotoneIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-duotone-icon [icon]="faDummy()" [swapOpacity]="true"></fa-duotone-icon>',
+      template: '<fa-duotone-icon [icon]="faDummy()" [swapOpacity]="true" />',
     })
     class HostComponent {
       faDummy = signal(faDummy);
@@ -38,7 +38,7 @@ describe('FaDuotoneIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-duotone-icon [icon]="faDummy()" [primaryOpacity]="0.1"></fa-duotone-icon>',
+      template: '<fa-duotone-icon [icon]="faDummy()" [primaryOpacity]="0.1" />',
     })
     class HostComponent {
       faDummy = signal(faDummy);
@@ -53,7 +53,7 @@ describe('FaDuotoneIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-duotone-icon [icon]="faDummy()" [secondaryOpacity]="0.9"></fa-duotone-icon>',
+      template: '<fa-duotone-icon [icon]="faDummy()" [secondaryOpacity]="0.9" />',
     })
     class HostComponent {
       faDummy = signal(faDummy);
@@ -68,7 +68,7 @@ describe('FaDuotoneIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-duotone-icon [icon]="faDummy()" primaryColor="red"></fa-duotone-icon>',
+      template: '<fa-duotone-icon [icon]="faDummy()" primaryColor="red" />',
     })
     class HostComponent {
       faDummy = signal(faDummy);
@@ -83,7 +83,7 @@ describe('FaDuotoneIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-duotone-icon [icon]="faDummy()" secondaryColor="red"></fa-duotone-icon>',
+      template: '<fa-duotone-icon [icon]="faDummy()" secondaryColor="red" />',
     })
     class HostComponent {
       faDummy = signal(faDummy);
@@ -98,7 +98,7 @@ describe('FaDuotoneIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-duotone-icon [icon]="faUser()"></fa-duotone-icon>',
+      template: '<fa-duotone-icon [icon]="faUser()" />',
     })
     class HostComponent {
       faUser = signal(faUser);
@@ -108,8 +108,8 @@ describe('FaDuotoneIconComponent', () => {
     expect(() => fixture.detectChanges()).toThrow(
       new Error(
         'The specified icon does not appear to be a Duotone icon. ' +
-          "Check that you specified the correct style: <fa-duotone-icon [icon]=\"['fad', 'user']\"></fa-duotone-icon> " +
-          'or use: <fa-icon icon="user"></fa-icon> instead.',
+          "Check that you specified the correct style: <fa-duotone-icon [icon]=\"['fad', 'user']\" /> " +
+          'or use: <fa-icon icon="user" /> instead.',
       ),
     );
   });

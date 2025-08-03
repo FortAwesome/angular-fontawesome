@@ -3,7 +3,7 @@ import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
   selector: 'fa-stack',
-  template: `<ng-content></ng-content>`,
+  template: `<ng-content />`,
   host: {
     '[class]': 'classes()',
   },

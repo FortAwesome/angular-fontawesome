@@ -8,9 +8,9 @@ Icons should be registered only once in the `AppComponent`'s constructor using `
 
 ```html
 <!-- simple name only that assumes the default prefix -->
-<fa-icon icon="coffee"></fa-icon>
+<fa-icon icon="coffee" />
 <!-- ['fas', 'coffee'] is an array that indicates the [prefix, iconName] -->
-<fa-icon [icon]="['fas', 'coffee']"></fa-icon>
+<fa-icon [icon]="['fas', 'coffee']" />
 ```
 
 `src/app/app.component.ts`

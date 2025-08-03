@@ -36,12 +36,12 @@ export default {
 export const iconStory = () => ({
   template: `
       <button>
-        <fa-icon [icon]="homeIcon"></fa-icon>
+        <fa-icon [icon]="homeIcon" />
         Go Home
       </button>
       
       <button>
-        <fa-icon [icon]="closeIcon"></fa-icon>
+        <fa-icon [icon]="closeIcon" />
         Close
       </button>
   `,

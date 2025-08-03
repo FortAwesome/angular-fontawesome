@@ -69,12 +69,12 @@ export class AppComponent {
     // So in the template, the only way to reference the non-default (fas) icon is to either
     // use the array syntax that specifies [prefix, iconName], like this:
     //
-    // <fa-icon [icon]="['far','user']"></fa-icon>
+    // <fa-icon [icon]="['far','user']" />
     //
     // Or we could make the regularUser object available to the template and simply
     // reference it as an object, like this:
     //
-    // <fa-icon [icon]="regularUser"></fa-icon>
+    // <fa-icon [icon]="regularUser" />
     //
     // You don't specify the prefix in that case, because the icon object knows its own prefix.
     inject(FaIconLibrary).addIcons(faUser, regularUser);

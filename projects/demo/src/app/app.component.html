@@ -1,23 +1,23 @@
 <h1>Font Awesome examples</h1>
 
 <h3>Icon as Object (with title attribute—inspect the DOM to see it)</h3>
-<fa-icon [icon]="faCoffee" title="Coffee: Best Drink Ever"></fa-icon>
+<fa-icon [icon]="faCoffee" title="Coffee: Best Drink Ever" />
 
 <h3>Icon looked up in library by name</h3>
 <p>
   Possible after adding the <code>faUser</code> icon from the <code>free-solid-svg-icons</code> package to the library.
 </p>
 <p>The default prefix of <code>fas</code> is assumed. Also, add a border.</p>
-<fa-icon icon="user" [border]="true" a11yRole="presentation"></fa-icon>
+<fa-icon icon="user" [border]="true" a11yRole="presentation" />
 
 <h3>Duotone icons</h3>
-<fa-duotone-icon [icon]="faDummy"></fa-duotone-icon>
+<fa-duotone-icon [icon]="faDummy" />
 <p>Swap layer opacity.</p>
-<fa-duotone-icon [icon]="faDummy" swapOpacity="true"></fa-duotone-icon>
+<fa-duotone-icon [icon]="faDummy" swapOpacity="true" />
 <p>Custom primary or secondary layer opacity.</p>
-<fa-duotone-icon [icon]="faDummy" primaryOpacity="0.7" secondaryOpacity="0.1"></fa-duotone-icon>
+<fa-duotone-icon [icon]="faDummy" primaryOpacity="0.7" secondaryOpacity="0.1" />
 <p>Custom primary or secondary layer color.</p>
-<fa-duotone-icon [icon]="faDummy" primaryColor="red" secondaryColor="blue"></fa-duotone-icon>
+<fa-duotone-icon [icon]="faDummy" primaryColor="red" secondaryColor="blue" />
 
 <h3>Icon with Non-default Style Prefix Using [prefix, iconName]</h3>
 <p><code>icon</code> should be set equal to an array object with two string elements: the prefix and the icon name.</p>
@@ -25,117 +25,108 @@
   Using a string for an icon name also requires that this icon has been added to the library with
   <code>library.add()</code>
 </p>
-<fa-icon [icon]="['far', 'user']"></fa-icon>
+<fa-icon [icon]="['far', 'user']" />
 
 <h3>Icon as Object with non-Default Prefix</h3>
 <p>The icon object knows its own prefix, so the prefix is not specified in this case.</p>
-<fa-icon [icon]="regularUser"></fa-icon>
+<fa-icon [icon]="regularUser" />
 
 <h3>With Mask and Transform</h3>
-<fa-icon [icon]="faCircle" transform="shrink-9 right-4" [mask]="faSquare"></fa-icon>
+<fa-icon [icon]="faCircle" transform="shrink-9 right-4" [mask]="faSquare" />
 
 <h3>Change Size</h3>
-<fa-icon [icon]="faAdjust" size="2x"></fa-icon>
+<fa-icon [icon]="faAdjust" size="2x" />
 
 <h3>Change color</h3>
 
-<p>Using custom style: <fa-icon [icon]="faAdjust" [style.color]="'red'"></fa-icon></p>
-<p>Using custom class: <fa-icon [icon]="faAdjust" class="green-icon"></fa-icon></p>
+<p>Using custom style: <fa-icon [icon]="faAdjust" [style.color]="'red'" /></p>
+<p>Using custom class: <fa-icon [icon]="faAdjust" class="green-icon" /></p>
 
 <h3>Rotate</h3>
 
-<p><fa-icon icon="user" [rotate]="90"></fa-icon></p>
+<p><fa-icon icon="user" [rotate]="90" /></p>
 
-<p><fa-icon icon="user" rotate="45deg"></fa-icon></p>
+<p><fa-icon icon="user" rotate="45deg" /></p>
 
 <h3>Animations</h3>
 
 <button type="button" (click)="isAnimated = !isAnimated">Toggle animations</button>
 
 <p>
-  <fa-icon [icon]="faHeart" [animation]="isAnimated ? 'beat' : undefined"></fa-icon>&nbsp;
-  <fa-icon
-    [icon]="faHeart"
-    [animation]="isAnimated ? 'beat' : undefined"
-    style="--fa-animation-duration: 0.5s"
-  ></fa-icon
-  >&nbsp;
-  <fa-icon [icon]="faHeart" [animation]="isAnimated ? 'beat' : undefined" style="--fa-beat-scale: 2"></fa-icon>
+  <fa-icon [icon]="faHeart" [animation]="isAnimated ? 'beat' : undefined" />&nbsp;
+  <fa-icon [icon]="faHeart" [animation]="isAnimated ? 'beat' : undefined" style="--fa-animation-duration: 0.5s" />&nbsp;
+  <fa-icon [icon]="faHeart" [animation]="isAnimated ? 'beat' : undefined" style="--fa-beat-scale: 2" />
 </p>
 
 <p>
-  <fa-icon [icon]="faHeart" [animation]="isAnimated ? 'fade' : undefined"></fa-icon>&nbsp;
-  <fa-icon [icon]="faHeart" [animation]="isAnimated ? 'fade' : undefined" style="--fa-fade-opacity: 0.1"></fa-icon
-  >&nbsp;
+  <fa-icon [icon]="faHeart" [animation]="isAnimated ? 'fade' : undefined" />&nbsp;
+  <fa-icon [icon]="faHeart" [animation]="isAnimated ? 'fade' : undefined" style="--fa-fade-opacity: 0.1" />&nbsp;
 </p>
 
 <p>
-  <fa-icon [icon]="faHeart" [animation]="isAnimated ? 'beat-fade' : undefined"></fa-icon>&nbsp;
+  <fa-icon [icon]="faHeart" [animation]="isAnimated ? 'beat-fade' : undefined" />&nbsp;
   <fa-icon
     [icon]="faHeart"
     [animation]="isAnimated ? 'beat-fade' : undefined"
     style="--fa-beat-fade-opacity: 0.1"
-  ></fa-icon
-  >&nbsp;
-  <fa-icon [icon]="faHeart" [animation]="isAnimated ? 'beat-fade' : undefined" style="--fa-beat-fade-scale: 2"></fa-icon
-  >&nbsp;
+  />&nbsp;
+  <fa-icon [icon]="faHeart" [animation]="isAnimated ? 'beat-fade' : undefined" style="--fa-beat-fade-scale: 2" />&nbsp;
 </p>
 
-<p><fa-icon [icon]="faHeart" [animation]="isAnimated ? 'bounce' : undefined"></fa-icon>&nbsp;</p>
+<p><fa-icon [icon]="faHeart" [animation]="isAnimated ? 'bounce' : undefined" />&nbsp;</p>
 
 <p>
-  <fa-icon [icon]="faHeart" [animation]="isAnimated ? 'flip' : undefined"></fa-icon>&nbsp;
+  <fa-icon [icon]="faHeart" [animation]="isAnimated ? 'flip' : undefined" />&nbsp;
   <fa-icon
     [icon]="faHeart"
     [animation]="isAnimated ? 'flip' : undefined"
     style="--fa-flip-x: 1; --fa-flip-y: 0"
-  ></fa-icon
-  >&nbsp;
+  />&nbsp;
 </p>
 
-<p><fa-icon [icon]="faHeart" [animation]="isAnimated ? 'shake' : undefined"></fa-icon>&nbsp;</p>
+<p><fa-icon [icon]="faHeart" [animation]="isAnimated ? 'shake' : undefined" />&nbsp;</p>
 
 <p>
-  <fa-icon [icon]="faCog" [animation]="isAnimated ? 'spin' : undefined"></fa-icon>&nbsp;
-  <fa-icon [icon]="faCog" [animation]="isAnimated ? 'spin-reverse' : undefined"></fa-icon>&nbsp;
-  <fa-icon [icon]="faSpinner" [animation]="isAnimated ? 'spin-pulse' : undefined"></fa-icon>&nbsp;
-  <fa-icon [icon]="faSpinner" [animation]="isAnimated ? 'spin-pulse-reverse' : undefined"></fa-icon>&nbsp;
+  <fa-icon [icon]="faCog" [animation]="isAnimated ? 'spin' : undefined" />&nbsp;
+  <fa-icon [icon]="faCog" [animation]="isAnimated ? 'spin-reverse' : undefined" />&nbsp;
+  <fa-icon [icon]="faSpinner" [animation]="isAnimated ? 'spin-pulse' : undefined" />&nbsp;
+  <fa-icon [icon]="faSpinner" [animation]="isAnimated ? 'spin-pulse-reverse' : undefined" />&nbsp;
 </p>
 
 <p>Slide to turn up the magic.</p>
-<fa-icon [icon]="faMagic" transform="rotate-{{ magicLevel }}"></fa-icon>
+<fa-icon [icon]="faMagic" transform="rotate-{{ magicLevel }}" />
 <input type="range" [value]="magicLevel" (input)="magicLevel = $any($event.target).value" />
 
 <h3>Stack</h3>
 <p>Stack multiple icons into one.</p>
 <fa-stack>
-  <fa-icon [icon]="faCircle" stackItemSize="2x"></fa-icon>
-  <fa-icon [icon]="solidFlag" [inverse]="true" stackItemSize="1x"></fa-icon>
+  <fa-icon [icon]="faCircle" stackItemSize="2x" />
+  <fa-icon [icon]="solidFlag" [inverse]="true" stackItemSize="1x" />
 </fa-stack>
 
 <h3>Layers</h3>
 <p>Custom icons created with multiple layers.</p>
 <div>
   <fa-layers [fixedWidth]="true" size="4x">
-    <fa-icon [icon]="faCircle" [style.color]="'Tomato'"></fa-icon>
-    <fa-icon [icon]="faTimes" [inverse]="true" transform="shrink-6"></fa-icon>
+    <fa-icon [icon]="faCircle" [style.color]="'Tomato'" />
+    <fa-icon [icon]="faTimes" [inverse]="true" transform="shrink-6" />
   </fa-layers>
   <fa-layers [fixedWidth]="true" size="4x">
-    <fa-icon [icon]="faSquare"></fa-icon>
-    <fa-icon [icon]="faBatteryQuarter" transform="shrink-8" [style.color]="'Tomato'"></fa-icon>
+    <fa-icon [icon]="faSquare" />
+    <fa-icon [icon]="faBatteryQuarter" transform="shrink-8" [style.color]="'Tomato'" />
   </fa-layers>
   <fa-layers [fixedWidth]="true" size="4x">
-    <fa-icon [icon]="faFighterJet"></fa-icon>
-    <fa-icon [icon]="faCircle" [inverse]="true" transform="shrink-13.8 right-1.8"></fa-icon>
-    <fa-icon [icon]="faEllipsisH" transform="shrink-13 up-6.8 right-2"></fa-icon>
-    <fa-icon [icon]="faEllipsisH" transform="shrink-13 down-6.8 right-2"></fa-icon>
+    <fa-icon [icon]="faFighterJet" />
+    <fa-icon [icon]="faCircle" [inverse]="true" transform="shrink-13.8 right-1.8" />
+    <fa-icon [icon]="faEllipsisH" transform="shrink-13 up-6.8 right-2" />
+    <fa-icon [icon]="faEllipsisH" transform="shrink-13 down-6.8 right-2" />
   </fa-layers>
 </div>
 <p>Using text as one of the layers.</p>
 <div>
   <fa-layers [fixedWidth]="true" size="4x">
-    <fa-icon [icon]="faFlag"></fa-icon>
-    <fa-layers-text title="Fort Awesome" [content]="'Fa'" transform="up-4" [style.font-size]="'0.3em'"></fa-layers-text>
+    <fa-icon [icon]="faFlag" />
+    <fa-layers-text title="Fort Awesome" [content]="'Fa'" transform="up-4" [style.font-size]="'0.3em'" />
   </fa-layers>
 </div>
 
@@ -163,20 +154,20 @@
 
 <div>
   <fa-layers [fixedWidth]="true" size="3x">
-    <fa-icon [icon]="faBell"></fa-icon>
+    <fa-icon [icon]="faBell" />
     <fa-layers-counter
       [position]="selectedPosition"
       [content]="$any(notificationsCounter | number)"
       title="Unread Messages"
-    ></fa-layers-counter>
+    />
   </fa-layers>
 </div>
 
-<app-alternate-prefix></app-alternate-prefix>
+<app-alternate-prefix />
 
 <h3>Fallback icon</h3>
 <p>
   Icon uses a fallback icon when the main icon parameter is not specified. Useful for when the icon is loaded
   asynchronously. If no fallback icon is specified, the icon will not appear. (Not shown in this example.)
 </p>
-<fa-icon [icon]="undefined!"></fa-icon>
+<fa-icon [icon]="undefined!" />

@@ -8,7 +8,7 @@ describe('FaLayersTextComponent', () => {
       standalone: false,
       template: `
         <fa-layers>
-          <fa-layers-text [content]="'Test'"></fa-layers-text>
+          <fa-layers-text [content]="'Test'" />
         </fa-layers>
       `,
     })
@@ -23,7 +23,7 @@ describe('FaLayersTextComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: `<fa-layers-text content="Test"></fa-layers-text> `,
+      template: `<fa-layers-text content="Test" /> `,
     })
     class HostComponent {}
 

@@ -9,8 +9,8 @@ describe('FaStackComponent', () => {
       standalone: false,
       template: `
         <fa-stack>
-          <fa-icon [icon]="faCircle()" stackItemSize="2x"></fa-icon>
-          <fa-icon [icon]="faUser()" [inverse]="true" stackItemSize="1x"></fa-icon>
+          <fa-icon [icon]="faCircle()" stackItemSize="2x" />
+          <fa-icon [icon]="faUser()" [inverse]="true" stackItemSize="1x" />
         </fa-stack>
       `,
     })
@@ -30,8 +30,8 @@ describe('FaStackComponent', () => {
       standalone: false,
       template: `
         <fa-stack>
-          <fa-icon [icon]="faCircle()" stackItemSize="2x"></fa-icon>
-          <fa-duotone-icon [icon]="dummyDuotoneIcon()" [inverse]="true" stackItemSize="1x"></fa-duotone-icon>
+          <fa-icon [icon]="faCircle()" stackItemSize="2x" />
+          <fa-duotone-icon [icon]="dummyDuotoneIcon()" [inverse]="true" stackItemSize="1x" />
         </fa-stack>
       `,
     })
@@ -51,8 +51,8 @@ describe('FaStackComponent', () => {
       standalone: false,
       template: `
         <fa-stack size="2x">
-          <fa-icon [icon]="faCircle()" stackItemSize="2x"></fa-icon>
-          <fa-icon [icon]="faUser()" [inverse]="true" stackItemSize="1x"></fa-icon>
+          <fa-icon [icon]="faCircle()" stackItemSize="2x" />
+          <fa-icon [icon]="faUser()" [inverse]="true" stackItemSize="1x" />
         </fa-stack>
       `,
     })
