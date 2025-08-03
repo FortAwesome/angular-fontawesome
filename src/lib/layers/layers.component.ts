@@ -8,7 +8,7 @@ import { ensureCss } from '../shared/utils/css';
  */
 @Component({
   selector: 'fa-layers',
-  template: `<ng-content></ng-content>`,
+  template: `<ng-content />`,
   host: {
     '[class]': 'classes()',
   },

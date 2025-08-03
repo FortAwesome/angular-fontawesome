@@ -23,8 +23,8 @@ describe('FaStackItemSizeDirective', () => {
       standalone: false,
       template: `
         <fa-stack>
-          <fa-icon [icon]="faCircle()" stackItemSize="2x"></fa-icon>
-          <fa-icon [icon]="faUser()" [inverse]="true" stackItemSize="1x"></fa-icon>
+          <fa-icon [icon]="faCircle()" stackItemSize="2x" />
+          <fa-icon [icon]="faUser()" [inverse]="true" stackItemSize="1x" />
         </fa-stack>
       `,
     })
@@ -45,8 +45,8 @@ describe('FaStackItemSizeDirective', () => {
       standalone: false,
       template: `
         <fa-stack>
-          <fa-icon [icon]="faCircle()" stackItemSize="2x"></fa-icon>
-          <fa-icon [icon]="faUser()" [inverse]="true" size="1x" stackItemSize="1x"></fa-icon>
+          <fa-icon [icon]="faCircle()" stackItemSize="2x" />
+          <fa-icon [icon]="faUser()" [inverse]="true" size="1x" stackItemSize="1x" />
         </fa-stack>
       `,
     })

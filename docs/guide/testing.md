@@ -11,11 +11,11 @@ import { Component } from '@angular/core';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-explicit-reference',
-  template: '<fa-icon [icon]="faUser"></fa-icon>',
+    selector: 'app-explicit-reference',
+    template: '<fa-icon [icon]="faUser" />',
 })
 export class ExplicitReferenceComponent {
-  faUser = faUser;
+    faUser = faUser;
 }
 ```
 
@@ -25,27 +25,26 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ExplicitReferenceComponent } from './explicit-reference.component';
 
 describe('ExplicitReferenceComponent', () => {
-  let component: ExplicitReferenceComponent;
-  let fixture: ComponentFixture<ExplicitReferenceComponent>;
+    let component: ExplicitReferenceComponent;
+    let fixture: ComponentFixture<ExplicitReferenceComponent>;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [FontAwesomeModule], // <--
-      declarations: [ExplicitReferenceComponent],
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+            imports: [FontAwesomeModule], // <--
+            declarations: [ExplicitReferenceComponent],
+        });
     });
-  });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ExplicitReferenceComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(ExplicitReferenceComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });
-
 ```
 
 ## Test components using [icon library](../usage/icon-library.md)
@@ -68,13 +67,13 @@ import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontaweso
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 @NgModule({
-  imports: [FontAwesomeModule],
-  exports: [FontAwesomeModule],
+    imports: [FontAwesomeModule],
+    exports: [FontAwesomeModule],
 })
 class FontAwesomeIconsModule {
-  constructor(library: FaIconLibrary) {
-    library.addIcons(faUser);
-  }
+    constructor(library: FaIconLibrary) {
+        library.addIcons(faUser);
+    }
 }
 ```
 
@@ -84,8 +83,8 @@ And here is how it should be used in test code:
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-regular-icon-library',
-  template: '<fa-icon icon="user"></fa-icon>',
+    selector: 'app-regular-icon-library',
+    template: '<fa-icon icon="user" />',
 })
 export class IconLibraryComponent {}
 ```
@@ -95,29 +94,29 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { IconLibraryComponent } from './icon-library.component';
 
 describe('IconLibraryComponent', () => {
-  let component: IconLibraryComponent;
-  let fixture: ComponentFixture<IconLibraryComponent>;
+    let component: IconLibraryComponent;
+    let fixture: ComponentFixture<IconLibraryComponent>;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [FontAwesomeIconsModule], // <--
-      declarations: [IconLibraryComponent],
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+            imports: [FontAwesomeIconsModule], // <--
+            declarations: [IconLibraryComponent],
+        });
     });
-  });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(IconLibraryComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(IconLibraryComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });
 ```
 
-*This approach was [initially suggested by 1FpGLLjZSZMx6k on StackOverflow](https://stackoverflow.com/a/58380192/1377864).*
+_This approach was [initially suggested by 1FpGLLjZSZMx6k on StackOverflow](https://stackoverflow.com/a/58380192/1377864)._
 
 ### Configure regular `FaIconLibrary`
 
@@ -127,8 +126,8 @@ To use this approach you'll need to add `FontAwesomeModule` to the `imports` of 
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-regular-icon-library',
-  template: '<fa-icon icon="user"></fa-icon>',
+    selector: 'app-regular-icon-library',
+    template: '<fa-icon icon="user" />',
 })
 export class IconLibraryComponent {}
 ```
@@ -140,29 +139,29 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { IconLibraryComponent } from './icon-library.component';
 
 describe('IconLibraryComponent', () => {
-  let component: IconLibraryComponent;
-  let fixture: ComponentFixture<IconLibraryComponent>;
+    let component: IconLibraryComponent;
+    let fixture: ComponentFixture<IconLibraryComponent>;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [FontAwesomeModule], // <--
-      declarations: [IconLibraryComponent],
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+            imports: [FontAwesomeModule], // <--
+            declarations: [IconLibraryComponent],
+        });
     });
-  });
 
-  beforeEach(() => {
-    // Use TestBed.get(FaIconLibrary) if you use Angular < 9.
-    const library = TestBed.inject(FaIconLibrary); // <--
-    library.addIcons(faUser); // <--
+    beforeEach(() => {
+        // Use TestBed.get(FaIconLibrary) if you use Angular < 9.
+        const library = TestBed.inject(FaIconLibrary); // <--
+        library.addIcons(faUser); // <--
 
-    fixture = TestBed.createComponent(IconLibraryComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        fixture = TestBed.createComponent(IconLibraryComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });
 ```
 
@@ -174,8 +173,8 @@ describe('IconLibraryComponent', () => {
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-regular-icon-library',
-  template: '<fa-icon icon="user"></fa-icon>',
+    selector: 'app-regular-icon-library',
+    template: '<fa-icon icon="user" />',
 })
 export class IconLibraryComponent {}
 ```
@@ -186,24 +185,24 @@ import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testi
 import { IconLibraryComponent } from './icon-library.component';
 
 describe('IconLibraryComponent', () => {
-  let component: IconLibraryComponent;
-  let fixture: ComponentFixture<IconLibraryComponent>;
+    let component: IconLibraryComponent;
+    let fixture: ComponentFixture<IconLibraryComponent>;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [FontAwesomeTestingModule], // <--
-      declarations: [IconLibraryComponent],
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+            imports: [FontAwesomeTestingModule], // <--
+            declarations: [IconLibraryComponent],
+        });
     });
-  });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(IconLibraryComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(IconLibraryComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });
 ```

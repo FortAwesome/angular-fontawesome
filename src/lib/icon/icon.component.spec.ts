@@ -16,7 +16,7 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-icon [icon]="faUser()"></fa-icon>',
+      template: '<fa-icon [icon]="faUser()" />',
     })
     class HostComponent {
       faUser = signal(faUser);
@@ -31,7 +31,7 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-icon [icon]="faUser()" [inverse]="isInverse()"></fa-icon>',
+      template: '<fa-icon [icon]="faUser()" [inverse]="isInverse()" />',
     })
     class HostComponent {
       faUser = signal(faUser);
@@ -75,7 +75,7 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-icon [icon]="faUser()"></fa-icon>',
+      template: '<fa-icon [icon]="faUser()" />',
     })
     class HostComponent {
       iconComponent = viewChild(FaIconComponent);
@@ -96,7 +96,7 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-icon [icon]="faUser()" a11yRole="presentation"></fa-icon>',
+      template: '<fa-icon [icon]="faUser()" a11yRole="presentation" />',
     })
     class HostComponent {
       faUser = signal(faUser);
@@ -111,7 +111,7 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-icon [icon]="undefined"></fa-icon>',
+      template: '<fa-icon [icon]="undefined" />',
     })
     class HostComponent {}
 
@@ -125,7 +125,7 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-icon [icon]="icon | async"></fa-icon>',
+      template: '<fa-icon [icon]="icon | async" />',
     })
     class HostComponent {
       iconSubject = new Subject<IconProp>();
@@ -148,7 +148,7 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-icon [icon]="icon()"></fa-icon>',
+      template: '<fa-icon [icon]="icon()" />',
     })
     class HostComponent {
       iconSubject = new Subject<IconProp>();
@@ -171,7 +171,7 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-icon [icon]="faUser()" title="User John Smith"></fa-icon>',
+      template: '<fa-icon [icon]="faUser()" title="User John Smith" />',
     })
     class HostComponent {
       faUser = signal(faUser);
@@ -199,7 +199,7 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: ` <fa-icon [icon]="faUser()" [title]="'User John Smith'"></fa-icon> `,
+      template: ` <fa-icon [icon]="faUser()" [title]="'User John Smith'" /> `,
     })
     class HostComponent {
       faUser = signal(faUser);
@@ -215,7 +215,7 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-icon icon="user"></fa-icon>',
+      template: '<fa-icon icon="user" />',
     })
     class HostComponent {
       constructor(iconLibrary: FaIconLibrary) {
@@ -232,7 +232,7 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-icon icon="user"></fa-icon>',
+      template: '<fa-icon icon="user" />',
     })
     class HostComponent {
       constructor(iconLibrary: FaIconLibrary) {
@@ -251,7 +251,7 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-icon icon="user"></fa-icon>',
+      template: '<fa-icon icon="user" />',
     })
     class HostComponent {
       constructor(iconLibrary: FaIconLibrary) {
@@ -268,7 +268,7 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-icon icon="user"></fa-icon>',
+      template: '<fa-icon icon="user" />',
     })
     class HostComponent {
       constructor(iconLibrary: FaIconLibrary) {
@@ -287,7 +287,7 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-icon icon="user" [fixedWidth]="fixedWidth()"></fa-icon>',
+      template: '<fa-icon icon="user" [fixedWidth]="fixedWidth()" />',
     })
     class HostComponent {
       fixedWidth = signal(true);
@@ -307,7 +307,7 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-icon icon="user" [fixedWidth]="fixedWidth()"></fa-icon>',
+      template: '<fa-icon icon="user" [fixedWidth]="fixedWidth()" />',
     })
     class HostComponent {
       fixedWidth = signal(false);
@@ -327,7 +327,7 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-icon icon="user"></fa-icon>',
+      template: '<fa-icon icon="user" />',
     })
     class HostComponent {
       constructor(iconLibrary: FaIconLibrary) {
@@ -344,7 +344,7 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-icon icon="circle"></fa-icon>',
+      template: '<fa-icon icon="circle" />',
     })
     class HostComponent {}
 
@@ -358,7 +358,7 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-icon [icon]="undefined"></fa-icon>',
+      template: '<fa-icon [icon]="undefined" />',
     })
     class HostComponent {
       constructor(config: FaConfig) {
@@ -377,7 +377,7 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-icon [icon]="faUser()"></fa-icon>',
+      template: '<fa-icon [icon]="faUser()" />',
     })
     class HostComponent {
       faUser = signal(faUser);
@@ -398,7 +398,7 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-stack><fa-icon [icon]="faCircle()"></fa-icon></fa-stack>',
+      template: '<fa-stack><fa-icon [icon]="faCircle()" />',
     })
     class HostComponent {
       faCircle = signal(faCircle);
@@ -410,7 +410,7 @@ describe('FaIconComponent', () => {
     fixture.detectChanges();
     expect(spy).toHaveBeenCalledWith(
       'FontAwesome: fa-icon and fa-duotone-icon elements must specify stackItemSize attribute when wrapped into ' +
-        'fa-stack. Example: <fa-icon stackItemSize="2x"></fa-icon>.',
+        'fa-stack. Example: <fa-icon stackItemSize="2x" />.',
     );
   });
 
@@ -418,7 +418,7 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-icon icon="user" [rotate]="90"></fa-icon>',
+      template: '<fa-icon icon="user" [rotate]="90" />',
     })
     class HostComponent {
       constructor(iconLibrary: FaIconLibrary) {
@@ -435,7 +435,7 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-icon icon="user" rotate="90"></fa-icon>',
+      template: '<fa-icon icon="user" rotate="90" />',
     })
     class HostComponent {
       constructor(iconLibrary: FaIconLibrary) {
@@ -452,7 +452,7 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-icon icon="user" rotate="45deg"></fa-icon>',
+      template: '<fa-icon icon="user" rotate="45deg" />',
     })
     class HostComponent {
       constructor(iconLibrary: FaIconLibrary) {

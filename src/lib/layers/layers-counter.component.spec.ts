@@ -8,7 +8,7 @@ describe('FaLayersCounterComponent', () => {
       standalone: false,
       template: `
         <fa-layers>
-          <fa-layers-counter [content]="'Test'"></fa-layers-counter>
+          <fa-layers-counter [content]="'Test'" />
         </fa-layers>
       `,
     })
@@ -23,7 +23,7 @@ describe('FaLayersCounterComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: `<fa-layers-counter content="300"></fa-layers-counter> `,
+      template: `<fa-layers-counter content="300" /> `,
     })
     class HostComponent {}
 
@@ -38,7 +38,7 @@ describe('FaLayersCounterComponent', () => {
       standalone: false,
       template: `
         <fa-layers>
-          <fa-layers-counter [position]="'bottom-left'" [content]="'Test'"></fa-layers-counter>
+          <fa-layers-counter [position]="'bottom-left'" [content]="'Test'" />
         </fa-layers>
       `,
     })

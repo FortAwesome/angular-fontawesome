@@ -19,7 +19,7 @@ fa-icon.fancy svg path {
 
 ```angular2html
 <!-- app.component.html -->
-<fa-icon icon="user" class="fancy"></fa-icon>
+<fa-icon icon="user" class="fancy" />
 ```
 
 ## Use `::ng-deep` pseudo-class selector
@@ -31,7 +31,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  template: '<fa-icon icon="user" class="fancy"></fa-icon>',
+  template: '<fa-icon icon="user" class="fancy" />',
   styles: [`
     fa-icon.fancy ::ng-deep svg path {
       fill: #ffffff;

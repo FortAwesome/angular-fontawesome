@@ -7,60 +7,59 @@ The following features are available as part of Font Awesome. Note that the synt
 ### Size
 [FontAwesome Spec](https://fontawesome.com/how-to-use/on-the-web/styling/sizing-icons)
 ```html
-<fa-icon [icon]="['fas', 'coffee']" size="xs"></fa-icon>
-<fa-icon [icon]="['fas', 'coffee']" size="lg"></fa-icon>
-<fa-icon [icon]="['fas', 'coffee']" size="6x"></fa-icon>
+<fa-icon [icon]="['fas', 'coffee']" size="xs" />
+<fa-icon [icon]="['fas', 'coffee']" size="lg" />
+<fa-icon [icon]="['fas', 'coffee']" size="6x" />
 ```
 
 ### Fixed Width
 [FontAwesome Spec](https://fontawesome.com/how-to-use/on-the-web/styling/fixed-width-icons):
 
 ```html
-<fa-icon [icon]="['fas', 'coffee']" [fixedWidth]="true"></fa-icon>
+<fa-icon [icon]="['fas', 'coffee']" [fixedWidth]="true" />
 ```
 
 ### Rotate
 [FontAwesome Spec](https://fontawesome.com/how-to-use/on-the-web/styling/rotating-icons):
 
 ```html
-<fa-icon [icon]="['fas', 'coffee']" [rotate]="90"></fa-icon>
-<fa-icon [icon]="['fas', 'coffee']" [rotate]="180"></fa-icon>
-<fa-icon [icon]="['fas', 'coffee']" [rotate]="270"></fa-icon>
+<fa-icon [icon]="['fas', 'coffee']" [rotate]="90" />
+<fa-icon [icon]="['fas', 'coffee']" [rotate]="180" />
+<fa-icon [icon]="['fas', 'coffee']" [rotate]="270" />
 <!-- Or any value supported by the rotate() transform can be specified. -->
-<fa-icon [icon]="['fas', 'coffee']" rotate="45deg"></fa-icon>
+<fa-icon [icon]="['fas', 'coffee']" rotate="45deg" />
 ```
 
 ### Flip
 * horizontally, vertically, or both
 
 ```html
-<fa-icon [icon]="['fas', 'coffee']" flip="horizontal"></fa-icon>
-<fa-icon [icon]="['fas', 'coffee']" flip="vertical"></fa-icon>
-<fa-icon [icon]="['fas', 'coffee']" flip="both"></fa-icon>
+<fa-icon [icon]="['fas', 'coffee']" flip="horizontal" />
+<fa-icon [icon]="['fas', 'coffee']" flip="vertical" />
+<fa-icon [icon]="['fas', 'coffee']" flip="both" />
 ```
 
 ### Animations
 [FontAwesome Spec](https://fontawesome.com/how-to-use/on-the-web/styling/animating-icons)
 
 ```html
-<fa-icon [icon]="['fas', 'cog']" animation="spin"></fa-icon>
-<fa-icon [icon]="['fas', 'heart']" animation="beat"></fa-icon>
-<fa-icon [icon]="['fas', 'bell']" animation="shake"></fa-icon>
+<fa-icon [icon]="['fas', 'cog']" animation="spin" />
+<fa-icon [icon]="['fas', 'heart']" animation="beat" />
+<fa-icon [icon]="['fas', 'bell']" animation="shake" />
 ```
 
 ### Border
 [FontAwesome Spec](https://fontawesome.com/how-to-use/on-the-web/styling/bordered-pulled-icons):
 
 ```html
-<fa-icon [icon]="['fas', 'coffee']" [border]="true"></fa-icon>
+<fa-icon [icon]="['fas', 'coffee']" [border]="true" />
 ```
 
 ### Pull
 [FontAwesome Spec](https://fontawesome.com/how-to-use/on-the-web/styling/bordered-pulled-icons):
 
 ```html
-<fa-icon [icon]="['fas', 'coffee']" pull="left"></fa-icon>
-<fa-icon [icon]="['fas', 'coffee']" pull="right"></fa-icon>
+<fa-icon [icon]="['fas', 'coffee']" pull="left" /> <fa-icon [icon]="['fas', 'coffee']" pull="right" />
 ```
 
 ### Custom styles
@@ -69,12 +68,12 @@ Simple styles can be applied using usual [class and style bindings](https://angu
 
 ```css
 .red-icon {
-  color: red;
+    color: red;
 }
 ```
 
 ```html
-<fa-icon [icon]="['fas', 'coffee']" class="red-icon" [style]="{display: 'inline-block', padding: '5px'}"></fa-icon>
+<fa-icon [icon]="['fas', 'coffee']" class="red-icon" [style]="{display: 'inline-block', padding: '5px'}" />
 ```
 
 For more advanced styling, see [Styling icon internals](../guide/styling-icon-internals.md).
@@ -86,7 +85,7 @@ For more advanced styling, see [Styling icon internals](../guide/styling-icon-in
 [FontAwesome Spec](https://fontawesome.com/how-to-use/on-the-web/styling/duotone-icons#basic-use):
 
 ```html
-<fa-duotone-icon [icon]="['fad', 'coffee']"></fa-duotone-icon>
+<fa-duotone-icon [icon]="['fad', 'coffee']" />
 ```
 
 ### Swap layers opacity
@@ -94,7 +93,7 @@ For more advanced styling, see [Styling icon internals](../guide/styling-icon-in
 [FontAwesome Spec](https://fontawesome.com/how-to-use/on-the-web/styling/duotone-icons#swapping-layers):
 
 ```html
-<fa-duotone-icon [icon]="['fad', 'coffee']" swapOpacity="true"></fa-duotone-icon>
+<fa-duotone-icon [icon]="['fad', 'coffee']" swapOpacity="true" />
 ```
 
 ### Customize layers opacity
@@ -102,8 +101,8 @@ For more advanced styling, see [Styling icon internals](../guide/styling-icon-in
 [FontAwesome Spec](https://fontawesome.com/how-to-use/on-the-web/styling/duotone-icons#changing-opacity):
 
 ```html
-<fa-duotone-icon [icon]="['fad', 'coffee']" primaryOpacity="0.9"></fa-duotone-icon>
-<fa-duotone-icon [icon]="['fad', 'coffee']" secondaryOpacity="0.1"></fa-duotone-icon>
+<fa-duotone-icon [icon]="['fad', 'coffee']" primaryOpacity="0.9" />
+<fa-duotone-icon [icon]="['fad', 'coffee']" secondaryOpacity="0.1" />
 ```
 
 ### Customize layers color
@@ -111,8 +110,8 @@ For more advanced styling, see [Styling icon internals](../guide/styling-icon-in
 [FontAwesome Spec](https://fontawesome.com/how-to-use/on-the-web/styling/duotone-icons#coloring):
 
 ```html
-<fa-duotone-icon [icon]="['fad', 'coffee']" primaryColor="red"></fa-duotone-icon>
-<fa-duotone-icon [icon]="['fad', 'coffee']" secondaryColor="blue"></fa-duotone-icon>
+<fa-duotone-icon [icon]="['fad', 'coffee']" primaryColor="red" />
+<fa-duotone-icon [icon]="['fad', 'coffee']" secondaryColor="blue" />
 ```
 
 ## Advanced Usage
@@ -120,26 +119,30 @@ For more advanced styling, see [Styling icon internals](../guide/styling-icon-in
 ### Mask
 [FontAwesome Spec](https://fontawesome.com/how-to-use/on-the-web/styling/masking)
 ```html
-<fa-icon [icon]="['fas', 'coffee']" [mask]="['fas', 'square']"></fa-icon>
+<fa-icon [icon]="['fas', 'coffee']" [mask]="['fas', 'square']" />
 ```
 
 ### Transform
 [FontAwesome Spec](https://fontawesome.com/how-to-use/on-the-web/styling/power-transforms)
 
 ```html
-<fa-icon [icon]="['fas', 'coffee']" transform="shrink-9 right-4"></fa-icon>
+<fa-icon [icon]="['fas', 'coffee']" transform="shrink-9 right-4" />
 ```
 
 ### Stateful Animations
 ```html
-<fa-icon [icon]="['fas', 'sync']" [animation]="isSyncAnimated ? 'spin' : undefined" (click)="isSyncAnimated=!isSyncAnimated"></fa-icon>
+<fa-icon
+    [icon]="['fas', 'sync']"
+    [animation]="isSyncAnimated ? 'spin' : undefined"
+    (click)="isSyncAnimated=!isSyncAnimated"
+/>
 ```
 
 ### Transform within binding:
 
 ```html
-<fa-icon [icon]="['fas', 'magic']" transform="rotate-{{magicLevel}}"></fa-icon>
-<input type='range' [value]="magicLevel" (input)="magicLevel=$event.target.value"/>
+<fa-icon [icon]="['fas', 'magic']" transform="rotate-{{magicLevel}}" />
+<input type="range" [value]="magicLevel" (input)="magicLevel=$event.target.value" />
 ```
 (Slide input range to "turn up the magic")
 
@@ -151,8 +154,8 @@ Each `<fa-icon>` declared inside an `<fa-stack>` element **must** include the `s
 
 ```html
 <fa-stack>
-  <fa-icon [icon]="faCircle" stackItemSize="2x"></fa-icon>
-  <fa-icon [icon]="solidFlag" [inverse]="true" stackItemSize="1x"></fa-icon>
+    <fa-icon [icon]="faCircle" stackItemSize="2x" />
+    <fa-icon [icon]="solidFlag" [inverse]="true" stackItemSize="1x" />
 </fa-stack>
 ```
 
@@ -163,8 +166,8 @@ When using standalone components, make sure to also add `FaStackItemSizeDirectiv
 
 ```html
 <fa-layers [fixedWidth]="true">
-  <fa-icon [icon]="['fas', 'square']"></fa-icon>
-  <fa-icon [inverse]="true" [icon]="['fas', 'spinner']" transform="shrink-6"></fa-icon>
+    <fa-icon [icon]="['fas', 'square']" />
+    <fa-icon [inverse]="true" [icon]="['fas', 'spinner']" transform="shrink-6" />
 </fa-layers>
 ```
 
@@ -173,8 +176,8 @@ When using standalone components, make sure to also add `FaStackItemSizeDirectiv
 
 ```html
 <fa-layers [fixedWidth]="true">
-  <fa-icon [icon]="['fas', 'square']"></fa-icon>
-  <fa-layers-text content="Yo" style="color: white;" transform="shrink-4"></fa-layers-text>
+    <fa-icon [icon]="['fas', 'square']" />
+    <fa-layers-text content="Yo" style="color: white;" transform="shrink-4" />
 </fa-layers>
 ```
 
@@ -183,8 +186,8 @@ When using standalone components, make sure to also add `FaStackItemSizeDirectiv
 
 ```html
 <fa-layers [fixedWidth]="true">
-  <fa-icon [icon]="['fas', 'envelope']"></fa-icon>
-  <fa-layers-counter content="99+"></fa-layers-counter>
+    <fa-icon [icon]="['fas', 'envelope']" />
+    <fa-layers-counter content="99+" />
 </fa-layers>
 ```
 
@@ -220,7 +223,7 @@ To update `FaIconComponent` programmatically:
 ```ts
 @Component({
   selector: 'fa-host',
-  template: '<fa-icon [icon]="faUser" (click)="spinIcon()"></fa-icon>'
+  template: '<fa-icon [icon]="faUser" (click)="spinIcon()" />',
 })
 class HostComponent {
   readonly faUser = faUser;
@@ -259,7 +262,7 @@ To update `FaIconComponent` programmatically:
 ```ts
 @Component({
   selector: 'fa-host',
-  template: '<fa-icon [icon]="faUser" (click)="spinIcon()"></fa-icon>'
+  template: '<fa-icon [icon]="faUser" (click)="spinIcon()" />'
 })
 class HostComponent {
   faUser = faUser;

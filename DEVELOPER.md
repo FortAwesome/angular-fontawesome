@@ -10,7 +10,8 @@ Thanks for taking the time to consider contributing to the project. You will fin
 ## Setting up the local environment
 
 1. `git clone https://github.com/FortAwesome/angular-fontawesome`
-1. `corepack enable` - to get the global `yarn` command 
+1. `cd angular-fontawesome`
+1. `corepack enable` - to get the global `yarn` command
 1. `yarn` - install dependencies
 1. `yarn build:watch` (in terminal 1) - build the library and keep watching for changes
 1. `yarn start` (in terminal 2) - start sample application using library distribution from the previous step

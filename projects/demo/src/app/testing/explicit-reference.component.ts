@@ -5,7 +5,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-explicit-reference',
   imports: [FaIconComponent],
-  template: '<fa-icon [icon]="faUser"></fa-icon>',
+  template: '<fa-icon [icon]="faUser" />',
 })
 export class ExplicitReferenceComponent {
   faUser = faUser;

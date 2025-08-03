@@ -13,9 +13,9 @@ describe('FaLayersComponent', () => {
       standalone: false,
       template: `
         <fa-layers>
-          <fa-icon [icon]="faUser()"></fa-icon>
-          <fa-icon [icon]="faCoffee()"></fa-icon>
-          <fa-layers-text [content]="'User with coffee'"></fa-layers-text>
+          <fa-icon [icon]="faUser()" />
+          <fa-icon [icon]="faCoffee()" />
+          <fa-layers-text [content]="'User with coffee'" />
         </fa-layers>
       `,
     })
@@ -35,9 +35,9 @@ describe('FaLayersComponent', () => {
       standalone: false,
       template: `
         <fa-layers size="2x">
-          <fa-icon [icon]="faUser()"></fa-icon>
-          <fa-icon [icon]="faCoffee()"></fa-icon>
-          <fa-layers-text [content]="'User with coffee'"></fa-layers-text>
+          <fa-icon [icon]="faUser()" />
+          <fa-icon [icon]="faCoffee()" />
+          <fa-layers-text [content]="'User with coffee'" />
         </fa-layers>
       `,
     })
@@ -55,7 +55,7 @@ describe('FaLayersComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-layers [fixedWidth]="true"></fa-layers>',
+      template: '<fa-layers [fixedWidth]="true" />',
     })
     class HostComponent {}
 
@@ -70,7 +70,7 @@ describe('FaLayersComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-layers></fa-layers>',
+      template: '<fa-layers />',
     })
     class HostComponent {}
 
@@ -87,9 +87,9 @@ describe('FaLayersComponent', () => {
       standalone: false,
       template: `
         <fa-layers [fixedWidth]="false">
-          <fa-icon [icon]="faUser()"></fa-icon>
-          <fa-icon [icon]="faCoffee()"></fa-icon>
-          <fa-layers-text [content]="'User with coffee'"></fa-layers-text>
+          <fa-icon [icon]="faUser()" />
+          <fa-icon [icon]="faCoffee()" />
+          <fa-layers-text [content]="'User with coffee'" />
         </fa-layers>
       `,
     })
@@ -110,12 +110,12 @@ describe('FaLayersComponent', () => {
       selector: 'fa-host',
       standalone: false,
       template: `
-        <fa-layers class="custom-class" [fixedWidth]="fixedWidth()" [size]="size()"></fa-layers>
-        <fa-layers [class.custom-class]="true" [fixedWidth]="fixedWidth()" [size]="size()"></fa-layers>
-        <fa-layers [ngClass]="{ 'custom-class': true }" [fixedWidth]="fixedWidth()" [size]="size()"></fa-layers>
-        <fa-layers [fixedWidth]="fixedWidth()" [size]="size()" class="custom-class"></fa-layers>
-        <fa-layers [fixedWidth]="fixedWidth()" [size]="size()" [class.custom-class]="true"></fa-layers>
-        <fa-layers [fixedWidth]="fixedWidth()" [size]="size()" [ngClass]="{ 'custom-class': true }"></fa-layers>
+        <fa-layers class="custom-class" [fixedWidth]="fixedWidth()" [size]="size()" />
+        <fa-layers [class.custom-class]="true" [fixedWidth]="fixedWidth()" [size]="size()" />
+        <fa-layers [ngClass]="{ 'custom-class': true }" [fixedWidth]="fixedWidth()" [size]="size()" />
+        <fa-layers [fixedWidth]="fixedWidth()" [size]="size()" class="custom-class" />
+        <fa-layers [fixedWidth]="fixedWidth()" [size]="size()" [class.custom-class]="true" />
+        <fa-layers [fixedWidth]="fixedWidth()" [size]="size()" [ngClass]="{ 'custom-class': true }" />
       `,
     })
     class HostComponent {
@@ -141,8 +141,8 @@ describe('FaLayersComponent', () => {
       standalone: false,
       template: `
         <fa-layers>
-          <fa-duotone-icon [icon]="faDummy()"></fa-duotone-icon>
-          <fa-layers-text [content]="'Dummy'"></fa-layers-text>
+          <fa-duotone-icon [icon]="faDummy()" />
+          <fa-layers-text [content]="'Dummy'" />
         </fa-layers>
       `,
     })
@@ -162,8 +162,8 @@ describe('FaLayersComponent', () => {
       template: `
         <fa-layers>
           <ng-container>
-            <fa-icon [icon]="faUser()"></fa-icon>
-            <fa-layers-text [content]="'Dummy'"></fa-layers-text>
+            <fa-icon [icon]="faUser()" />
+            <fa-layers-text [content]="'Dummy'" />
           </ng-container>
         </fa-layers>
       `,
