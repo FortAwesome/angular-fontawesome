@@ -5,6 +5,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [3.0.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/3.0.0) (2025-08-03)
+
+The release should be backwards compatible with 2.x, but since we bump the major dependency on `@fortawesome/fontawesome-svg-core` to 7.0.0, it is a major release. Please open an issue if you find any incompatibilities.
+
+### Added
+
+* Support for Font Awesome 7.
+
+### Changed
+
+* Reverted the change from 2.0.0 making the `icon` property in `fa-icon` and `fa-duotone-icon` components required at compile-time.
+* Update documentation to use self-closing tags for `fa-icon` and `fa-duotone-icon` components.
+
 ## [2.0.1](https://github.com/FortAwesome/angular-fontawesome/releases/tag/2.0.1) (2025-06-02)
 
 ### Fixed

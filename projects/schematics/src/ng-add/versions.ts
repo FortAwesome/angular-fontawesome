@@ -1,9 +1,4 @@
-export const angularFontawesomeVersion = '^2.1.0';
-export const iconPackVersion = '^7.0.0';
-
-export const v5 = {
-  iconPackVersion: '^5.15.4',
-};
+export const angularFontawesomeVersion = '^3.0.0';
 
 export const iconPackVersionMap: Record<string, { iconPackVersion: string }> = {
   '7': { iconPackVersion: '^7.0.0' },

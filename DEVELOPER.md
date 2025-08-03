@@ -44,7 +44,7 @@ Command     | Purpose
 1. Bump version in `package.json`
 1. Update versions in `projects/schematics/src/ng-add/versions.ts` to align with the published release.
 1. Add contributors to `README.md`
-1. Update Compatibility table in `README.md`
+1. Update Compatibility table in `README.md` and `docs/guide/compatibility.md`
 1. Update the `CHANGELOG.md`
 1. Update the `UPGRADING.md` if necessary
 1. `yarn build && yarn build:schematics`

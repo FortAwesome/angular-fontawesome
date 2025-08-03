@@ -2,7 +2,7 @@ import { Tree } from '@angular-devkit/schematics';
 import { SchematicTestRunner } from '@angular-devkit/schematics/testing';
 import * as path from 'path';
 import { Schema } from './schema';
-import { angularFontawesomeVersion, iconPackVersion, v5 } from './versions';
+import { angularFontawesomeVersion, iconPackVersionMap } from './versions';
 
 const collectionPath = path.join(__dirname, '../collection.json');
 
@@ -17,7 +17,7 @@ describe('ng-add', () => {
 
     const dependencies = packageJson.dependencies;
 
-    expect(dependencies['@fortawesome/free-solid-svg-icons']).toBe(iconPackVersion);
+    expect(dependencies['@fortawesome/free-solid-svg-icons']).toBe(iconPackVersionMap['6'].iconPackVersion);
     expect(dependencies['@fortawesome/angular-fontawesome']).toBe(angularFontawesomeVersion);
   });
 
@@ -31,7 +31,7 @@ describe('ng-add', () => {
 
     const dependencies = packageJson.dependencies;
 
-    expect(dependencies['@fortawesome/free-solid-svg-icons']).toBe(v5.iconPackVersion);
+    expect(dependencies['@fortawesome/free-solid-svg-icons']).toBe(iconPackVersionMap['5'].iconPackVersion);
     expect(dependencies['@fortawesome/angular-fontawesome']).toBe(angularFontawesomeVersion);
   });
 
