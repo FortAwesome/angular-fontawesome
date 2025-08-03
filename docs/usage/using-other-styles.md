@@ -132,5 +132,6 @@ export class AppModule {
 ```
 
 ```html
-<fa-icon [icon]="['fas', 'star']" /> <fa-icon [icon]="['far', 'star']" />
+<fa-icon [icon]="['fas', 'star']" />
+<fa-icon [icon]="['far', 'star']" />
 ```
