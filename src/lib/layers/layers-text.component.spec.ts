@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
-import { initTest, queryByCss } from '../../testing/helpers';
+import { TestBed } from '@angular/core/testing';
+import { queryByCss } from '../../testing/helpers';
+import { FaLayersComponent } from './layers.component';
+import { FaLayersTextComponent } from './layers-text.component';
 
 describe('FaLayersTextComponent', () => {
   it('should render text layer', () => {
     @Component({
       selector: 'fa-host',
-      standalone: false,
+      imports: [FaLayersComponent, FaLayersTextComponent],
       template: `
         <fa-layers>
           <fa-layers-text [content]="'Test'" />
@@ -14,7 +17,7 @@ describe('FaLayersTextComponent', () => {
     })
     class HostComponent {}
 
-    const fixture = initTest(HostComponent);
+    const fixture = TestBed.createComponent(HostComponent);
     fixture.detectChanges();
     expect(queryByCss(fixture, 'fa-layers-text > span')).toBeTruthy();
   });
@@ -22,12 +25,12 @@ describe('FaLayersTextComponent', () => {
   it('should throw an error if text layer is used outside of fa-layers', () => {
     @Component({
       selector: 'fa-host',
-      standalone: false,
+      imports: [FaLayersTextComponent],
       template: `<fa-layers-text content="Test" /> `,
     })
     class HostComponent {}
 
-    expect(() => initTest(HostComponent)).toThrow(
+    expect(() => TestBed.createComponent(HostComponent)).toThrow(
       new Error('FaLayersTextComponent should be used as child of FaLayersComponent only.'),
     );
   });
