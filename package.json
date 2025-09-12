@@ -10,6 +10,7 @@
     "test:integration": "ng e2e demo",
     "test:integration:ssr": "ng e2e demo --configuration production-ssr",
     "lint": "ng lint",
+    "update": "ng update @angular/cli @angular/core angular-eslint",
     "start": "ng serve demo",
     "start:ssr": "ng serve demo --configuration development-ssr",
     "build": "ng build angular-fontawesome",
