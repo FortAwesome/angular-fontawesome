@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inputBinding } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { queryByCss } from '../../testing/helpers';
 import { FaLayersComponent } from './layers.component';
@@ -23,16 +23,9 @@ describe('FaLayersCounterComponent', () => {
   });
 
   it('should throw an error if counter layer is used outside of fa-layers', () => {
-    @Component({
-      selector: 'fa-host',
-      imports: [FaLayersCounterComponent],
-      template: `<fa-layers-counter content="300" /> `,
-    })
-    class HostComponent {}
-
-    expect(() => TestBed.createComponent(HostComponent)).toThrow(
-      new Error('FaLayersCounterComponent should be used as child of FaLayersComponent only.'),
-    );
+    expect(() =>
+      TestBed.createComponent(FaLayersCounterComponent, { bindings: [inputBinding('content', () => 300)] }),
+    ).toThrow(new Error('FaLayersCounterComponent should be used as child of FaLayersComponent only.'));
   });
 
   it('should include position class', () => {
