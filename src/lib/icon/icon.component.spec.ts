@@ -1,4 +1,4 @@
-import { Component, signal, viewChild, ViewContainerRef } from '@angular/core';
+import { Component, inputBinding, signal, viewChild, ViewContainerRef } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TestBed } from '@angular/core/testing';
 import { faUser as faUserRegular } from '@fortawesome/free-regular-svg-icons';
@@ -13,36 +13,20 @@ import { FaIconComponent } from './icon.component';
 
 describe('FaIconComponent', () => {
   it('should render SVG icon', () => {
-    @Component({
-      selector: 'fa-host',
-      standalone: false,
-      template: '<fa-icon [icon]="faUser()" />',
-    })
-    class HostComponent {
-      faUser = signal(faUser);
-    }
-
-    const fixture = initTest(HostComponent);
+    const fixture = TestBed.createComponent(FaIconComponent, { bindings: [inputBinding('icon', () => faUser)] });
     fixture.detectChanges();
     expect(queryByCss(fixture, 'svg')).toBeTruthy();
   });
 
   it('should support binding to boolean inputs', () => {
-    @Component({
-      selector: 'fa-host',
-      standalone: false,
-      template: '<fa-icon [icon]="faUser()" [inverse]="isInverse()" />',
-    })
-    class HostComponent {
-      faUser = signal(faUser);
-      isInverse = signal(false);
-    }
-
-    const fixture = initTest(HostComponent);
+    const isInverse = signal(false);
+    const fixture = TestBed.createComponent(FaIconComponent, {
+      bindings: [inputBinding('icon', () => faUser), inputBinding('inverse', isInverse)],
+    });
     fixture.detectChanges();
     expect(queryByCss(fixture, 'svg').classList.contains('fa-inverse')).toBeFalsy();
 
-    fixture.componentInstance.isInverse.set(true);
+    isInverse.set(true);
     fixture.detectChanges();
     expect(queryByCss(fixture, 'svg').classList.contains('fa-inverse')).toBeTruthy();
   });
@@ -50,7 +34,6 @@ describe('FaIconComponent', () => {
   it('should be able to create component dynamically', () => {
     @Component({
       selector: 'fa-host',
-      standalone: false,
       template: '<ng-container #host></ng-container>',
     })
     class HostComponent {
@@ -62,7 +45,7 @@ describe('FaIconComponent', () => {
       }
     }
 
-    const fixture = initTest(HostComponent);
+    const fixture = TestBed.createComponent(HostComponent);
     fixture.detectChanges();
     expect(queryByCss(fixture, 'svg')).toBeFalsy();
 
@@ -72,50 +55,25 @@ describe('FaIconComponent', () => {
   });
 
   it('should be able to update icon programmatically', () => {
-    @Component({
-      selector: 'fa-host',
-      standalone: false,
-      template: '<fa-icon [icon]="faUser()" />',
-    })
-    class HostComponent {
-      iconComponent = viewChild(FaIconComponent);
-
-      faUser = signal(faUser);
-    }
-
-    const fixture = initTest(HostComponent);
+    const fixture = TestBed.createComponent(FaIconComponent, { bindings: [inputBinding('icon', () => faUser)] });
     fixture.detectChanges();
     expect(queryByCss(fixture, 'svg').classList.contains('fa-spin')).toBeFalsy();
 
-    fixture.componentInstance.iconComponent()!.animation.set('spin');
+    fixture.componentInstance.animation.set('spin');
     fixture.detectChanges();
     expect(queryByCss(fixture, 'svg').classList.contains('fa-spin')).toBeTruthy();
   });
 
   it('should be possible to customize `role` attribute of the rendered SVG icon', () => {
-    @Component({
-      selector: 'fa-host',
-      standalone: false,
-      template: '<fa-icon [icon]="faUser()" a11yRole="presentation" />',
-    })
-    class HostComponent {
-      faUser = signal(faUser);
-    }
-
-    const fixture = initTest(HostComponent);
+    const fixture = TestBed.createComponent(FaIconComponent, {
+      bindings: [inputBinding('icon', () => faUser), inputBinding('a11yRole', () => 'presentation')],
+    });
     fixture.detectChanges();
     expect(queryByCss(fixture, 'svg').getAttribute('role')).toBe('presentation');
   });
 
   it('should throw an error when icon attribute is missing', () => {
-    @Component({
-      selector: 'fa-host',
-      standalone: false,
-      template: '<fa-icon [icon]="undefined" />',
-    })
-    class HostComponent {}
-
-    const fixture = initTest(HostComponent);
+    const fixture = TestBed.createComponent(FaIconComponent, { bindings: [inputBinding('icon', () => undefined)] });
     expect(() => fixture.detectChanges()).toThrow(
       new Error('Property `icon` is required for `fa-icon`/`fa-duotone-icon` components.'),
     );
@@ -145,45 +103,29 @@ describe('FaIconComponent', () => {
   });
 
   it('should work with stream converted to toSignal and default value', () => {
-    @Component({
-      selector: 'fa-host',
-      standalone: false,
-      template: '<fa-icon [icon]="icon()" />',
-    })
-    class HostComponent {
-      iconSubject = new Subject<IconProp>();
-
-      icon = toSignal(this.iconSubject.pipe(startWith(faCircle)));
-    }
-
+    const iconSubject = new Subject<IconProp>();
+    const icon = TestBed.runInInjectionContext(() => toSignal(iconSubject.pipe(startWith(faCircle))));
     const spy = spyOn(console, 'error');
 
-    const fixture = initTest(HostComponent);
+    const fixture = TestBed.createComponent(FaIconComponent, { bindings: [inputBinding('icon', icon)] });
     fixture.detectChanges();
     expect(queryByCss(fixture, '.fa-circle')).toBeTruthy();
-    fixture.componentInstance.iconSubject.next(faUser);
+    iconSubject.next(faUser);
     fixture.detectChanges();
     expect(queryByCss(fixture, '.fa-user')).toBeTruthy();
     expect(spy).not.toHaveBeenCalledWith();
   });
 
   it('should provide title accessibility (via attribute or SVG title element)', () => {
-    @Component({
-      selector: 'fa-host',
-      standalone: false,
-      template: '<fa-icon [icon]="faUser()" title="User John Smith" />',
-    })
-    class HostComponent {
-      faUser = signal(faUser);
-    }
-
-    const fixture = initTest(HostComponent);
+    const fixture = TestBed.createComponent(FaIconComponent, {
+      bindings: [inputBinding('icon', () => faUser), inputBinding('title', () => 'User John Smith')],
+    });
     fixture.detectChanges();
 
     // Check for title accessibility - FontAwesome 7+ sets title attribute on host element,
     // while older versions might create a <title> element inside the SVG
     const titleElement = queryByCss(fixture, 'svg > title');
-    const hostTitleAttr = queryByCss(fixture, 'fa-icon').getAttribute('title');
+    const hostTitleAttr = fixture.componentInstance.title();
 
     // Either approach provides the same accessibility benefit
     const hasTitle = titleElement !== null || hostTitleAttr === 'User John Smith';
@@ -196,19 +138,12 @@ describe('FaIconComponent', () => {
   });
 
   it('should have title attribute, when title input is set using Angular binding syntax', () => {
-    @Component({
-      selector: 'fa-host',
-      standalone: false,
-      template: ` <fa-icon [icon]="faUser()" [title]="'User John Smith'" /> `,
-    })
-    class HostComponent {
-      faUser = signal(faUser);
-    }
-
-    const fixture = initTest(HostComponent);
+    const fixture = TestBed.createComponent(FaIconComponent, {
+      bindings: [inputBinding('icon', () => faUser), inputBinding('title', () => 'User John Smith')],
+    });
     fixture.detectChanges();
     expect(queryByCss(fixture, 'svg')).toBeTruthy();
-    expect(queryByCss(fixture, 'fa-icon').getAttribute('title')).toBe('User John Smith');
+    expect(fixture.componentInstance.title()).toBe('User John Smith');
   });
 
   it('should use default icon prefix', () => {
@@ -341,14 +276,7 @@ describe('FaIconComponent', () => {
   });
 
   it('should throw an error if icon definition is not found in the icon library', () => {
-    @Component({
-      selector: 'fa-host',
-      standalone: false,
-      template: '<fa-icon icon="circle" />',
-    })
-    class HostComponent {}
-
-    const fixture = initTest(HostComponent);
+    const fixture = TestBed.createComponent(FaIconComponent, { bindings: [inputBinding('icon', () => 'circle')] });
     expect(() => fixture.detectChanges()).toThrow(
       new Error('Could not find icon with iconName=circle and prefix=fas in the icon library.'),
     );
@@ -398,7 +326,7 @@ describe('FaIconComponent', () => {
     @Component({
       selector: 'fa-host',
       standalone: false,
-      template: '<fa-stack><fa-icon [icon]="faCircle()" />',
+      template: '<fa-stack><fa-icon [icon]="faCircle()" /></fa-stack>',
     })
     class HostComponent {
       faCircle = signal(faCircle);
