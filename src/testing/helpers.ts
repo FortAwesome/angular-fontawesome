@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Type } from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, TestComponentOptions } from '@angular/core/testing';
 import { FaDuotoneIconComponent } from '../lib/icon/duotone-icon.component';
 import { FaIconComponent } from '../lib/icon/icon.component';
 import { FaLayersCounterComponent } from '../lib/layers/layers-counter.component';
@@ -10,7 +10,7 @@ import { FaStackItemSizeDirective } from '../lib/stack/stack-item-size.directive
 import { FaStackComponent } from '../lib/stack/stack.component';
 import { IconDefinition } from '../lib/types';
 
-export const initTest = <T>(component: Type<T>, providers?: any[]): ComponentFixture<T> => {
+export const initTest = <T>(component: Type<T>, providers?: any[], options?: TestComponentOptions): ComponentFixture<T> => {
   TestBed.configureTestingModule({
     imports: [
       CommonModule,
@@ -25,7 +25,7 @@ export const initTest = <T>(component: Type<T>, providers?: any[]): ComponentFix
     declarations: [component],
     providers,
   });
-  return TestBed.createComponent(component);
+  return TestBed.createComponent(component, options);
 };
 
 export const queryByCss = (fixture: ComponentFixture<any>, cssSelector: string): HTMLElement =>
