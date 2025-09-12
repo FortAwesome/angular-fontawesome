@@ -5,13 +5,7 @@ import { FaIconComponent } from '../icon/icon.component';
 import { FaStackItemSizeDirective } from './stack-item-size.directive';
 import { FaStackComponent } from './stack.component';
 
-const initTest = <T>(component: Type<T>): ComponentFixture<T> => {
-  TestBed.configureTestingModule({
-    imports: [FaStackComponent, FaStackItemSizeDirective, FaIconComponent],
-    declarations: [component],
-  });
-  return TestBed.createComponent(component);
-};
+const imports: Type<any>[] = [FaStackComponent, FaStackItemSizeDirective, FaIconComponent];
 
 const queryByCss = (fixture: ComponentFixture<any>, cssQuery: string): ElementRef =>
   fixture.nativeElement.querySelector(cssQuery);
@@ -20,7 +14,7 @@ describe('FaStackItemSizeDirective', () => {
   it('should attach fa-stack-1x or fa-stack-2x classes to icons', () => {
     @Component({
       selector: 'fa-host',
-      standalone: false,
+      imports,
       template: `
         <fa-stack>
           <fa-icon [icon]="faCircle()" stackItemSize="2x" />
@@ -33,7 +27,7 @@ describe('FaStackItemSizeDirective', () => {
       faCircle = signal(faCircle);
     }
 
-    const fixture = initTest(HostComponent);
+    const fixture = TestBed.createComponent(HostComponent);
     fixture.detectChanges();
     expect(queryByCss(fixture, '.fa-stack-1x')).toBeTruthy();
     expect(queryByCss(fixture, '.fa-stack-2x')).toBeTruthy();
@@ -42,7 +36,7 @@ describe('FaStackItemSizeDirective', () => {
   it('should throw an error when setting size input together with stackItemSize', () => {
     @Component({
       selector: 'fa-host',
-      standalone: false,
+      imports,
       template: `
         <fa-stack>
           <fa-icon [icon]="faCircle()" stackItemSize="2x" />
@@ -55,7 +49,7 @@ describe('FaStackItemSizeDirective', () => {
       faCircle = signal(faCircle);
     }
 
-    const fixture = initTest(HostComponent);
+    const fixture = TestBed.createComponent(HostComponent);
 
     expect(() => fixture.detectChanges()).toThrow(
       new Error(
