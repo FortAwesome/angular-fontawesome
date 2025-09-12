@@ -6,7 +6,9 @@ import { FaDuotoneIconComponent } from './duotone-icon.component';
 
 describe('FaDuotoneIconComponent', () => {
   it('should render the duotone icon', () => {
-    const fixture = TestBed.createComponent(FaDuotoneIconComponent, { bindings: [inputBinding('icon', () => faDummy)] });
+    const fixture = TestBed.createComponent(FaDuotoneIconComponent, {
+      bindings: [inputBinding('icon', () => faDummy)],
+    });
     fixture.detectChanges();
     expect(queryByCss(fixture, 'svg')).toBeTruthy();
   });
@@ -37,7 +39,7 @@ describe('FaDuotoneIconComponent', () => {
 
   it('should allow to customize color of the primary layer', () => {
     const fixture = TestBed.createComponent(FaDuotoneIconComponent, {
-      bindings: [inputBinding('icon', () => faDummy), inputBinding('primaryColor', () => "red")],
+      bindings: [inputBinding('icon', () => faDummy), inputBinding('primaryColor', () => 'red')],
     });
     fixture.detectChanges();
     expect(queryByCss(fixture, 'svg').style.getPropertyValue('--fa-primary-color')).toBe('red');
@@ -45,14 +47,14 @@ describe('FaDuotoneIconComponent', () => {
 
   it('should allow to customize color of the secondary layer', () => {
     const fixture = TestBed.createComponent(FaDuotoneIconComponent, {
-      bindings: [inputBinding('icon', () => faDummy), inputBinding('secondaryColor', () => "red")],
+      bindings: [inputBinding('icon', () => faDummy), inputBinding('secondaryColor', () => 'red')],
     });
     fixture.detectChanges();
     expect(queryByCss(fixture, 'svg').style.getPropertyValue('--fa-secondary-color')).toBe('red');
   });
 
   it('should throw if specified icon is not a Duotone icon', () => {
-    const fixture = TestBed.createComponent(FaDuotoneIconComponent, { bindings: [inputBinding('icon', () => faUser)]});
+    const fixture = TestBed.createComponent(FaDuotoneIconComponent, { bindings: [inputBinding('icon', () => faUser)] });
     expect(() => fixture.detectChanges()).toThrow(
       new Error(
         'The specified icon does not appear to be a Duotone icon. ' +
