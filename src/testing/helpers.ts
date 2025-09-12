@@ -10,7 +10,11 @@ import { FaStackItemSizeDirective } from '../lib/stack/stack-item-size.directive
 import { FaStackComponent } from '../lib/stack/stack.component';
 import { IconDefinition } from '../lib/types';
 
-export const initTest = <T>(component: Type<T>, options?: TestComponentOptions, providers?: any[]): ComponentFixture<T> => {
+export const initTest = <T>(
+  component: Type<T>,
+  options?: TestComponentOptions,
+  providers?: any[],
+): ComponentFixture<T> => {
   TestBed.configureTestingModule({
     imports: [
       CommonModule,
