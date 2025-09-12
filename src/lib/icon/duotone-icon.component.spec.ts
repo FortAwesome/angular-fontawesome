@@ -1,17 +1,18 @@
 import { Component, inputBinding, viewChild, ViewContainerRef } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { faDummy, initTest, queryByCss } from '../../testing/helpers';
+import { faDummy, queryByCss } from '../../testing/helpers';
 import { FaDuotoneIconComponent } from './duotone-icon.component';
 
 describe('FaDuotoneIconComponent', () => {
   it('should render the duotone icon', () => {
-    const fixture = initTest(FaDuotoneIconComponent, { bindings: [inputBinding('icon', () => faDummy)] });
+    const fixture = TestBed.createComponent(FaDuotoneIconComponent, { bindings: [inputBinding('icon', () => faDummy)] });
     fixture.detectChanges();
     expect(queryByCss(fixture, 'svg')).toBeTruthy();
   });
 
   it('should allow to swap opacity of the layers', () => {
-    const fixture = initTest(FaDuotoneIconComponent, {
+    const fixture = TestBed.createComponent(FaDuotoneIconComponent, {
       bindings: [inputBinding('icon', () => faDummy), inputBinding('swapOpacity', () => true)],
     });
     fixture.detectChanges();
@@ -19,7 +20,7 @@ describe('FaDuotoneIconComponent', () => {
   });
 
   it('should allow to customize opacity of the primary layer', () => {
-    const fixture = initTest(FaDuotoneIconComponent, {
+    const fixture = TestBed.createComponent(FaDuotoneIconComponent, {
       bindings: [inputBinding('icon', () => faDummy), inputBinding('primaryOpacity', () => 0.1)],
     });
     fixture.detectChanges();
@@ -27,7 +28,7 @@ describe('FaDuotoneIconComponent', () => {
   });
 
   it('should allow to customize opacity of the secondary layer', () => {
-    const fixture = initTest(FaDuotoneIconComponent, {
+    const fixture = TestBed.createComponent(FaDuotoneIconComponent, {
       bindings: [inputBinding('icon', () => faDummy), inputBinding('secondaryOpacity', () => 0.9)],
     });
     fixture.detectChanges();
@@ -35,7 +36,7 @@ describe('FaDuotoneIconComponent', () => {
   });
 
   it('should allow to customize color of the primary layer', () => {
-    const fixture = initTest(FaDuotoneIconComponent, {
+    const fixture = TestBed.createComponent(FaDuotoneIconComponent, {
       bindings: [inputBinding('icon', () => faDummy), inputBinding('primaryColor', () => "red")],
     });
     fixture.detectChanges();
@@ -43,7 +44,7 @@ describe('FaDuotoneIconComponent', () => {
   });
 
   it('should allow to customize color of the secondary layer', () => {
-    const fixture = initTest(FaDuotoneIconComponent, {
+    const fixture = TestBed.createComponent(FaDuotoneIconComponent, {
       bindings: [inputBinding('icon', () => faDummy), inputBinding('secondaryColor', () => "red")],
     });
     fixture.detectChanges();
@@ -51,7 +52,7 @@ describe('FaDuotoneIconComponent', () => {
   });
 
   it('should throw if specified icon is not a Duotone icon', () => {
-    const fixture = initTest(FaDuotoneIconComponent, { bindings: [inputBinding('icon', () => faUser)]});
+    const fixture = TestBed.createComponent(FaDuotoneIconComponent, { bindings: [inputBinding('icon', () => faUser)]});
     expect(() => fixture.detectChanges()).toThrow(
       new Error(
         'The specified icon does not appear to be a Duotone icon. ' +
@@ -64,7 +65,6 @@ describe('FaDuotoneIconComponent', () => {
   it('should be able to create component dynamically', () => {
     @Component({
       selector: 'fa-host',
-      standalone: false,
       template: '<ng-container #host></ng-container>',
     })
     class HostComponent {
@@ -76,7 +76,7 @@ describe('FaDuotoneIconComponent', () => {
       }
     }
 
-    const fixture = initTest(HostComponent);
+    const fixture = TestBed.createComponent(HostComponent);
     fixture.detectChanges();
     expect(queryByCss(fixture, 'svg')).toBeFalsy();
 
