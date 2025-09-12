@@ -22,7 +22,7 @@ export const initTest = <T>(component: Type<T>, options?: TestComponentOptions, 
       FaStackComponent,
       FaStackItemSizeDirective,
     ],
-    declarations: [component],
+    declarations: options ? [] : [component],
     providers,
   });
   return TestBed.createComponent(component, options);
