@@ -17,7 +17,7 @@ describe('ng-add', () => {
 
     const dependencies = packageJson.dependencies;
 
-    expect(dependencies['@fortawesome/free-solid-svg-icons']).toBe(iconPackVersionMap['6'].iconPackVersion);
+    expect(dependencies['@fortawesome/free-solid-svg-icons']).toBe(iconPackVersionMap['7'].iconPackVersion);
     expect(dependencies['@fortawesome/angular-fontawesome']).toBe(angularFontawesomeVersion);
   });
 
