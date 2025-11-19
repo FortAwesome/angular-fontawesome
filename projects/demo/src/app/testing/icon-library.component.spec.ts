@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { inject, NgModule } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
@@ -56,7 +56,8 @@ describe('IconLibraryComponent', () => {
   exports: [FontAwesomeModule],
 })
 class FontAwesomeIconsModule {
-  constructor(library: FaIconLibrary) {
+  constructor() {
+    const library = inject(FaIconLibrary);
     library.addIcons(faUser);
   }
 }

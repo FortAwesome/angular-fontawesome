@@ -63,7 +63,7 @@ There are several options how to deal with the icon library in the tests:
 With this approach you would define a new module, which wraps `FontAwesomeModule` and configures an icon library. Then this module can be used instead of `FontAwesomeModule` both in the `AppModule` and test code thus the icon library configuration is shared between application and tests. Below is the example of such wrapper module:
 
 ```typescript
-import { NgModule } from '@angular/core';
+import { inject, NgModule } from '@angular/core';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 
@@ -72,7 +72,8 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
   exports: [FontAwesomeModule],
 })
 class FontAwesomeIconsModule {
-  constructor(library: FaIconLibrary) {
+  constructor() {
+    const library = inject(FaIconLibrary);
     library.addIcons(faUser);
   }
 }

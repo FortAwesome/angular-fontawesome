@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { FaIconLibraryInterface, IconDefinition, IconName, IconPrefix } from '@fortawesome/angular-fontawesome';
 import { FaTestingConfig } from '../config';
 
@@ -14,7 +14,7 @@ export const ADD_ICON_MESSAGE = 'Attempt to add an icon to the MockFaIconLibrary
   providedIn: 'root',
 })
 export class MockFaIconLibrary implements FaIconLibraryInterface {
-  constructor(private config: FaTestingConfig) {}
+  private config = inject(FaTestingConfig);
 
   addIcons() {
     if (this.config.whenAddingIcons === 'throwError') {

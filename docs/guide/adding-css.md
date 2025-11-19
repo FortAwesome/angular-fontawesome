@@ -5,10 +5,12 @@ For Font Awesome icon to render properly, it needs global Font Awesome styles to
 If you have issues with this approach, you can disable it by setting `FaConfig.autoAddCss` to `false`:
 
 ```typescript
+import { inject } from '@angular/core';
 import { FaConfig } from '@fortawesome/angular-fontawesome';
 
 export class AppComponent {
-  constructor(faConfig: FaConfig) {
+  constructor() {
+    const faConfig = inject(FaConfig);
     faConfig.autoAddCss = false;
   }
 }
