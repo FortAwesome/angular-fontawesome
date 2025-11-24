@@ -1,16 +1,21 @@
-import { Component, signal } from '@angular/core';
+import { Component, inputBinding, signal } from '@angular/core';
+import { NgClass } from '@angular/common';
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 import { faCoffee, faUser } from '@fortawesome/free-solid-svg-icons';
-import { faDummy, initTest, queryByCss } from '../../testing/helpers';
+import { faDummy, queryByCss } from '../../testing/helpers';
 import { FaConfig } from '../config';
+import { FaLayersComponent } from './layers.component';
+import { FaLayersTextComponent } from './layers-text.component';
+import { FaIconComponent } from '../icon/icon.component';
+import { FaDuotoneIconComponent } from '../icon/duotone-icon.component';
 
 describe('FaLayersComponent', () => {
   it('should render layers icon', () => {
     @Component({
       selector: 'fa-host',
-      standalone: false,
+      imports: [FaLayersComponent, FaIconComponent, FaLayersTextComponent],
       template: `
         <fa-layers>
           <fa-icon [icon]="faUser()" />
@@ -24,7 +29,7 @@ describe('FaLayersComponent', () => {
       faCoffee = signal(faCoffee);
     }
 
-    const fixture = initTest(HostComponent);
+    const fixture = TestBed.createComponent(HostComponent);
     fixture.detectChanges();
     expect(queryByCss(fixture, 'svg')).toBeTruthy();
   });
@@ -32,7 +37,7 @@ describe('FaLayersComponent', () => {
   it('should include size class', () => {
     @Component({
       selector: 'fa-host',
-      standalone: false,
+      imports: [FaLayersComponent, FaIconComponent, FaLayersTextComponent],
       template: `
         <fa-layers size="2x">
           <fa-icon [icon]="faUser()" />
@@ -46,45 +51,31 @@ describe('FaLayersComponent', () => {
       faCoffee = signal(faCoffee);
     }
 
-    const fixture = initTest(HostComponent);
+    const fixture = TestBed.createComponent(HostComponent);
     fixture.detectChanges();
     expect(queryByCss(fixture, '.fa-2x')).toBeTruthy();
   });
 
   it('should include fixed width when set explicitly', () => {
-    @Component({
-      selector: 'fa-host',
-      standalone: false,
-      template: '<fa-layers [fixedWidth]="true" />',
-    })
-    class HostComponent {}
-
-    const fixture = initTest(HostComponent);
+    const fixture = TestBed.createComponent(FaLayersComponent, { bindings: [inputBinding('fixedWidth', () => true)] });
     const config = TestBed.inject(FaConfig);
     config.fixedWidth = false;
     fixture.detectChanges();
-    expect(queryByCss(fixture, '.fa-fw')).toBeTruthy();
+    expect(fixture.nativeElement.classList.contains('fa-fw')).toBeTrue();
   });
 
   it('should include fixed width when set with global config', () => {
-    @Component({
-      selector: 'fa-host',
-      standalone: false,
-      template: '<fa-layers />',
-    })
-    class HostComponent {}
-
-    const fixture = initTest(HostComponent);
+    const fixture = TestBed.createComponent(FaLayersComponent);
     const config = TestBed.inject(FaConfig);
     config.fixedWidth = true;
     fixture.detectChanges();
-    expect(queryByCss(fixture, '.fa-fw')).toBeTruthy();
+    expect(fixture.nativeElement.classList.contains('fa-fw')).toBeTrue();
   });
 
   it('should not include fixed width when set explicitly', () => {
     @Component({
       selector: 'fa-host',
-      standalone: false,
+      imports: [FaLayersComponent, FaIconComponent, FaLayersTextComponent],
       template: `
         <fa-layers [fixedWidth]="false">
           <fa-icon [icon]="faUser()" />
@@ -98,7 +89,7 @@ describe('FaLayersComponent', () => {
       faCoffee = signal(faCoffee);
     }
 
-    const fixture = initTest(HostComponent);
+    const fixture = TestBed.createComponent(HostComponent);
     const config = TestBed.inject(FaConfig);
     config.fixedWidth = true;
     fixture.detectChanges();
@@ -108,7 +99,7 @@ describe('FaLayersComponent', () => {
   it('should allow setting custom class on the host element', () => {
     @Component({
       selector: 'fa-host',
-      standalone: false,
+      imports: [FaLayersComponent, NgClass],
       template: `
         <fa-layers class="custom-class" [fixedWidth]="fixedWidth()" [size]="size()" />
         <fa-layers [class.custom-class]="true" [fixedWidth]="fixedWidth()" [size]="size()" />
@@ -123,7 +114,7 @@ describe('FaLayersComponent', () => {
       size = signal<SizeProp>('4x');
     }
 
-    const fixture = initTest(HostComponent);
+    const fixture = TestBed.createComponent(HostComponent);
 
     fixture.detectChanges();
     const elements = fixture.debugElement.queryAll(By.css('fa-layers'));
@@ -138,7 +129,7 @@ describe('FaLayersComponent', () => {
   it('should support duotone icons', () => {
     @Component({
       selector: 'fa-host',
-      standalone: false,
+      imports: [FaLayersComponent, FaDuotoneIconComponent, FaLayersTextComponent],
       template: `
         <fa-layers>
           <fa-duotone-icon [icon]="faDummy()" />
@@ -150,7 +141,7 @@ describe('FaLayersComponent', () => {
       faDummy = signal(faDummy);
     }
 
-    const fixture = initTest(HostComponent);
+    const fixture = TestBed.createComponent(HostComponent);
     fixture.detectChanges();
     expect(queryByCss(fixture, 'fa-duotone-icon')).toBeTruthy();
   });
@@ -158,7 +149,7 @@ describe('FaLayersComponent', () => {
   it('should support icons wrapped into ng-container', () => {
     @Component({
       selector: 'fa-host',
-      standalone: false,
+      imports: [FaLayersComponent, FaIconComponent, FaLayersTextComponent],
       template: `
         <fa-layers>
           <ng-container>
@@ -172,7 +163,7 @@ describe('FaLayersComponent', () => {
       faUser = signal(faUser);
     }
 
-    const fixture = initTest(HostComponent);
+    const fixture = TestBed.createComponent(HostComponent);
     fixture.detectChanges();
     expect(queryByCss(fixture, 'fa-icon')).toBeTruthy();
   });

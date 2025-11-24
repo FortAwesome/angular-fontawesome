@@ -1,12 +1,19 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, Type } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
 import { faCircle, faUser } from '@fortawesome/free-solid-svg-icons';
-import { faDummy, initTest, queryByCss } from '../../testing/helpers';
+import { faDummy, queryByCss } from '../../testing/helpers';
+import { FaIconComponent } from '../icon/icon.component';
+import { FaDuotoneIconComponent } from '../icon/duotone-icon.component';
+import { FaStackItemSizeDirective } from './stack-item-size.directive';
+import { FaStackComponent } from './stack.component';
+
+const imports: Type<any>[] = [FaStackComponent, FaStackItemSizeDirective, FaIconComponent];
 
 describe('FaStackComponent', () => {
   it('should render stack icon', () => {
     @Component({
       selector: 'fa-host',
-      standalone: false,
+      imports,
       template: `
         <fa-stack>
           <fa-icon [icon]="faCircle()" stackItemSize="2x" />
@@ -19,7 +26,7 @@ describe('FaStackComponent', () => {
       faCircle = signal(faCircle);
     }
 
-    const fixture = initTest(HostComponent);
+    const fixture = TestBed.createComponent(HostComponent);
     fixture.detectChanges();
     expect(fixture.nativeElement).toBeTruthy();
   });
@@ -27,7 +34,7 @@ describe('FaStackComponent', () => {
   it('should work with duotone icons', () => {
     @Component({
       selector: 'fa-host',
-      standalone: false,
+      imports: [...imports, FaDuotoneIconComponent],
       template: `
         <fa-stack>
           <fa-icon [icon]="faCircle()" stackItemSize="2x" />
@@ -40,7 +47,7 @@ describe('FaStackComponent', () => {
       faCircle = signal(faCircle);
     }
 
-    const fixture = initTest(HostComponent);
+    const fixture = TestBed.createComponent(HostComponent);
     fixture.detectChanges();
     expect(queryByCss(fixture, 'fa-duotone-icon')).toBeTruthy();
   });
@@ -48,7 +55,7 @@ describe('FaStackComponent', () => {
   it('should include size class', () => {
     @Component({
       selector: 'fa-host',
-      standalone: false,
+      imports,
       template: `
         <fa-stack size="2x">
           <fa-icon [icon]="faCircle()" stackItemSize="2x" />
@@ -61,7 +68,7 @@ describe('FaStackComponent', () => {
       faCircle = signal(faCircle);
     }
 
-    const fixture = initTest(HostComponent);
+    const fixture = TestBed.createComponent(HostComponent);
     fixture.detectChanges();
     expect(queryByCss(fixture, '.fa-2x')).toBeTruthy();
   });
