@@ -1,4 +1,4 @@
-import { Component, inject, input, computed, ChangeDetectionStrategy, DOCUMENT } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, DOCUMENT, inject, input } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { counter, CounterParams } from '@fortawesome/fontawesome-svg-core';
 import { FaConfig } from '../config';
@@ -31,7 +31,7 @@ export class FaLayersCounterComponent {
   private sanitizer = inject(DomSanitizer);
 
   constructor() {
-    faWarnIfParentNotExist(this.parent, 'FaLayersComponent', this.constructor.name);
+    faWarnIfParentNotExist(this.parent, 'FaLayersComponent', 'FaLayersCounterComponent');
   }
 
   protected buildParams(): CounterParams {

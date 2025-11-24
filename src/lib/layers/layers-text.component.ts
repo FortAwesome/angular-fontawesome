@@ -50,7 +50,7 @@ export class FaLayersTextComponent {
   private readonly sanitizer = inject(DomSanitizer);
 
   constructor() {
-    faWarnIfParentNotExist(this.parent, 'FaLayersComponent', this.constructor.name);
+    faWarnIfParentNotExist(this.parent, 'FaLayersComponent', 'FaLayersTextComponent');
   }
 
   /**

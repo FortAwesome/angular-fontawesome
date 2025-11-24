@@ -40,11 +40,12 @@ $ npm install @fortawesome/angular-fontawesome@<version>
 
 ### Compatibility table
 
-| @fortawesome/angular-fontawesome | Angular    | Font Awesome      | 
-|----------------------------------|------------|-------------------|
-| 3.x                              | 20.x       | 5.x && 6.x && 7.x |
-| 2.x                              | 20.x       | 5.x && 6.x        |
-| 1.x                              | 19.x       | 5.x && 6.x        |
+| @fortawesome/angular-fontawesome | Angular | Font Awesome      | 
+|----------------------------------|---------|-------------------|
+| 4.x                              | 21.x    | 5.x && 6.x && 7.x |
+| 3.x                              | 20.x    | 5.x && 6.x && 7.x |
+| 2.x                              | 20.x    | 5.x && 6.x        |
+| 1.x                              | 19.x    | 5.x && 6.x        |
 
 See [the compatibility page](./docs/guide/compatibility.md) for older versions.
 

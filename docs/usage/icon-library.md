@@ -24,7 +24,7 @@ Icons should be registered only once in the `AppComponent`'s constructor using `
 1. Add icon to the library with `library.addIcons(faCoffee)`.
 
 ```typescript
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
@@ -34,8 +34,9 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  constructor(library: FaIconLibrary) {
+  constructor() {
     // Add an icon to the library for convenient access in other components
+    const library = inject(FaIconLibrary);
     library.addIcons(faCoffee);
   }
 }
@@ -49,7 +50,8 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 
 export class AppComponent {
-  constructor(library: FaIconLibrary) {
+  constructor() {
+    const library = inject(FaIconLibrary);
     library.addIconPacks(fas, far);
   }
 }
@@ -62,7 +64,7 @@ A better way can be to use a [Font Awesome Kit](https://fontawesome.com/kits) to
 _In these examples, you would replace "KIT_CODE" with the unique identifier for your Pro Kit_
 
 ```typescript
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { all } from '@awesome.me/kit-KIT_CODE/icons';
 
@@ -72,8 +74,9 @@ import { all } from '@awesome.me/kit-KIT_CODE/icons';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  constructor(library: FaIconLibrary) {
+  constructor() {
     // Add an icon to the library for convenient access in other components
+    const library = inject(FaIconLibrary);
     library.addIcons(...all);
   }
 }
@@ -99,7 +102,8 @@ The default prefix, `fas`, can be adjusted by injecting the `FaConfig` and modif
 import { FaConfig } from '@fortawesome/angular-fontawesome';
 
 export class AppComponent {
-  constructor(faConfig: FaConfig) {
+  constructor() {
+    const faConfig = inject(FaConfig);
     faConfig.defaultPrefix = 'far';
   }
 }
@@ -113,7 +117,8 @@ The fixed width class, `fa-fw`, can be applied globally by injecting the `FaConf
 import { FaConfig } from '@fortawesome/angular-fontawesome';
 
 export class AppComponent {
-  constructor(faConfig: FaConfig) {
+  constructor() {
+    const faConfig = inject(FaConfig);
     faConfig.fixedWidth = true;
   }
 }

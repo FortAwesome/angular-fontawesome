@@ -124,8 +124,9 @@ import { faStar as fasStar } from '@fortawesome/free-solid-svg-icons';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 
 export class AppModule {
-  constructor(library: FaIconLibrary) {
+  constructor() {
     // Add multiple icons to the library
+    const library = inject(FaIconLibrary);
     library.addIcons(fasStar, farStar);
   }
 }
