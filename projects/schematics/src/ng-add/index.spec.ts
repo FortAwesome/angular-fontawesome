@@ -7,7 +7,7 @@ import { angularFontawesomeVersion, iconPackVersionMap } from './versions';
 const collectionPath = path.join(__dirname, '../collection.json');
 
 describe('ng-add', () => {
-  it('adds v6 dependencies to package.json', async () => {
+  it('adds v7 dependencies to package.json', async () => {
     const { runner, appTree } = await setup();
 
     const tree = await runner.runSchematic<Schema>('ng-add', { project: 'test-app' }, appTree);
@@ -18,6 +18,20 @@ describe('ng-add', () => {
     const dependencies = packageJson.dependencies;
 
     expect(dependencies['@fortawesome/free-solid-svg-icons']).toBe(iconPackVersionMap['7'].iconPackVersion);
+    expect(dependencies['@fortawesome/angular-fontawesome']).toBe(angularFontawesomeVersion);
+  });
+
+  it('adds v6 dependencies to package.json', async () => {
+    const { runner, appTree } = await setup();
+
+    const tree = await runner.runSchematic<Schema>('ng-add', { project: 'test-app', version: '6' }, appTree);
+
+    const packageJson = JSON.parse(tree.readContent('package.json'));
+    expect(packageJson.dependencies).toBeDefined();
+
+    const dependencies = packageJson.dependencies;
+
+    expect(dependencies['@fortawesome/free-solid-svg-icons']).toBe(iconPackVersionMap['6'].iconPackVersion);
     expect(dependencies['@fortawesome/angular-fontawesome']).toBe(angularFontawesomeVersion);
   });
 
