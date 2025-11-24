@@ -79,7 +79,7 @@ To get up and running using Font Awesome with Angular follow the below steps:
 
     ```html
     <fa-icon [icon]="faCoffee" />
-    <i faIcon [icon]="faCoffee" ></i>
+    <i [faIcon]="faCoffee" ></i>
     ```
 
 ## Documentation
