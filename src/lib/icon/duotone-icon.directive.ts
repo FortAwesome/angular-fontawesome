@@ -1,4 +1,4 @@
-import { Directive, input } from '@angular/core';
+import { Directive, input, model } from '@angular/core';
 import { IconDefinition as CoreIconDefinition, IconParams } from '@fortawesome/fontawesome-svg-core';
 import { IconDefinition, IconProp } from '../types';
 import { FaIconDirective } from './icon.directive';
@@ -7,6 +7,7 @@ import { FaIconDirective } from './icon.directive';
   selector: '[faDuotoneIcon]',
 })
 export class FaDuotoneIconDirective extends FaIconDirective {
+  override readonly faIcon = model<IconProp | undefined>(undefined, { alias: 'faDuotoneIcon' });
   /**
    * Swap the default opacity of each duotone icon’s layers. This will make an
    * icon’s primary layer have the default opacity of 40% rather than its

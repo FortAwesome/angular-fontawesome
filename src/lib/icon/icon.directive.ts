@@ -35,6 +35,8 @@ import { IconDefinition, IconProp } from '../types';
   },
 })
 export class FaIconDirective {
+  readonly faIcon = model<IconProp | undefined>(undefined);
+
   readonly icon = model<IconProp>();
 
   /**
@@ -72,7 +74,7 @@ export class FaIconDirective {
   readonly a11yRole = model<string>();
 
   readonly renderedIconHTML = computed(() => {
-    const iconValue = this.icon() ?? this.config.fallbackIcon;
+    const iconValue = this.icon() ?? this.faIcon() ?? this.config.fallbackIcon;
     if (!iconValue) {
       faWarnIfIconSpecMissing();
       return '';

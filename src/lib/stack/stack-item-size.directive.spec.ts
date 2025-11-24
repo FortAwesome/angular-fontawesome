@@ -39,8 +39,8 @@ describe('FaStackItemSizeDirective', () => {
       imports: [FaIconDirective, FaStackItemSizeDirective, FaStackDirective],
       template: `
         <div faStack>
-          <i faIcon [icon]="faCircle()" stackItemSize="2x"></i>
-          <i faIcon [icon]="faUser()" [inverse]="true" stackItemSize="1x"></i>
+          <i [faIcon]="faCircle()" stackItemSize="2x"></i>
+          <i [faIcon]="faUser()" [inverse]="true" stackItemSize="1x"></i>
         </div>
       `,
     })
