@@ -1,7 +1,9 @@
 export { FontAwesomeModule } from './fontawesome.module';
 export type { AnimationProp, FaProps } from './shared/models/props.model';
 export { FaIconComponent } from './icon/icon.component';
+export { FaIconDirective } from './icon/icon.directive';
 export { FaDuotoneIconComponent } from './icon/duotone-icon.component';
+export { FaDuotoneIconDirective } from './icon/duotone-icon.directive';
 export { FaConfig } from './config';
 export { FaLayersComponent } from './layers/layers.component';
 export { FaLayersTextComponent } from './layers/layers-text.component';
