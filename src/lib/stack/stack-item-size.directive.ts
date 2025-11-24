@@ -4,7 +4,7 @@ import { FaStackComponent } from './stack.component';
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
-  selector: 'fa-icon[stackItemSize],fa-duotone-icon[stackItemSize]',
+  selector: 'fa-icon[stackItemSize],fa-duotone-icon[stackItemSize],[faIcon][stackItemSize],[faDuotoneIcon][stackItemSize]',
 })
 export class FaStackItemSizeDirective {
   /**
