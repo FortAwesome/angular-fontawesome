@@ -3,8 +3,10 @@ import { TestBed } from '@angular/core/testing';
 import { queryByCss } from '../../testing/helpers';
 import { faCircle, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FaIconComponent } from '../icon/icon.component';
+import { FaIconDirective } from '../icon/icon.directive';
 import { FaStackItemSizeDirective } from './stack-item-size.directive';
 import { FaStackComponent } from './stack.component';
+import { FaStackDirective } from './stack.directive';
 
 const imports: Type<any>[] = [FaStackComponent, FaStackItemSizeDirective, FaIconComponent];
 
@@ -18,6 +20,28 @@ describe('FaStackItemSizeDirective', () => {
           <fa-icon [icon]="faCircle()" stackItemSize="2x" />
           <fa-icon [icon]="faUser()" [inverse]="true" stackItemSize="1x" />
         </fa-stack>
+      `,
+    })
+    class HostComponent {
+      faUser = signal(faUser);
+      faCircle = signal(faCircle);
+    }
+
+    const fixture = TestBed.createComponent(HostComponent);
+    fixture.detectChanges();
+    expect(queryByCss(fixture, '.fa-stack-1x')).toBeTruthy();
+    expect(queryByCss(fixture, '.fa-stack-2x')).toBeTruthy();
+  });
+
+  it('should attach from directives faStack-1x or faStack-2x classes to icons', () => {
+    @Component({
+      selector: 'fa-host',
+      imports: [FaIconDirective, FaStackItemSizeDirective, FaStackDirective],
+      template: `
+        <div faStack>
+          <i [faIcon]="faCircle()" stackItemSize="2x"></i>
+          <i [faIcon]="faUser()" [inverse]="true" stackItemSize="1x"></i>
+        </div>
       `,
     })
     class HostComponent {
