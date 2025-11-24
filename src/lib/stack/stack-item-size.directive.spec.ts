@@ -36,7 +36,7 @@ describe('FaStackItemSizeDirective', () => {
   it('should attach from directives faStack-1x or faStack-2x classes to icons', () => {
     @Component({
       selector: 'fa-host',
-      imports: [FaIconDirective,FaStackItemSizeDirective , FaStackDirective],
+      imports: [FaIconDirective, FaStackItemSizeDirective, FaStackDirective],
       template: `
         <div faStack>
           <i faIcon [icon]="faCircle()" stackItemSize="2x"></i>
