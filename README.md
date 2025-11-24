@@ -79,7 +79,9 @@ To get up and running using Font Awesome with Angular follow the below steps:
 
     ```html
     <fa-icon [icon]="faCoffee" />
+    <!-- No need for <fa-icon>. Just apply the directive. -->
     <i [faIcon]="faCoffee" ></i>
+    <div class="menu-item" faIcon="bars"></div>
     ```
 
 ## Documentation
