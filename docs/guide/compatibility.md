@@ -19,3 +19,4 @@
 | 1.x                              | 19.x       | 5.x && 6.x        | supported     |
 | 2.x                              | 20.x       | 5.x && 6.x        | supported     |
 | 3.x                              | 20.x       | 5.x && 6.x && 7.x | supported     |
+| 4.x                              | 21.x       | 5.x && 6.x && 7.x | supported     |
