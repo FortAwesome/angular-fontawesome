@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, DOCUMENT, inject, input, SecurityContext } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, DOCUMENT, inject, input } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { counter, CounterParams } from '@fortawesome/fontawesome-svg-core';
 import { FaConfig } from '../config';
@@ -44,7 +44,6 @@ export class FaLayersCounterComponent {
 
   private updateContent(params: CounterParams) {
     ensureCss(this.document, this.config);
-    const html = counter(this.content() || '', params).html.join('');
-    return this.sanitizer.sanitize(SecurityContext.HTML, html) || '';
+    return this.sanitizer.bypassSecurityTrustHtml(counter(this.content() || '', params).html.join(''));
   }
 }

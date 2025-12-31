@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, DOCUMENT, inject, model, SecurityContext } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, DOCUMENT, inject, model } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import {
   Attributes,
@@ -87,8 +87,7 @@ export class FaIconComponent {
     const params = this.buildParams();
     ensureCss(this.document, this.config);
     const renderedIcon = icon(iconDefinition, params);
-    const html = renderedIcon.html.join('\n');
-    return this.sanitizer.sanitize(SecurityContext.HTML, html) || '';
+    return this.sanitizer.bypassSecurityTrustHtml(renderedIcon.html.join('\n'));
   });
 
   private readonly document = inject(DOCUMENT);

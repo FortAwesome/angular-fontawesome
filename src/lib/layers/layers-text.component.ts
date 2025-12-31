@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, DOCUMENT, inject, input, SecurityContext } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, DOCUMENT, inject, input } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import {
   FlipProp,
@@ -85,7 +85,6 @@ export class FaLayersTextComponent {
 
   private updateContent(params: TextParams) {
     ensureCss(this.document, this.config);
-    const html = text(this.content() || '', params).html.join('\n');
-    return this.sanitizer.sanitize(SecurityContext.HTML, html) || '';
+    return this.sanitizer.bypassSecurityTrustHtml(text(this.content() || '', params).html.join('\n'));
   }
 }
