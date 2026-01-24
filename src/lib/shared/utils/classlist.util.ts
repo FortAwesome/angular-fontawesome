@@ -27,10 +27,10 @@ export const faClassList = (props: FaProps): string[] => {
     'fa-layers-counter': props.counter,
     'fa-flip-horizontal': props.flip === 'horizontal' || props.flip === 'both',
     'fa-flip-vertical': props.flip === 'vertical' || props.flip === 'both',
-    [`fa-${props.size}`]: props.size !== null,
+    [`fa-${props.size}`]: props.size != null,
     [`fa-rotate-${props.rotate}`]: knownRotateValue,
     'fa-rotate-by': props.rotate != null && !knownRotateValue,
-    [`fa-pull-${props.pull}`]: props.pull !== null,
+    [`fa-pull-${props.pull}`]: props.pull != null,
     [`fa-stack-${props.stackItemSize}`]: props.stackItemSize != null,
   };
 
