@@ -16,6 +16,7 @@ If you have [FontAwesome Pro](https://fontawesome.com/plans) subscription, make 
 > Along with a Pro+ Plan, you'll need to install a downloaded Kit package to use any of our Pro+ Icons — they are not available in any other packages.
 > [Read more](https://docs.fontawesome.com/web/setup/use-kit#using-kit-packages).
 
+
 Using `ng add`:
 
 ```
@@ -24,7 +25,6 @@ $ ng add @fortawesome/angular-fontawesome@<version>
 ```
 
 Using [Yarn](https://yarnpkg.com)
-
 ```
 $ yarn add @fortawesome/free-solid-svg-icons
 # See Compatibility table below to choose a correct version
@@ -32,7 +32,6 @@ $ yarn add @fortawesome/angular-fontawesome@<version>
 ```
 
 Using [NPM](https://www.npmjs.com/)
-
 ```
 $ npm install @fortawesome/free-solid-svg-icons
 # See Compatibility table below to choose a correct version
@@ -41,8 +40,8 @@ $ npm install @fortawesome/angular-fontawesome@<version>
 
 ### Compatibility table
 
-| @fortawesome/angular-fontawesome | Angular | Font Awesome      |
-| -------------------------------- | ------- | ----------------- |
+| @fortawesome/angular-fontawesome | Angular | Font Awesome      | 
+|----------------------------------|---------|-------------------|
 | 5.x                              | 22.x    | 5.x && 6.x && 7.x |
 | 4.x                              | 21.x    | 5.x && 6.x && 7.x |
 | 3.x                              | 20.x    | 5.x && 6.x && 7.x |
@@ -54,54 +53,53 @@ See [the compatibility page](./docs/guide/compatibility.md) for older versions.
 
 To get up and running using Font Awesome with Angular follow the below steps:
 
-1.  Add `FontAwesomeModule` to the `imports` and tie the icon to the property in your component
-    `src/app/app.component.ts`:
+1. Add `FontAwesomeModule` to the `imports` and tie the icon to the property in your component
+`src/app/app.component.ts`:
 
-        ```typescript
-        import { Component } from '@angular/core';
-        import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-        import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+    ```typescript
+    import { Component } from '@angular/core';
+    import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+    import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+    
+   // Import from Kit Packages (Pro+ Icons)
+   // import {faCloud} from "@awesome.me/kit-<KIT_ID>/icons/slab/regular";
+   
+    
+    @Component({
+      selector: 'app-root',
+      imports: [FontAwesomeModule], // alternatively, individual components can be imported
+      templateUrl: './app.component.html'
+    })
+    export class AppComponent {
+      faCoffee = faCoffee;
+    }
+    ```
 
-    // Import from Kit Packages (Pro+ Icons)
-    // import {faCloud} from "@awesome.me/kit-<KIT_ID>/icons/slab/regular";
+1. Use the icon in the template
+`src/app/app.component.html`:
 
-        @Component({
-          selector: 'app-root',
-          imports: [FontAwesomeModule], // alternatively, individual components can be imported
-          templateUrl: './app.component.html'
-        })
-        export class AppComponent {
-          faCoffee = faCoffee;
-        }
-        ```
-
-1.  Use the icon in the template
-    `src/app/app.component.html`:
-
-        ```html
-        <fa-icon [icon]="faCoffee" />
-        ```
+    ```html
+    <fa-icon [icon]="faCoffee" />
+    ```
 
 ## Documentation
 
-- [In-depth usage guide](./docs/usage.md)
-- [Using other styles](./docs/usage/using-other-styles.md)
-- [Full feature list](./docs/usage/features.md)
-- [Upgrading instructions](UPGRADING.md)
-- [Frequency asked questions](./docs/faq.md)
+* [In-depth usage guide](./docs/usage.md)
+* [Using other styles](./docs/usage/using-other-styles.md)
+* [Full feature list](./docs/usage/features.md)
+* [Upgrading instructions](UPGRADING.md)
+* [Frequency asked questions](./docs/faq.md)
 
 ## Examples
 
 ### Stackblitz
-
 Here's a [StackBlitz Starter Sample](https://stackblitz.com/edit/angular-ivy-7jrcne) on how to display Solid, Regular, and Brand icons [using the Icon Library](./docs/usage/icon-library.md#using-the-icon-library).
 
-### Demo application
 
+### Demo application
 You can find examples in the `projects/demo` directory. You can follow [the docs to run the demo app](./DEVELOPER.md#setting-up-the-local-environment) on your own machine.
 
 ## Contributing
-
 `angular-fontawesome` is a product of the community, you can take a look at the [developer docs](./DEVELOPER.md) to find about more on how to contribute back to the project.
 
 ## Contributors
