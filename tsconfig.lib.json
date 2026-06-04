@@ -2,11 +2,20 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/lib",
+    "rootDir": "./src",
     "declaration": true,
     "declarationMap": true,
     "inlineSources": true,
     "types": []
   },
   "include": ["src/**/*.ts", "testing/src/**/*.ts"],
-  "exclude": ["src/testing/*.ts", "src/**/*.spec.ts", "testing/src/**/*.spec.ts"]
+  "exclude": ["src/testing/*.ts", "src/**/*.spec.ts", "testing/src/**/*.spec.ts"],
+  "angularCompilerOptions": {
+    "extendedDiagnostics": {
+      "checks": {
+        "nullishCoalescingNotNullable": "suppress",
+        "optionalChainNotNullable": "suppress"
+      }
+    }
+  }
 }
