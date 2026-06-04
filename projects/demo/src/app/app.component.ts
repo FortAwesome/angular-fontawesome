@@ -1,5 +1,5 @@
 import { DecimalPipe } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { FaConfig, FaIconLibrary, FontAwesomeModule, IconDefinition } from '@fortawesome/angular-fontawesome';
 import { faFlag, faUser as regularUser } from '@fortawesome/free-regular-svg-icons';
 import {
@@ -25,6 +25,7 @@ import { AlternatePrefixComponent } from './alternate-prefix.component';
   selector: 'app-root',
   imports: [DecimalPipe, FontAwesomeModule, AlternatePrefixComponent],
   templateUrl: './app.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {

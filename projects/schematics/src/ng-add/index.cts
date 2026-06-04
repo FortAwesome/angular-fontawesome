@@ -1,18 +1,15 @@
 import { workspaces } from '@angular-devkit/core';
 import { chain, Rule, SchematicContext, SchematicsException, Tree } from '@angular-devkit/schematics';
 import { NodePackageInstallTask } from '@angular-devkit/schematics/tasks';
-import {
-  createSourceFile,
-  ScriptTarget,
-} from '@schematics/angular/third_party/github.com/Microsoft/TypeScript/lib/typescript';
 import { addImportToModule } from '@schematics/angular/utility/ast-utils';
 import { InsertChange } from '@schematics/angular/utility/change';
 import { addPackageJsonDependency, NodeDependencyType } from '@schematics/angular/utility/dependencies';
 import { getAppModulePath, isStandaloneApp } from '@schematics/angular/utility/ng-ast-utils';
 import { getMainFilePath } from '@schematics/angular/utility/standalone/util';
 import { getWorkspace } from '@schematics/angular/utility/workspace';
-import { Schema } from './schema';
-import { angularFontawesomeVersion, iconPackVersionMap } from './versions';
+import { createSourceFile, ScriptTarget } from 'typescript';
+import { Schema } from './schema.cjs';
+import { angularFontawesomeVersion, iconPackVersionMap } from './versions.cjs';
 
 export default function (options: Schema): Rule {
   return chain([

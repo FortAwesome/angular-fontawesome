@@ -1,6 +1,6 @@
-import { bootstrapApplication, provideClientHydration } from '@angular/platform-browser';
+import { bootstrapApplication, provideClientHydration, withNoIncrementalHydration } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
 
 bootstrapApplication(AppComponent, {
-  providers: [provideClientHydration()],
+  providers: [provideClientHydration(withNoIncrementalHydration())],
 }).catch((err) => console.error(err));

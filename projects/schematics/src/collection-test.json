@@ -3,7 +3,7 @@
   "schematics": {
     "ng-add": {
       "description": "Adds Font Awesome to the application without affecting any templates.",
-      "factory": "./ng-add/index.cjs",
+      "factory": "./ng-add/index.cts",
       "schema": "./ng-add/schema.json"
     }
   }
