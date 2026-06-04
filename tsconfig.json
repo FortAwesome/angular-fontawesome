@@ -1,7 +1,6 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": ".",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
@@ -13,11 +12,11 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "ES2022",
-    "module": "preserve",
+    "module": "ESNext",
     "stripInternal": true,
     "paths": {
-      "@fortawesome/angular-fontawesome": ["dist/angular-fontawesome"],
-      "@fortawesome/angular-fontawesome/testing": ["dist/angular-fontawesome/testing"]
+      "@fortawesome/angular-fontawesome": ["./dist/angular-fontawesome"],
+      "@fortawesome/angular-fontawesome/testing": ["./dist/angular-fontawesome/testing"]
     }
   },
   "angularCompilerOptions": {

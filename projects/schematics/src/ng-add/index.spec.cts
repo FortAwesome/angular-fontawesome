@@ -1,10 +1,10 @@
 import { Tree } from '@angular-devkit/schematics';
 import { SchematicTestRunner } from '@angular-devkit/schematics/testing';
 import * as path from 'path';
-import { Schema } from './schema';
-import { angularFontawesomeVersion, iconPackVersionMap } from './versions';
+import { Schema } from './schema.cjs';
+import { angularFontawesomeVersion, iconPackVersionMap } from './versions.cjs';
 
-const collectionPath = path.join(__dirname, '../collection.json');
+const collectionPath = path.join(__dirname, '../collection-test.json');
 
 describe('ng-add', () => {
   it('adds v7 dependencies to package.json', async () => {

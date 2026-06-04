@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ---
+
+## [5.0.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/5.0.0) (TBD)
+
+### Added
+
+* Support for Angular 22.
+
+### Removed
+
+* Angular 21.x is no longer supported. If you are using this version, please, stick with version 4.0.0.
+
 ## [4.0.0](https://github.com/FortAwesome/angular-fontawesome/releases/tag/3.1.0) (2025-11-24)
 
 ### Added

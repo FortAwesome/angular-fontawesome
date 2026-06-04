@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { FaConfig, FaIconComponent, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faBellSlash, faHandPaper, faUser } from '@fortawesome/free-regular-svg-icons';
 
@@ -6,6 +6,7 @@ import { faBellSlash, faHandPaper, faUser } from '@fortawesome/free-regular-svg-
   selector: 'app-alternate-prefix',
   imports: [FaIconComponent],
   templateUrl: './alternate-prefix.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   providers: [FaConfig],
 })
 export class AlternatePrefixComponent {

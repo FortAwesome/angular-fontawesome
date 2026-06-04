@@ -8,7 +8,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
       - uses: actions/cache@v4
         with:
           path: .yarn/cache
@@ -34,7 +34,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
       - uses: actions/cache@v4
         with:
           path: .yarn/cache
@@ -60,7 +60,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
       - uses: actions/cache@v4
         with:
           path: .yarn/cache

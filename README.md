@@ -42,9 +42,9 @@ $ npm install @fortawesome/angular-fontawesome@<version>
 
 | @fortawesome/angular-fontawesome | Angular | Font Awesome      | 
 |----------------------------------|---------|-------------------|
+| 5.x                              | 22.x    | 5.x && 6.x && 7.x |
 | 4.x                              | 21.x    | 5.x && 6.x && 7.x |
 | 3.x                              | 20.x    | 5.x && 6.x && 7.x |
-| 2.x                              | 20.x    | 5.x && 6.x        |
 
 See [the compatibility page](./docs/guide/compatibility.md) for older versions.
 
