@@ -135,18 +135,17 @@
           }
         },
         "e2e": {
-          "builder": "@angular-devkit/build-angular:private-protractor",
+          "builder": "@puppeteer/ng-schematics:puppeteer",
           "options": {
-            "protractorConfig": "projects/demo/e2e/protractor.conf.js"
+            "devServerTarget": "demo:serve",
+            "testRunner": "jasmine"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "demo:serve:production",
-              "webdriverUpdate": false
+              "devServerTarget": "demo:serve:production"
             },
             "production-ssr": {
-              "devServerTarget": "demo:serve:production-ssr",
-              "webdriverUpdate": false
+              "devServerTarget": "demo:serve:production-ssr"
             }
           },
           "defaultConfiguration": "production"
