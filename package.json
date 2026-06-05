@@ -44,8 +44,8 @@
     "@angular/platform-server": "^22.0.0",
     "@angular/router": "^22.0.0",
     "@angular/ssr": "^22.0.0",
-    "@fortawesome/free-regular-svg-icons": "^7.1.0",
-    "@fortawesome/free-solid-svg-icons": "^7.1.0",
+    "@fortawesome/free-regular-svg-icons": "^7.2.0",
+    "@fortawesome/free-solid-svg-icons": "^7.2.0",
     "@puppeteer/ng-schematics": "^0.8.0",
     "@types/express": "^4.17.25",
     "@types/jasmine": "~4.3.6",
@@ -79,7 +79,7 @@
     "zone.js": "~0.15.1"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^7.1.0",
+    "@fortawesome/fontawesome-svg-core": "^7.2.0",
     "tslib": "^2.8.1"
   },
   "keywords": [

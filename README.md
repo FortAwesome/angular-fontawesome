@@ -139,5 +139,6 @@ being awesome contributors to this project. **We'd like to take a moment to reco
 [<img src="https://github.com/medbenmakhlouf.png?size=72" alt="medbenmakhlouf" width="72">](https://github.com/medbenmakhlouf)
 [<img src="https://github.com/Stoffel-KT.png?size=72" alt="Stoffel-KT" width="72">](https://github.com/Stoffel-KT)
 [<img src="https://github.com/Ionaru.png?size=72" alt="Ionaru" width="72">](https://github.com/Ionaru)
+[<img src="https://github.com/KristofGilis.png?size=72" alt="KristofGilis" width="72">](https://github.com/KristofGilis)
 
 If we've missed someone (which is quite likely) submit a Pull Request to us and we'll get it resolved.

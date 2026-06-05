@@ -11,6 +11,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 * Support for Angular 22.
 
+### Fixed
+
+* `undefined` values appearing in CSS class names.
+
 ### Removed
 
 * Angular 21.x is no longer supported. If you are using this version, please, stick with version 4.0.0.
