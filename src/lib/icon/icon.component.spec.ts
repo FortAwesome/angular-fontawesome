@@ -12,6 +12,7 @@ import { FaIconLibrary } from '../icon-library';
 import { IconProp } from '../types';
 import { FaIconComponent } from './icon.component';
 import { FaStackComponent } from '../stack/stack.component';
+import { FaIconDirective } from './icon.directive';
 
 describe('FaIconComponent', () => {
   it('should render SVG icon', () => {
@@ -57,11 +58,14 @@ describe('FaIconComponent', () => {
   });
 
   it('should be able to update icon programmatically', () => {
-    const fixture = TestBed.createComponent(FaIconComponent, { bindings: [inputBinding('icon', () => faUser)] });
+    const animation = signal<string>('');
+    const fixture = TestBed.createComponent(FaIconComponent, {
+      bindings: [inputBinding('icon', () => faUser), inputBinding('animation', animation)],
+    });
     fixture.detectChanges();
     expect(queryByCss(fixture, 'svg').classList.contains('fa-spin')).toBeFalsy();
 
-    fixture.componentInstance.animation.set('spin');
+    animation.set('spin');
     fixture.detectChanges();
     expect(queryByCss(fixture, 'svg').classList.contains('fa-spin')).toBeTruthy();
   });
@@ -127,7 +131,8 @@ describe('FaIconComponent', () => {
     // Check for title accessibility - FontAwesome 7+ sets title attribute on host element,
     // while older versions might create a <title> element inside the SVG
     const titleElement = queryByCss(fixture, 'svg > title');
-    const hostTitleAttr = fixture.componentInstance.title();
+    const directive = fixture.debugElement.injector.get(FaIconDirective);
+    const hostTitleAttr = directive.title();
 
     // Either approach provides the same accessibility benefit
     const hasTitle = titleElement !== null || hostTitleAttr === 'User John Smith';
@@ -145,7 +150,8 @@ describe('FaIconComponent', () => {
     });
     fixture.detectChanges();
     expect(queryByCss(fixture, 'svg')).toBeTruthy();
-    expect(fixture.componentInstance.title()).toBe('User John Smith');
+    const directive = fixture.debugElement.injector.get(FaIconDirective);
+    expect(directive.title()).toBe('User John Smith');
   });
 
   it('should use default icon prefix', () => {

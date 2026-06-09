@@ -1,29 +1,10 @@
-import { Component, input, computed, ChangeDetectionStrategy } from '@angular/core';
-import { SizeProp } from '@fortawesome/fontawesome-svg-core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { FaStackDirective } from './stack.directive';
 
 @Component({
   selector: 'fa-stack',
   template: `<ng-content />`,
-  host: {
-    '[class]': 'classes()',
-  },
+  hostDirectives: [{ directive: FaStackDirective, inputs: ['size'] }],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FaStackComponent {
-  /**
-   * Size of the stacked icon.
-   * Note that stacked icon is by default 2 times bigger, than non-stacked icon.
-   * You'll need to set size using custom CSS to align stacked icon with a
-   * simple one. E.g. `fa-stack { font-size: 0.5em; }`.
-   */
-  readonly size = input<SizeProp>();
-
-  readonly classes = computed(() => {
-    const sizeValue = this.size();
-    const sizeClass = sizeValue ? { [`fa-${sizeValue}`]: true } : {};
-    return {
-      ...sizeClass,
-      'fa-stack': true,
-    };
-  });
-}
+export class FaStackComponent {}
