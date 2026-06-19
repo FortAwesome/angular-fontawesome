@@ -15,7 +15,7 @@ export const autoCssId = 'fa-auto-css';
  * @param document - Document.
  * @param config - Font Awesome configuration.
  */
-export function ensureCss(document: Document, config: FaConfig): void {
+export function ensureCss(document: Document, config: FaConfig, nonce: string | null): void {
   if (!config.autoAddCss) {
     return;
   }
@@ -34,6 +34,9 @@ export function ensureCss(document: Document, config: FaConfig): void {
   const style = document.createElement('style');
   style.setAttribute('type', 'text/css');
   style.setAttribute('id', autoCssId);
+  if (nonce) {
+    style.setAttribute('nonce', nonce);
+  }
   style.innerHTML = dom.css();
   const headChildren = document.head.childNodes;
   let beforeChild = null;

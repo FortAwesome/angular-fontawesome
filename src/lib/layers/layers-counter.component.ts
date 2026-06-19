@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, DOCUMENT, inject, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, CSP_NONCE, DOCUMENT, inject, input } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { counter, CounterParams } from '@fortawesome/fontawesome-svg-core';
 import { FaConfig } from '../config';
@@ -25,6 +25,7 @@ export class FaLayersCounterComponent {
     return this.updateContent(params);
   });
 
+  private cspNonce = inject(CSP_NONCE);
   private document = inject(DOCUMENT);
   private config = inject(FaConfig);
   private parent = inject(FaLayersComponent, { optional: true });
@@ -43,7 +44,7 @@ export class FaLayersCounterComponent {
   }
 
   private updateContent(params: CounterParams) {
-    ensureCss(this.document, this.config);
+    ensureCss(this.document, this.config, this.cspNonce);
     return this.sanitizer.bypassSecurityTrustHtml(counter(this.content() || '', params).html.join(''));
   }
 }

@@ -1,4 +1,13 @@
-import { Component, inject, OnInit, input, computed, ChangeDetectionStrategy, DOCUMENT } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  CSP_NONCE,
+  DOCUMENT,
+  inject,
+  input,
+  OnInit,
+} from '@angular/core';
 import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 import { FaConfig } from '../config';
 import { ensureCss } from '../shared/utils/css';
@@ -31,10 +40,11 @@ export class FaLayersComponent implements OnInit {
     };
   });
 
+  private readonly cspNonce = inject(CSP_NONCE);
   private readonly document = inject(DOCUMENT);
   private readonly config = inject(FaConfig);
 
   ngOnInit() {
-    ensureCss(this.document, this.config);
+    ensureCss(this.document, this.config, this.cspNonce);
   }
 }
