@@ -1,11 +1,11 @@
-import { ChangeDetectionStrategy, Component, computed, DOCUMENT, inject, model } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, CSP_NONCE, DOCUMENT, inject, model } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import {
   Attributes,
+  IconDefinition as CoreIconDefinition,
   FaSymbol,
   FlipProp,
   icon,
-  IconDefinition as CoreIconDefinition,
   IconParams,
   parse,
   PullProp,
@@ -85,11 +85,12 @@ export class FaIconComponent {
       return '';
     }
     const params = this.buildParams();
-    ensureCss(this.document, this.config);
+    ensureCss(this.document, this.config, this.cspNonce);
     const renderedIcon = icon(iconDefinition, params);
     return this.sanitizer.bypassSecurityTrustHtml(renderedIcon.html.join('\n'));
   });
 
+  private readonly cspNonce = inject(CSP_NONCE);
   private readonly document = inject(DOCUMENT);
   private readonly sanitizer = inject(DomSanitizer);
   private readonly config = inject(FaConfig);

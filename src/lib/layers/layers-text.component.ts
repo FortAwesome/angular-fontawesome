@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, DOCUMENT, inject, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, CSP_NONCE, DOCUMENT, inject, input } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import {
   FlipProp,
@@ -44,6 +44,7 @@ export class FaLayersTextComponent {
     return this.updateContent(params);
   });
 
+  private readonly cspNonce = inject(CSP_NONCE);
   private readonly document = inject(DOCUMENT);
   private readonly config = inject(FaConfig);
   private readonly parent = inject(FaLayersComponent, { optional: true });
@@ -84,7 +85,7 @@ export class FaLayersTextComponent {
   }
 
   private updateContent(params: TextParams) {
-    ensureCss(this.document, this.config);
+    ensureCss(this.document, this.config, this.cspNonce);
     return this.sanitizer.bypassSecurityTrustHtml(text(this.content() || '', params).html.join('\n'));
   }
 }
